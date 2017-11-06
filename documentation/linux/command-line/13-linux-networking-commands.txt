@@ -1,0 +1,448 @@
+1. ifconfig
+ifconfig (interface configurator) command is use to initialize an 
+interface, assign IP Address to interface and enable or disable 
+interface on demand. With this command you can view IP Address and 
+Hardware / MAC address assign to interface and also MTU (Maximum 
+transmission unit) size.
+
+# ifconfig
+eth0      Link encap:Ethernet  HWaddr 00:0C:29:28:FD:4C
+inet addr:192.168.50.2  Bcast:192.168.50.255  Mask:255.255.255.0
+inet6 addr: fe80::20c:29ff:fe28:fd4c/64 Scope:Link
+UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+RX packets:6093 errors:0 dropped:0 overruns:0 frame:0
+TX packets:4824 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1000
+RX bytes:6125302 (5.8 MiB)  TX bytes:536966 (524.3 KiB)
+Interrupt:18 Base address:0x2000
+lo        Link encap:Local Loopback
+inet addr:127.0.0.1  Mask:255.0.0.0
+inet6 addr: ::1/128 Scope:Host
+UP LOOPBACK RUNNING  MTU:16436  Metric:1
+RX packets:8 errors:0 dropped:0 overruns:0 frame:0
+TX packets:8 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:0
+RX bytes:480 (480.0 b)  TX bytes:480 (480.0 b)
+ifconfig with interface (eth0) command only shows specific interface 
+details like IP Address, MAC Address etc. with -a options will display 
+all available interface details if it is disable also.
+
+# ifconfig eth0
+eth0      Link encap:Ethernet  HWaddr 00:0C:29:28:FD:4C
+inet addr:192.168.50.2  Bcast:192.168.50.255  Mask:255.255.255.0
+inet6 addr: fe80::20c:29ff:fe28:fd4c/64 Scope:Link
+UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+RX packets:6119 errors:0 dropped:0 overruns:0 frame:0
+TX packets:4841 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1000
+RX bytes:6127464 (5.8 MiB)  TX bytes:539648 (527.0 KiB)
+Interrupt:18 Base address:0x2000
+Assigning IP Address and Gateway
+
+
+ 
+Assigning an IP Address and Gateway to interface on the fly. The setting 
+will be removed in case of system reboot.
+
+# ifconfig eth0 192.168.50.5 netmask 255.255.255.0
+Enable or Disable Specific Interface
+
+To enable or disable specific Interface, we use example command as 
+follows.
+
+Enable eth0
+# ifup eth0
+Disable eth0
+
+# ifdown eth0
+Setting MTU Size
+
+By default MTU size is 1500. We can set required MTU size with below 
+command. Replace XXXX with size.
+
+# ifconfig eth0 mtu XXXX
+Set Interface in Promiscuous mode
+
+Network interface only received packets belongs to that particular NIC. 
+If you put interface in promiscuous mode it will received all the 
+packets. This is very useful to capture packets and analyze later. For 
+this you may require superuser access.
+
+# ifconfig eth0 - promisc
+2. PING Command
+PING (Packet INternet Groper) command is the best way to test 
+connectivity between two nodes. Whether it is Local Area Network (LAN) 
+or Wide Area Network (WAN). Ping use ICMP (Internet Control Message 
+Protocol) to communicate to other devices. You can ping host name of ip 
+address using below command.
+
+# ping 4.2.2.2
+PING 4.2.2.2 (4.2.2.2) 56(84) bytes of data.
+64 bytes from 4.2.2.2: icmp_seq=1 ttl=44 time=203 ms
+64 bytes from 4.2.2.2: icmp_seq=2 ttl=44 time=201 ms
+64 bytes from 4.2.2.2: icmp_seq=3 ttl=44 time=201 ms
+OR
+# ping www.tecmint.com
+PING tecmint.com (50.116.66.136) 56(84) bytes of data.
+64 bytes from 50.116.66.136: icmp_seq=1 ttl=47 time=284 ms
+64 bytes from 50.116.66.136: icmp_seq=2 ttl=47 time=287 ms
+64 bytes from 50.116.66.136: icmp_seq=3 ttl=47 time=285 ms
+In Linux ping command keep executing until you interrupt. Ping with -c 
+option exit after N number of request (success or error respond).
+
+# ping -c 5 www.tecmint.com
+PING tecmint.com (50.116.66.136) 56(84) bytes of data.
+64 bytes from 50.116.66.136: icmp_seq=1 ttl=47 time=285 ms
+64 bytes from 50.116.66.136: icmp_seq=2 ttl=47 time=285 ms
+64 bytes from 50.116.66.136: icmp_seq=3 ttl=47 time=285 ms
+64 bytes from 50.116.66.136: icmp_seq=4 ttl=47 time=285 ms
+64 bytes from 50.116.66.136: icmp_seq=5 ttl=47 time=285 ms
+--- tecmint.com ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4295ms
+rtt min/avg/max/mdev = 285.062/285.324/285.406/0.599 ms
+3. TRACEROUTE Command
+traceroute is a network troubleshooting utility which shows number of 
+hops taken to reach destination also determine packets traveling path. 
+Below we are tracing route to global DNS server IP Address and able to 
+reach destination also shows path of that packet is traveling.
+
+# traceroute 4.2.2.2
+traceroute to 4.2.2.2 (4.2.2.2), 30 hops max, 60 byte packets
+1  192.168.50.1 (192.168.50.1)  0.217 ms  0.624 ms  0.133 ms
+2  227.18.106.27.mysipl.com (27.106.18.227)  2.343 ms  1.910 ms  1.799 
+ms
+3  221-231-119-111.mysipl.com (111.119.231.221)  4.334 ms  4.001 ms  
+5.619 ms
+4  10.0.0.5 (10.0.0.5)  5.386 ms  6.490 ms  6.224 ms
+5  gi0-0-0.dgw1.bom2.pacific.net.in (203.123.129.25)  7.798 ms  7.614 ms  
+7.378 ms
+6  115.113.165.49.static-mumbai.vsnl.net.in (115.113.165.49)  10.852 ms  
+5.389 ms  4.322 ms
+7  ix-0-100.tcore1.MLV-Mumbai.as6453.net (180.87.38.5)  5.836 ms  5.590 
+ms  5.503 ms
+8  if-9-5.tcore1.WYN-Marseille.as6453.net (80.231.217.17)  216.909 ms  
+198.864 ms  201.737 ms
+9  if-2-2.tcore2.WYN-Marseille.as6453.net (80.231.217.2)  203.305 ms  
+203.141 ms  202.888 ms
+10  if-5-2.tcore1.WV6-Madrid.as6453.net (80.231.200.6)  200.552 ms  
+202.463 ms  202.222 ms
+11  if-8-2.tcore2.SV8-Highbridge.as6453.net (80.231.91.26)  205.446 ms  
+215.885 ms  202.867 ms
+12  if-2-2.tcore1.SV8-Highbridge.as6453.net (80.231.139.2)  202.675 ms  
+201.540 ms  203.972 ms
+13  if-6-2.tcore1.NJY-Newark.as6453.net (80.231.138.18)  203.732 ms  
+203.496 ms  202.951 ms
+14  if-2-2.tcore2.NJY-Newark.as6453.net (66.198.70.2)  203.858 ms  
+203.373 ms  203.208 ms
+15  66.198.111.26 (66.198.111.26)  201.093 ms 63.243.128.25 
+(63.243.128.25)  206.597 ms 66.198.111.26 (66.198.111.26)  204.178 ms
+16  ae9.edge1.NewYork.Level3.net (4.68.62.185)  205.960 ms  205.740 ms  
+205.487 ms
+17  vlan51.ebr1.NewYork2.Level3.net (4.69.138.222)  203.867 ms 
+vlan52.ebr2.NewYork2.Level3.net (4.69.138.254)  202.850 ms 
+vlan51.ebr1.NewYork2.Level3.net (4.69.138.222)  202.351 ms
+18  ae-6-6.ebr2.NewYork1.Level3.net (4.69.141.21)  201.771 ms  201.185 
+ms  201.120 ms
+19  ae-81-81.csw3.NewYork1.Level3.net (4.69.134.74)  202.407 ms  201.479 
+ms ae-92-92.csw4.NewYork1.Level3.net (4.69.148.46)  208.145 ms
+20  ae-2-70.edge2.NewYork1.Level3.net (4.69.155.80)  200.572 ms 
+ae-4-90.edge2.NewYork1.Level3.net (4.69.155.208)  200.402 ms 
+ae-1-60.edge2.NewYork1.Level3.net (4.69.155.16)  203.573 ms
+21  b.resolvers.Level3.net (4.2.2.2)  199.725 ms  199.190 ms  202.488 ms
+4. NETSTAT Command
+Netstat (Network Statistic) command display connection info, routing 
+table information etc. To displays routing table information use option 
+as -r.
+
+# netstat -r
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt 
+Iface
+192.168.50.0    *               255.255.255.0   U         0 0          0 
+eth0
+link-local      *               255.255.0.0     U         0 0          0 
+eth0
+default         192.168.50.1    0.0.0.0         UG        0 0          0 
+eth0
+For more examples of Netstat Command, please read our earlier article on 
+20 Netstat Command Examples in Linux.
+
+5. DIG Command
+Dig (domain information groper) query DNS related information like A 
+Record, CNAME, MX Record etc. This command mainly use to troubleshoot 
+DNS related query.
+
+# dig www.tecmint.com; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.10.rc1.el6 <<>> 
+www.tecmint.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<
+For more examples of Dig Command, please read the article on 10 Linux 
+Dig Commands to Query DNS.
+
+6. NSLOOKUP Command
+nslookup command also use to find out DNS related query. The following 
+examples shows A Record (IP Address) of tecmint.com.
+
+# nslookup www.tecmint.com
+Server:         4.2.2.2
+Address:        4.2.2.2#53
+Non-authoritative answer:
+www.tecmint.com canonical name = tecmint.com.
+Name:   tecmint.com
+Address: 50.116.66.136
+For more NSLOOKUP Command, read the article on 8 Linux Nslookup Command 
+Examples.
+
+7. ROUTE Command
+route command also shows and manipulate ip routing table. To see default 
+routing table in Linux, type the following command.
+
+# route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use 
+Iface
+192.168.50.0    *               255.255.255.0   U     0      0        0 
+eth0
+link-local      *               255.255.0.0     U     1002   0        0 
+eth0
+default         192.168.50.1    0.0.0.0         UG    0      0        0 
+eth0
+Adding, deleting routes and default Gateway with following commands.
+
+Route Adding
+
+# route add -net 10.10.10.0/24 gw 192.168.0.1
+Route Deleting
+
+# route del -net 10.10.10.0/24 gw 192.168.0.1
+Adding default Gateway
+
+# route add default gw 192.168.0.1
+8. HOST Command
+host command to find name to IP or IP to name in IPv4 or IPv6 and also 
+query DNS records.
+
+# host www.google.com
+www.google.com has address 173.194.38.180
+www.google.com has address 173.194.38.176
+www.google.com has address 173.194.38.177
+www.google.com has address 173.194.38.178
+www.google.com has address 173.194.38.179
+www.google.com has IPv6 address 2404:6800:4003:802::1014
+Using -t option we can find out DNS Resource Records like CNAME, NS, MX, 
+SOA etc.
+
+# host -t CNAME www.redhat.com
+www.redhat.com is an alias for wildcard.redhat.com.edgekey.net.
+9. ARP Command
+ARP (Address Resolution Protocol) is useful to view / add the contents 
+of the kernel’s ARP tables. To see default table use the command as.
+
+# arp -e
+Address                  HWtype  HWaddress           Flags Mask            
+Iface
+192.168.50.1             ether   00:50:56:c0:00:08   C                     
+eth0
+10. ETHTOOL Command
+ethtool is a replacement of mii-tool. It is to view, setting speed and 
+duplex of your Network Interface Card (NIC). You can set duplex 
+permanently in /etc/sysconfig/network-scripts/ifcfg-eth0 with 
+ETHTOOL_OPTS variable.
+
+# ethtool eth0
+Settings for eth0:
+Current message level: 0x00000007 (7)
+Link detected: yes
+11. IWCONFIG Command
+iwconfig command in Linux is use to configure a wireless network 
+interface. You can see and set the basic Wi-Fi details like SSID channel 
+and encryption. You can refer man page of iwconfig to know more.
+
+# iwconfig [interface]
+12. HOSTNAME Command
+hostname is to identify in a network. Execute hostname command to see 
+the hostname of your box. You can set hostname permanently in 
+/etc/sysconfig/network. Need to reboot box once set a proper hostname.
+
+# hostname 
+tecmint.com
+13. GUI tool system-config-network
+
+
+10 Essential Linux Network Commands
+1. Ping (Packet Internet Groper)
+PING command sends packet requests to the address you specify to test the connectivity between 2 nodes.
+ ping linux network command
+Note that the ping command will keep executing unless you ping with -c option to exit after N number of requests.
+ ping command with -c option
+2. Netstat
+Netstat command displays different information including open sockets and routeing tables. Run netstat command alone to see a list of open sockets. Netstat has a ton of opitons.
+netstat linux networking commands
+Add the option -r to display information on the routeing table.
+ ping -r network command
+Add the option -p to display information of programs connected to the open sockets.
+ netstat -p option
+3. Tcpdump
+Tcpdump captures packets off a network interface and interprets them for you. It can be used to save entire packets for later inspection.
+tcpdump linux network command
+4. Host
+Command to find name to IP or IP to name in IPv4 or IPv6 and also query DNS records. Give it a domain name and you’ll see the associated IP address. Give it an IP address and you’ll see the associated 
+domain name.
+ host linux network command
+5. Tracepath
+Tracepath traces the path of the network to the destination you have provided. It attempts to list the series of hosts through which your packets travel on their way to a given destination. It can be 
+very handy when trying to determine the points of slowness in your connection path.
+tracepath linux network command
+6. Ifconfig
+This command is used to display IP Address, Hardware and MAC address. It is also used configure network interfaces. You can use it to activate or deactivate interfaces, assign an IP Address to the 
+interface.
+ifconfig command for linux
+a. Ifdown
+Use ifdown device-name/interface name to bring an interface down by following a script (which will contain your default networking settings). Simply type ifup and you will get help on using the script.
+ifdown -help linux command
+​For example typing:
+ifdown eth0
+Will bring eth0 up if it is currently down.
+b. ifup
+Use ifdown device-name to bring an interface up by following a script (which will contain your default networking settings). Simply type ifup and you will get help on using the script.
+ ifup -help
+For example typing:
+ifup eth0
+​Will bring eth0 up if it is currently down.
+7. Route
+The route command is the tool used to display or modify the routeing table.
+ route linux network command
+You may add or delete routes or add a default gateway with the following commands.
+route add -net 10.10.10.0/24 gw 192.168.0.1
+route del -net 10.10.10.0/24 gw 192.168.0.1
+route add default gw 192.168.0.1
+8. Nslookup
+This command is used to find DNS related query.
+nslookup command
+9. Dhclient
+Use this command to release (-r option) your IP address and get a new one from your DHCP server.
+ dhclient -r
+10. Whois
+This is a just a few of the very many useful networking commands for Linux. Share in the comments, some other basic networking commands not in this list. Thanks for reading. A whois query for 
+LinuxAndUbuntu will go something like this -
+whois domain info
+So in the same way this command will give you information for other domains. Yeah! You can pass google domain. :)
+Conclusion
+So these are the 10 essential Linux network commands. There are tons of more left for you to explore. You can practice these commands so that you can master them and execute when need to. You can also 
+comment your favorite Linux network commands in the comment section below. Enjoy!
+
+
+Connectivity:
+
+ping <host> —- sends an ICMP echo message (one packet) to a host. This may go continually until you hit Control-C. Ping means a packet was sent from your machine via ICMP, and echoed at the IP level. 
+ping tells you if the other Host is Up.
+
+telnet host <port> —- talk to “hosts” at the given port number. By default, the telnet port is port 23. Few other famous ports are:
+7 – echo port,
+25 – SMTP, use to send mail
+79 – Finger, provides information on other users of the network
+
+Use control-] to get out of telnet.
+
+Arp:
+
+Arp is used to translate IP addresses into Ethernet addresses. Root can add and delete arp entries. Deleting them can be useful if an arp entry is malformed or just wrong. Arp entries explicitly added by 
+root are permanent — they can also be by proxy. The arp table is stored in the kernel and manipulated dynamically. Arp entries are cached and will time out and are deleted normally in 20 minutes.
+
+arp –a : Prints the arp table
+arp –s <ip_address> <mac_address> [pub] to add an entry in the table
+arp –a –d to delete all the entries in the ARP table
+
+Suggested Read
+3 Linux OS You Cannot Wait To Get Your Hands On In 2015
+Routing:
+
+netstat –r —- Print routing tables. The routing tables are stored in the kernel and used by ip to route packets to non-local networks.
+route add —- The route command is used for setting a static (non-dynamic by hand route) route path in the route tables. All the traffic from this PC to that IP/SubNet will go through the given Gateway 
+IP. It can also be used for setting a default route; i.e., send all packets to a particular gateway, by using 0.0.0.0 in the pace of IP/SubNet.
+routed —– The BSD daemon that does dynamic routing. Started at boot. This runs the RIP routing protocol. ROOT ONLY. You won’t be able to run this without root access.
+gated —– Gated is an alternative routing daemon to RIP. It uses the OSPF, EGP, and RIP protocols in one place. ROOT ONLY.
+traceroute —- Useful for tracing the route of IP packets. The packet causes messages to be sent back from all gateways in between the source and destination by increasing the number of hopes by 1 each 
+time.
+netstat –rnf inet : it displays the routing tables of IPv4
+sysctl net.inet.ip.forwarding=1 : to enable packets forwarding (to turn a host into a router)
+route add|delete [-net|-host] <destination> <gateway> (ex. route add 192.168.20.0/24 192.168.30.4) to add a route
+route flush : it removes all the routes
+route add -net 0.0.0.0 192.168.10.2 : to add a default route
+routed -Pripv2 –Pno_rdisc –d [-s|-q] to execute routed daemon with RIPv2 protocol, without ICMP auto-discovery, in foreground, in supply or in quiet mode
+route add 224.0.0.0/4 127.0.0.1 : it defines the route used from RIPv2
+rtquery –n : to query the RIP daemon on a specific host (manually update the routing table)
+
+Others:
+
+nslookup —- Makes queries to the DNS server to translate IP to a name, or vice versa. eg. nslookup facebook.com will gives you the IP of facebook.com
+ftp <host>water —– Transfer files to host. Often can use login=“anonymous” , p/w=“guest”
+rlogin -l —– Logs into the host with a virtual terminal like telnet
+
+Important Files:
+
+/etc/hosts —- names to ip addresses
+/etc/networks —- network names to ip addresses
+/etc/protocols —– protocol names to protocol numbers
+/etc/services —- tcp/udp service names to port numbers
+
+Tools and network performance analysis
+
+ifconfig <interface> <address> [up] : start the interface
+ifconfig <interface> [down|delete] : stop the interface
+ethereal & : it allows you open ethereal background not foreground
+tcpdump –i -vvv : tool to capture and analyze packets
+netstat –w [seconds] –I [interface] : display network settings and statistics
+udpmt –p [port] –s [bytes] target_host : it creates UDP traffic
+udptarget –p [port] : it’s able to receive UDP traffic
+tcpmt –p [port] –s [bytes] target_host : it creates TCP traffic
+tcptarget –p [port] it’s able to receive TCP traffic
+
+Suggested Read
+11 Funniest Jokes Only Linux SysAdmins Will Understand
+Switching:
+
+ifconfig sl0 srcIP dstIP : configure a serial interface (do “slattach –l /dev/ttyd0” before, and “sysctl net.inet.ip.forwarding=1“ after)
+telnet 192.168.0.254 : to access the switch from a host in its subnetwork
+sh ru or show running-configuration : to see the current configurations
+configure terminal : to enter in configuration mode
+exit : in order to go to the lower configuration mode
+
+VLAN:
+
+vlan n : it creates a VLAN with ID n
+no vlan N : it deletes the VLAN with ID N
+untagged Y : it adds the port Y to the VLAN N
+ifconfig vlan0 create : it creates vlan0 interface
+ifconfig vlan0 vlan ID vlandev em0 : it associates vlan0 interface on top of em0, and set the tags to ID
+ifconfig vlan0  [up] : to turn on the virtual interface
+tagged Y : it adds to the port Y the support of tagged frames for the current VLAN
+
+UDP/TCP
+
+socklab udp – it executes socklab with udp protocol
+sock – it creates a udp socket, it’s equivalent to type sock udp and bind
+sendto <Socket ID> <hostname> <port #> – emission of data packets
+recvfrom <Socket ID> <byte #> – it receives data from socket
+socklab tcp – it executes socklab with tcp protocol
+passive – it creates a socket in passive mode, it’s equivalent to socklab, sock tcp, bind, listen
+accept – it accepts an incoming connection (it can be done before or after creating the incoming connection)
+connect <hostname> <port #> – these two commands are equivalent to socklab, sock tcp, bind, connect
+close – it closes the connection
+read <byte #> – to read bytes on the socket
+write (ex. write ciao, ex. write #10) to write “ciao” or to write 10 bytes on the socket
+
+NAT/Firewall
+
+rm /etc/resolv.conf – it prevent address resolution and make sure your filtering and firewall rules works properly
+ipnat –f file_name – it writes filtering rules into file_name
+ipnat –l – it gives the list of active rules
+ipnat –C –F – it re-initialize the rules table
+map em0 192.168.1.0/24 -> 195.221.227.57/32 em0 : mapping IP addresses to the interface
+map em0 192.168.1.0/24 -> 195.221.227.57/32 portmap tcp/udp 20000:50000 : mapping with port
+ipf –f file_name : it writes filtering rules into file_name
+ipf –F –a : it resets the rule table
+ipfstat –I : it grants access to a few information on filtered packets, as well as active filtering rules
+
+

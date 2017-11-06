@@ -1,0 +1,82 @@
+<pre>
+grep tty
+$ sudo dmesg |grep tty
+[    0.000000] console [tty0] enabled
+[    0.874192] 00:02: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+[    0.895378] 0000:00:16.3: ttyS1 at I/O 0xf0e0 (irq = 17, base_baud = 115200) is a 16550A
+
+
+minicom Debian 9 Setup 
+#apt-get install minicom
+//setup
+sudo minicom -s
+
+            +-----[configuration]------+
+            | Filenames and paths      |
+            | File transfer protocols  |
+            | Serial port setup        |
+            | Modem and dialing        |
+            | Screen and keyboard      |
+            | Save setup as dfl        |
+            | Save setup as..          |
+            | Exit                     |
+            | Exit from Minicom        |
+            +--------------------------+
+
+set ttyS0 and 9600 in the Serial port setup  menu then save as dfl
+
+
+    +-----------------------------------------------------------------------+
+    | A -    Serial Device      : /dev/ttyS0                                |
+    | B - Lockfile Location     : /var/lock                                 |
+    | C -   Callin Program      :                                           |
+    | D -  Callout Program      :                                           |
+    | E -    Bps/Par/Bits       : 9600 8N1                                  |
+    | F - Hardware Flow Control : No                                        |
+    | G - Software Flow Control : No                                        |
+    |                                                                       |
+    |    Change which setting?                                              |
+    +-----------------------------------------------------------------------+
+            | Screen and keyboard      |
+            | Save setup as dfl        |
+            | Save setup as..          |
+            | Exit                     |
+            | Exit from Minicom        |
+            +--------------------------+
+
+
+
+Run minicom
+$sudo minicom
+
+</pre>
+
+https://www.youtube.com/watch?v=vUp9TergyhQ
+
+https://www.youtube.com/watch?v=AzX_Ni8TM0Y
+
+https://www.youtube.com/watch?v=0M9s1FKLvVc
+
+<pre>
+     +-------------------------------------------------------------------+
+     |                      Minicom Command Summary                      |
+     |                                                                   |
+     |              Commands can be called by CTRL-A <key>               |
+     |                                                                   |
+     |               Main Functions                  Other Functions     |
+     |                                                                   |
+     | Dialing directory..D  run script (Go)....G | Clear Screen.......C |
+     | Send files.........S  Receive files......R | cOnfigure Minicom..O |
+     | comm Parameters....P  Add linefeed.......A | Suspend minicom....J |
+     | Capture on/off.....L  Hangup.............H | eXit and reset.....X |
+     | send break.........F  initialize Modem...M | Quit with no reset.Q |
+     | Terminal settings..T  run Kermit.........K | Cursor key mode....I |
+     | lineWrap on/off....W  local Echo on/off..E | Help screen........Z |
+     | Paste file.........Y  Timestamp toggle...N | scroll Back........B |
+     | Add Carriage Ret...U                                              |
+     |                                                                   |
+     |             Select function or press Enter for none.              |
+     +-------------------------------------------------------------------+
+</pre>
+
+

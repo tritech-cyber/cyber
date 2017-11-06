@@ -1,0 +1,65 @@
+tma:/etc/apt# apt-get install virtualbox-5.1
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  libsdl-ttf2.0-0 linux-headers-amd64
+Recommended packages:
+  linux-image
+The following NEW packages will be installed:
+  libsdl-ttf2.0-0 linux-headers-amd64 virtualbox-5.1
+0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+Need to get 66.7 MB of archives.
+After this operation, 164 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+WARNING: The following packages cannot be authenticated!
+  virtualbox-5.1
+Install these packages without verification? [y/N] N
+E: Some packages could not be authenticated
+tma:/etc/apt# apt-get install virtualbox-5.1
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  libsdl-ttf2.0-0 linux-headers-amd64
+Recommended packages:
+  linux-image
+The following NEW packages will be installed:
+  libsdl-ttf2.0-0 linux-headers-amd64 virtualbox-5.1
+0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+Need to get 66.7 MB of archives.
+After this operation, 164 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+WARNING: The following packages cannot be authenticated!
+  virtualbox-5.1
+Install these packages without verification? [y/N] y
+Get:1 http://debian.osuosl.org/debian stretch/main amd64 libsdl-ttf2.0-0 amd64 2.0.11-3+b1 [18.6 kB]
+Get:2 http://debian.osuosl.org/debian stretch/main amd64 linux-headers-amd64 amd64 4.9+80+deb9u2 [5,880 B]
+Get:3 http://download.virtualbox.org/virtualbox/debian stretch/contrib amd64 virtualbox-5.1 amd64 5.1.30-118389~Debian~stretch [66.6 MB]
+Fetched 66.7 MB in 8s (7,955 kB/s)                                                                                                                                          
+Preconfiguring packages ...
+Selecting previously unselected package virtualbox-5.1.
+(Reading database ... 145689 files and directories currently installed.)
+Preparing to unpack .../virtualbox-5.1_5.1.30-118389~Debian~stretch_amd64.deb ...
+Unpacking virtualbox-5.1 (5.1.30-118389~Debian~stretch) ...
+Selecting previously unselected package libsdl-ttf2.0-0:amd64.
+Preparing to unpack .../libsdl-ttf2.0-0_2.0.11-3+b1_amd64.deb ...
+Unpacking libsdl-ttf2.0-0:amd64 (2.0.11-3+b1) ...
+Selecting previously unselected package linux-headers-amd64.
+Preparing to unpack .../linux-headers-amd64_4.9+80+deb9u2_amd64.deb ...
+Unpacking linux-headers-amd64 (4.9+80+deb9u2) ...
+Setting up linux-headers-amd64 (4.9+80+deb9u2) ...
+Processing triggers for mime-support (3.60) ...
+Processing triggers for desktop-file-utils (0.23-1) ...
+Setting up virtualbox-5.1 (5.1.30-118389~Debian~stretch) ...
+Adding group `vboxusers' (GID 124) ...
+Done.
+Created symlink /etc/systemd/system/multi-user.target.wants/vboxdrv.service → /lib/systemd/system/vboxdrv.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/vboxballoonctrl-service.service → /lib/systemd/system/vboxballoonctrl-service.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/vboxautostart-service.service → /lib/systemd/system/vboxautostart-service.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/vboxweb-service.service → /lib/systemd/system/vboxweb-service.service.
+Setting up libsdl-ttf2.0-0:amd64 (2.0.11-3+b1) ...
+Processing triggers for libc-bin (2.24-11+deb9u1) ...
+Processing triggers for systemd (232-25+deb9u1) ...
+Processing triggers for shared-mime-info (1.8-1) ...
+Processing triggers for hicolor-icon-theme (0.15-1) ...
