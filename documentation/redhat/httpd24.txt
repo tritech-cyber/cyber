@@ -1,0 +1,14 @@
+https://access.redhat.com/solutions/2662201
+https://access.redhat.com/solutions/1299223
+
+
+$ vim opt/rh/httpd24/root/etc/httpd/conf/httpd.conf
+
+     <VirtualHost *:80>
+        ServerName 
+        DocumentRoot /opt/rh/httpd24/root/var/www/railsapp/public
+        <Directory /opt/rh/httpd24/root/var/www/railsapp/public>
+          AllowOverride all
+          Options -MultiViews
+        </Directory>
+     </VirtualHost>
