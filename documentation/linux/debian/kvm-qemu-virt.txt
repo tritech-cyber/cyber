@@ -1,0 +1,42 @@
+apt install qemu-kvm libvirt-clients libvirt-daemon-system
+
+# adduser <youruser> libvirt
+# adduser <youruser> libvirt-qemu
+
+root@tma:/home/cwc# apt-get install virt-manager 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  freepats gconf2 gir1.2-gtk-vnc-2.0 gir1.2-libosinfo-1.0 gir1.2-libvirt-glib-1.0 gir1.2-spice-client-glib-2.0
+  gir1.2-spice-client-gtk-3.0 gir1.2-vte-2.91 gstreamer1.0-libav gstreamer1.0-plugins-bad libatomic1 libavfilter6 libbs2b0
+  libde265-0 libebur128-1 libflite1 libfluidsynth1 libgovirt-common libgovirt2 libgstreamer-plugins-bad1.0-0 libgtk-vnc-2.0-0
+  libgvnc-1.0-0 liblilv-0-0 libmjpegutils-2.1-0 libmms0 libmodplug1 libmpeg2encpp-2.1-0 libmplex2-2.1-0 libofa0 libopenal-data
+  libopenal1 libopencv-calib3d2.4v5 libopencv-core2.4v5 libopencv-features2d2.4v5 libopencv-flann2.4v5 libopencv-highgui2.4-deb0
+  libopencv-imgproc2.4v5 libopencv-objdetect2.4v5 libopencv-video2.4v5 libosinfo-1.0-0 libpgm-5.2-0 libphodav-2.0-0
+  libphodav-2.0-common libpostproc54 librubberband2 libsbc1 libserd-0-0 libsodium18 libsord-0-0 libsoundtouch1 libspandsp2
+  libspice-client-glib-2.0-8 libspice-client-gtk-3.0-5 libsratom-0-0 libsrtp0 libtbb2 libusbredirhost1 libvirt-glib-1.0-0
+  libvo-aacenc0 libvo-amrwbenc0 libwildmidi-config libwildmidi2 libzbar0 libzmq5 osinfo-db psmisc python-cffi-backend
+  python-cryptography python-enum34 python-idna python-ipaddr python-ipaddress python-libvirt python-openssl python-pyasn1
+  python-requests python-setuptools python-urllib3 spice-client-glib-usb-acl-helper virt-viewer virtinst
+Suggested packages:
+  gconf-defaults-service frei0r-plugins alsa-base libportaudio2 libosinfo-l10n serdi sordi srtp-utils python-cryptography-doc
+  python-cryptography-vectors python-enum34-doc python-openssl-doc python-openssl-dbg doc-base python-socks
+  python-setuptools-doc python-ntlm ssh-askpass gir1.2-secret-1 python-guestfs
+The following NEW packages will be installed:
+  freepats gconf2 gir1.2-gtk-vnc-2.0 gir1.2-libosinfo-1.0 gir1.2-libvirt-glib-1.0 gir1.2-spice-client-glib-2.0
+  gir1.2-spice-client-gtk-3.0 gir1.2-vte-2.91 gstreamer1.0-libav gstreamer1.0-plugins-bad libatomic1 libavfilter6 libbs2b0
+  libde265-0 libebur128-1 libflite1 libfluidsynth1 libgovirt-common libgovirt2 libgstreamer-plugins-bad1.0-0 libgtk-vnc-2.0-0
+  libgvnc-1.0-0 liblilv-0-0 libmjpegutils-2.1-0 libmms0 libmodplug1 libmpeg2encpp-2.1-0 libmplex2-2.1-0 libofa0 libopenal-data
+  libopenal1 libopencv-calib3d2.4v5 libopencv-core2.4v5 libopencv-features2d2.4v5 libopencv-flann2.4v5 libopencv-highgui2.4-deb0
+  libopencv-imgproc2.4v5 libopencv-objdetect2.4v5 libopencv-video2.4v5 libosinfo-1.0-0 libpgm-5.2-0 libphodav-2.0-0
+  libphodav-2.0-common libpostproc54 librubberband2 libsbc1 libserd-0-0 libsodium18 libsord-0-0 libsoundtouch1 libspandsp2
+  libspice-client-glib-2.0-8 libspice-client-gtk-3.0-5 libsratom-0-0 libsrtp0 libtbb2 libusbredirhost1 libvirt-glib-1.0-0
+  libvo-aacenc0 libvo-amrwbenc0 libwildmidi-config libwildmidi2 libzbar0 libzmq5 osinfo-db psmisc python-cffi-backend
+  python-cryptography python-enum34 python-idna python-ipaddr python-ipaddress python-libvirt python-openssl python-pyasn1
+  python-requests python-setuptools python-urllib3 spice-client-glib-usb-acl-helper virt-manager virt-viewer virtinst
+0 upgraded, 82 newly installed, 0 to remove and 0 not upgraded.
+Need to get 58.6 MB of archives.
+After this operation, 114 MB of additional disk space will be used.
+Do you want to continue? [Y/n] 
+Y
