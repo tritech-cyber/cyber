@@ -1,0 +1,7 @@
+[smbsharename]
+	comment = user
+	path = /home/user
+ 	valid users = user
+        browseable = Yes
+        read only = No
+        inherit acls = Yes
