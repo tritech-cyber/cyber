@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html><head>
+    <title>Raspberry Pi Kubernetes Cluster – Micheal Waltz – DevOps Engineer</title>
+
+        <meta charset="utf-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    
+    <meta name="description" content="Notes from setting up a three node Raspberry Pi 3 Model B Kubernetes cluster using HypriotOS 64-bit.
+
+">
+    <meta property="og:description" content="Notes from setting up a three node Raspberry Pi 3 Model B Kubernetes cluster using HypriotOS 64-bit.
+
+">
+    
+    <meta name="author" content="Micheal Waltz">
+
+    
+    <meta property="og:title" content="Raspberry Pi Kubernetes Cluster">
+    <meta property="twitter:title" content="Raspberry Pi Kubernetes Cluster">
+    
+
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="Raspberry%20Pi%20Kubernetes%20Cluster%20%E2%80%93%20Micheal%20Waltz%20%E2%80%93%20DevOps%20Engineer_files/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Micheal Waltz - DevOps Engineer" href="http://www.ecliptik.com/feed.xml">
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="http://www.ecliptik.com/" class="site-avatar"><img src="Raspberry%20Pi%20Kubernetes%20Cluster%20%E2%80%93%20Micheal%20Waltz%20%E2%80%93%20DevOps%20Engineer_files/1261742.jpeg"></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="http://www.ecliptik.com/">Micheal Waltz</a></h1>
+            <p class="site-description">DevOps Engineer</p>
+          </div>
+          <nav>
+            <a href="http://www.ecliptik.com/about">About</a>
+            <a href="http://www.ecliptik.com/categories">Categories</a>
+            <a href="http://www.ecliptik.com/tags">Tags</a>
+          </nav>
+          <div>
+          
+<a href="mailto:ecliptik_at_gmail_dot_com"><i class="svg-icon email"></i></a>
+
+
+<a href="https://github.com/ecliptik"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/michealcwaltz"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/junocake"><i class="svg-icon twitter"></i></a>
+
+
+
+<a href="https://www.keybase.io/ecliptik"><i class="svg-icon keybase"></i></a>
+<a href="https://hub.docker.com/r/ecliptik"><i class="svg-icon docker"></i></a>
+
+          </div>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Raspberry Pi Kubernetes Cluster</h1>
+  
+  
+    <a href="http://www.ecliptik.com/tags/#docker" class="post-tag">#docker</a>
+  
+    <a href="http://www.ecliptik.com/tags/#arm" class="post-tag">#arm</a>
+  
+    <a href="http://www.ecliptik.com/tags/#kubernetes" class="post-tag">#kubernetes</a>
+  
+    <a href="http://www.ecliptik.com/tags/#raspberrypi" class="post-tag">#raspberrypi</a>
+  
+  
+  <div class="entry">
+    <p>Notes from setting up a three node <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/">Raspberry Pi 3 Model B</a> <a href="https://kubernetes.io/">Kubernetes</a> cluster using <a href="https://github.com/DieterReuter/image-builder-rpi64/releases">HypriotOS 64-bit</a>.</p>
+
+<p>Originally from <a href="https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/">Setup Kubernetes on a Raspberry Pi Cluster easily the official way!</a>
+ with some additions to fix things I ran into when following the guide. 
+This guide uses a 64-bit version of HypriotOS and only armv8 64-bit 
+Docker images will work.</p>
+
+<p><img src="Raspberry%20Pi%20Kubernetes%20Cluster%20%E2%80%93%20Micheal%20Waltz%20%E2%80%93%20DevOps%20Engineer_files/k8s-rpi-cluster.jpg" alt="RPI Cluster"></p>
+
+<h2 id="installing-and-configuring-hypriotos">Installing and Configuring HypriotOS</h2>
+<p>Flash <a href="https://github.com/DieterReuter/image-builder-rpi64/releases">HypriotOS v1.6.0 64-bit</a> to SD card. By using HypriotOS we can avoid a lot of the issues that comes with installing Docker on ARM.</p>
+
+<blockquote>
+  <p>You can skip the following steps for updating, setting up the k8s repo, and installing the k8s package using <code class="highlighter-rouge">--userdata</code> with the <a href="https://github.com/hypriot/flash">flash</a> tool. See this <a href="https://github.com/ecliptik/rpi/blob/master/hypriot/user-data.yml">example</a>.</p>
+</blockquote>
+
+<p>To begin, boot the Raspberry Pi to Hypriot, login and update system,</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt upgrade <span class="nt">-y</span>
+</code></pre></div></div>
+
+<h2 id="installing-kubernetes">Installing Kubernetes</h2>
+<p>Install Kubernetes from <a href="https://kubernetes.io/docs/setup/independent/install-kubeadm/#installing-kubelet-and-kubeadm">official package repositories</a> on each node,</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>su -
+curl <span class="nt">-s</span> https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+<span class="nb">echo</span> <span class="s2">"deb http://apt.kubernetes.io/ kubernetes-xenial main"</span> <span class="o">&gt;</span> /etc/apt/sources.list.d/kubernetes.list
+apt update
+apt install <span class="nt">-y</span> kubeadm kubelet
+</code></pre></div></div>
+
+<h3 id="setup-the-master-node">Setup the Master Node</h3>
+<p>As root, init the cluster with the network CIDR for Flannel,</p>
+
+<blockquote>
+  <p>As of this writing this will install and configure <a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#v180">Kubernetes 1.8</a></p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubeadm init <span class="nt">--pod-network-cidr</span> 10.244.0.0/16
+</code></pre></div></div>
+
+<p>As the <code class="highlighter-rouge">pirate</code> user setup kube config to run kubectl commands as non-root,</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir <span class="nt">-p</span> <span class="nv">$HOME</span>/.kube
+<span class="nb">sudo </span>cp <span class="nt">-i</span> /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/.kube/config
+<span class="nb">sudo </span>chown <span class="k">$(</span>id <span class="nt">-u</span><span class="k">)</span>:<span class="k">$(</span>id <span class="nt">-g</span><span class="k">)</span> <span class="nv">$HOME</span>/.kube/config
+<span class="nb">echo</span> <span class="s2">"export KUBECONFIG=</span><span class="k">${</span><span class="nv">HOME</span><span class="k">}</span><span class="s2">/.kube/config"</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="nb">source</span> ~/.bashrc
+</code></pre></div></div>
+
+<h3 id="setup-flannel-cni">Setup Flannel CNI</h3>
+<p>By default Kubernetes does not configure a <a href="https://cncf.io/projects/">Container Network Interface</a> and needs to have one installed. <a href="https://github.com/coreos/flannel">Flannel</a> has an arm64 version available and works reasonably well on the Raspberry Pi 3 and HypriotOS.</p>
+
+<p>Install flannel using arm64 images,</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-sSL</span> https://raw.githubusercontent.com/coreos/flannel/v0.9.0/Documentation/kube-flannel.yml | sed <span class="s2">"s/amd64/arm64/g"</span> | kubectl create <span class="nt">-f</span> -
+</code></pre></div></div>
+
+<h2 id="setup-worker-nodes">Setup Worker Nodes</h2>
+<p>On each worker node run the <code class="highlighter-rouge">kubeadm join</code> command that was output after successfully running <code class="highlighter-rouge">kubeadm init</code> on the master node.</p>
+
+<p>Join the node to the cluster,</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>kubeadm join <span class="nt">--token</span><span class="o">=</span><span class="nv">$TOKEN</span>
+</code></pre></div></div>
+
+<h2 id="setup-iptables-rules">Setup Iptables Rules</h2>
+
+<p>Add some additional iptables rules in order for external DNS and forwarding in containers to work properly. See this <a href="https://github.com/coreos/flannel/issues/799">issue</a> for more information. Run these commands on the master and all worker nodes.</p>
+
+<p>Install <code class="highlighter-rouge">iptables-persistent</code> package to save iptables rules,</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt install <span class="nt">-y</span> iptables-persistent
+</code></pre></div></div>
+
+<p>Setup iptables for flannel CNI,</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>iptables <span class="nt">-P</span> FORWARD ACCEPT
+<span class="nb">sudo </span>iptables <span class="nt">-t</span> nat <span class="nt">-A</span> POSTROUTING <span class="nt">-s</span> 10.244.0.0/16 <span class="o">!</span> <span class="nt">-d</span> 10.244.0.0/16 <span class="nt">-j</span> MASQUERADE
+<span class="nb">sudo </span>iptables <span class="nt">-I</span> FORWARD 1 <span class="nt">-i</span> cni0 <span class="nt">-j</span> ACCEPT <span class="nt">-m</span> comment <span class="nt">--comment</span> <span class="s2">"flannel subnet"</span>
+<span class="nb">sudo </span>iptables <span class="nt">-I</span> FORWARD 1 <span class="nt">-o</span> cni0 <span class="nt">-j</span> ACCEPT <span class="nt">-m</span> comment <span class="nt">--comment</span> <span class="s2">"flannel subnet"</span>
+</code></pre></div></div>
+
+<p>Save iptable rules so they persist after reboot,</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>netfilter-persistent save
+</code></pre></div></div>
+
+<h2 id="verifying">Verifying</h2>
+<p>Show Node Status,</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>kubectl get nodes <span class="nt">-o</span> wide
+NAME      STATUS    ROLES     AGE       VERSION   EXTERNAL-IP   OS-IMAGE                       KERNEL-VERSION    CONTAINER-RUNTIME
+navi      Ready     master    15m       v1.8.0    &lt;none&gt;        Debian GNU/Linux 9 <span class="o">(</span>stretch<span class="o">)</span>   4.9.13-bee42-v8   docker://Unknown
+tael      Ready     &lt;none&gt;    9m        v1.8.0    &lt;none&gt;        Debian GNU/Linux 9 <span class="o">(</span>stretch<span class="o">)</span>   4.9.13-bee42-v8   docker://Unknown
+tatl      Ready     &lt;none&gt;    8m        v1.8.0    &lt;none&gt;        Debian GNU/Linux 9 <span class="o">(</span>stretch<span class="o">)</span>   4.9.13-bee42-v8   docker://Unknown
+</code></pre></div></div>
+
+<p>Show Pod Status,</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>kubectl get pods <span class="nt">--all-namespaces</span>
+NAMESPACE     NAME                           READY     STATUS    RESTARTS   AGE
+kube-system   etcd-navi                      1/1       Running   0          15m
+kube-system   kube-apiserver-navi            1/1       Running   0          15m
+kube-system   kube-controller-manager-navi   1/1       Running   1          15m
+kube-system   kube-dns-596cf7c484-qrqsx      3/3       Running   0          14m
+kube-system   kube-flannel-ds-2rzg7          1/1       Running   0          8m
+kube-system   kube-flannel-ds-852gj          1/1       Running   0          13m
+kube-system   kube-flannel-ds-qxmws          1/1       Running   0          10m
+kube-system   kube-proxy-92762               1/1       Running   0          10m
+kube-system   kube-proxy-r78jd               1/1       Running   0          14m
+kube-system   kube-proxy-tfdjr               1/1       Running   0          8m
+kube-system   kube-scheduler-navi            1/1       Running   0          15
+</code></pre></div></div>
+
+<h2 id="run-a-test-pod">Run A Test Pod</h2>
+
+<p>Using <a href="https://integratedcode.us/2017/09/13/dockerhub-official-images-go-multi-platform/">Docker Hub Official Multi-Platform Images</a>
+ makes running official Docker hub images on arm64 hardware much easier.
+ Since Docker Hub now understands architecture manifest, no specific 
+architecture tags are required and any official images will work on a 
+Raspberry Pi k8s cluster without a specific tag.</p>
+
+<blockquote>
+  <p>Official images based off Alpine Linux currently do not work - see <a href="https://github.com/gliderlabs/docker-alpine/issues/304">Issue #304</a> for more information.</p>
+</blockquote>
+
+<p>In this example, we’ll run the <a href="https://hub.docker.com/_/nginx/">official nginx image</a> and have it listen on port 80.</p>
+
+<p>First, deploy a nginx service with 3 replicas,</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>kubectl run nginx <span class="nt">--image</span><span class="o">=</span>nginx <span class="nt">--replicas</span><span class="o">=</span>3 <span class="nt">--port</span><span class="o">=</span>80
+deployment <span class="s2">"nginx"</span> created
+</code></pre></div></div>
+
+<p>Expose pods in nginx service on port 80,</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>kubectl expose deployment nginx <span class="nt">--port</span> 80
+service <span class="s2">"nginx"</span> exposed
+</code></pre></div></div>
+
+<p>Get endpoints for nginx service,</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>kubectl get endpoints
+NAME         ENDPOINTS                                   AGE
+kubernetes   192.168.7.220:6443                          37m
+nginx        10.244.1.2:80,10.244.1.3:80,10.244.2.2:80   23s
+</code></pre></div></div>
+
+<p>Run curl against an endpoint IP to test,</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">curl</code> should work against all endpoint IPs on all nodes, if not double check the iptables rules above</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl 10.244.2.2 | head <span class="nt">-n</span> 5
+&lt;DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Welcome to nginx!&lt;/title&gt;
+&lt;style&gt;
+</code></pre></div></div>
+
+  </div>
+
+  <div class="date">
+    Written on September 11, 2017
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+<a href="mailto:ecliptik_at_gmail_dot_com"><i class="svg-icon email"></i></a>
+
+
+<a href="https://github.com/ecliptik"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/michealcwaltz"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/junocake"><i class="svg-icon twitter"></i></a>
+
+
+
+<a href="https://www.keybase.io/ecliptik"><i class="svg-icon keybase"></i></a>
+<a href="https://hub.docker.com/r/ecliptik"><i class="svg-icon docker"></i></a>
+
+        </footer>
+      </div>
+    </div>
+
+    
+	<!-- Google Analytics -->
+	<script async="" src="Raspberry%20Pi%20Kubernetes%20Cluster%20%E2%80%93%20Micheal%20Waltz%20%E2%80%93%20DevOps%20Engineer_files/analytics.js"></script><script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-66562243-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/Raspberry-Pi-Kubernetes-Cluster/',
+		  'title': 'Raspberry Pi Kubernetes Cluster'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  
+
+</body></html>

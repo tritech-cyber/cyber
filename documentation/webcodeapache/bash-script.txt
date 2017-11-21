@@ -1,0 +1,29 @@
+cp .htaccess .h.html apache2/
+cp .htaccess .h.html blogs/
+cp .htaccess .h.html cisco/
+cp .htaccess .h.html cyberpatriot/
+cp .htaccess .h.html drone/
+cp .htaccess .h.html ethics/
+f.html
+cp .htaccess .h.html git/
+gitpush.sh
+h.html
+htaccess
+cp .htaccess .h.html html/
+cp .htaccess .h.html kubernetes/
+cp .htaccess .h.html linux/
+list.txt
+cp .htaccess .h.html mariadb/
+cp .htaccess .h.html microsoft/
+cp .htaccess .h.html networking/
+cp .htaccess .h.html nginx/
+cp .htaccess .h.html OSI/
+cp .htaccess .h.html python/
+README.html
+README.md
+cp .htaccess .h.html redhat/
+cp .htaccess .h.html rpi/
+cp .htaccess .h.html typing/
+cp .htaccess .h.html virtualbox/
+cp .htaccess .h.html wireshark/
+
