@@ -1,7 +1,7 @@
 Minecraft Pi Python Project
 Points - Description
 10 - Hello World Python Minecraft-Pi script to 10.183.13.13
-20 - Each person in the group will create an individaul Minecraft-Pi
+20 - Each person in the group will create an individual Minecraft-Pi
 		Python Design (Object)
 40 - Code must have 3 different functions,  a def main(): ,
 	and be at least 50 lines of code.
