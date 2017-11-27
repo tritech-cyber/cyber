@@ -1,0 +1,4 @@
+nginx intro
+https://www.youtube.com/watch?v=2fL8Otb9mTE
+nginx host names
+https://www.youtube.com/watch?v=tO2N0LLVZjI
