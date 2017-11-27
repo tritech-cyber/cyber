@@ -1,6 +1,6 @@
-$ more ~/.bash_aliases 
-# ~/.bash_aliases
-#cwc from debian forum
+# set python to python
+alias python='python3'
+#update
 alias update='sudo apt update && sudo apt upgrade && apt moo && cowsay updates are done && cat /etc/debian_version && uname -r'
 
 #cwc
