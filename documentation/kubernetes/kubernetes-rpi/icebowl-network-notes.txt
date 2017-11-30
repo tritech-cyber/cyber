@@ -1,0 +1,9 @@
+Post flash notes:
+
+
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
+
+kubeadm init --pod-network-cidr 10.244.0.0/16
+#icebowl network
+kubeadm init --pod-network-cidr 192.168.1.0/24
