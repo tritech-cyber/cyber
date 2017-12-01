@@ -1,0 +1,115 @@
+Step 1 » Update repositories .
+krizna@leela:~$ sudo apt-get update
+
+Step 2 » Install VsFTPD package using the below command.
+krizna@leela:~$ sudo apt-get install vsftpd
+
+Step 3 » After installation open /etc/vsftpd.conf file and make changes as follows.
+Uncomment the below lines (line no:29 and 33).
+write_enable=YES
+local_umask=022
+» Uncomment the below line (line no: 120 ) to prevent access to the other folders outside the Home directory.
+chroot_local_user=YES
+and add the following line at the end.
+allow_writeable_chroot=YES
+» Add the following lines to enable passive mode.
+pasv_enable=Yes
+pasv_min_port=40000
+pasv_max_port=40100
+
+Step 4 » Restart vsftpd service using the below command.
+krizna@leela:~$ sudo service vsftpd restart
+
+Step 5 » Now ftp server will listen on port 21. Create user with the below command.
+Use /usr/sbin/nologin shell to prevent access to the bash shell for the ftp users .
+krizna@leela:~$ sudo useradd -m john -s /usr/sbin/nologin
+krizna@leela:~$ sudo passwd john
+
+
+
+notes part 1:
+
+
+vsftp 
+chroot_local_user=YES
+
+
+up vote
+0
+down vote
+You will have to uncomment the line:
+
+chroot_local_user=YES
+Also change the access mode to 555
+
+sudo chmod [the_users_directory] 555
+Then restart the vsftpd service for the change to take effect:
+
+sudo restart vsftpd
+You can also specify this behavior for specific users only by uncommenting the chroot_list_enable=YES and chroot_list_file=/etc/vsftpd.chroot_list lines and creating a list of specific users in a /etc/vsftpd.chroot_list file.
+
+For specific users (/etc/vsftpd.conf lines affected):
+
+chroot_list_enable=YES
+chroot_list_enable=YES
+
+
+notes:
+The umask acts as a set of permissions that applications cannot set on files. 
+It's a file mode creation mask for processes and cannot be set for directories itself. 
+Most applications would not create files with execute permissions set, 
+so they would have a default of 666, which is then modified by the umask.
+
+As you have set the umask to remove the read/write bits for the owner and 
+the read bits for others, a default such as 777 in applications would 
+result in the file permissions being 133. This would mean that you 
+(and others) could execute the file, and others would be able to write to it.
+
+If you want to make files not be read/write/execute by anyone but the owner, 
+you should use a umask like 077 to turn off those permissions for the group & others.
+
+In contrast, a umask of 000 will make newly created directories readable, 
+writable and descendible for everyone (the permissions will be 777). 
+Such a umask is highly insecure and you should never set the umask to 000.
+
+The default umask on Ubuntu is 022 which means that newly created 
+files are readable by everyone, but only writable by the owner:
+
+user@computer:~$ touch new-file-name
+user@computer:~$ ls -dl new-file-name
+-rw-r--r-- 1 user user 0 Apr  1 19:15 new-file-name
+Viewing and modifying umask
+
+To view your current umask setting, open a terminal and run the command:
+
+umask
+To change the umask setting of the current shell to something else, say 077, run:
+
+umask 077
+To test whether this setting works or not, you can create a new file 
+(file permissions of an existing file won't be affected) and show 
+information about the file, run:
+
+user@computer:~$ touch new-file-name
+user@computer:~$ ls -dl new-file-name
+-rw------- 1 user user 0 Apr  1 19:14 new-file-name
+The umask setting is inherited by processes started from the same shell. 
+For example, start the text editor GEdit by executing gedit in the terminal 
+and save a file using gedit. You'll notice that the newly created file is 
+affected by the same umask setting as in the terminal.
+
+Use case: multi-user system
+
+If you are on a system that's shared by multiple users, it's desired that 
+others cannot read files in your home directory. For that, a umask is very useful. 
+Edit ~/.profile and add a new line with:
+
+umask 007
+You need to re-login for this umask change in ~/.profile to take effect. 
+Next, you need to change existing file permissions of files in your home 
+directory by removing the read, write and execute bit for the world. 
+Open a terminal and execute:
+
+chmod -R o-rwx ~
+If you want this umask setting be applied to all users on the system, 
+you could edit the system-wide profile file at /etc/profile.
