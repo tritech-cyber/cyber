@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta content="This page describes various ways to download and install NGINX." name="description">
+
+    <title>Install | NGINX</title>
+    
+    <link rel="stylesheet" href="Install%20|%20NGINX_files/nginx.css" type="text/css">
+    <link rel="stylesheet" href="Install%20|%20NGINX_files/pygments.css" type="text/css">
+    
+    <script src="Install%20|%20NGINX_files/391510051016626" async=""></script><script async="" src="Install%20|%20NGINX_files/fbevents.js"></script><script type="text/javascript" async="" src="Install%20|%20NGINX_files/linkid.js"></script><script type="text/javascript" async="" src="Install%20|%20NGINX_files/loader1.js"></script><script async="" src="Install%20|%20NGINX_files/analytics.js"></script><script type="text/javascript" async="" src="Install%20|%20NGINX_files/uwt.js"></script><script type="text/javascript" async="" src="Install%20|%20NGINX_files/roundtrip.js"></script><script type="text/javascript" async="" src="Install%20|%20NGINX_files/bf-munchkin.js"></script><script async="" src="Install%20|%20NGINX_files/gtm.js"></script><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="Install%20|%20NGINX_files/jquery.js"></script>
+    <script type="text/javascript" src="Install%20|%20NGINX_files/underscore.js"></script>
+    <script type="text/javascript" src="Install%20|%20NGINX_files/doctools.js"></script>
+    <link rel="icon" type="image/png" href="https://www.nginx.com/resources/wiki/_static/nginx-favicon.png">
+    <link rel="search" title="Search" href="https://www.nginx.com/resources/wiki/search/">
+    <link rel="top" title="NGINX" href="https://www.nginx.com/resources/wiki/">
+    <link rel="up" title="Getting Started" href="https://www.nginx.com/resources/wiki/start/">
+    <link rel="next" title="Installation and Compile-Time Options" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/installoptions/">
+    <link rel="prev" title="Getting Started" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/gettingstarted/"> 
+    <script type="text/javascript">
+        // workaround for rewriting anchor tags
+        $(function() {
+            if(window.location.hash != '') {
+              var parts = window.location.hash.split('#', 2);
+              var anchor = parts[1].replace(/[\W_]/g, '-').toLowerCase();
+              window.location.hash = parts[0] + '#' + anchor;
+            }
+        });
+    </script>   
+
+  <link rel="stylesheet" href="Install%20|%20NGINX_files/font-awesome.css">
+
+  
+
+  <link rel="stylesheet" href="Install%20|%20NGINX_files/bootstrap.css">
+
+<link rel="stylesheet" id="nginx-theme-style-css" href="Install%20|%20NGINX_files/nginx-theme.css" type="text/css" media="all">
+          
+
+  <link rel="stylesheet" href="Install%20|%20NGINX_files/style.css">
+  <link rel="stylesheet" type="text/css" href="Install%20|%20NGINX_files/nginx-site-header.css">
+<script id="omapi-script" src="Install%20|%20NGINX_files/api.js"></script><style data-olark="true" type="text/css">.olark-key,#hbl_code,#olark-data{display: none !important;}</style><script async="true" type="text/javascript" src="Install%20|%20NGINX_files/ENFCRMZVSBGMXMPF4BGBP3"></script><style data-olark="true" type="text/css">@media print {#habla_beta_container_do_not_rely_on_div_classes_or_names {display: none !important}}</style><div style="width: 1px; height: 1px; display: inline; position: absolute;"><img style="border-style:none;" alt="" src="Install%20|%20NGINX_files/out.asc" width="1" height="1"></div><div style="width: 1px; height: 1px; display: inline; position: absolute;"><img style="border-style:none;" alt="" src="Install%20|%20NGINX_files/out_005.gif" width="1" height="1">
+<img style="border-style:none;" alt="" src="Install%20|%20NGINX_files/out_002.gif" width="1" height="1">
+<img style="border-style:none;" alt="" src="Install%20|%20NGINX_files/out_003.gif" width="1" height="1">
+<img style="border-style:none;" alt="" src="Install%20|%20NGINX_files/out_004.gif" width="1" height="1">
+<img style="border-style:none;" alt="" src="Install%20|%20NGINX_files/out.html" width="1" height="1">
+<img style="border-style:none;" alt="" src="Install%20|%20NGINX_files/out.gif" width="1" height="1">
+</div><link data-olark="true" rel="stylesheet" href="Install%20|%20NGINX_files/theme.css" type="text/css"></head>
+<body>
+  <!-- Header Section Start -->
+
+  <!-- NGINX SITE HEADER START -->
+<header id="masthead" class="site-header" role="banner" itemscope="" itemtype="http://schema.org/Organization">
+    <!-- sticky-menu show-sticky-menu-->
+    <div class="site-header-inner">
+
+        <div class="site-branding-wrapper">
+            <div class="site-branding">
+                <div class="site-title" itemprop="name">
+                    <a href="https://www.nginx.com/" rel="home"><img src="Install%20|%20NGINX_files/logo.png" alt="Web Server Load Balancing with NGINX Plus"></a>
+                </div>
+            </div>
+            <!-- /.site-branding -->
+        </div>
+        <!-- /.site-branding-wrapper -->
+
+        <div class="header-menus">
+
+            <div class="header-actions-menu-location-wrapper">
+                <nav class="header-actions-menu-location" role="navigation">
+                    <div class="menu-header-actions-container">
+                        <ul id="menu-header-actions" class="menu">
+                            <li id="menu-item-5252" class="free-trial-menu-btn menu-item menu-item-type-custom menu-item-object-custom menu-item-5252"><a href="https://www.nginx.com/free-trial-request">Free Trial</a></li>
+                            <li id="menu-item-4811" class="contact-sales-menu-btn menu-item menu-item-type-custom menu-item-object-custom menu-item-4811"><a href="https://www.nginx.com/#contact-us">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <!-- /.header-actions-menu-location -->
+            </div>
+            <!-- /.header-actions-menu-location -->
+            <div class="primary-menu-location-wrapper">
+                <a class="menu-logo" href="https://www.nginx.com/" rel="home"><img src="Install%20|%20NGINX_files/logo.png" alt="Web Server Load Balancing with NGINX Plus"></a>
+                <nav id="site-navigation" class="primary-menu-location" role="navigation">
+                    <div class="menu-primary-container">
+                        <ul id="menu-primary" class="menu">
+                            <li id="menu-item-3570" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3570"><a href="https://www.nginx.com/products/"><span class="inner">Products</span><span class="icon icon-arrow-down"></span></a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-53220" class="menu-item menu-item-type-post_type menu-item-object-nx_product_module menu-item-53220"><a href="https://www.nginx.com/products/nginx/"><span class="inner">NGINX Plus</span></a></li>
+                                    <li id="menu-item-53219" class="menu-item menu-item-type-post_type menu-item-object-nx_product_module menu-item-53219"><a href="https://www.nginx.com/products/nginx-controller/"><span class="inner">NGINX Controller</span></a></li>
+                                    <li id="menu-item-53225" class="menu-item menu-item-type-post_type menu-item-object-nx_product_module menu-item-53225"><a href="https://www.nginx.com/products/nginx-unit/"><span class="inner">NGINX Unit</span></a></li>
+                                    <li id="menu-item-53221" class="menu-item menu-item-type-post_type menu-item-object-nx_product_module menu-item-53221"><a href="https://www.nginx.com/products/nginx-amplify/"><span class="inner">NGINX Amplify</span></a></li>
+                                    <li id="menu-item-53226" class="menu-item menu-item-type-post_type menu-item-object-nx_product_module menu-item-53226"><a href="https://www.nginx.com/products/nginx-waf/"><span class="inner">NGINX WAF</span></a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-3572" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3572"><a href="https://www.nginx.com/solutions/"><span class="inner">Solutions</span><span class="icon icon-arrow-down"></span></a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-53542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53542"><a href="https://www.nginx.com/solutions/microservices/"><span class="inner">Microservices</span></a></li>
+                                    <li id="menu-item-53543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53543"><a href="https://www.nginx.com/solutions/adc/"><span class="inner">ADC / Load balancing</span></a></li>
+                                    <li id="menu-item-53544" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53544"><a href="https://www.nginx.com/solutions/cloud/"><span class="inner">Cloud migration</span></a></li>
+                                    <li id="menu-item-53545" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53545"><a href="https://www.nginx.com/solutions/application-security/"><span class="inner">Security</span></a></li>
+                                    <li id="menu-item-53546" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53546"><a href="https://www.nginx.com/solutions/web-mobile-acceleration/"><span class="inner">Web &amp; mobile performance</span></a></li>
+                                    <li id="menu-item-53547" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53547"><a href="https://www.nginx.com/solutions/api-gateway/"><span class="inner">API gateway</span></a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-3622" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3622"><a href="https://www.nginx.com/resources/"><span class="inner">Resources</span><span class="icon icon-arrow-down"></span></a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-4235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4235"><a href="https://www.nginx.com/resources/admin-guide/"><span class="inner">Admin Guide</span></a></li>
+                                    <li id="menu-item-5758" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5758"><a href="https://www.nginx.com/resources/library/"><span class="inner">Ebooks</span></a></li>
+                                    <li id="menu-item-4056" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4056"><a href="https://www.nginx.com/resources/webinars/"><span class="inner">Webinars</span></a></li>
+                                    <li id="menu-item-49023" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49023"><a href="https://www.nginx.com/customers/"><span class="inner">Case studies</span></a></li>
+                                    <li id="menu-item-4093" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4093"><a href="https://www.nginx.com/faqs/"><span class="inner">FAQ</span></a></li>
+                                    <li id="menu-item-14377" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14377"><a href="https://www.nginx.com/resources/glossary/"><span class="inner">Glossary</span></a></li>
+                                    <li id="menu-item-53223" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53223"><a href="https://www.nginx.com/products/modules"><span class="inner">Third party integrations</span></a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-53052" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-53052"><a href="https://www.nginx.com/support/"><span class="inner">Support</span><span class="icon icon-arrow-down"></span></a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-3628" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3628"><a href="https://www.nginx.com/support/"><span class="inner">NGINX Plus support</span></a></li>
+                                    <li id="menu-item-3626" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3626"><a target="_blank" href="http://university.nginx.com/"><span class="inner">Training</span></a></li>
+                                    <li id="menu-item-3631" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3631"><a href="https://www.nginx.com/services/"><span class="inner">Professional Services</span></a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-49226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49226"><a href="https://www.nginx.com/products/pricing/"><span class="inner">Pricing</span></a></li>
+                            <li id="menu-item-3571" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3571"><a href="https://www.nginx.com/blog/"><span class="inner">Blog</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="search-form-wrapper">
+                        <form method="get" class="search-form" action="https://www.nginx.com/">
+                            <label for="search" class="screen-reader-text">Search</label>
+                            <input name="s" id="s" class="search-field" placeholder="Search nginx.com" maxlength="150" type="search">
+                            <input class="search-button" value="Search" type="submit">
+                        </form>
+                    </div>
+
+                    <div class="header-login">
+                        <a class="login-link" href="https://cs.nginx.com/login">
+                            <div class="icon icon-user"></div>
+                            <div class="login-text">Login</div>
+                        </a>
+                    </div>
+                </nav>
+                <!-- /#site-navigation.primary-menu-location -->
+            </div>
+            <!-- /.primary-menu-location-wrapper -->
+
+            <div class="header-extras-wrapper" style="display: none;">
+                <div class="header-extras">
+                    <div class="header-extra header-tel" itemprop="telephone"><a href="tel:+18009159122">1-800-915-9122</a></div>
+                </div>
+            </div>
+        </div>
+        <!-- /.header-menus -->
+
+        <div class="mobile-menu-button-wrapper">
+            <a href="#" class="mobile-menu-button">
+                <div class="icon icon-menu"></div>
+            </a>
+        </div>
+
+        <div class="mobile-search-button-wrapper">
+            <div class="search-form-wrapper">
+                <form method="get" class="search-form" action="https://www.nginx.com/">
+                    <label for="search" class="screen-reader-text">Search</label>
+                    <input name="s" id="s" class="search-field" placeholder="Search nginx.com" maxlength="150" type="search">
+                    <input class="search-button" value="Search" type="submit">
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.site-header-inner -->
+</header>
+<!-- /#masthead -->
+
+<!-- NGINX SITE HEADER END -->
+<!-- Header Section End -->
+
+<!-- Navigation Section Start -->
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://www.nginx.com/resources/wiki/start/topics/tutorials/installoptions/" title="Installation and Compile-Time Options" accesskey="N">next</a></li>
+        <li class="right">
+          <a href="https://www.nginx.com/resources/wiki/start/topics/tutorials/gettingstarted/" title="Getting Started" accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="https://www.nginx.com/resources/wiki/">NGINX</a> »</li>
+          <li class="nav-item nav-item-1"><a href="https://www.nginx.com/resources/wiki/start/" accesskey="U">Getting Started</a> »</li> 
+      </ul>
+    </div>
+<!-- Navigation Section End -->
+
+  <section id="wrapper">  
+
+    <section class="global-header-wrapper">
+      <div class="global-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="content">
+                <h1>Install</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wiki-body">
+      <div class="container">
+        <div class="row">
+          
+          <!-- Start main document block -->
+
+          <div class="col-md-9" id="page_content">
+            
+  <div class="section" id="install">
+<h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="binary-releases">
+<h2>Binary Releases<a class="headerlink" href="#binary-releases" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prebuilt-packages-for-linux-and-bsd">
+<h3>Prebuilt Packages for Linux and BSD<a class="headerlink" href="#prebuilt-packages-for-linux-and-bsd" title="Permalink to this headline">¶</a></h3>
+<p>Most Linux distributions and BSD variants have NGINX in the usual 
+package repositories and they can be installed via whatever method is 
+normally used to install software (<code class="docutils literal"><span class="pre">apt-get</span></code> on Debian, <code class="docutils literal"><span class="pre">emerge</span></code> on Gentoo, <code class="docutils literal"><span class="pre">ports</span></code> on FreeBSD, etc).</p>
+<p>Be aware that these packages are often somewhat out-of-date.
+If you want the latest features and bugfixes, it’s recommended to build from source or use packages directly from nginx.org.</p>
+</div>
+</div>
+<div class="section" id="official-red-hat-centos-packages">
+<h2>Official Red Hat/CentOS packages<a class="headerlink" href="#official-red-hat-centos-packages" title="Permalink to this headline">¶</a></h2>
+<p>To add NGINX yum repository, create a file named <code class="docutils literal"><span class="pre">/etc/yum.repos.d/nginx.repo</span></code> and paste one of the configurations below:</p>
+<p>CentOS:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">nginx</span><span class="p">]</span>
+<span class="n">name</span><span class="o">=</span><span class="n">nginx</span> <span class="n">repo</span>
+<span class="n">baseurl</span><span class="o">=</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">nginx</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">centos</span><span class="o">/</span><span class="err">$</span><span class="n">releasever</span><span class="o">/</span><span class="err">$</span><span class="n">basearch</span><span class="o">/</span>
+<span class="n">gpgcheck</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>RHEL:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">nginx</span><span class="p">]</span>
+<span class="n">name</span><span class="o">=</span><span class="n">nginx</span> <span class="n">repo</span>
+<span class="n">baseurl</span><span class="o">=</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">nginx</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rhel</span><span class="o">/</span><span class="err">$</span><span class="n">releasever</span><span class="o">/</span><span class="err">$</span><span class="n">basearch</span><span class="o">/</span>
+<span class="n">gpgcheck</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Due to differences between how CentOS, RHEL, and Scientific Linux populate the <code class="docutils literal"><span class="pre">$releasever</span></code> variable, it is necessary to manually replace <code class="docutils literal"><span class="pre">$releasever</span></code> with either <code class="docutils literal"><span class="pre">5</span></code> (for 5.x) or <code class="docutils literal"><span class="pre">6</span></code> (for 6.x), depending upon your OS version.</p>
+</div>
+<div class="section" id="official-debian-ubuntu-packages">
+<h2>Official Debian/Ubuntu packages<a class="headerlink" href="#official-debian-ubuntu-packages" title="Permalink to this headline">¶</a></h2>
+<p>Ubuntu:</p>
+<p>The available NGINX Ubuntu release support is listed at <a class="reference external" href="http://nginx.org/packages/ubuntu/dists/">this distribution page</a>. For a mapping of Ubuntu versions to release names, please visit the <a class="reference external" href="https://wiki.ubuntu.com/Releases">Official Ubuntu Releases page</a>.</p>
+<p>Append the appropriate stanza to <code class="docutils literal"><span class="pre">/etc/apt/sources.list</span></code>.
+ If there is concern about persistence of repository additions (i.e. 
+DigitalOcean Droplets), the appropriate stanza may instead be added to a
+ different list file under <code class="docutils literal"><span class="pre">/etc/apt/sources.list.d/</span></code>, such as <code class="docutils literal"><span class="pre">/etc/apt/sources.list.d/nginx.list</span></code>.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">## Replace $release with your corresponding Ubuntu release.</span>
+deb http://nginx.org/packages/ubuntu/ <span class="nv">$release</span> nginx
+deb-src http://nginx.org/packages/ubuntu/ <span class="nv">$release</span> nginx
+</pre></div>
+</div>
+<p>e.g. Ubuntu 16.04 (Xenial):</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>deb http://nginx.org/packages/ubuntu/ xenial nginx
+deb-src http://nginx.org/packages/ubuntu/ xenial nginx
+</pre></div>
+</div>
+<p>To install the packages, execute in your shell:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get update
+sudo apt-get install nginx
+</pre></div>
+</div>
+<p>If a <code class="docutils literal"><span class="pre">W:</span> <span class="pre">GPG</span> <span class="pre">error:</span> <span class="pre">http://nginx.org/packages/ubuntu</span> <span class="pre">xenial</span> <span class="pre">Release:</span> <span class="pre">The</span> <span class="pre">following</span> <span class="pre">signatures</span> <span class="pre">couldn't</span> <span class="pre">be</span> <span class="pre">verified</span> <span class="pre">because</span> <span class="pre">the</span> <span class="pre">public</span> <span class="pre">key</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">available:</span> <span class="pre">NO_PUBKEY</span> <span class="pre">$key</span></code> is encountered during the NGINX repository update, execute the following:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">## Replace $key with the corresponding $key from your GPG error.</span>
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <span class="nv">$key</span>
+sudo apt-get update
+sudo apt-get install nginx
+</pre></div>
+</div>
+<p>Debian 6:</p>
+<p>Append the appropriate stanza to <code class="docutils literal"><span class="pre">/etc/apt/sources.list</span></code>.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>deb http://nginx.org/packages/debian/ squeeze nginx
+deb-src http://nginx.org/packages/debian/ squeeze nginx
+</pre></div>
+</div>
+<div class="section" id="ubuntu-ppa">
+<h3>Ubuntu PPA<a class="headerlink" href="#ubuntu-ppa" title="Permalink to this headline">¶</a></h3>
+<p>This PPA is maintained by volunteers and is not distributed by 
+nginx.org.  It has some additional compiled-in modules and may be more 
+fitting for your environment.</p>
+<p>You can get the latest stable version of NGINX from the <a class="reference external" href="https://launchpad.net/~nginx/+archive/ubuntu/development">NGINX PPA</a> on Launchpad:
+You will need to have root privileges to perform the following commands.</p>
+<p>For Ubuntu 10.04 and newer:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo -s
+<span class="nv">nginx</span><span class="o">=</span>stable <span class="c1"># use nginx=development for latest development version</span>
+add-apt-repository ppa:nginx/<span class="nv">$nginx</span>
+apt-get update
+apt-get install nginx
+</pre></div>
+</div>
+<p>If you get an error about add-apt-repository not existing, you will want to install <code class="docutils literal"><span class="pre">python-software-properties</span></code>.
+For other Debian/Ubuntu based distributions, you can try the lucid 
+variant of the PPA which is the most likely to work on older package 
+sets:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo -s
+<span class="nv">nginx</span><span class="o">=</span>stable <span class="c1"># use nginx=development for latest development version</span>
+<span class="nb">echo</span> <span class="s2">"deb http://ppa.launchpad.net/nginx/</span><span class="nv">$nginx</span><span class="s2">/ubuntu lucid main"</span> &gt; /etc/apt/sources.list.d/nginx-<span class="nv">$nginx</span>-lucid.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C300EE8C
+apt-get update
+apt-get install nginx
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="official-win32-binaries">
+<span id="install-win32-binaries"></span><h2>Official Win32 Binaries<a class="headerlink" href="#official-win32-binaries" title="Permalink to this headline">¶</a></h2>
+<p>As of NGINX 0.8.50, NGINX is now available as an <a class="reference external" href="http://nginx.org/en/download.html">official Windows binary</a>.</p>
+<p>Installation:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> c:<span class="se">\</span>
+unzip nginx-1.2.3.zip
+ren nginx-1.2.3 nginx
+<span class="nb">cd</span> nginx
+start nginx
+</pre></div>
+</div>
+<p>Control:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>nginx -s <span class="o">[</span> stop <span class="p">|</span> quit <span class="p">|</span> reopen <span class="p">|</span> reload <span class="o">]</span>
+</pre></div>
+</div>
+<p>For problems look in c:nginxlogserror.log or in EventLog.</p>
+<p>In addition, Kevin Worthington maintains earlier <a class="reference external" href="https://kevinworthington.com/nginx-for-windows/">Windows</a> builds of the development branch.</p>
+</div>
+<div class="section" id="source-releases">
+<h2>Source Releases<a class="headerlink" href="#source-releases" title="Permalink to this headline">¶</a></h2>
+<p>There are currently two versions of NGINX available: <code class="docutils literal"><span class="pre">stable</span> <span class="pre">(1.10.x)</span></code>, <code class="docutils literal"><span class="pre">mainline</span> <span class="pre">(1.11.x)</span></code>.
+The mainline branch gets new features and bugfixes sooner but might introduce new bugs as well.
+Critical bugfixes are backported to the stable branch.</p>
+<p>In general, the stable release is recommended, but the mainline release is typically quite stable as well.
+See the <a class="reference internal" href="https://www.nginx.com/resources/wiki/community/faq/#faq-is-it-safe"><span class="std std-ref">FAQ</span></a>.</p>
+<div class="section" id="stable">
+<h3>Stable<a class="headerlink" href="#stable" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><a class="reference external" href="http://nginx.org/download/nginx-1.10.1.tar.gz">NGINX 1.10.1</a></div>
+<div class="line">31 May 2016</div>
+<div class="line"><a class="reference external" href="http://nginx.org/en/CHANGES-1.10">changelog</a></div>
+</div>
+</div>
+<div class="section" id="mainline">
+<h3>Mainline<a class="headerlink" href="#mainline" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><a class="reference external" href="http://nginx.org/download/nginx-1.11.3.tar.gz">NGINX 1.11.3</a></div>
+<div class="line">26 Jul 2016</div>
+<div class="line"><a class="reference external" href="http://nginx.org/en/CHANGES">changelog</a></div>
+</div>
+<p>Source code repository is at <a class="reference external" href="http://hg.nginx.org/nginx">hg.nginx.org/nginx</a>.</p>
+<p>Older versions can be found <a class="reference external" href="http://nginx.org/en/download.html">here</a>.</p>
+</div>
+<div class="section" id="building-nginx-from-source">
+<h3>Building NGINX From Source<a class="headerlink" href="#building-nginx-from-source" title="Permalink to this headline">¶</a></h3>
+<p>After extracting the source, run these commands from a terminal:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>./configure
+make
+sudo make install
+</pre></div>
+</div>
+<p>By default, NGINX will be installed in <code class="docutils literal"><span class="pre">/usr/local/nginx</span></code>. You may change this and other options with the <a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/installoptions/"><span class="doc">Installation and Compile-Time Options</span></a>.</p>
+<p>You might also want to peruse the <a class="reference internal" href="https://www.nginx.com/resources/wiki/modules/"><span class="doc">3rd party modules</span></a>, since these must be built at compile-time.</p>
+</div>
+<div class="section" id="other-systems">
+<h3>Other Systems<a class="headerlink" href="#other-systems" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/solaris_10_u5/"><span class="doc">Installing on Solaris 10u5</span></a></li>
+<li><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/solaris_11/"><span class="doc">Installing on Solaris 11</span></a></li>
+<li><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/openbsd/"><span class="doc">Installing and configuring NGINX / Mongrel on OpenBSD with Rails support</span></a></li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">These pages are not thoroughly, if at all, reviewed for accuracy as they are on this page.</p>
+</div>
+</div>
+</div>
+<div class="section" id="after-installing">
+<h2>After Installing<a class="headerlink" href="#after-installing" title="Permalink to this headline">¶</a></h2>
+<p>There are many different example configurations that can be found in <a class="reference internal" href="https://www.nginx.com/resources/wiki/start/"><span class="doc">Getting Started</span></a> section. Also the <a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/config_pitfalls/"><span class="doc">Pitfalls and Common Mistakes</span></a> page will help keep you from making mistakes that so many users before you did.</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://nginx.org/en/docs/install.html">Original Documentation</a></p>
+</div>
+</div>
+
+
+
+            
+
+          </div>
+          <!-- End main document block -->
+          
+          <!-- Start Sidebar block -->
+          <div class="col-md-3">
+                   <aside class="wiki-sidebar">
+    <!-- Search Box Start -->
+    <div class="sidebar-widget"><div class="search_box">
+	<form action="../../../../search/" method="get">
+		<div class="input-group">
+			
+			<input name="q" class="form-control" placeholder="Search Wiki" type="text">
+			<span class="input-group-btn">
+			  <input class="btn" value="" type="submit">
+			    <i class="fa fa-chevron-circle-right"></i>
+			  
+			</span>
+			<input name="check_keywords" value="yes" type="hidden">
+			<input name="area" value="default" type="hidden">
+			
+		</div>
+	</form>
+</div>
+    </div>
+    <!-- Search Box End -->
+    <div class="sidebar-widget">
+    </div>
+      
+    <div class="sidebar-menu sidebar-widget"><h3><a href="https://www.nginx.com/resources/wiki/">Wiki home</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/dynamic_ssi/">Dynamic SSI Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/full/">Full Example Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/fullexample2/">Another Full Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/loadbalanceexample/">Simple Load Balancing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/reverseproxycachingexample/">Reverse Proxy with Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/SSL-Offloader/">SSL-Offloader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/logrotation/">Log Rotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/server_blocks/">Server Block Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/phpfcgi/">PHP FastCGI Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/phpfastcgionwindows/">PHP-FastCGI on Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/simplepythonfcgi/">Dispatching TurboGears Python via FCGI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/simplerubyfcgi/">Simple Ruby FCGI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/djangofastcgi/">Django FastCGI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/fcgiwrap/">FCGI Wrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/fastcgiexample/">FastCGI Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/javaservers/">Java servers like Jetty, GlassFish and Tomcat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/mono/">Mono FCGI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/x-accel/">X-Accel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/likeapache/">NGINX Solution for Apache ProxyPassReverse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/likeapache-htaccess/">Like Apache: .htaccess</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/separateerrorloggingpervirtualhost/">Separating Error Logs per Virtual Host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/imapproxyexample/">IMAP Proxy Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/imapauthenticatewithapacheperlscript/">Using a Perl Script as the IMAP Auth Backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/imapauthenticatewithapachephpscript/">Using a PHP Script on an Apache Server as the IMAP Auth Backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/nonrootwebpath/">Non-root Web Path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/headers_management/">Managing request headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/headers_management/#a-flexibility-of-the-http-headers">A flexibility of the HTTP headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/headers_management/#get-a-header-value">Get a header value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/headers_management/#how-can-i-set-a-header">How can I set a header?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/source_tricks/">PiotrSikora</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/coding_style/">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/initscripts/">NGINX Init Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/hardwarelberrors/">Hardware Loadbalancer Check Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/xsendfile/">XSendfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/memcachepreload/">Memcache Preload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/embeddedperlminifyjs/">Embedded Perl Minify JS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/embeddedperlsitemapsproxy/">Embedded Perl Sitemaps Proxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/">Using the <code class="docutils literal"><span class="pre">Forwarded</span></code> header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/cms_made_simple/">CMS Made Simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/codeigniter/">Codeigniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/drupal/">Drupal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/dokuwiki/">Dokuwiki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/elgg/">Elgg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/expressionengine/">ExpressionEngine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/iredmail/">iRedMail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/mailman/">Mailman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/mediawiki/">MediaWiki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/moinmoin/">MoinMoin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/mybb/">MyBB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/omeka/">Omeka</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/oscommerce/">osCommerce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/osticket/">osTicket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/phplist/">PHPList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/piwik/">Piwik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/pmwiki/">PmWiki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/pylons/">Pylons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/pyrocms/">PyroCMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/qwebirc/">Qwebric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/redmine/">Redmine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/silverstripe/">SilverStripe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/spip/">SPIP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/symfony/">Symfony</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/symfony/#another-working-symfony">Another working symfony</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/wordpress/">WordPress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/xenforo/">XenForo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/yii/">Yii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/zend/">Zend Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/zenphoto/">Zenphoto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/recipes/fcgizope/">Zope via FastCGI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/depth/ifisevil/">If Is Evil</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/gettingstarted/">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#binary-releases">Binary Releases</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prebuilt-packages-for-linux-and-bsd">Prebuilt Packages for Linux and BSD</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#official-red-hat-centos-packages">Official Red Hat/CentOS packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#official-debian-ubuntu-packages">Official Debian/Ubuntu packages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu-ppa">Ubuntu PPA</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#official-win32-binaries">Official Win32 Binaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source-releases">Source Releases</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#stable">Stable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mainline">Mainline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building-nginx-from-source">Building NGINX From Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#other-systems">Other Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#after-installing">After Installing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/installoptions/">Installation and Compile-Time Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/commandline/">CommandLine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/config_pitfalls/">Pitfalls and Common Mistakes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/debugging/">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/optimizations/">Optimizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/solaris_10_u5/">Installing on Solaris 10u5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/solaris_10_u5/#testing-nginx">Testing NGINX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/solaris_10_u5/#running-nginx-as-smf-service">Running NGINX as SMF service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/solaris_11/">Installing on Solaris 11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/solaris_11/#startup-script">Startup script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/topics/tutorials/openbsd/">Installing and configuring NGINX / Mongrel on OpenBSD with Rails support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/#installing-configuring-nginx">Installing &amp; Configuring NGINX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/#full-stack-howtos">Full Stack HOWTOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/#pre-canned-configurations">Pre-canned Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/#other-examples">Other Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/#tools">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://www.nginx.com/resources/wiki/start/#advanced-topics">Advanced Topics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://www.nginx.com/resources/wiki/community/">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://www.nginx.com/resources/wiki/modules/">NGINX 3<sup>rd</sup> Party Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://www.nginx.com/resources/wiki/contributing/">Contributing to NGINX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://www.nginx.com/resources/wiki/extending/">Extending NGINX</a></li>
+</ul>
+<div class="search_box">
+	<form action="../../../../search/" method="get">
+		<div class="input-group">
+			
+			<input name="q" class="form-control" placeholder="Search Wiki" type="text">
+			<span class="input-group-btn">
+			  <input class="btn" value="" type="submit">
+			    <i class="fa fa-chevron-circle-right"></i>
+			  
+			</span>
+			<input name="check_keywords" value="yes" type="hidden">
+			<input name="area" value="default" type="hidden">
+			
+		</div>
+	</form>
+</div>
+    </div>
+
+    <div class="sidebar-widget">
+      <a href="http://pages.nginx.com/express-opt-in.html" class="wiki-email-subscribe-btn-white" target="_blank">Stay in the Loop <span class="icon icon-arrow-submit"></span></a>
+    </div>
+
+
+    <div class="sidebar-menu sidebar-widget">
+      <h3>Edit this page</h3>
+       <ul>
+          <li><a href="https://github.com/nginxinc/nginx-wiki/blob/master/source/start/topics/tutorials/install.rst" rel="nofollow"><span class="icon-holder"><svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1664 960q-152-236-381-353 61 104 61 225 0 185-131.5 316.5t-316.5 131.5-316.5-131.5-131.5-316.5q0-121 61-225-229 117-381 353 133 205 333.5 326.5t434.5 121.5 434.5-121.5 333.5-326.5zm-720-384q0-20-14-34t-34-14q-125 0-214.5 89.5t-89.5 214.5q0 20 14 34t34 14 34-14 14-34q0-86 61-147t147-61q20 0 34-14t14-34zm848 384q0 34-20 69-140 230-376.5 368.5t-499.5 138.5-499.5-139-376.5-368q-20-35-20-69t20-69q140-229 376.5-368t499.5-139 499.5 139 376.5 368q20 35 20 69z"></path></svg></span>&nbsp;Show on GitHub</a></li>
+          <li><a href="https://github.com/nginxinc/nginx-wiki/edit/master/source/start/topics/tutorials/install.rst" rel="nofollow"><span class="icon-holder"><svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M491 1536l91-91-235-235-91 91v107h128v128h107zm523-928q0-22-22-22-10 0-17 7l-542 542q-7 7-7 17 0 22 22 22 10 0 17-7l542-542q7-7 7-17zm-54-192l416 416-832 832h-416v-416zm683 96q0 53-37 90l-166 166-416-416 166-165q36-38 90-38 53 0 91 38l235 234q37 39 37 91z"></path></svg></span>&nbsp;Edit on GitHub</a></li>
+        </ul>
+    </div>
+
+  </aside>
+              
+          </div>
+          <!-- Start Sidebar block -->
+
+        </div><!-- end class="row" -->
+      </div><!-- end class="container" -->
+    </section><!-- end class="wiki-body" -->
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://www.nginx.com/resources/wiki/start/topics/tutorials/installoptions/" title="Installation and Compile-Time Options">next</a></li>
+        <li class="right">
+          <a href="https://www.nginx.com/resources/wiki/start/topics/tutorials/gettingstarted/" title="Getting Started">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="https://www.nginx.com/resources/wiki/">NGINX</a> »</li>
+          <li class="nav-item nav-item-1"><a href="https://www.nginx.com/resources/wiki/start/">Getting Started</a> »</li> 
+      </ul>
+    </div>
+
+  </section> <!-- End Wrapper -->
+
+  <!-- Footer Section Start -->
+  <footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="site-footer-inner">
+        <div class="footer-primary-nav">
+            <nav class="footer-menu-wrap" role="navigation">
+                <ul id="menu-footer-products" class="footer-menu">
+                    <li id="menu-item-3650" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3650"><a href="https://www.nginx.com/products/">Products</a>
+                        <ul class="sub-menu">
+                            <li id="menu-item-53245" class="menu-item menu-item-type-post_type menu-item-object-nx_product_module menu-item-53245"><a href="https://www.nginx.com/products/nginx/">NGINX Plus</a></li>
+                            <li id="menu-item-53244" class="menu-item menu-item-type-post_type menu-item-object-nx_product_module menu-item-53244"><a href="https://www.nginx.com/products/nginx-controller/">NGINX Controller</a></li>
+                            <li id="menu-item-53242" class="menu-item menu-item-type-post_type menu-item-object-nx_product_module menu-item-53242"><a href="https://www.nginx.com/products/nginx-unit/">NGINX Unit</a></li>
+                            <li id="menu-item-53246" class="menu-item menu-item-type-post_type menu-item-object-nx_product_module menu-item-53246"><a href="https://www.nginx.com/products/nginx-amplify/">NGINX Amplify</a></li>
+                            <li id="menu-item-53243" class="menu-item menu-item-type-post_type menu-item-object-nx_product_module menu-item-53243"><a href="https://www.nginx.com/products/nginx-waf/">NGINX Web Application Firewall</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-item-53248" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-53248"><a href="http://www.nginx.com/support">Support</a>
+                        <ul class="sub-menu">
+                            <li id="menu-item-53249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-53249"><a href="https://www.nginx.com/services/">NGINX Professional Services</a></li>
+                            <li id="menu-item-53250" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53250"><a href="https://university.nginx.com/">Training</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.footer-menu-location -->
+            <nav class="footer-menu-wrap" role="navigation">
+                <ul id="menu-footer-solutions" class="footer-menu">
+                    <li id="menu-item-4128" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4128"><a href="https://www.nginx.com/solutions/">Solutions</a>
+                        <ul class="sub-menu">
+                            <li id="menu-item-53571" class="menu-item menu-item-type-post_type menu-item-object-solution menu-item-53571"><a href="https://www.nginx.com/solutions/microservices/">Microservices</a></li>
+                            <li id="menu-item-53570" class="menu-item menu-item-type-post_type menu-item-object-solution menu-item-53570"><a href="https://www.nginx.com/solutions/adc/">ADC / Load balancing</a></li>
+                            <li id="menu-item-53569" class="menu-item menu-item-type-post_type menu-item-object-solution menu-item-53569"><a href="https://www.nginx.com/solutions/cloud/">Cloud migration</a></li>
+                            <li id="menu-item-53568" class="menu-item menu-item-type-post_type menu-item-object-solution menu-item-53568"><a href="https://www.nginx.com/solutions/application-security/">Security</a></li>
+                            <li id="menu-item-53567" class="menu-item menu-item-type-post_type menu-item-object-solution menu-item-53567"><a href="https://www.nginx.com/solutions/web-mobile-acceleration/">Web &amp; mobile performance</a></li>
+                            <li id="menu-item-53566" class="menu-item menu-item-type-post_type menu-item-object-solution menu-item-53566"><a href="https://www.nginx.com/solutions/api-gateway/">API Gateway</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.footer-menu-location -->
+        </div>
+        <div class="footer-secondary-nav">
+            <nav class="footer-menu-wrap" role="navigation">
+                <ul id="menu-footer-resources-and-support" class="footer-menu">
+                    <li id="menu-item-4151" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-4151"><a href="https://www.nginx.com/resources/">Resources</a>
+                        <ul class="sub-menu">
+                            <li id="menu-item-4153" class="menu-item menu-item-type-taxonomy menu-item-object-nx_info_types menu-item-4153"><a href="https://www.nginx.com/blog/nx_info_types/admin-guide/">Admin Guide</a></li>
+                            <li id="menu-item-24977" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24977"><a href="https://www.nginx.com/resources/library/">Ebooks</a></li>
+                            <li id="menu-item-4154" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4154"><a href="https://www.nginx.com/resources/webinars/">Webinars</a></li>
+                            <li id="menu-item-50089" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50089"><a href="https://www.nginx.com/customers/">Case studies</a></li>
+                            <li id="menu-item-50088" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-140 current_page_item menu-item-50088"><a href="https://www.nginx.com/blog/">Blog</a></li>
+                            <li id="menu-item-4156" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4156"><a href="https://www.nginx.com/faqs/">FAQ</a></li>
+                            <li id="menu-item-53253" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53253"><a href="https://www.nginx.com/resources/glossary/glossary/">Glossary</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.footer-menu-location -->
+            <nav class="footer-menu-wrap" role="navigation">
+                <ul id="menu-footer-companypartners" class="footer-menu">
+                    <li id="menu-item-4157" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4157"><a href="https://www.nginx.com/company/">Company</a>
+                        <ul class="sub-menu">
+                            <li id="menu-item-4158" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4158"><a href="https://www.nginx.com/company/">About NGINX</a></li>
+                            <li id="menu-item-4159" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4159"><a href="https://www.nginx.com/jobs/">Careers</a></li>
+                            <li id="menu-item-4162" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4162"><a href="https://www.nginx.com/leadership-team/">Leadership</a></li>
+                            <li id="menu-item-5550" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5550"><a href="https://www.nginx.com/press/">Press</a></li>
+                            <li id="menu-item-53254" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-53254"><a href="https://www.nginx.com/resources/events/">Events</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-item-4160" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4160"><a href="https://www.nginx.com/partners/">Partners</a>
+                        <ul class="sub-menu">
+                            <li id="menu-item-53255" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-53255"><a href="https://www.nginx.com/products/nginx-plus-aws/">Amazon Web Services</a></li>
+                            <li id="menu-item-53257" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-53257"><a href="https://www.nginx.com/products/nginx-plus-google-cloud-platform/">Google Cloud Platform</a></li>
+                            <li id="menu-item-53256" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-53256"><a href="https://www.nginx.com/products/nginx-plus-microsoft-azure/">Microsoft Azure</a></li>
+                            <li id="menu-item-53258" class="menu-item menu-item-type-post_type menu-item-object-nx_partner_module menu-item-53258"><a href="https://www.nginx.com/partners/red-hat/">Red Hat</a></li>
+                            <li id="menu-item-49390" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49390"><a href="https://www.nginx.com/partners/certified-module-program/">Certified module program</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.footer-menu-location -->
+        </div>
+        <div class="footer-connect-nav">
+            <div class="footer-social">
+                <span class="footer-head">Connect With Us</span>
+                <ul>
+                    <li><a href="https://www.facebook.com/nginxinc" class="icon-facebook">facebook</a></li>
+                    <li><a href="https://twitter.com/nginx" class="icon-twitter">twitter</a></li>
+                    <li><a href="http://www.linkedin.com/company/nginx" class="icon-linkedin">linkedin</a></li>
+                    <li style="margin-right:-3px;margin-left:2px;">
+                        <a href="https://www.youtube.com/user/NginxInc"><img style="width:26px;height:auto;" src="Install%20|%20NGINX_files/yt-nginx2x.png" alt="NGINX Youtube Channel"></a>
+                    </li>
+                    <li><a href="https://www.nginx.com/feed/" class="icon-rss">rss</a></li>
+                </ul>
+            </div>
+            <div class="footer-email-signup">
+                <a href="http://pages.nginx.com/express-opt-in.html" class="nginx-button button-primary" target="_blank" style="padding:9px 9px; color:#32302f; background:#656463; border-color:#656463;">Stay in the Loop</a>
+            </div>
+        </div>
+
+        <div class="site-info">
+            Copyright © 2017 NGINX Inc. All rights reserved. | <a href="https://www.nginx.com/privacy-policy/">Privacy Policy</a> </div>
+        <!-- /.site-info -->
+
+    </div>
+    <!-- /.site-footer-inner -->
+</footer>
+<!-- /#colophon -->
+  <!-- Footer Section End -->
+ 
+   <!-- Js From old design --> 
+   <!-- /#page -->
+  <script type="text/javascript" src="Install%20|%20NGINX_files/nginx-theme.js"></script>
+  <script type="text/javascript" src="Install%20|%20NGINX_files/nginx-site-header.js"></script>
+  <!-- End Piwik Code -->
+  <script type="text/javascript">
+  var shiftWindow = function() { window.scrollBy(0, -80) };
+  // Timeout to push the scrollBy to the bottom of the queue, otherwise it breaks in IE and Chrome
+  var testWindow = function() { if (!!window.location.hash) setTimeout(function(){ shiftWindow(); }, 1); };
+  window.addEventListener("load", testWindow);
+  window.addEventListener("hashchange", shiftWindow);
+  </script>
+  <!-- Google Tag Manager -->
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WBXGM3"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WBXGM3');</script>
+  <!-- End Google Tag Manager -->
+
+
+  <!-- Js Files new for design -->
+  <!-- jQuery is automatically included in header -->
+  <script src="Install%20|%20NGINX_files/bootstrap.js"></script>
+  <script src="Install%20|%20NGINX_files/main.js"></script> 
+
+<div id="om-pzhtbho5xiwg14nl-holder"></div><script type="text/javascript" id="">var
+ pzhtbho5xiwg14nl,pzhtbho5xiwg14nl_poll=function(){var b=0;return 
+function(d,c){clearInterval(b);b=setInterval(d,c)}}();
+!function(b,d,c){if(b.getElementById(c))pzhtbho5xiwg14nl_poll(function(){if(window.om_loaded&&!pzhtbho5xiwg14nl)return
+ pzhtbho5xiwg14nl=new 
+OptinMonsterApp,pzhtbho5xiwg14nl.init({u:"12977.242056",staging:0,dev:0})},25);else{var
+ 
+e=!1,a=b.createElement(d);a.id=c;a.src="//a.optnmnstr.com/app/js/api.min.js";a.onload=a.onreadystatechange=function(){if(!(e||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState))try{e=om_loaded=!0,pzhtbho5xiwg14nl=new
+ OptinMonsterApp,pzhtbho5xiwg14nl.init({u:"12977.242056",
+staging:0,dev:0}),a.onload=a.onreadystatechange=null}catch(f){}};(document.getElementsByTagName("head")[0]||document.documentElement).appendChild(a)}}(document,"script","omapi-script");</script>
+<script type="text/javascript" id="">var 
+bfId="phJNIx8CZkDlFwzY",bfSession=.041666666666666664;(function(){var 
+a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===document.location.protocol?"https://":"http://")+"munchkin.brightfunnel.com/js/build/bf-munchkin.min.js";var
+ 
+b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script>
+
+
+<script type="text/javascript" id="">var 
+dataLayer=dataLayer||[];_bam={debug:!1};(function(d,e,a,b,f,c,g){d.GoogleAnalyticsObject=f;d[f]=d[f]||function(){(d[f].q=d[f].q||[]).push(arguments)};d[f].l=1*new
+ 
+Date;c=e.createElement(a);g=e.getElementsByTagName(a)[0];c.async=1;c.src=b;g.parentNode.insertBefore(c,g)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create","UA-27974099-1","auto");ga("require","linkid","linkid.js");ga("require","linker");ga("linker:autoLink",["nginx.com","nginx.org"]);
+ga("require","displayfeatures");ga("create","UA-27974099-5","auto",{allowLinker:!0,name:"rollup"});ga("rollup.require","linkid","linkid.js");ga("rollup.require","linker");ga("rollup.linker:autoLink",["nginx.com","nginx.org"]);ga("rollup.require","displayfeatures");
+"undefined"!==typeof
+ NginxPostInfo&&("undefined"!==typeof 
+NginxPostInfo.published_date&&ga("set","dimension1",NginxPostInfo.published_date),"undefined"!==typeof
+ 
+NginxPostInfo.wordcount&&ga("set","dimension2",NginxPostInfo.wordcount),"undefined"!==typeof
+ 
+NginxPostInfo.author&&ga("set","dimension3",NginxPostInfo.author),"undefined"!==typeof
+ 
+NginxPostInfo.categories&&ga("set","dimension4",NginxPostInfo.categories),"undefined"!==typeof
+ 
+NginxPostInfo.tags&&ga("set","dimension5",NginxPostInfo.tags),"undefined"!==
+typeof
+ 
+NginxPostInfo.campaigns&&ga("set","dimension6",NginxPostInfo.campaigns));_bam.log=function(d){_bam.debug&&console.log(d);return
+ 
+_bam};_bam.pageView=function(){ga("send","pageview");ga("rollup.send","pageview");return
+ _bam};_bam.createCookie=function(d,e,a){if(a){var b=new 
+Date;"userCategory"==d?b.setTime(b.getTime()+31536E6):b.setTime(b.getTime()+1E3*a);a=";
+ expires\x3d"+b.toGMTString()}else a="";document.cookie=d+"\x3d"+e+a+"; 
+path\x3d/"};
+_bam.readCookie=function(d){d+="\x3d";for(var 
+e=document.cookie.split(";"),a=0;a<e.length;a++){for(var b=e[a];" 
+"==b.charAt(0);)b=b.substring(1,b.length);if(0==b.indexOf(d))return 
+b.substring(d.length,b.length)}return""};
+_bam.extend=function(){try{if("undefined"==typeof 
+jQuery||"function"!=typeof jQuery.bind)return _bam.log("Check that 
+jQuery is defined and has bind() method"),_bam;var 
+d=/\.(zip|exe|dmg|pdf|doc.*|xls.*|ppt.*|mp3|slxb|pps.*|vsd|vxd|txt|rar|wma|mov|avi|wmv|flv|wav)$/i,e="";void
+ 
+0!=jQuery("base").attr("href")&&(e=jQuery("base").attr("href"));jQuery("a:not(.popup)").bind("click",function(a){_bam.log(a);a=jQuery(this);var
+ b="undefined"!=typeof 
+a.attr("href")?a.attr("href"):"";if(!b.match(/^javascript:/i)&&
+""!=b&&-1==window.location.href.indexOf("resources/wiki")){var 
+f=!0,c=[];if(b.match(/^mailto:/i)||b.match(/^mailto: 
+/i))c.category="Email",c.action="Click",c.label=b.replace(/^mailto:/i,""),c.loc=b;else
+ if(b.match(d)){var g=/[.]/.exec(b)?/[^.]+$/.exec(b):void 
+0;c.category="Download";c.action="Click-"+g[0].toLowerCase();c.label=b.replace(/
+ /g,"-");c.loc=e+b}else 
+b.match(/^https?:/i)&&a[0].hostname!=location.hostname?(c.category="External",c.action="Click",c.label=b.replace(/^https?:\/\//i,""),c.non_i=
+!0,c.loc=b):f=!1;if(f){ga("send","event",c.category,c.action,c.label,c.value);if(void
+ 0==a.attr("target")||"_blank"!=a.attr("target").toLowerCase())return 
+setTimeout(function(){location.href=c.loc},_bam.delay),!1;ga("rollup.send","event",c.category,c.action,c.label,c.value);if(void
+ 0==a.attr("target")||"_blank"!=a.attr("target").toLowerCase())return 
+setTimeout(function(){location.href=c.loc},_bam.delay),!1}}});return 
+_bam}catch(a){_bam.log?_bam.debug&&_bam.log(a):console.log(a)}};
+_bam.custom=function(){try{if(jQuery(".topnav 
+.button").on("click",function(){ga("send","event","Button","Click","Header
+ - 
+"+jQuery(this).text()+"");ga("send","pageview","/vpv/"+jQuery(this).text().replace(/
+ /g,"-")+"-Header");ga("rollup.send","event","Button","Click","Header - 
+"+jQuery(this).text()+"");ga("rollup.send","pageview","/vpv/"+jQuery(this).text().replace(/
+ 
+/g,"-")+"-Header")}),jQuery(".button.button-large").on("click",function(){ga("send","event","Button","Click",jQuery(this).text());
+ga("send","pageview","/vpv/"+jQuery(this).text().replace(/
+ 
+/g,"-")+"-Body");ga("rollup.send","event","Button","Click",jQuery(this).text());ga("rollup.send","pageview","/vpv/"+jQuery(this).text().replace(/
+ /g,"-")+"-Body")}),jQuery(".button").on("click",function(){if("Get 
+Started"==jQuery(this).text()){var 
+a=window.location.pathname;ga("send","pageview","/vpv/Try-NGINX-Plus-Free"+a);ga("send","event","Button","Click
+ from 
+"+a,"Try-NGINX-Plus-Free");ga("rollup.send","pageview","/vpv/Try-NGINX-Plus-Free"+
+a);ga("rollup.send","event","Button","Click
+ from 
+"+a,"Try-NGINX-Plus-Free")}}),jQuery("#download-oss").on("click",function(){ga("send","event","Button","Click","Open
+ Source Download and 
+Install");ga("rollup.send","event","Button","Click","Open Source 
+Download and 
+Install")}),jQuery("#single-instance").on("click",function(){ga("send","event","Button","Click","Single
+ Instance");ga("rollup.send","event","Button","Click","Single 
+Instance")}),jQuery("#five-instances").on("click",function(){ga("send","event",
+"Button","Click","Five
+ Instances");ga("rollup.send","event","Button","Click","Five 
+Instances")}),jQuery("#ten-instances").on("click",function(){ga("send","event","Button","Click","Ten
+ Instances Contact");ga("rollup.send","event","Button","Click","Ten 
+Instances 
+Contact")}),jQuery("#more-instances").on("click",function(){ga("send","event","Button","Click","25+
+ Instances Contact");ga("rollup.send","event","Button","Click","25+ 
+Instances Contact")}),jQuery("div._email-signup 
+.button").on("click",function(){ga("send",
+"event","Button","Click","Sign-Up-Footer");ga("send","pageview","/vpv/Sign-Up-Footer");ga("rollup.send","event","Button","Click","Sign-Up-Footer");ga("rollup.send","pageview","/vpv/Sign-Up-Footer")}),jQuery("button.mktoButton").on("click",function(){""!=jQuery("#FirstName").val()&&""!=jQuery("#LastName").val()&&""!=jQuery("#Email").val()&&-1!=jQuery("#Email").val().indexOf("@")&&""!=jQuery("#Company").val()&&(ga("send","pageview","/vpv"+document.location.pathname+"/submit"),ga("rollup.send","pageview",
+"/vpv"+document.location.pathname+"/submit"))}),jQuery(".item_add").on("click",function(){jQuery(this).parent().parent().find("h4").text();ga("send","pageview","/vpv/add-to-cart");ga("rollup.send","pageview","/vpv/add-to-cart")}),location.pathname.match("/search/")){var
+ d=location.pathname.split("/");var 
+e=d[2];ga("send","pageview","/vpv/search?q\x3d"+e);ga("rollup.send","pageview","/vpv/search?q\x3d"+e)}}catch(a){_bam.log?_bam.debug&&_bam.log(a):console.log(a)}};
+"undefined"!=typeof
+ 
+jQuery&&jQuery(document).ready(function(){_bam.extend();_bam.custom();_bam.pageView()});dataLayer.push({event:"trackingloaded"});</script><div style="display: none; visibility: hidden;"><script type="text/javascript">window.olark||function(c){var
+ 
+b=window,l=document,m="https:"==b.location.protocol?"https:":"http:",e=c.name,f="load",g="addEventListener";(function(){function
+ 
+h(){a.P(f);b[e](f)}b[e]=function(){(a.s=a.s||[]).push(arguments)};for(var
+ 
+a=b[e]._={},d=c.methods.length;d--;)(function(a){b[e][a]=function(){b[e]("call",a,arguments)}})(c.methods[d]);a.l=c.loader;a.i=arguments.callee;a.p={0:+new
+ Date};a.P=function(b){a.p[b]=new 
+Date-a.p[0]};b[g]?b[g](f,h,!1):b.attachEvent("on"+f,h);a.P(1);d=l.createElement("script");
+var
+ 
+k=document.getElementsByTagName("script")[0];d.type="text/javascript";d.async=!0;d.src=m+"//"+a.l;k.parentNode.insertBefore(d,k);a.P(2)})()}({loader:function(c){return"static.olark.com/jsclient/loader1.js?ts\x3d"+(c?c[1]:+new
+ 
+Date)}(document.cookie.match(/olarkld=([0-9]+)/)),name:"olark",methods:["configure","extend","declare","identify"]});olark.identify("4153-705-10-4121");olark("api.chat.onReady",function(){"function"===typeof
+ nginx_olark_ready&&nginx_olark_ready()});
+olark("api.chat.onOperatorsAvailable",function(){"function"===typeof 
+nginx_olark_operators_available&&nginx_olark_operators_available()});olark("api.chat.onOperatorsAway",function(){"function"===typeof
+ nginx_olark_operators_away&&nginx_olark_operators_away()});</script>
+</div><script src="Install%20|%20NGINX_files/adsct.js" type="text/javascript"></script><iframe data-olark="true" title="olark chat box" style="width: 0px; height: 0px; position: absolute; left: 0px; bottom: 0px; border: medium none;"></iframe><div data-olark="true" title="Olark Live Chat Widget" id="hbl-live-chat-wrapper"><div id="olark-wrapper" class="" data-reactid=".0"><div aria-live="assertive" aria-atomic="true" role="alert" id="chat-box-announcer" style="position:absolute;visibility:visible;overflow:hidden;display:block;width:1px;height:1px;margin:-1px;border:0px;padding:0px;clip:rect(0px, 0px, 0px, 0px);clip-path:polygon(0px 0px, 0px 0px, 0px 0px, 0px 0px);white-space:nowrap;" data-reactid=".0.0"><p data-reactid=".0.0.0"></p></div><style rel="stylesheet" type="text/css" data-reactid=".0.1">#olark-wrapper
+ #olark-container .olark-button {
+  background-color: #f0a628 !important;
+  color: #333333 !important;
+}
+#olark-wrapper #olark-container .olark-button:hover {
+  background-color: #ee9d11 !important;
+}
+#olark-wrapper #olark-container .olark-theme-bg {
+  background-color: #f0a628 !important;
+}
+#olark-wrapper #olark-container .olark-theme-text {
+  color: #333333 !important;
+}
+#olark-wrapper .olark-launch-button {
+  background-color: #f0a628 !important;
+}
+#olark-wrapper .olark-launch-button svg path {
+  fill: #333333 !important;
+}
+#olark-wrapper .olark-launch-button .olark-button-text {
+  color: #333333 !important;
+}
+#olark-wrapper .olark-top-bar {
+  background-color: #f0a628 !important;
+  color: #333333 !important;
+  border-color: #ee9d11 !important;
+}
+#olark-wrapper .olark-top-bar-text {
+  color: #333333 !important;
+}
+#olark-wrapper .olark-top-bar-arrow {
+  fill: #333333 !important;
+}
+#olark-wrapper .olark-end-chat-button {
+  color: #333333 !important;
+  background-color: rgba(215, 142, 15, 0.5) !important;
+}
+#olark-wrapper .olark-end-chat-button:hover {
+  background-color: #d78e0f !important;
+}
+#olark-wrapper #olark-container 
+.olark-visitor-message:not(.olark-message-trans-bg) {
+  background-color: rgba(240, 166, 40, 0.25) !important;
+}
+#olark-wrapper #olark-container .olark-form-send-button {
+  background-color: #f0a628 !important;
+  color: #333333 !important;
+}
+#olark-wrapper #olark-container .olark-feedback-form-button {
+  background-color: #f0a628 !important;
+  color: #333333 !important;
+}
+#olark-wrapper #olark-container .olark-restart-button {
+  background-color: #f0a628 !important;
+  color: #333333 !important;
+}
+#olark-wrapper #olark-container .olark-branding-panel 
+.olark-branding-cancel-button {
+  background-color: #f0a628 !important;
+  border: none !important;
+  color: #333333 !important;
+}
+#olark-wrapper #olark-container .olark-branding-panel 
+.olark-branding-go-button {
+  border: none !important;
+  background: rgba(240, 166, 40, 0.35) !important;
+}
+#olark-wrapper #olark-container .olark-send-transcript-container 
+.olark-send-transcript-form.olark-inline-form-valid 
+.olark-form-input-container {
+  border-color: #f0a628 !important;
+}
+#olark-wrapper #olark-container .olark-send-transcript-container 
+.olark-send-transcript-form.olark-inline-form-valid .olark-send-icon {
+  fill: #f0a628 !important;
+}
+#olark-wrapper #olark-container 
+.olark-visitor-message:not(.olark-message-has-border) {
+  border: none !important;
+}
+#olark-wrapper .olark-end-chat-flag {
+  fill: #f0a628 !important;
+}
+#olark-wrapper #olark-container .olark-form-confirmation-icon 
+.olark-launch-button-icon {
+  fill: #f0a628 !important;
+}
+#olark-wrapper #olark-container .olark-form-input:focus {
+  border-color: #f0a628 !important;
+}
+#olark-wrapper #olark-container .olark-form-message-input:focus {
+  border-color: #f0a628 !important;
+}
+</style><div class="olark-attention-grabber olark-hidden olark-above-tab olark-init" aria-hidden="true" data-reactid=".0.2"><button class="olark-bounding-box" data-reactid=".0.2.0"><img class="olark-attention-grabber-img" src="Install%20|%20NGINX_files/a.html" alt="attention grabber" data-reactid=".0.2.0.0"></button><button class="olark-attention-grabber-cancel olark-hidden" data-reactid=".0.2.1"><svg viewBox="0 0 11 12" fill="#ffffff" x="0" y="0" aria-label="a small x to signify cancel" role="img" data-reactid=".0.2.1.0"><title data-reactid=".0.2.1.0.0">X icon</title><desc data-reactid=".0.2.1.0.1">a small x to signify cancel</desc><polygon points="10.5,2.7 9.1,1.3 5.5,4.9 1.8,1.3 0.5,2.7 4.1,6.3 0.5,9.9 1.8,11.3 5.5,7.7 9.1,11.3 10.5,9.9 6.8,6.3" data-reactid=".0.2.1.0.2"></polygon></svg></button></div><button class="olark-launch-button olark-chat-tab olark-size-md" tabindex="0" role="button" aria-hidden="false" data-reactid=".0.3"><svg x="0px" y="0px" viewBox="0 0 27 21.9" aria-label="three small dots to indicate that an agent is available to chat" role="img" data-reactid=".0.3.0"><title data-reactid=".0.3.0.0">Chat Icon </title><desc data-reactid=".0.3.0.1">three small dots to indicate that an agent is available to chat</desc><path fill="#ffffff" d="M23.2,0L2.6,1.7C1,1.9,0,3.2,0,4.9v8c0,1.6,0.8,3,2.4,3.1l5.3,0.5c0,0,1,1.6,0.3,3.2C7.2,21.3,6,21.9,6,21.9 c4.2,0,6.6-3.1,7.8-4.9l9.4,0.7c1.8,0.2,3.8-1.3,3.8-3.1V3.1C27,1.3,25-0.1,23.2,0z M6.4,10.1c-0.9,0-1.7-0.7-1.7-1.7 c0-0.9,0.7-1.7,1.7-1.7C7.3,6.8,8,7.5,8,8.5C8,9.4,7.3,10.1,6.4,10.1z M13.2,10.1c-0.9,0-1.7-0.7-1.7-1.7c0-0.9,0.7-1.7,1.7-1.7 c0.9,0,1.7,0.7,1.7,1.7C14.8,9.4,14.1,10.1,13.2,10.1z M19.9,10.1c-0.9,0-1.7-0.7-1.7-1.7c0-0.9,0.7-1.7,1.7-1.7 c0.9,0,1.7,0.7,1.7,1.7C21.6,9.4,20.9,10.1,19.9,10.1z" data-reactid=".0.3.0.2"></path></svg><div class="olark-notification-badge olark-hidden" data-reactid=".0.3.1"><div class="olark-notification-badge-text" data-reactid=".0.3.1.0">0</div></div><div class="olark-button-text" data-reactid=".0.3.2">Questions about NGINX? </div></button><div id="olark-container" class="olark-hidden olark-no-branding olark-size-md" aria-hidden="true" role="complementary" data-reactid=".0.4"><div class="olark-top-bar" data-reactid=".0.4.0"><div class="olark-top-bar-text" data-reactid=".0.4.0.0">Now chatting</div><div class="olark-top-bar-button" role="button" tabindex="-1" aria-hidden="true" aria-label="Minimize Chat" data-reactid=".0.4.0.1"><svg viewBox="0 0 15.1 8.9" fill="#ffffff" aria-label="a small down arrow to minimize chat box" role="img" data-reactid=".0.4.0.1.0"><title data-reactid=".0.4.0.1.0.0">Arrow Down</title><desc data-reactid=".0.4.0.1.0.1">a small down arrow to minimize chat box</desc><polygon class="olark-top-bar-arrow" points="0.2,1.4 7.6,8.9 15.1,1.4 13.7,0 7.6,6 1.6,0" data-reactid=".0.4.0.1.0.2"></polygon></svg></div></div><div class="olark-conversation-container olark-form-conversation-container olark-no-message-form olark-prechat-form" id="olark-prechat-form" data-reactid=".0.4.1"><div class="olark-generated-message" data-reactid=".0.4.1.1">Thanks for stopping by! Do you have questions about NGINX Plus?</div><div class="olark-form-container" data-reactid=".0.4.1.2"><form class="olark-form" novalidate="" role="form" data-reactid=".0.4.1.2.0"><div class="olark-form-input-container" data-reactid=".0.4.1.2.0.0:$fname"><input name="fname" class="olark-form-input" id="olark-form-input-fname" placeholder="" tabindex="-1" aria-hidden="true" aria-invalid="false" autocomplete="on" required="" aria-required="true" aria-label="Type your Name" data-reactid=".0.4.1.2.0.0:$fname.0" type="text"><label class="olark-float-label" for="olark-form-input-fname" data-reactid=".0.4.1.2.0.0:$fname.1">Type your Name</label><span class="olark-required-asterisk" data-reactid=".0.4.1.2.0.0:$fname.2"><svg viewBox="0 0 20 20" x="0" y="0" fill="currentcolor" aria-label="required asterisk signifies that this field can not be left blank" role="img" data-reactid=".0.4.1.2.0.0:$fname.2.0"><title data-reactid=".0.4.1.2.0.0:$fname.2.0.0">Required Asterisk</title><desc data-reactid=".0.4.1.2.0.0:$fname.2.0.1">signifies that this field can not be left blank</desc><path d="M10,0C4.5,0,0,4.5,0,10c0,5.5,4.5,10,10,10s10-4.5,10-10C20,4.5,15.5,0,10,0z M13.8,13.6L12,15l-2-3L8,15l-1.8-1.4l2-2.8 L5,9.6l0.8-2.2L9,8.6L8.8,5h2.4L11,8.6l3.2-1.3L15,9.6l-3.2,1.1L13.8,13.6z" data-reactid=".0.4.1.2.0.0:$fname.2.0.2"></path></svg></span></div><div class="olark-form-input-container" data-reactid=".0.4.1.2.0.0:$email"><input name="email" class="olark-form-input" id="olark-form-input-email" placeholder="" tabindex="-1" aria-hidden="true" aria-invalid="false" autocomplete="on" required="" aria-required="true" aria-label="Type your Business Email" data-reactid=".0.4.1.2.0.0:$email.0" type="email"><label class="olark-float-label" for="olark-form-input-email" data-reactid=".0.4.1.2.0.0:$email.1">Type your Business Email</label><span class="olark-required-asterisk" data-reactid=".0.4.1.2.0.0:$email.2"><svg viewBox="0 0 20 20" x="0" y="0" fill="currentcolor" aria-label="required asterisk signifies that this field can not be left blank" role="img" data-reactid=".0.4.1.2.0.0:$email.2.0"><title data-reactid=".0.4.1.2.0.0:$email.2.0.0">Required Asterisk</title><desc data-reactid=".0.4.1.2.0.0:$email.2.0.1">signifies that this field can not be left blank</desc><path d="M10,0C4.5,0,0,4.5,0,10c0,5.5,4.5,10,10,10s10-4.5,10-10C20,4.5,15.5,0,10,0z M13.8,13.6L12,15l-2-3L8,15l-1.8-1.4l2-2.8 L5,9.6l0.8-2.2L9,8.6L8.8,5h2.4L11,8.6l3.2-1.3L15,9.6l-3.2,1.1L13.8,13.6z" data-reactid=".0.4.1.2.0.0:$email.2.0.2"></path></svg></span></div><div class="olark-form-input-container" data-reactid=".0.4.1.2.0.0:$phone"><input name="phone" class="olark-form-input" id="olark-form-input-phone" placeholder="" tabindex="-1" aria-hidden="true" aria-invalid="false" autocomplete="on" maxlength="40" required="" aria-required="true" aria-label="Type your Phone" data-reactid=".0.4.1.2.0.0:$phone.0" type="tel"><label class="olark-float-label" for="olark-form-input-phone" data-reactid=".0.4.1.2.0.0:$phone.1">Type your Phone</label><span class="olark-required-asterisk" data-reactid=".0.4.1.2.0.0:$phone.2"><svg viewBox="0 0 20 20" x="0" y="0" fill="currentcolor" aria-label="required asterisk signifies that this field can not be left blank" role="img" data-reactid=".0.4.1.2.0.0:$phone.2.0"><title data-reactid=".0.4.1.2.0.0:$phone.2.0.0">Required Asterisk</title><desc data-reactid=".0.4.1.2.0.0:$phone.2.0.1">signifies that this field can not be left blank</desc><path d="M10,0C4.5,0,0,4.5,0,10c0,5.5,4.5,10,10,10s10-4.5,10-10C20,4.5,15.5,0,10,0z M13.8,13.6L12,15l-2-3L8,15l-1.8-1.4l2-2.8 L5,9.6l0.8-2.2L9,8.6L8.8,5h2.4L11,8.6l3.2-1.3L15,9.6l-3.2,1.1L13.8,13.6z" data-reactid=".0.4.1.2.0.0:$phone.2.0.2"></path></svg></span></div><button class="olark-form-send-button" type="submit" aria-hidden="true" tabindex="-1" data-reactid=".0.4.1.2.0.2">Click here to start chatting</button></form></div></div><noscript data-reactid=".0.4.4"></noscript></div></div></div></body></html>
