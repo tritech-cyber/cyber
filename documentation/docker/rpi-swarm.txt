@@ -1,0 +1,53 @@
+# curl -sSL https://get.docker.com | sh
+# Executing docker install script, commit: 11aa13e
++ sh -c apt-get update -qq >/dev/null
++ sh -c apt-get install -y -qq apt-transport-https ca-certificates curl software-properties-common >/dev/null
++ sh -c curl -fsSL "https://download.docker.com/linux/raspbian/gpg" | apt-key add -qq - >/dev/null
+Warning: apt-key output should not be parsed (stdout is not a terminal)
++ sh -c echo "deb [arch=armhf] https://download.docker.com/linux/raspbian stretch edge" > /etc/apt/sources.list.d/docker.list
++ [ raspbian = debian ]
++ sh -c apt-get update -qq >/dev/null
++ sh -c apt-get install -y -qq --no-install-recommends docker-ce >/dev/null
++ sh -c docker version
+Client:
+ Version:      17.11.0-ce
+ API version:  1.34
+ Go version:   go1.8.3
+ Git commit:   1caf76c
+ Built:        Mon Nov 20 19:01:07 2017
+ OS/Arch:      linux/arm
+
+Server:
+ Version:      17.11.0-ce
+ API version:  1.34 (minimum version 1.12)
+ Go version:   go1.8.3
+ Git commit:   1caf76c
+ Built:        Mon Nov 20 18:54:12 2017
+ OS/Arch:      linux/arm
+ Experimental: false
+If you would like to use Docker as a non-root user, you should now consider
+adding your user to the "docker" group with something like:
+
+  sudo usermod -aG docker your-user
+
+Remember that you will have to log out and back in for this to take effect!
+
+WARNING: Adding a user to the "docker" group will grant the ability to run
+         containers which can be used to obtain root privileges on the
+         docker host.
+         Refer to https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface
+         for more information.
+root@swarm-1:~# usermod -aG docker pi
+
+# /etc/dhcpcd.conf
+interface eth0
+
+static ip_address=192.168.1.10/24
+static routers=192.168.1.1
+static domain_name_servers=192.168.1.1
+
+interface wlan0
+
+static ip_address=192.168.1.11/24
+static routers=192.168.1.1
+static domain_name_servers=192.168.1.1

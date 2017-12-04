@@ -1,0 +1,1868 @@
+<!-- Page generated 2017-12-01 19:30:37 +0000 -->
+<!-- relative link basehrefs -->
+<!-- Logic for feedback CC'ing -->
+<!-- Logic for 'edit this button' -->
+<!-- End of logic for 'edit this button' -->
+<!DOCTYPE html>
+<html lang="en"><head>
+	<!-- base href="https://docs.docker.com/engine/security/" -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@charset "UTF-8";
+		[ng\:cloak],
+		[ng-cloak],
+		[data-ng-cloak],
+		[x-ng-cloak],
+		.ng-cloak,
+		.x-ng-cloak,
+		.ng-hide:not(.ng-hide-animate) {
+			display: none !important;
+		}
+
+		ng\:form {
+			display: block;
+		}
+	</style>
+	
+	<script type="text/javascript" async="" src="Docker%20security%20|%20Docker%20Documentation_files/linkid.js"></script><script type="text/javascript" async="" src="Docker%20security%20|%20Docker%20Documentation_files/analytics.js"></script><script id="pd-rating-js" src="Docker%20security%20|%20Docker%20Documentation_files/rating.js"></script><script type="text/javascript" async="" src="Docker%20security%20|%20Docker%20Documentation_files/analytics.js"></script><script type="text/javascript" async="" src="Docker%20security%20|%20Docker%20Documentation_files/gtm.js"></script><script type="text/javascript" async="" src="Docker%20security%20|%20Docker%20Documentation_files/analytics_002.js"></script><script type="text/javascript">
+	  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
+	  analytics.load("IWj9D0UpZHZdZUZX9jl98PcpBFWBnBMy");
+	  analytics.page();
+	  }}();
+	</script>
+	
+	<!-- favicon -->
+	<link rel="icon" type="image/x-icon" href="https://docs.docker.com/favicons/docs@2x.ico" sizes="129x128">
+	<meta name="msapplication-TileImage" content="/favicons/docs@2x.ico">
+	<link rel="apple-touch-icon" type="image/x-icon" href="https://docs.docker.com/favicons/docs@2x.ico" sizes="129x128">
+	<meta property="og:image" content="/favicons/docs@2x.ico">
+	<!-- metadata -->
+	<meta property="og:type" content="website">
+	<meta property="og:updated_time" itemprop="dateUpdated" content="2017-12-01T19:30:37+00:00">
+	<meta property="og:image" itemprop="image primaryImageOfPage" content="/images/docs@2x.png">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:domain" content="docs.docker.com">
+	<meta name="twitter:site" content="@docker_docs">
+	<meta name="twitter:url" content="https://twitter.com/docker_docs">
+	<meta name="twitter:title" itemprop="title name" content="Docker security">
+	<meta name="twitter:description" property="og:description" itemprop="description" content="There are four major areas to consider when reviewing Docker security: the intrinsic security of the kernel and its support for namespaces and cgroups; the attack surface of the Docker...">
+	<meta name="twitter:image:src" content="/images/docs@2x.png">
+	<meta name="twitter:image:alt" content="Docker Documentation">
+	<meta property="article:published_time" itemprop="datePublished" content="2017-12-01T19:30:37+00:00">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Docker, Docker documentation, security">
+	<link rel="stylesheet" href="Docker%20security%20|%20Docker%20Documentation_files/font-awesome.css">
+	<link rel="stylesheet" href="Docker%20security%20|%20Docker%20Documentation_files/bootstrap.css">
+	<link id="pygments" rel="stylesheet" href="Docker%20security%20|%20Docker%20Documentation_files/perldoc.css">
+	<link id="pagestyle" rel="stylesheet" href="Docker%20security%20|%20Docker%20Documentation_files/style.css">
+
+	<!-- Go get "Open Sans" font from Google -->
+	<link href="Docker%20security%20|%20Docker%20Documentation_files/css.css" rel="stylesheet">
+	<!-- temp css will be removed -->
+	<link rel="stylesheet" href="Docker%20security%20|%20Docker%20Documentation_files/temp.css">
+	<!-- Begin Jekyll SEO tag v2.2.2 -->
+<title>Docker security | Docker Documentation</title>
+<meta property="og:title" content="Docker security">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Review of the Docker Daemon attack surface">
+<meta property="og:description" content="Review of the Docker Daemon attack surface">
+<link rel="canonical" href="https://docs.docker.com/engine/security/security/">
+<meta property="og:url" content="https://docs.docker.com/engine/security/security/">
+<meta property="og:site_name" content="Docker Documentation">
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"WebPage","headline":"Docker security","description":"Review of the Docker Daemon attack surface","url":"https://docs.docker.com/engine/security/security/"}</script>
+<!-- End Jekyll SEO tag -->
+
+	
+	<script language="javascript">
+	// Default to assuming this is an archive and hiding some stuff
+	// See js/archive.js and js/docs.js for logic relating to this
+	var isArchive = true;
+	var dockerVersion = 'v17.09';
+	</script>
+<script charset="utf-8" src="Docker%20security%20|%20Docker%20Documentation_files/rate.js"></script><script charset="utf-8" src="Docker%20security%20|%20Docker%20Documentation_files/rating-results.js"></script><style type="text/css" id="pd_popup_holder_style_8453675">#pd_popup_holder_8453675 { position:absolute; display:none; width:175px; height:auto; top:0px; left:0px; z-index:10000; border:solid 1px #CCC; background-color:white; padding:0px 15px;font-family:Arial,Sans;box-shadow: -10px 10px 20px rgba(0, 0, 0, .5);-webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, .25);-moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, .25); }</style></head>
+<body ng-app="Docker" ng-controller="DockerController" class="colums">
+	<header>
+		 <nav class="nav-secondary navbar navbar-fixed-top">
+    <div class="fan"></div>
+    <div class="container-fluid">
+<!--         <div class="ctrl-left">
+        <a href="javascript:void(0)" id="menu-toggle-left"><i class="fa fa-outdent" aria-hidden="true"></i></a>
+      </div> -->
+        <div class="navbar-header">
+            <a href="https://docs.docker.com/"><img class="logo" src="Docker%20security%20|%20Docker%20Documentation_files/docker-docs-logo.svg" alt="Docker Docs" title="Docker Docs"></a>
+        </div>
+        <div class="navbar-collapse" aria-expanded="false" style="height: 1px;">
+            <div class="search-form" id="search-div" style="visibility: visible;">
+    <form class="search-form form-inline ng-pristine ng-valid" id="searchForm" action="/search/" style="visibility: visible;">
+        <input class="search-field form-control ds-input" id="st-search-input" name="q" placeholder="Search the docs" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top;" type="search">
+        <div id="autocompleteContainer">
+            <div id="autocompleteResults"></div>
+        </div>
+        <!-- <button type="submit" class="search-submit btn btn-default">Search</button> -->
+    </form>
+</div>
+<div class="sidebar-toggle">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+</div>
+<div class="nav-container">
+    <div id="tabs">
+        <ul class="tabs">
+            
+
+  
+  
+<li id="guides" class="active"><a href="https://docs.docker.com/">Guides</a></li>
+
+  
+  
+<li id="manuals"><a href="https://docs.docker.com/manuals/">Product manuals</a></li>
+
+  
+  
+<li id="glossary"><a href="https://docs.docker.com/glossary/">Glossary</a></li>
+
+  
+  
+<li id="reference"><a href="https://docs.docker.com/reference/">Reference</a></li>
+
+  
+  
+<li id="samples"><a href="https://docs.docker.com/samples/">Samples</a></li>
+
+
+        </ul>
+    </div>
+    <div class="ctrl-right hidden-xs hidden-sm">
+        <a href="javascript:void(0)" id="menu-toggle"><i class="fa fa-indent" aria-hidden="true"></i></a>
+        <div class="btn-group" style="visibility: visible;">
+  <button type="button" class="btn btn-default dropdown-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Docker v17.09 (current)              <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="https://docs.docker.com/v17.06/">Docker v17.06</a></li><li><a href="https://docs.docker.com/v17.03/">Docker v17.03</a></li><li><a href="https://docs.docker.com/v1.13/">Docker v1.13</a></li><li><a href="https://docs.docker.com/v1.12/">Docker v1.12</a></li><li><a href="https://docs.docker.com/v1.11/">Docker v1.11</a></li><li><a href="https://docs.docker.com/v1.10/">Docker v1.10</a></li><li><a href="https://docs.docker.com/v1.9/">Docker v1.9</a></li><li><a href="https://docs.docker.com/v1.8/">Docker v1.8</a></li><li><a href="https://docs.docker.com/v1.7/">Docker v1.7</a></li><li><a href="https://docs.docker.com/v1.6/">Docker v1.6</a></li><li><a href="https://docs.docker.com/v1.5/">Docker v1.5</a></li><li><a href="https://docs.docker.com/v1.4/">Docker v1.4</a></li>
+  </ul>
+</div>
+
+    </div>
+</div>
+        </div>
+    </div>
+</nav>
+	</header>
+
+	<div class="wrapper right-open">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-body">
+					<main class="col-content content">
+						<section class="section">
+							
+								
+							<h1 id="title">Docker security</h1>  <span class="reading-time" title="Estimated reading time">
+  <span class="reading-time-label">Estimated reading time: </span>
+  
+  
+    11 minutes
+  
+</span>
+
+							
+							
+							<p>There are four major areas to consider when reviewing Docker security:</p>
+
+<ul>
+  <li>the intrinsic security of the kernel and its support for
+namespaces and cgroups;</li>
+  <li>the attack surface of the Docker daemon itself;</li>
+  <li>loopholes in the container configuration profile, either by default,
+or when customized by users.</li>
+  <li>the “hardening” security features of the kernel and how they
+interact with containers.</li>
+</ul>
+
+<h2 id="kernel-namespaces">Kernel namespaces</h2>
+
+<p>Docker containers are very similar to LXC containers, and they have
+similar security features. When you start a container with
+<code class="highlighter-rouge">docker run</code>, behind the scenes Docker creates a set of namespaces and control
+groups for the container.</p>
+
+<p><strong>Namespaces provide the first and most straightforward form of
+isolation</strong>: processes running within a container cannot see, and even
+less affect, processes running in another container, or in the host
+system.</p>
+
+<p><strong>Each container also gets its own network stack</strong>, meaning that a
+container doesn’t get privileged access to the sockets or interfaces
+of another container. Of course, if the host system is setup
+accordingly, containers can interact with each other through their
+respective network interfaces — just like they can interact with
+external hosts. When you specify public ports for your containers or use
+<a href="https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks/"><em>links</em></a>
+then IP traffic is allowed between containers. They can ping each other,
+send/receive UDP packets, and establish TCP connections, but that can be
+restricted if necessary. From a network architecture point of view, all
+containers on a given Docker host are sitting on bridge interfaces. This
+means that they are just like physical machines connected through a
+common Ethernet switch; no more, no less.</p>
+
+<p>How mature is the code providing kernel namespaces and private
+networking? Kernel namespaces were introduced <a href="http://man7.org/linux/man-pages/man7/namespaces.7.html">between kernel version
+2.6.15 and
+2.6.26</a>.
+This means that since July 2008 (date of the 2.6.26 release
+), namespace code has been exercised and scrutinized on a large
+number of production systems. And there is more: the design and
+inspiration for the namespaces code are even older. Namespaces are
+actually an effort to reimplement the features of <a href="http://en.wikipedia.org/wiki/OpenVZ">OpenVZ</a> in such a way that they could be
+merged within the mainstream kernel. And OpenVZ was initially released
+in 2005, so both the design and the implementation are pretty mature.</p>
+
+<h2 id="control-groups">Control groups</h2>
+
+<p>Control Groups are another key component of Linux Containers. They
+implement resource accounting and limiting. They provide many
+useful metrics, but they also help ensure that each container gets
+its fair share of memory, CPU, disk I/O; and, more importantly, that a
+single container cannot bring the system down by exhausting one of those
+resources.</p>
+
+<p>So while they do not play a role in preventing one container from
+accessing or affecting the data and processes of another container, they
+are essential to fend off some denial-of-service attacks. They are
+particularly important on multi-tenant platforms, like public and
+private PaaS, to guarantee a consistent uptime (and performance) even
+when some applications start to misbehave.</p>
+
+<p>Control Groups have been around for a while as well: the code was
+started in 2006, and initially merged in kernel 2.6.24.</p>
+
+<h2 id="docker-daemon-attack-surface">Docker daemon attack surface</h2>
+
+<p>Running containers (and applications) with Docker implies running the
+Docker daemon. This daemon currently requires <code class="highlighter-rouge">root</code> privileges, and you
+should therefore be aware of some important details.</p>
+
+<p>First of all, <strong>only trusted users should be allowed to control your
+Docker daemon</strong>. This is a direct consequence of some powerful Docker
+features. Specifically, Docker allows you to share a directory between
+the Docker host and a guest container; and it allows you to do so
+without limiting the access rights of the container. This means that you
+can start a container where the <code class="highlighter-rouge">/host</code> directory will be the <code class="highlighter-rouge">/</code> directory
+on your host; and the container will be able to alter your host filesystem
+without any restriction. This is similar to how virtualization systems
+allow filesystem resource sharing. Nothing prevents you from sharing your
+root filesystem (or even your root block device) with a virtual machine.</p>
+
+<p>This has a strong security implication: for example, if you instrument Docker
+from a web server to provision containers through an API, you should be
+even more careful than usual with parameter checking, to make sure that
+a malicious user cannot pass crafted parameters causing Docker to create
+arbitrary containers.</p>
+
+<p>For this reason, the REST API endpoint (used by the Docker CLI to
+communicate with the Docker daemon) changed in Docker 0.5.2, and now
+uses a UNIX socket instead of a TCP socket bound on 127.0.0.1 (the
+latter being prone to cross-site request forgery attacks if you happen to run
+Docker directly on your local machine, outside of a VM). You can then
+use traditional UNIX permission checks to limit access to the control
+socket.</p>
+
+<p>You can also expose the REST API over HTTP if you explicitly decide to do so.
+However, if you do that, being aware of the above mentioned security
+implication, you should ensure that it will be reachable only from a
+trusted network or VPN; or protected with e.g., <code class="highlighter-rouge">stunnel</code> and client SSL
+certificates. You can also secure them with <a href="https://docs.docker.com/engine/security/https/">HTTPS and
+certificates</a>.</p>
+
+<p>The daemon is also potentially vulnerable to other inputs, such as image
+loading from either disk with <code class="highlighter-rouge">docker load</code>, or from the network with
+<code class="highlighter-rouge">docker pull</code>. As of Docker 1.3.2, images are now extracted in a chrooted
+subprocess on Linux/Unix platforms, being the first-step in a wider effort
+toward privilege separation. As of Docker 1.10.0, all images are stored and
+accessed by the cryptographic checksums of their contents, limiting the
+possibility of an attacker causing a collision with an existing image.</p>
+
+<p>Eventually, it is expected that the Docker daemon will run restricted
+privileges, delegating operations to well-audited sub-processes,
+each with its own (very limited) scope of Linux capabilities,
+virtual network setup, filesystem management, etc. That is, most likely,
+pieces of the Docker engine itself will run inside of containers.</p>
+
+<p>Finally, if you run Docker on a server, it is recommended to run
+exclusively Docker on the server, and move all other services within
+containers controlled by Docker. Of course, it is fine to keep your
+favorite admin tools (probably at least an SSH server), as well as
+existing monitoring/supervision processes, such as NRPE and collectd.</p>
+
+<h2 id="linux-kernel-capabilities">Linux kernel capabilities</h2>
+
+<p>By default, Docker starts containers with a restricted set of
+capabilities. What does that mean?</p>
+
+<p>Capabilities turn the binary “root/non-root” dichotomy into a
+fine-grained access control system. Processes (like web servers) that
+just need to bind on a port below 1024 do not have to run as root: they
+can just be granted the <code class="highlighter-rouge">net_bind_service</code> capability instead. And there
+are many other capabilities, for almost all the specific areas where root
+privileges are usually needed.</p>
+
+<p>This means a lot for container security; let’s see why!</p>
+
+<p>Your average server (bare metal or virtual machine) needs to run a bunch
+of processes as root. Those typically include SSH, cron, syslogd;
+hardware management tools (e.g., load modules), network configuration
+tools (e.g., to handle DHCP, WPA, or VPNs), and much more. A container is
+very different, because almost all of those tasks are handled by the
+infrastructure around the container:</p>
+
+<ul>
+  <li>SSH access will typically be managed by a single server running on
+the Docker host;</li>
+  <li><code class="highlighter-rouge">cron</code>, when necessary, should run as a user
+process, dedicated and tailored for the app that needs its
+scheduling service, rather than as a platform-wide facility;</li>
+  <li>log management will also typically be handed to Docker, or by
+third-party services like Loggly or Splunk;</li>
+  <li>hardware management is irrelevant, meaning that you never need to
+run <code class="highlighter-rouge">udevd</code> or equivalent daemons within
+containers;</li>
+  <li>network management happens outside of the containers, enforcing
+separation of concerns as much as possible, meaning that a container
+should never need to perform <code class="highlighter-rouge">ifconfig</code>,
+<code class="highlighter-rouge">route</code>, or ip commands (except when a container
+is specifically engineered to behave like a router or firewall, of
+course).</li>
+</ul>
+
+<p>This means that in most cases, containers will not need “real” root
+privileges <em>at all</em>. And therefore, containers can run with a reduced
+capability set; meaning that “root” within a container has much less
+privileges than the real “root”. For instance, it is possible to:</p>
+
+<ul>
+  <li>deny all “mount” operations;</li>
+  <li>deny access to raw sockets (to prevent packet spoofing);</li>
+  <li>deny access to some filesystem operations, like creating new device
+nodes, changing the owner of files, or altering attributes (including
+the immutable flag);</li>
+  <li>deny module loading;</li>
+  <li>and many others.</li>
+</ul>
+
+<p>This means that even if an intruder manages to escalate to root within a
+container, it will be much harder to do serious damage, or to escalate
+to the host.</p>
+
+<p>This won’t affect regular web apps; but malicious users will find that
+the arsenal at their disposal has shrunk considerably! By default Docker
+drops all capabilities except <a href="https://github.com/moby/moby/blob/master/oci/defaults.go#L14-L30">those
+needed</a>,
+a whitelist instead of a blacklist approach. You can see a full list of
+available capabilities in <a href="http://man7.org/linux/man-pages/man7/capabilities.7.html">Linux
+manpages</a>.</p>
+
+<p>One primary risk with running Docker containers is that the default set
+of capabilities and mounts given to a container may provide incomplete
+isolation, either independently, or when used in combination with
+kernel vulnerabilities.</p>
+
+<p>Docker supports the addition and removal of capabilities, allowing use
+of a non-default profile. This may make Docker more secure through
+capability removal, or less secure through the addition of capabilities.
+The best practice for users would be to remove all capabilities except
+those explicitly required for their processes.</p>
+
+<h2 id="other-kernel-security-features">Other kernel security features</h2>
+
+<p>Capabilities are just one of the many security features provided by
+modern Linux kernels. It is also possible to leverage existing,
+well-known systems like TOMOYO, AppArmor, SELinux, GRSEC, etc. with
+Docker.</p>
+
+<p>While Docker currently only enables capabilities, it doesn’t interfere
+with the other systems. This means that there are many different ways to
+harden a Docker host. Here are a few examples.</p>
+
+<ul>
+  <li>You can run a kernel with GRSEC and PAX. This will add many safety
+checks, both at compile-time and run-time; it will also defeat many
+exploits, thanks to techniques like address randomization. It doesn’t
+require Docker-specific configuration, since those security features
+apply system-wide, independent of containers.</li>
+  <li>If your distribution comes with security model templates for
+Docker containers, you can use them out of the box. For instance, we
+ship a template that works with AppArmor and Red Hat comes with SELinux
+policies for Docker. These templates provide an extra safety net (even
+though it overlaps greatly with capabilities).</li>
+  <li>You can define your own policies using your favorite access control
+mechanism.</li>
+</ul>
+
+<p>Just like there are many third-party tools to augment Docker containers
+with e.g., special network topologies or shared filesystems, you can
+expect to see tools to harden existing Docker containers without
+affecting Docker’s core.</p>
+
+<p>As of Docker 1.10 User Namespaces are supported directly by the docker
+daemon. This feature allows for the root user in a container to be mapped
+to a non uid-0 user outside the container, which can help to mitigate the
+risks of container breakout. This facility is available but not enabled
+by default.</p>
+
+<p>Refer to the <a href="https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-user-namespace-options">daemon command</a>
+in the command line reference for more information on this feature.
+Additional information on the implementation of User Namespaces in Docker
+can be found in <a href="https://integratedcode.us/2015/10/13/user-namespaces-have-arrived-in-docker/" target="_blank">this blog post</a>.</p>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>Docker containers are, by default, quite secure; especially if you take
+care of running your processes inside the containers as non-privileged
+users (i.e., non-<code class="highlighter-rouge">root</code>).</p>
+
+<p>You can add an extra layer of safety by enabling AppArmor, SELinux,
+GRSEC, or your favorite hardening solution.</p>
+
+<p>Last but not least, if you see interesting security features in other
+containerization systems, these are simply kernels features that may
+be implemented in Docker as well. We welcome users to submit issues,
+pull requests, and communicate via the mailing list.</p>
+
+<h2 id="related-information">Related information</h2>
+
+<ul>
+  <li><a href="https://docs.docker.com/engine/security/trust/">Use trusted images</a></li>
+  <li><a href="https://docs.docker.com/engine/security/seccomp/">Seccomp security profiles for Docker</a></li>
+  <li><a href="https://docs.docker.com/engine/security/apparmor/">AppArmor security profiles for Docker</a></li>
+  <li><a href="https://medium.com/@ewindisch/on-the-security-of-containers-2c60ffe25a9e">On the Security of Containers (2014)</a></li>
+  <li><a href="https://docs.docker.com/engine/userguide/networking/overlay-security-model/">Docker swarm mode overlay network security model</a></li>
+</ul>
+
+							
+							<!-- tags -->
+							
+							
+							
+							<span class="glyphicon glyphicon-tags" style="padding-right: 10px"></span><span style="vertical-align: 2px"><a href="https://docs.docker.com/glossary/?term=Docker">Docker</a>, <a href="https://docs.docker.com/glossary/?term=Docker%20documentation">Docker documentation</a>, <a href="https://docs.docker.com/glossary/?term=security">security</a></span>
+							
+							<!-- link corrections -->
+              <script language="JavaScript">
+							var x = document.links.length;
+							var baseHref = document.getElementsByTagName('base')[0].href
+							for (i = 0; i < x; i++) {
+							  var munged = false;
+							  var thisHREF = document.links[i].href;
+							  var originalURL = "/engine/security/security/";
+							  if (thisHREF.indexOf(baseHref + "#") > -1) {
+							    // hash fix
+							    //console.log('BEFORE: base:',baseHref,'thisHREF:',thisHREF,'originalURL:',originalURL);
+							    thisHREF = originalURL + thisHREF.replace(baseHref, "");
+							    //console.log('AFTER: base:',baseHref,'thisHREF:',thisHREF,'originalURL:',originalURL);
+							  }
+							  if ((thisHREF.indexOf(window.location.hostname) > -1 || thisHREF.indexOf('http') == -1) && document.links[i].className.indexOf("nomunge") < 0) {
+							    munged = true;
+							    thisHREF = thisHREF.replace(".md", "/").replace("/index/", "/");
+							    document.links[i].setAttribute('href', thisHREF);
+							  }
+							}
+							</script>
+							
+						  <div id="ratings-div" style="color: rgb(185, 194, 204); text-align: center; margin-top: 150px; visibility: visible;">
+								<div id="pd_rating_holder_8453675" style="display: inline-block;"><div class="rating-msg" id="PDRTJS_8453675_msg" style="text-align: center; font:normal normal 12px/20px verdana; color: #333333;">Rate this page:</div><p style="padding: 0px; margin: 0px; clear: both;"></p><div class="rating-icons" id="pd_rate_8453675" style="float:left;"><div class="rating-nero-icon" onmouseout="PDRTJS_8453675.rebuild();" onclick="PDRTJS_8453675.rate(1);" onmouseover="PDRTJS_8453675.hover(1);" id="PDRTJS_8453675_nero_1" style="background-size: 32px 32px !important; cursor: pointer; width: 16px; height: 16px;  line-height: 16px; background: url(https://polldaddy.com/images/ratings/nero-hand-sml.png) bottom left; float: left; padding: 0px; margin: 0px; margin: 0px;">&nbsp;</div><div class="rating-nero-value" id="PDRTJS_8453675_msg_1" style="text-align: center; font:normal normal 12px/20px verdana; color: #333333; float:left; padding: 0px 4px;">56</div><div class="rating-nero-icon" onmouseout="PDRTJS_8453675.rebuild();" onclick="PDRTJS_8453675.rate(2);" onmouseover="PDRTJS_8453675.hover(2);" id="PDRTJS_8453675_nero_2" style="background-size: 32px 32px !important; cursor: pointer; width: 16px; height: 16px;  line-height: 16px; background: url(https://polldaddy.com/images/ratings/nero-hand-sml.png) bottom right; float: left; padding: 0px; margin: 0px; margin: 0px;">&nbsp;</div><div class="rating-nero-value" id="PDRTJS_8453675_msg_2" style="text-align: center; font:normal normal 12px/20px verdana; color: #333333; float:left; padding: 0px 4px;">11</div></div><span style="float:left;">&nbsp;</span><div id="rating_info_8453675" style="display:none;float:left;background:url(https://polldaddy.com/images/ratings/info.png) no-repeat 3px 2px;width:16px;height:16px;cursor:pointer; null " onclick="javascript:PDRTJS_8453675.togglePopup();return false;"><span style="display:none;">i</span></div><div class="pd_popup_holder" id="pd_popup_holder_8453675">&nbsp;</div></div>
+								<script type="text/javascript">
+									PDRTJS_settings_8453675 = {
+										"id": "8453675",
+										"unique_id": "engine/security/security.md",
+										"title": "Docker security",
+										"permalink": "https://github.com/docker/docker.github.io/blob/master/engine/security/security.md"
+									};
+									(function(d, c, j) {
+										if (!document.getElementById(j)) {
+											var pd = d.createElement(c),
+												s;
+											pd.id = j;
+											pd.src = ('https:' == document.location.protocol) ? 'https://polldaddy.com/js/rating/rating.js' : 'http://i0.poll.fm/js/rating/rating.js';
+											s = document.getElementsByTagName(c)[0];
+											s.parentNode.insertBefore(pd, s);
+										}
+									}(document, 'script', 'pd-rating-js'));
+								</script>
+							</div>
+							
+						</section>
+					</main>
+					<nav class="col-nav">
+						<div id="sidebar-nav" class="sidebar hidden-sm hidden-xs">
+						<div id="navbar" class="nav-sidebar">
+    <ul class="nav">
+      
+
+
+
+<li><a data-target="#item1" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Get Docker<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item1" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/installation/">Install Docker</a></li>
+
+
+
+<li><a data-target="#item2" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Docker EE<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item2" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/installation/windows/docker-ee/">Windows Server</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/installation/linux/docker-ee/ubuntu/">Ubuntu</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/installation/linux/docker-ee/rhel/">RHEL</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/installation/linux/docker-ee/centos/">CentOS</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/installation/linux/docker-ee/oracle/">Oracle Linux</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/installation/linux/docker-ee/suse/">SLES</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item3" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Docker CE<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item3" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/docker-for-mac/install/">Mac</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-windows/install/">Windows</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/">Ubuntu</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/installation/linux/docker-ce/debian/">Debian</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/installation/linux/docker-ce/centos/">CentOS</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/installation/linux/docker-ce/fedora/">Fedora</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/installation/linux/docker-ce/binaries/">Binaries</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item4" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Platforms supporting Docker EE and Docker CE<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item4" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/installation/linux/centos/">CentOS</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/installation/linux/ubuntu/">Ubuntu</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a href="https://docs.docker.com/engine/installation/linux/linux-postinstall/">Optional Linux post-installation steps</a></li>
+
+
+
+<li><a data-target="#item6" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Docker Edge<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item6" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/edge/">Overview</a></li>
+
+
+
+<li><a href="https://docs.docker.com/edge/engine/reference/commandline/docker/">Docker Edge CLI reference</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item7" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Docker for AWS<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item7" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/docker-for-aws/why/">Why Docker for AWS?</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-aws/">Setup &amp; prerequisites</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-aws/iam-permissions/">IAM permissions</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-aws/scaling/">Scaling</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-aws/upgrade/">Upgrading</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-aws/deploy/">Deploy your app</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-aws/persistent-data-volumes/">Persistent data volumes</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-aws/load-balancer/">Load balancer</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-aws/faqs/">FAQs</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-aws/opensource/">Open source licensing</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-aws/release-notes/">Release notes</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-aws/archive/">Template archive</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item8" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Docker for Azure<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item8" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/docker-for-azure/why/">Why Docker for Azure?</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-azure/">Setup &amp; prerequisites</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-azure/upgrade/">Upgrading</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-azure/deploy/">Deploy your app</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-azure/persistent-data-volumes/">Persistent data volumes</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-azure/faqs/">FAQs</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-azure/opensource/">Open source licensing</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-azure/release-notes/">Release notes</a></li>
+
+
+
+<li><a href="https://docs.docker.com/docker-for-azure/archive/">Template archive</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item9" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Docker Toolbox (legacy)<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item9" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/toolbox/overview/">Toolbox overview</a></li>
+
+
+
+<li><a href="https://docs.docker.com/toolbox/toolbox_install_mac/">Install Toolbox on Mac</a></li>
+
+
+
+<li><a href="https://docs.docker.com/toolbox/toolbox_install_windows/">Install Toolbox on Windows</a></li>
+
+
+
+<li><a data-target="#item4" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Kitematic<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item4" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/kitematic/userguide/">Kitematic user guide: intro &amp; overview</a></li>
+
+
+
+<li><a href="https://docs.docker.com/kitematic/nginx-web-server/">Set up an Nginx web server</a></li>
+
+
+
+<li><a href="https://docs.docker.com/kitematic/minecraft-server/">Set up a Minecraft Server</a></li>
+
+
+
+<li><a href="https://docs.docker.com/kitematic/rethinkdb-dev-database/">Creating a local RethinkDB database for development</a></li>
+
+
+
+<li><a href="https://docs.docker.com/kitematic/faq/">Frequently asked questions</a></li>
+
+
+
+<li><a href="https://docs.docker.com/kitematic/known-issues/">Known issues</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a href="https://docs.docker.com/toolbox/faqs/troubleshoot/">Troubleshooting</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item10" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Compatibility between Docker versions<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item10" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/migration/">Migrate to Docker 1.10</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/breaking_changes/">Breaking changes</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/deprecated/">Deprecated Docker features</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/faq/">FAQ</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item11" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Release notes<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item11" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/enterprise/release-notes/">Docker EE</a></li>
+
+
+
+<li><a href="https://docs.docker.com/release-notes/docker-ce/">Docker CE</a></li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item2" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Get started<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item2" aria-expanded="false">
+
+
+
+<li><a data-target="#item1" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Get started with Docker<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item1" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/get-started/">Part 1: Orientation</a></li>
+
+
+
+<li><a href="https://docs.docker.com/get-started/part2/">Part 2: Containers</a></li>
+
+
+
+<li><a href="https://docs.docker.com/get-started/part3/">Part 3: Services</a></li>
+
+
+
+<li><a href="https://docs.docker.com/get-started/part4/">Part 4: Swarms</a></li>
+
+
+
+<li><a href="https://docs.docker.com/get-started/part5/">Part 5: Stacks</a></li>
+
+
+
+<li><a href="https://docs.docker.com/get-started/part6/">Part 6: Deploy your app</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item2" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Learn by example<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item2" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/tutorials/networkingcontainers/">Network containers</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a href="https://docs.docker.com/engine/docker-overview/">Docker overview</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item3" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Develop with Docker<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item3" aria-expanded="false">
+
+
+
+<li><a data-target="#item1" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Develop your apps on Docker<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item1" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/develop/">App development overview</a></li>
+
+
+
+<li><a href="https://docs.docker.com/develop/dev-best-practices/">App development best practices</a></li>
+
+
+
+<li><a data-target="#item3" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Work with images<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item3" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/">Best practices for writing Dockerfiles</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/eng-image/baseimages/">Create a base image</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/eng-image/multistage-build/">Use multi-stage builds</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/eng-image/image_management/">Image management</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a href="https://docs.docker.com/samples/">Docker app examples</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item2" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Develop using the Docker Engine SDKs and API<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item2" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/develop/sdk/">Overview</a></li>
+
+
+
+<li><a href="https://docs.docker.com/develop/sdk/examples/">SDK and API examples</a></li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item4" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Configure networking<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item4" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/networking/">Docker container networking</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/networking/work-with-networks/">Work with network commands</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/networking/">Manage swarm service networks</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/networking/overlay-standalone-swarm/">Multi-host networking with standalone swarms</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/networking/get-started-macvlan/">Get started with macvlan network driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/networking/overlay-security-model/">Swarm mode overlay network security model</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/networking/configure-dns/">Configure container DNS in user-defined networks</a></li>
+
+
+
+<li><a data-target="#item8" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Default bridge network<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item8" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks/">Legacy container links</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/networking/default_network/binding/">Bind container ports to the host</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/networking/default_network/build-bridges/">Build your own bridge</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/networking/default_network/configure-dns/">Configure container DNS</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/networking/default_network/custom-docker0/">Customize the docker0 bridge</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/networking/default_network/container-communication/">Understand container communication</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/networking/default_network/ipv6/">IPv6 with Docker</a></li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item5" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Manage application data<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item5" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/volumes/">Storage overview</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/volumes/volumes/">Volumes</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/volumes/bind-mounts/">Bind mounts</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/volumes/tmpfs/">tmpfs mounts</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/troubleshooting_volume_errors/">Troubleshoot volume problems</a></li>
+
+
+
+<li><a data-target="#item6" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Store data within containers<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item6" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/storagedriver/">Storage driver overview</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/">About images, containers, and storage drivers</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/storagedriver/selectadriver/">Select a storage driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/storagedriver/aufs-driver/">Use the AUFS storage driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/storagedriver/btrfs-driver/">Use the Btrfs storage driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/">Use the Device mapper storage driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/storagedriver/overlayfs-driver/">Use the OverlayFS storage driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/storagedriver/zfs-driver/">Use the ZFS storage driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/storagedriver/vfs-driver/">Use the VFS storage driver</a></li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item6" data-toggle="collapse" data-parent="#stacked-menu" aria-expanded="true">Run your app in production<span class="caret arrow"></span></a>
+<ul class="nav collapse in" id="#item6" aria-expanded="true">
+
+
+
+<li><a data-target="#item1" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">The basics<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item1" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/">Overview</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/">Configuring and running Docker</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/prometheus/">Collect Docker metrics with Prometheus</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/start-containers-automatically/">Start containers automatically</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/resource_constraints/">Limit a container's resources</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/userguide/labels-custom-metadata/">Apply custom metadata</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/pruning/">Prune unused Docker objects</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/live-restore/">Keep containers alive during daemon downtime</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/systemd/">Control and configure Docker with systemd</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/formatting/">Format command and log output</a></li>
+
+
+
+<li><a href="https://docs.docker.com/registry/recipes/mirror/">Run a local registry mirror</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item2" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Logging<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item2" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/logging/view_container_logs/">View a container's logs</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/logging/overview/">Configuring logging drivers</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/logging/plugins/">Use a logging driver plugin</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/logging/log_tags/">Log tags for logging driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/logging/logentries/">Logentries logging driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/logging/json-file/">JSON File logging driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/logging/gelf/">Graylog Extended Format (GELF) logging driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/logging/syslog/">Syslog logging driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/logging/awslogs/">Amazon CloudWatch logs logging driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/logging/etwlogs/">ETW logging driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/logging/fluentd/">Fluentd logging driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/logging/gcplogs/">Google Cloud logging driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/logging/journald/">Journald logging driver</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/logging/splunk/">Splunk logging driver</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item3" data-toggle="collapse" data-parent="#stacked-menu" aria-expanded="true">Security<span class="caret arrow"></span></a>
+<ul class="nav collapse in" id="#item3" aria-expanded="true">
+
+
+
+<li><a href="https://docs.docker.com/engine/security/security/" class="active currentPage">Docker security</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/security/non-events/">Docker security non-events</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/security/https/">Protect the Docker daemon socket</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/security/certificates/">Using certificates for repository client verification</a></li>
+
+
+
+<li><a data-target="#item5" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Use trusted images<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item5" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/security/trust/content_trust/">Content trust in Docker</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/security/trust/trust_automation/">Automation with content trust</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/security/trust/trust_delegation/">Delegations for content trust</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/security/trust/deploying_notary/">Deploying Notary</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/security/trust/trust_key_mng/">Manage keys for content trust</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/security/trust/trust_sandbox/">Play in a content trust sandbox</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a href="https://docs.docker.com/engine/security/antivirus/">Antivirus software and Docker</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/security/apparmor/">AppArmor security profiles for Docker</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/security/seccomp/">Seccomp security profiles for Docker</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/security/userns-remap/">Isolate containers with a user namespace</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item4" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Scale your app<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item4" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/">Swarm mode overview</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/key-concepts/">Swarm mode key concepts</a></li>
+
+
+
+<li><a data-target="#item3" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Get started with swarm mode<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item3" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/swarm-tutorial/">Set up for the tutorial</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/">Create a swarm</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/swarm-tutorial/add-nodes/">Add nodes to the swarm</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/swarm-tutorial/deploy-service/">Deploy a service</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/swarm-tutorial/inspect-service/">Inspect the service</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/swarm-tutorial/scale-service/">Scale the service</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/swarm-tutorial/delete-service/">Delete the service</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/swarm-tutorial/rolling-update/">Apply rolling updates</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/swarm-tutorial/drain-node/">Drain a node</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/ingress/">Use swarm mode routing mesh</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item4" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">How swarm mode works<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item4" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/">How nodes work</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/">How services work</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/how-swarm-mode-works/pki/">Manage swarm security with PKI</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/how-swarm-mode-works/swarm-task-states/">Swarm task states</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/swarm-mode/">Run Docker in swarm mode</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/join-nodes/">Join nodes to a swarm</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/manage-nodes/">Manage nodes in a swarm</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/services/">Deploy services to a swarm</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/configs/">Store service configuration data</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/secrets/">Manage sensitive data with Docker secrets</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/swarm_manager_locking/">Lock your swarm</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/networking/">Manage swarm service networks</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/admin_guide/">Swarm administration guide</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/swarm/raft/">Raft consensus in swarm mode</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item5" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Work with external tools<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item5" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/dsc/">PowerShell DSC usage</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/ansible/">Using Ansible</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/chef/">Using Chef</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/puppet/">Using Puppet</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/multi-service_container/">Run multiple services in a container</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/runmetrics/">Runtime metrics</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/admin/ambassador_pattern_linking/">Link via an ambassador container</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item6" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Extend Docker<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item6" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/engine/extend/">Managed plugin system</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/extend/plugins_authorization/">Access authorization plugin</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/extend/legacy_plugins/">Extending Docker with plugins</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/extend/plugins_network/">Docker network driver plugins</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/extend/plugins_volume/">Volume plugins</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/extend/config/">Plugin configuration</a></li>
+
+
+
+<li><a href="https://docs.docker.com/engine/extend/plugin_api/">Plugins API</a></li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item7" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Standards and compliance<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item7" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/compliance/">Docker standards and compliance</a></li>
+
+
+
+<li><a href="https://docs.docker.com/compliance/nist/800_53/">NIST 800-53</a></li>
+
+
+
+<li><a href="https://docs.docker.com/compliance/fedramp/">FedRAMP</a></li>
+
+
+
+<li><a href="https://docs.docker.com/compliance/cis/">CIS</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item8" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Open source at Docker<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item8" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/opensource/code/">Quickstart contribution</a></li>
+
+
+
+<li><a data-target="#item2" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Set up for Docker development<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item2" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/opensource/project/who-written-for/">README first</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/project/software-required/">Get the required software</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/project/software-req-win/">Set up for development on Windows</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/project/set-up-git/">Configure Git for contributing</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/project/set-up-dev-env/">Work with a development container</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/project/test-and-docs/">Run tests and test documentation</a></li>
+
+
+
+<li><a data-target="#item7" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Contribution workflow<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item7" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/opensource/workflow/make-a-contribution/">Understand how to contribute</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/workflow/find-an-issue/">Find and claim an issue</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/workflow/work-issue/">Work on your issue</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/workflow/create-pr/">Create a pull request (PR)</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/workflow/review-pr/">Participate in the PR review</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/workflow/advanced-contributing/">Advanced contributing</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/workflow/coding-style/">Coding style checklist</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item8" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Other ways to contribute<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item8" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/opensource/ways/meetups/">Organize a Docker meetup</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/ways/issues/">Organize our issues</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/ways/community/">Support the community</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/ways/test/">Testing contributions</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item9" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Contribute to Kitematic<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item9" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/opensource/kitematic/get_started/">Get started</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/kitematic/find_issue/">Find an issue</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/kitematic/set_up_dev/">Set up for Kitematic development</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/kitematic/work_issue/">Develop in Kitematic (work on an issue)</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/kitematic/create_pr/">Create a pull request (PR)</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/kitematic/next_steps/">Where to learn more</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a data-target="#item10" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Governance<span class="caret arrow"></span></a>
+<ul class="nav collapse" id="#item10" aria-expanded="false">
+
+
+
+<li><a href="https://docs.docker.com/opensource/governance/dgab-info/">Docker governance advisory board</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/governance/board-profiles/">Board member profiles</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/governance/conduct-code/">Code of conduct</a></li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/FAQ/">FAQ for contributors</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/get-help/">Where to chat or get help</a></li>
+
+
+
+<li><a href="https://docs.docker.com/opensource/doc-style/">Style guide for Docker documentation</a></li>
+
+</ul>
+</li>
+
+
+
+<li><a href=""></a></li>
+
+
+    </ul>
+</div>
+
+						</div>
+					</nav>
+					<div class="col-toc">
+							<div class="sidebar hidden-xs hidden-sm">
+							<div class="toc-nav">
+								<div class="feedback-links">
+									<ul>
+										
+										<li style="visibility: visible;"><a href="https://github.com/docker/docker.github.io/edit/master/engine/security/security.md"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit this page</a></li>
+										<li><a href="https://github.com/docker/docker.github.io/issues/new?assignee=mistyhacks&amp;body=File:%20[engine/security/security.md](https://docs.docker.com/engine/security/security/),%20CC%20@mistyhacks" class="nomunge"><i class="fa fa-check" aria-hidden="true"></i> Request docs changes</a></li>
+										<li><a href="https://www.docker.com/docker-support-services"><i class="fa fa-question" aria-hidden="true"></i> Get support</a></li>
+										<!-- toggle mode -->
+										<li>
+											<div class="toggle-mode">
+												<div class="icon">
+													<i class="fa fa-sun-o" aria-hidden="true"></i>
+												</div>
+												<div class="toggle-switch">
+													<label class="switch">
+														<input id="switch-style" type="checkbox">
+														<div class="slider round"></div>
+												</label>
+												</div>
+												<div class="icon">
+													<i class="fa fa-moon-o" aria-hidden="true"></i>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								   
+									<div id="side-toc-title">On this page:</div>
+									
+<ul id="my_toc" class="inline_toc">
+  <li><a href="https://docs.docker.com/engine/security/security/#kernel-namespaces" class="nomunge">Kernel namespaces</a></li>
+  <li><a href="https://docs.docker.com/engine/security/security/#control-groups" class="nomunge">Control groups</a></li>
+  <li><a href="https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface" class="nomunge">Docker daemon attack surface</a></li>
+  <li><a href="https://docs.docker.com/engine/security/security/#linux-kernel-capabilities" class="nomunge">Linux kernel capabilities</a></li>
+  <li><a href="https://docs.docker.com/engine/security/security/#other-kernel-security-features" class="nomunge">Other kernel security features</a></li>
+  <li><a href="https://docs.docker.com/engine/security/security/#conclusions" class="nomunge">Conclusions</a></li>
+  <li><a href="https://docs.docker.com/engine/security/security/#related-information" class="nomunge">Related information</a></li>
+</ul>
+
+
+								</div>
+								
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<footer class="footer">
+		  
+    <div class="container">
+        <div class="top_footer">
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-2">
+                    <ul class="footer_links">
+                        <li><a href="https://www.docker.com/what-docker">What is Docker</a></li>
+                        <li><a href="https://www.docker.com/what-container">What is a Container</a></li>
+                        <li><a href="https://www.docker.com/use-cases">Use Cases</a></li>
+                        <li><a href="https://www.docker.com/customers">Customers</a></li>
+                        <li><a href="https://www.docker.com/partners/partner-program">Partners</a></li>
+                        <li class="break"><a href="https://www.docker.com/industry-government">For Government</a></li>
+                        <li><a href="https://www.docker.com/company">About Docker</a></li>
+                        <li><a href="https://www.docker.com/company/management">Management</a></li>
+                        <li><a href="https://www.docker.com/company/news-and-press">Press &amp; News</a></li>
+                        <li><a href="https://www.docker.com/careers">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-2">
+                    <ul class="footer_links">
+                        <li><a href="https://www.docker.com/products/overview">Product</a></li>
+                        <li><a href="https://www.docker.com/pricing">Pricing</a></li>
+                        <li><a href="https://www.docker.com/docker-community">Community Edition</a></li>
+                        <li class="break"><a href="https://www.docker.com/enterprise">Enterprise Edition </a></li>
+                        <li><a href="https://www.docker.com/products/docker-datacenter">Docker Datacenter</a></li>
+                        <li><a href="https://cloud.docker.com/">Docker Cloud</a></li>
+                        <li><a href="https://store.docker.com/">Docker Store</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3">
+                    <ul class="footer_links">
+                        <li><a href="https://www.docker.com/docker-mac">Docker for Mac</a></li>
+                        <li class="break"><a href="https://www.docker.com/docker-windows">Docker for Windows (PC)</a></li>
+                        <li><a href="https://www.docker.com/docker-aws" class="web30">Docker for AWS</a></li>
+                        <li class="break"><a href="https://www.docker.com/docker-microsoft-azure">Docker for Azure</a></li>
+                        <li><a href="https://www.docker.com/docker-windows-server">Docker for Windows Server</a></li>
+                        <li><a href="https://www.docker.com/docker-centos">Docker for CentOS distribution</a></li>
+                        <li><a href="https://www.docker.com/docker-debian">Docker for Debian</a></li>
+                        <li><a href="https://www.docker.com/docker-fedora">Docker for Fedora®</a></li>
+                        <li><a href="https://www.docker.com/docker-oracle-linux">Docker for Oracle Enterprise Linux</a></li>
+                        <li><a href="https://www.docker.com/docker-rhel">Docker for RHEL</a></li>
+                        <li><a href="https://www.docker.com/docker-sles">Docker for SLES</a></li>
+                        <li><a href="https://www.docker.com//docker-ubuntu">Docker for Ubuntu</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-2">
+                    <ul class="footer_links">
+                        <li><a href="https://docs.docker.com/">Documentation</a></li>
+                        <li><a href="https://www.docker.com/docker">Learn</a></li>
+                        <li><a href="https://blog.docker.com/" target="_blank">Blog</a></li>
+                        <li><a href="https://training.docker.com/" target="_blank">Training</a></li>
+                        <li><a href="https://www.docker.com/docker-support-services">Support</a></li>
+                        <li><a href="https://success.docker.com/kbase">Knowledge Base</a></li>
+                        <li><a href="https://www.docker.com/products/resources">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-2">
+                    <ul class="footer_links">
+                        <li><a href="https://www.docker.com/docker-community">Community</a></li>
+                        <li><a href="https://www.docker.com/technologies/overview">Open Source</a></li>
+                        <li><a href="https://www.docker.com/community/events">Events</a></li>
+                        <li><a href="https://forums.docker.com/" target="_blank">Forums</a></li>
+                        <li><a href="https://www.docker.com/community/docker-captains">Docker Captains</a></li>
+                        <li><a href="https://www.docker.com/docker-community/scholarships">Scholarships</a></li>
+                        <li><a href="https://blog.docker.com/curated/">Community News</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <nav class="footer_sub_nav">
+                    <ul class="menu">
+                        <li><a href="http://status.docker.com/">Status</a></li>
+                        <li><a href="https://www.docker.com/docker-security">Security</a></li>
+                        <li><a href="https://www.docker.com/legal">Legal</a></li>
+                        <li><a href="https://www.docker.com/company/contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="bottom_footer">
+            <div class="footer-copyright col-xs-12 col-md-8">
+                <p class="copyright">
+                    Copyright © 2017 Docker Inc. All rights reserved. </p>
+            </div>
+            <div class="footer_social_nav">
+                <ul class="nav-social">
+                    <li class="fa fa-twitter"><a href="http://twitter.com/docker">Twitter</a></li>
+                    <li class="fa fa-youtube"><a href="http://www.youtube.com/user/dockerrun">Youtube</a></li>
+                    <li class="fa fa-google-plus"><a href="https://plus.google.com/u/0/communities/108146856671494713993">Google</a></li>
+                    <li class="fa fa-github"><a href="https://github.com/docker/docker">Github</a></li>
+                    <li class="fa fa-linkedin"><a href="https://www.linkedin.com/company/docker">Linkedin</a></li>
+                    <li class="fa fa-facebook"><a href="https://www.facebook.com/docker.run">Facebook</a></li>
+                    <li class="fa fa-reddit"><a href="http://www.reddit.com/r/docker">Reddit</a></li>
+                    <li class="fa fa-slideshare"><a href="http://www.slideshare.net/docker">Slideshare</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+	</footer>
+	<link rel="stylesheet" href="Docker%20security%20|%20Docker%20Documentation_files/github.css">
+	
+	<!-- <script src="/js/anchorlinks.js"></script> -->
+	<script defer="defer" src="Docker%20security%20|%20Docker%20Documentation_files/menu.js"></script>
+	<script src="Docker%20security%20|%20Docker%20Documentation_files/jquery.js"></script>
+	<script src="Docker%20security%20|%20Docker%20Documentation_files/bootstrap.js"></script>
+	<!-- Always include the archive.js, but it doesn't do much unless we are an archive -->
+	<script src="Docker%20security%20|%20Docker%20Documentation_files/archive.js"></script>
+	<script src="Docker%20security%20|%20Docker%20Documentation_files/stickyfill.js"></script>
+	<script defer="defer" src="Docker%20security%20|%20Docker%20Documentation_files/docs.js"></script>
+	<script language="javascript">
+	jQuery(document).ready(function(){
+			$.getJSON( "/metadata.txt", function( data ) {
+				metadata = data;
+				hookupTOCEvents();
+				$.getJSON( "/glossary.txt", function( data ) {
+					glossary = data;
+					renderTagsPage();
+				});
+			});
+	});
+	</script>
+
+
+
+</body></html>

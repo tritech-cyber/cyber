@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Your serverless Raspberry Pi cluster with Docker</title>
+    <meta name="description" content="Learn how to deploy Docker Swarm to create a Raspberry Pi cluster then turn it into a serverless super-computer with the OpenFaaS framework for Docker.">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="https://blog.alexellis.io/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/css.css">
+    <link rel="stylesheet" type="text/css" href="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/screen.css">
+
+
+    <link rel="canonical" href="http://blog.alexellis.io/your-serverless-raspberry-pi-cluster/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="http://blog.alexellis.io/your-serverless-raspberry-pi-cluster/amp/">
+    
+    <meta property="og:site_name" content="alex ellis' blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Your serverless Raspberry Pi cluster with Docker">
+    <meta property="og:description" content="Learn how to deploy Docker Swarm to create a Raspberry Pi cluster then turn it into a serverless super-computer with the OpenFaaS framework for Docker.">
+    <meta property="og:url" content="http://blog.alexellis.io/your-serverless-raspberry-pi-cluster/">
+    <meta property="og:image" content="http://blog.alexellis.io/content/images/2017/08/lead_crop.jpg">
+    <meta property="article:published_time" content="2017-08-20T18:32:48.000Z">
+    <meta property="article:modified_time" content="2017-11-13T18:10:45.000Z">
+    <meta property="article:tag" content="docker">
+    <meta property="article:tag" content="Raspberry PI">
+    <meta property="article:tag" content="openfaas">
+    <meta property="article:tag" content="faas">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Your serverless Raspberry Pi cluster with Docker">
+    <meta name="twitter:description" content="Learn how to deploy Docker Swarm to create a Raspberry Pi cluster then turn it into a serverless super-computer with the OpenFaaS framework for Docker.">
+    <meta name="twitter:url" content="http://blog.alexellis.io/your-serverless-raspberry-pi-cluster/">
+    <meta name="twitter:image" content="http://blog.alexellis.io/content/images/2017/08/lead_crop.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Alex Ellis">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="docker, Raspberry PI, openfaas, faas">
+    <meta name="twitter:site" content="@alexellisuk">
+    <meta name="twitter:creator" content="@alexellisuk">
+    
+    <script async="" src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/analytics.js"></script><script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "alex ellis&#x27; blog",
+        "logo": "http://blog.alexellis.io/ghost/img/ghosticon.jpg"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Alex Ellis",
+        "image": "http://blog.alexellis.io/content/images/2016/05/46432216001_ffd2d84d48c6cea1eb23_192.jpg",
+        "url": "http://blog.alexellis.io/author/alex/",
+        "sameAs": [
+            "http://alexellis.io/",
+            "https://twitter.com/alexellisuk"
+        ]
+    },
+    "headline": "Your serverless Raspberry Pi cluster with Docker",
+    "url": "http://blog.alexellis.io/your-serverless-raspberry-pi-cluster/",
+    "datePublished": "2017-08-20T18:32:48.000Z",
+    "dateModified": "2017-11-13T18:10:45.000Z",
+    "image": "http://blog.alexellis.io/content/images/2017/08/lead_crop.jpg",
+    "keywords": "docker, Raspberry PI, openfaas, faas",
+    "description": "Learn how to deploy Docker Swarm to create a Raspberry Pi cluster then turn it into a serverless super-computer with the OpenFaaS framework for Docker.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://blog.alexellis.io"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="alex ellis' blog" href="http://blog.alexellis.io/rss/">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-60759269-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<script type="text/javascript" async="" src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/embed.js"></script><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="prefetch" as="style" href="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/a_data_003/lounge.css"><link rel="prefetch" as="script" href="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/a_data_003/common.js"><link rel="prefetch" as="script" href="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/a_data_003/lounge.js"><link rel="prefetch" as="script" href="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/a_data_003/config.js"><script type="text/javascript" charset="utf-8" async="" src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/tweet.js"></script></head>
+<body class="post-template tag-docker tag-raspberry-pi tag-openfaas tag-faas nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+            <li class="nav-home"><a href="http://blog.alexellis.io/">Home</a></li>
+            <li class="nav-docker"><a href="http://blog.alexellis.io/tag/docker/">Docker</a></li>
+            <li class="nav-raspberry-pi"><a href="http://blog.alexellis.io/tag/raspberry-pi/">Raspberry PI</a></li>
+            <li class="nav-github-repos"><a href="https://github.com/alexellis/">Github repos</a></li>
+            <li class="nav-serverless"><a href="http://blog.alexellis.io/tag/faas/">Serverless</a></li>
+    </ul>
+        <a class="subscribe-button" href="http://blog.alexellis.io/subscribe/">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head " style="background-image: url(/content/images/2017/08/lead_crop.jpg)">
+    <nav class="main-nav overlay clearfix">
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-docker tag-raspberry-pi tag-openfaas tag-faas">
+
+        <header class="post-header">
+            <h1 class="post-title">Your Serverless Raspberry Pi cluster with Docker</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2017-08-20">20 August 2017</time>  on <a href="https://blog.alexellis.io/tag/docker/">docker</a>, <a href="https://blog.alexellis.io/tag/raspberry-pi/">Raspberry PI</a>, <a href="https://blog.alexellis.io/tag/openfaas/">openfaas</a>, <a href="https://blog.alexellis.io/tag/faas/">faas</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>This blog post will show you how to create your own Serverless Raspberry Pi cluster with Docker and the <a href="https://github.com/alexellis/faas">OpenFaaS</a>
+ framework. People often ask me what they should do with their cluster 
+and this application is perfect for the credit-card sized device - want 
+more compute power? Scale by adding more RPis.</p>
+
+<blockquote>
+  <p>"Serverless" is a design pattern for event-driven architectures 
+just like "bridge", "facade", "factory" and "cloud" are also abstract 
+concepts - <a href="https://news.ycombinator.com/item?id=15052192">so is "serverless"</a>.</p>
+</blockquote>
+
+<p>Here's my cluster for the blog post - with brass stand-offs used to separate each device.</p>
+
+<p></p><iframe id="twitter-widget-0" scrolling="no" allowtransparency="true" allowfullscreen="true" class="twitter-tweet twitter-tweet-rendered" style="position: static; visibility: visible; display: block; width: 500px; height: 447.4px; padding: 0px; border: medium none; max-width: 100%; min-width: 220px; margin-top: 10px; margin-bottom: 10px;" data-tweet-id="898978596773138436" title="Twitter Tweet" frameborder="0"></iframe> <script async="" src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/widgets.js" charset="utf-8"></script><p></p>
+
+<h3 id="whatisserverlessandwhydoesitmattertoyou">What is Serverless and why does it matter to you?</h3>
+
+<blockquote>
+  <p>As an industry we have some explaining to do regarding what 
+  the term "serverless" means. For the sake of this blog post let us 
+assume that it is a new architectural pattern for event-driven 
+architectures and that it lets you write tiny, reusable functions in 
+whatever language you like. <a href="https://blog.alexellis.io/introducing-functions-as-a-service/">Read more on Serverless here</a>.</p>
+</blockquote>
+
+<p><img src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/evolution.png" alt="">
+<em>Serverless is an architectural pattern resulting in: Functions as a Service, or FaaS</em></p>
+
+<p>Serverless functions can do anything, but usually work on a given 
+input - such as an event from GitHub, Twitter, PayPal, Slack, your 
+Jenkins CI pipeline - or in the case of a Raspberry Pi - maybe a 
+real-world sensor input such as a PIR motion sensor, laser tripwire or 
+even a temperature gauge.</p>
+
+<p><img src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/pir_wiring.html" alt=""></p>
+
+<p>Let's also assume that serverless functions tend to make use of 
+third-party back-end services to become greater than the sum of their 
+parts.</p>
+
+<p>For more background information checkout my latest blog post - <a href="https://blog.alexellis.io/introducing-functions-as-a-service/">Introducing Functions as a Service (FaaS) <br>
+</a></p>
+
+<h2 id="overview">Overview</h2>
+
+<p>We'll be using <a href="https://github.com/alexellis/faas">OpenFaaS</a>
+ which lets you turn any single host or cluster into a back-end to run 
+serverless functions. Any binary, script or programming language that 
+can be deployed with Docker will work on <a href="https://github.com/alexellis/faas">OpenFaaS</a> and you can chose on a scale between speed and flexibility. The good news is a UI and metrics are also built-in.</p>
+
+<p>Here's what we'll do:</p>
+
+<ul>
+<li>Set up Docker on one or more hosts (Raspberry Pi 2/3)</li>
+<li>Join them together in a Docker Swarm</li>
+<li>Deploy <a href="https://github.com/alexellis/faas">OpenFaaS</a></li>
+<li>Write our first function in Python</li>
+</ul>
+
+<blockquote>
+  <p>Update: we've given the CLI an overhaul, it can now: <code>list</code>, <code>invoke</code> and create <code>new</code> functions from templates. Check it out here: <a href="https://blog.alexellis.io/quickstart-openfaas-cli/">Coffee with the FaaS-CLI</a></p>
+</blockquote>
+
+<h2 id="dockerswarm">Docker Swarm</h2>
+
+<p>Docker is a technology for packaging and deploying applications, it 
+also has clustering built-in which is secure by default and only takes 
+one line to set up. OpenFaaS uses Docker and Swarm to spread your 
+serverless functions across all your available RPis.</p>
+
+<p><img src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/IMG_20170525_204840_crop.jpg" alt="">
+<em>Pictured: 3x Raspberry Pi Zero</em></p>
+
+<h4 id="billofmaterials">Bill of materials</h4>
+
+<p>I recommend using Raspberry Pi 2 or 3 for this project along with an Ethernet switch and a <a href="https://www.amazon.co.uk/Anker-PowerPort-Family-Sized-Technology-Smartphones/dp/B00PK1IIJY">powerful USB multi-adapter</a>.</p>
+
+<ul>
+<li>2-8 Raspberry Pi 3</li>
+</ul>
+
+<p>RPi2 or a mix of RPi2/3 will also work.</p>
+
+<ul>
+<li>2-8 SD Cards</li>
+</ul>
+
+<p>I use Class 10 Sandisk MicroSD cards in either 8GB or 16GB size.</p>
+
+<ul>
+<li>Ethernet Switch</li>
+</ul>
+
+<p>Make sure you have an Ethernet Switch - this doesn't have to be 
+gigabit, but it's preferable for re-use in future projects. You should 
+have at least as many ports as RPis plus one for an uplink to your 
+network.</p>
+
+<ul>
+<li>Bronze/Copper stand-offs</li>
+</ul>
+
+<p>You can form the stacked structure I show in my image with bronze or 
+copper stands-offs. These are called male screw columns and are extended
+ versions of what you commonly find separating a motherboard from 
+casing.</p>
+
+<ul>
+<li>USB Power multi-charger</li>
+</ul>
+
+<p>In my experience Anker provide the best solution. Here's a <a href="https://www.amazon.co.uk/Anker-PowerPort-Family-Sized-Technology-Smartphones-Black/dp/B00PK1IIJY/ref=sr_1_9?ie=UTF8&amp;qid=1510596504&amp;sr=8-9&amp;keywords=anker+charging">60W version with 6 outputs</a>.</p>
+
+<ul>
+<li>High quality charging cables</li>
+</ul>
+
+<p>I recommend <a href="https://www.amazon.co.uk/Anker-4-Pack-PowerLine-Micro-USB/dp/B016BEVNK4/ref=pd_bxgy_23_img_2?_encoding=UTF8&amp;psc=1&amp;refRID=361GFJ8X5MKM5JS5Y1QE">Anker cables</a>,
+ do not go cheap on these because I have and they often fail. When cheap
+ cables fail they result in the Raspberry Pi inexplicably restarting. </p>
+
+<ul>
+<li>Ethernet cables</li>
+</ul>
+
+<p>You'll need Ethernet cables. You can use any CAT5/5e or compatible 
+cables from eBay, Amazon or an electronics supplier. I've had luck with 
+flat ribbon cables which are more flexible. </p>
+
+<blockquote>
+  <p>If cables are too short and tight they can pull your stack of Raspberry Pis over.</p>
+</blockquote>
+
+<h3 id="prepareraspbian">Prepare Raspbian</h3>
+
+<p>Flash <a href="http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/">Raspbian Jessie Lite</a> to an SD card, 8GB will do but 16GB is recommended.</p>
+
+<p><em>Note: do not download Raspbian Stretch</em></p>
+
+<blockquote>
+  <p>The community is helping the Docker team to ready support for 
+Raspbian Stretch, but it's not yet seamless. Please download Jessie Lite
+ from the <a href="http://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2017-07-05/">RPi foundation's archive here</a></p>
+</blockquote>
+
+<p>I recommend using <a href="https://etcher.io/">Etcher.io</a> to flash the image.</p>
+
+<blockquote>
+  <p>Before booting the RPi you'll need to create a file in the boot 
+partition called "ssh". Just keep the file blank. This enables remote 
+logins.</p>
+</blockquote>
+
+<ul>
+<li>Power up and change the hostname</li>
+</ul>
+
+<p>Now power up the RPi and connect with <code>ssh</code></p>
+
+<pre><code>$ ssh pi@raspberrypi.local
+</code></pre>
+
+<blockquote>
+  <p>The password is <code>raspberry</code>.</p>
+</blockquote>
+
+<p>Use the <code>raspi-config</code> utility to change the hostname to <code>swarm-1</code> or similar and then reboot. </p>
+
+<p>While you're here you can also change the memory split between the GPU (graphics) and the system to 16mb.</p>
+
+<ul>
+<li>Now install Docker</li>
+</ul>
+
+<p>We can use a utility script for this:</p>
+
+<pre><code>$ curl -sSL https://get.docker.com | sh
+</code></pre>
+
+<blockquote>
+  <p>This installation method may change in the future. As noted above 
+you need to be running Jessie so we have a known configuration.</p>
+</blockquote>
+
+<p>You may see a warning like this, but you can ignore it and you should end up with Docker CE 17.05:</p>
+
+<pre><code>WARNING: raspbian is no longer updated @ https://get.docker.com/  
+Installing the legacy docker-engine package...  
+</code></pre>
+
+<p>After, make sure your user account can access the Docker client with this command:</p>
+
+<pre><code>$ usermod pi -aG docker
+</code></pre>
+
+<blockquote>
+  <p>If your username isn't <code>pi</code> then replace <code>pi</code> with <code>alex</code> for instance. </p>
+</blockquote>
+
+<ul>
+<li>Change the default password</li>
+</ul>
+
+<p>Type in <code>$sudo passwd pi</code> and enter a new password, please don't skip this step!</p>
+
+<ul>
+<li>Repeat</li>
+</ul>
+
+<p>Now repeat the above for each of the RPis.</p>
+
+<h3 id="createyourswarmcluster">Create your Swarm cluster</h3>
+
+<p>Log into the first RPi and type in the following:</p>
+
+<pre><code>$ docker swarm init
+Swarm initialized: current node (3ra7i5ldijsffjnmubmsfh767) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join \
+    --token SWMTKN-1-496mv9itb7584pzcddzj4zvzzfltgud8k75rvujopw15n3ehzu-af445b08359golnzhncbdj9o3 \
+    192.168.0.79:2377
+</code></pre>
+
+<p>You'll see the output with your join token and the command to type into the other RPis. So log into each one with <code>ssh</code> and paste in the command.</p>
+
+<p>Give this a few seconds to connect then on the first RPi check all your nodes are listed:</p>
+
+<pre><code>$ docker node ls
+ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS  
+3ra7i5ldijsffjnmubmsfh767 *   swarm1              Ready               Active              Leader  
+k9mom28s2kqxocfq1fo6ywu63     swarm3              Ready               Active  
+y2p089bs174vmrlx30gc77h4o     swarm4              Ready               Active  
+</code></pre>
+
+<p>Congratulations! You have a Raspberry Pi cluster!</p>
+
+<p><em>*More on clusters</em></p>
+
+<p>You can see my three hosts up and running. Only one is a manager at this point. If our manager were to go <em>down</em>
+ then we'd be in an unrecoverable situation. The way around this is to 
+add redundancy by promoting more of the nodes to managers - they will 
+still run workloads, unless you specifically set up your services to 
+only be placed on workers.</p>
+
+<p>To upgrade a worker to a manager, just type in <code>docker node promote &lt;node_name&gt;</code> from one of your managers.</p>
+
+<blockquote>
+  <p>Note: Swarm commands such as <code>docker service ls</code> or <code>docker node ls</code> can only be done on the manager.</p>
+</blockquote>
+
+<p>For a deeper dive into how managers and workers keep "quorum" head over to the <a href="https://docs.docker.com/engine/swarm/admin_guide/">Docker Swarm admin guide</a>.</p>
+
+<h2 id="openfaas">OpenFaaS</h2>
+
+<p>Now let's move on to deploying a real application to enable Serverless functions to run on our cluster. <a href="https://github.com/alexellis/faas">OpenFaaS</a>
+ is a framework for Docker that lets any process or container become a 
+serverless function - at scale and on any hardware or cloud. Thanks to 
+Docker and Golang's portability it also runs very well on a Raspberry 
+Pi.</p>
+
+<p><img src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/faas_side.png" width="70%" height="50%"></p>
+
+<blockquote>
+  <p>Please show your support and <strong>star</strong> the <a href="https://github.com/alexellis/faas">OpenFaaS</a> repository on GitHub.</p>
+</blockquote>
+
+<p>Log into the first RPi (where we ran <code>docker swarm init</code>) and clone/deploy the project:</p>
+
+<pre><code>$ git clone https://github.com/alexellis/faas/
+$ cd faas
+$ ./deploy_stack.armhf.sh
+Creating network func_functions  
+Creating service func_gateway  
+Creating service func_prometheus  
+Creating service func_alertmanager  
+Creating service func_nodeinfo  
+Creating service func_markdown  
+Creating service func_wordcount  
+Creating service func_echoit  
+</code></pre>
+
+<p>Your other RPis will now be instructed by Docker Swarm to start 
+pulling the Docker images from the internet and extracting them to the 
+SD card. The work will be spread across all the RPis so that none of 
+them are overworked.</p>
+
+<p>This could take a couple of minutes, so you can check when it's done by typing in:</p>
+
+<pre><code>$ watch 'docker service ls'
+ID                  NAME                MODE                REPLICAS            IMAGE                                   PORTS  
+57ine9c10xhp        func_wordcount      replicated          1/1                 functions/alpine:latest-armhf  
+d979zipx1gld        func_prometheus     replicated          1/1                 alexellis2/prometheus-armhf:1.5.2       *:9090-&gt;9090/tcp  
+f9yvm0dddn47        func_echoit         replicated          1/1                 functions/alpine:latest-armhf  
+lhbk1fc2lobq        func_markdown       replicated          1/1                 functions/markdownrender:latest-armhf  
+pj814yluzyyo        func_alertmanager   replicated          1/1                 alexellis2/alertmanager-armhf:0.5.1     *:9093-&gt;9093/tcp  
+q4bet4xs10pk        func_gateway        replicated          1/1                 functions/gateway-armhf:0.6.0           *:8080-&gt;8080/tcp  
+v9vsvx73pszz        func_nodeinfo       replicated          1/1                 functions/nodeinfo:latest-armhf  
+</code></pre>
+
+<p>We want to see 1/1 listed on all of our services.</p>
+
+<p>Given any service name you can type in the following to see which RPi it was scheduled to:</p>
+
+<pre><code>$ docker service ps func_markdown
+ID                  IMAGE                                   NODE    STATE  
+func_markdown.1     functions/markdownrender:latest-armhf   swarm4  Running  
+</code></pre>
+
+<p>The state should be <code>Running</code> - if it says <code>Pending</code> then the image could still be on its way down from the internet.</p>
+
+<p>At that point, find the IP address of your RPi and open that in a web-browser on port 8080:</p>
+
+<pre><code>$ ifconfig
+</code></pre>
+
+<p>For example if your IP was: 192.168.0.100 - then go to <a href="http://192.168.0.100:8080/">http://192.168.0.100:8080</a></p>
+
+<p>At this point you should see the FaaS UI also called the API Gateway.
+ This is where you can define, test and invoke your functions.</p>
+
+<p>Click on the Markdown conversion function called func_markdown and 
+type in some Markdown (this is what Wikipedia uses to write its 
+content).</p>
+
+<p>Then hit invoke. You'll see the invocation count go up and the bottom half of the screen shows the result of your function:</p>
+
+<p><img src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/faas_rpi.png" alt=""></p>
+
+<h3 id="deployyourfirstserverlessfunction">Deploy your first serverless function:</h3>
+
+<p>There is already a tutorial written for this section, but we'll need to get the RPi set up with a couple of custom steps first.</p>
+
+<ul>
+<li>Get the FaaS-CLI</li>
+</ul>
+
+<pre><code>$ curl -sSL cli.openfaas.com | sudo sh
+armv7l  
+Getting package https://github.com/alexellis/faas-cli/releases/download/0.4.5-b/faas-cli-armhf  
+</code></pre>
+
+<ul>
+<li>Clone the samples:</li>
+</ul>
+
+<pre><code>$ git clone https://github.com/alexellis/faas-cli
+$ cd faas-cli
+</code></pre>
+
+<ul>
+<li>Patch the samples for Raspberry Pi</li>
+</ul>
+
+<p>We'll temporarily update our templates so they work with the Raspberry Pi:</p>
+
+<pre><code>$ cp template/node-armhf/Dockerfile template/node/
+$ cp template/python-armhf/Dockerfile template/python/
+</code></pre>
+
+<p>The reason for doing this is that the Raspberry Pi has a different 
+processor to most computers we interact with on a daily basis. </p>
+
+<blockquote>
+  <p>Get up to speed on Docker on the Raspberry Pi - read: <a href="https://blog.alexellis.io/5-things-docker-rpi/">5 Things you need to know</a></p>
+</blockquote>
+
+<p>Now you can follow the same tutorial written for PC, Laptop and Cloud
+ available below, but we are going to run a couple of commands first for
+ the Raspberry Pi.</p>
+
+<ul>
+<li><a href="https://blog.alexellis.io/first-faas-python-function">Your first serverless Python function with OpenFaaS</a></li>
+</ul>
+
+<p>Pick it up at step 3:</p>
+
+<ul>
+<li><p>Instead of placing your functions in <code>~/functions/hello-python</code> - place them inside the <code>faas-cli</code> folder we just cloned from GitHub.</p></li>
+<li><p>Also replace "localhost" for the IP address of your first RPi in the <code>stack.yml</code> file.</p></li>
+</ul>
+
+<p>Note that the Raspberry Pi may take a few minutes to download your 
+serverless function to the relevant RPi. You can check on your services 
+to make sure you have 1/1 replicas showing up with this command:</p>
+
+<pre><code>$ watch 'docker service ls'
+pv27thj5lftz        hello-python        replicated          1/1                 alexellis2/faas-hello-python-armhf:latest  
+</code></pre>
+
+<p><strong>Continue the tutorial:</strong> <a href="https://blog.alexellis.io/first-faas-python-function">Your first serverless Python function with OpenFaaS</a></p>
+
+<blockquote>
+  <p>Update: we've given the CLI an overhaul, it can now: <code>list</code>, <code>invoke</code> and create <code>new</code> functions from templates. Check it out here: <a href="https://blog.alexellis.io/quickstart-openfaas-cli/">Coffee with the FaaS-CLI</a></p>
+</blockquote>
+
+<p>For more information on working with Node.js or other languages head over to the main <a href="https://github.com/alexellis/faas">OpenFaaS repo</a>.</p>
+
+<h3 id="checkyourfunctionmetrics">Check your function metrics</h3>
+
+<p>With a Serverless experience, you don't want to spend all your time managing your functions. Fortunately <a href="https://prometheus.io/">Prometheus</a>
+ metrics are built into OpenFaaS meaning you can keep track of how long 
+each functions takes to run and how often it's being called.</p>
+
+<p><em>Metrics drive auto-scaling</em></p>
+
+<p>If you generate enough load on any of of the functions then OpenFaaS 
+will auto-scale your function and when the demand eases off you'll get 
+back to a single replica again.</p>
+
+<p>Here is a sample query you can paste into Safari, Chrome etc:</p>
+
+<p>Just change the IP address to your own.</p>
+
+<p><img src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/call_rate.png" alt=""></p>
+
+<pre><code>http://192.168.0.25:9090/graph?g0.range_input=15m&amp;g0.stacked=1&amp;g0.expr=rate(gateway_function_invocation_total%5B20s%5D)&amp;g0.tab=0&amp;g1.range_input=1h&amp;g1.expr=gateway_service_count&amp;g1.tab=0  
+</code></pre>
+
+<p>The queries are written in PromQL - Prometheus query language. The first one shows us how often the function is being called:</p>
+
+<pre><code>rate(gateway_function_invocation_total[20s])  
+</code></pre>
+
+<p>The second query shows us how many replicas we have of each function, there should be only one of each at the start:</p>
+
+<pre><code>gateway_service_count  
+</code></pre>
+
+<p>If you want to trigger auto-scaling you could try the following on the RPi:</p>
+
+<pre><code>$ while [ true ]; do curl -4 localhost:8080/function/func_echoit --data "hello world" ; done
+</code></pre>
+
+<p>Check the Prometheus "alerts" page, and see if you are generating 
+enough load for the auto-scaling to trigger, if you're not then run the 
+command in a few additional Terminal windows too.</p>
+
+<p><img src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/alerts.png" alt=""></p>
+
+<p>After you reduce the load, the replica count shown in your second graph and the <code>gateway_service_count</code> metric will go back to 1 again.</p>
+
+<h2 id="wrappingup">Wrapping up</h2>
+
+<p>We've now set up Docker, Swarm and run OpenFaaS - which let us treat 
+our Raspberry Pi like one giant computer - ready to crunch through code.</p>
+
+<blockquote>
+  <p>Please show support for the project and <strong>Star</strong> the <a href="https://github.com/alexellis/faas">FaaS GitHub repository</a></p>
+</blockquote>
+
+<p>How did you find setting up your Docker Swarm first cluster and running OpenFaaS? Please share a picture or a Tweet on Twitter <a href="https://twitter.com/alexellisuk">@alexellisuk</a></p>
+
+<p><strong>Watch my Dockercon video of OpenFaaS</strong></p>
+
+<p>I presented OpenFaaS (then called FaaS) <a href="https://blog.alexellis.io/dockercon-2017-captains-log/">at Dockercon in Austin</a> - watch this video for a high-level introduction and some really interactive demos Alexa and GitHub.</p>
+
+<div class="fluid-width-video-wrapper" style="padding-top: 56.25%;"><iframe src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/-h2VTE9WnZs.html" allowfullscreen="" id="fitvid451055" frameborder="0"></iframe></div>  
+
+<p>Got questions? Ask in the comments below - or send your email over to
+ me for an invite to my Raspberry Pi, Docker and Serverless Slack 
+channel where you can chat with like-minded people about what you're 
+working on.</p>
+
+<p><strong>Want to learn more about Docker on the Raspberry Pi?</strong></p>
+
+<p>I'd suggest starting with <a href="https://blog.alexellis.io/5-things-docker-rpi/">5 Things you need to know</a> which covers things like security and and the subtle differences between containers on a regular PC and an RPi.</p>
+
+<ul>
+<li><p><a href="https://blog.alexellis.io/dockercon-tips-docker-raspberry-pi/">Dockercon tips: Docker &amp; Raspberry Pi</a></p></li>
+<li><p><a href="https://blog.alexellis.io/gpio-on-swarm/">Control GPIO with Docker Swarm</a></p></li>
+<li><p><a href="https://blog.alexellis.io/docker-engine-in-your-pocket/">Is that a Docker Engine in your pocket??</a></p></li>
+</ul>
+
+<p><em>Share on Twitter</em></p>
+
+<p></p><iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="twitter-tweet twitter-tweet-rendered" style="position: static; visibility: visible; display: block; width: 500px; height: 949.8px; padding: 0px; border: medium none; max-width: 100%; min-width: 220px; margin-top: 10px; margin-bottom: 10px;" data-tweet-id="899545370916728832" title="Twitter Tweet" frameborder="0"></iframe> <script async="" src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/widgets.js" charset="utf-8"></script><p></p>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="https://blog.alexellis.io/author/alex/" style="background-image: url(/content/images/2016/05/46432216001_ffd2d84d48c6cea1eb23_192.jpg)"><span class="hidden">Alex Ellis's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="https://blog.alexellis.io/author/alex/">Alex Ellis</a></h4>
+
+                    <p>Read <a href="https://blog.alexellis.io/author/alex/">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">United Kingdom</span>
+                    <span class="author-link icon-link"><a href="http://alexellis.io/">http://alexellis.io/</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Your%20Serverless%20Raspberry%20Pi%20cluster%20with%20Docker&amp;url=http://blog.alexellis.io/your-serverless-raspberry-pi-cluster/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.alexellis.io/your-serverless-raspberry-pi-cluster/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.alexellis.io/your-serverless-raspberry-pi-cluster/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+            <section class="gh-subscribe">
+                <h3 class="gh-subscribe-title">Subscribe to alex ellis' blog</h3>
+                <p>Get the latest posts delivered right to your inbox.</p>
+                <form method="post" action="/subscribe/" class="">
+    <input class="confirm" name="confirm" type="hidden"><input class="location" name="location" value="https://blog.alexellis.io/your-serverless-raspberry-pi-cluster/" type="hidden"><input class="referrer" name="referrer" value="https://www.google.com/" type="hidden">
+
+    <div class="form-group">
+        <input class="subscribe-email" name="email" placeholder="Your email address" type="email">
+    </div>
+    <button class="" type="submit">Subscribe</button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+
+                <span class="gh-subscribe-rss">or subscribe <a href="http://cloud.feedly.com/#subscription/feed/http://blog.alexellis.io/rss/">via RSS</a> with Feedly!</span>
+            </section>
+
+        <div id="disqus_thread"><iframe id="dsq-app34" name="dsq-app34" allowtransparency="true" scrolling="no" tabindex="0" title="Disqus" style="width: 1px !important; min-width: 100% !important; border: medium none !important; overflow: hidden !important; height: 1585px !important;" src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/a_003.html" horizontalscrolling="no" verticalscrolling="no" width="100%" frameborder="0"></iframe></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'quad-alexellis';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+        </footer>
+    </article>
+</main>
+
+
+<aside class="read-next">
+    <a class="read-next-story " style="background-image: url(/content/images/2017/08/top_faas.png)" href="https://blog.alexellis.io/openfaas-cncf-workgroup/">
+        <section class="post">
+            <h2>OpenFaaS presents to CNCF Serverless workgroup</h2>
+            <p>On the 24th of August I had the chance to present and demo OpenFaaS to the Cloud Native Computing…</p>
+        </section>
+    </a>
+    <a class="read-next-story prev " style="background-image: url(/content/images/2017/08/hot-air-ballooning-balloon-cappadocia-dawn-50674.jpg)" href="https://blog.alexellis.io/first-faas-python-function/">
+        <section class="post">
+            <h2>Your first serverless Python function with OpenFaaS</h2>
+            <p>Let's write a Python function with OpenFaaS that executes hello-world and then move onto something more. We'll start by…</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="http://blog.alexellis.io/">alex ellis' blog</a> © 2017</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org/">Ghost</a></section>
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/jquery-1.js"></script>
+    <!-- You can safely delete this line if your theme does not require jQuery -->
+<script type="text/javascript" src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/jquery-1_002.js"></script>
+    <script type="text/javascript" src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/jquery.js"></script>
+    <script type="text/javascript" src="Your%20serverless%20Raspberry%20Pi%20cluster%20with%20Docker_files/index.js"></script>
+
+
+
+<iframe style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: medium none;" title="Twitter analytics iframe" frameborder="0"></iframe></body></html>
