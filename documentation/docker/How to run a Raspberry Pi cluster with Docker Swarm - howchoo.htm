@@ -1,0 +1,2588 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>How to run a Raspberry Pi cluster with Docker Swarm - howchoo</title>
+    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+        <meta name="p:domain_verify" content="2e8497f643b8f923a17c80af3dd032bf">
+        <meta property="fb:pages" content="141830555863410">
+        
+          <meta property="fb:admins" content="718420569">
+        
+          <meta property="fb:admins" content="507970866">
+        
+          <meta property="fb:admins" content="862445402">
+        
+        <meta property="fb:app_id" content="1231612436853540">
+        <link rel="apple-touch-icon" href="https://howchoo.com/static/images/platform/touch-icon-iphone.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://howchoo.com/static/images/platform/touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="https://howchoo.com/static/images/platform/touch-icon-iphone-retina.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://howchoo.com/static/images/platform/touch-icon-ipad-retina.png">
+        
+          <link rel="canonical" href="https://howchoo.com/g/njy4zdm3mwy/how-to-run-a-raspberry-pi-cluster-with-docker-swarm">
+        
+        
+
+
+<meta property="og:site_name" content="howchoo">
+
+
+<link rel="image_src" href="https://howchoo.com/media/ow/vm/yt/owvmytdhyjcl.jpeg">
+
+
+
+<meta property="og:image" content="https://howchoo.com/media/ow/vm/yt/owvmytdhyjcl.jpeg">
+
+
+
+<meta property="og:title" content="How to run a Raspberry Pi cluster with Docker Swarm">
+
+
+
+<meta property="og:description" content="Raspberry Pis are pretty incredible devices, but a single Pi can only do so much. ">
+<meta name="description" content="Raspberry Pis are pretty incredible devices, but a single Pi can only do so much. ">
+
+
+
+<meta property="og:type" content="article">
+
+
+
+<meta property="og:url" content="https://howchoo.com/g/njy4zdm3mwy/how-to-run-a-raspberry-pi-cluster-with-docker-swarm">
+
+
+
+
+    
+    <link rel="shortcut icon" type="image/png" href="https://howchoo.com/static/images/platform/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/css.css">
+    <link rel="stylesheet" href="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/4931bbc60478.css" type="text/css">
+
+    
+    <link rel="stylesheet" href="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/a2145dc95b79.css" type="text/css">
+
+
+    
+        <script src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/ads_002"></script><script src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/ads"></script><script src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/osd.js"></script><script src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/pubads_impl_rendering_168.js"></script><script src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/ads_003"></script><script type="text/javascript" async="" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/pinit_main.js"></script><script src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/rules-p-S2uPTTTFT6vX5.js"></script><script src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/cbgapi.loaded_1" async=""></script><script src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/cbgapi.loaded_0" async=""></script><script src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/quant.js" async="" type="text/javascript"></script><script src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/637189046423550.js" async=""></script><script async="" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/fbevents.js"></script><script id="facebook-jssdk" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/sdk.js"></script><script id="twitter-wjs" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/widgets.js"></script><script type="text/javascript" async="" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/js.js"></script><script async="" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/analytics.js"></script><script>
+            var Howchoo = Howchoo || {};
+            
+                Howchoo.globals = {"user": {"name": null, "id": null, "interests": [], "guide_favorites": []}, "site": {"name": "howchoo", "domain": "howchoo.com", "subtitle": "howchoo is a community where do-it-yourselfersshare their knowledge with the world", "url": "https://howchoo.com"}};
+            
+        </script>
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            var userRole = 'unregistered';
+
+            ga('create', 'UA-43008854-1', 'howchoo.com');
+            ga('require', 'GTM-PT78CFL');
+            ga('set', 'dimension5', userRole);
+            ga('send', 'pageview');
+        </script>
+    
+<script type="text/javascript" async="" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/embed.js"></script><link rel="prefetch" href="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/a_data/lounge.css"><link rel="prefetch" href="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/a_data/common.js"><link rel="prefetch" href="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/a_data/lounge_002.js"><link rel="prefetch" href="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/a_data/config.js"><link rel="preload" href="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/integrator.js"><link rel="prefetch" href="https://securepubads.g.doubleclick.net/static/3p_cookie.html"><script src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/count-data.js"></script><script type="text/javascript" charset="utf-8" async="" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/button.js"></script><style type="text/css"> .PIN_1512391145534_embed_grid { 
+  width: 100%;
+  max-width: 257px;
+  min-width: 140px;
+  display: inline-block;
+  box-shadow: inset 0 0 1px #000;
+  border-radius: 5px;
+  overflow: hidden;
+  font: 12px "Helvetica Neue", Helvetica, arial, sans-serif;
+  color: rgb(54, 54, 54);
+  box-sizing: border-box;
+  background: #fff;
+  cursor: pointer;
+  -moz-font-smoothing: antialiased;
+}
+ .PIN_1512391145534_embed_grid * { 
+  display: block;
+  position: relative;
+  font: inherit;
+  cursor: inherit;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+ .PIN_1512391145534_embed_grid .PIN_1512391145534_hd { 
+  height: 55px;
+}
+ .PIN_1512391145534_embed_grid .PIN_1512391145534_hd .PIN_1512391145534_img { 
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 36px;
+  width: 36px;
+  border-radius: 18px;
+  background: transparent url () 0 0 no-repeat;
+  background-size: cover;
+}
+ .PIN_1512391145534_embed_grid .PIN_1512391145534_hd .PIN_1512391145534_pinner { 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 75%;
+  position: absolute;
+  top: 20px;
+  left: 56px;
+  font-size: 14px;
+  font-weight: bold;
+}
+ .PIN_1512391145534_embed_grid .PIN_1512391145534_bd { 
+  padding: 0 10px;
+  -moz-scrollbars: none;
+  -ms-overflow-style: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+ .PIN_1512391145534_embed_grid .PIN_1512391145534_bd .PIN_1512391145534_ct { 
+  width: 100%;
+  height: auto;
+}
+ .PIN_1512391145534_embed_grid .PIN_1512391145534_bd .PIN_1512391145534_ct .PIN_1512391145534_col { 
+  display: inline-block;
+  width: 100%;
+  padding: 1px;
+  vertical-align: top;
+  min-width: 60px;
+}
+ .PIN_1512391145534_embed_grid .PIN_1512391145534_bd .PIN_1512391145534_ct .PIN_1512391145534_col .PIN_1512391145534_img { 
+  margin: 0;
+  display: inline-block;
+  width: 100%;
+  background: transparent url() 0 0 no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 1px #000;
+  border-radius: 2px;
+}
+ .PIN_1512391145534_embed_grid .PIN_1512391145534_ft { 
+  padding: 11px;
+}
+ .PIN_1512391145534_embed_grid .PIN_1512391145534_ft .PIN_1512391145534_button { 
+  border-radius: 3px;
+  text-align: center;
+  box-shadow: inset 0 0 1px #888;
+  background-color: #efefef;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 33px;
+  width: 100%;
+  min-width: 70px;
+  padding: 0 3px;
+}
+ .PIN_1512391145534_embed_grid .PIN_1512391145534_ft .PIN_1512391145534_button .PIN_1512391145534_label { 
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+ .PIN_1512391145534_embed_grid .PIN_1512391145534_ft .PIN_1512391145534_button .PIN_1512391145534_label.PIN_1512391145534_top { 
+  top: 0;
+}
+ .PIN_1512391145534_embed_grid .PIN_1512391145534_ft .PIN_1512391145534_button .PIN_1512391145534_label.PIN_1512391145534_bottom { 
+  bottom: 0;
+}
+ .PIN_1512391145534_embed_grid .PIN_1512391145534_ft .PIN_1512391145534_button .PIN_1512391145534_label .PIN_1512391145534_string { 
+  white-space: pre;
+  color: #746d6a;
+  font-size: 13px;
+  font-weight: bold;
+  vertical-align: top;
+  display: inline-block;
+  height: 33px;
+  line-height: 33px;
+}
+ .PIN_1512391145534_embed_grid .PIN_1512391145534_ft .PIN_1512391145534_button .PIN_1512391145534_label .PIN_1512391145534_logo { 
+  display: inline-block;
+  vertical-align: top;
+  height: 33px;
+  width: 65px;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMTZweCIgd2lkdGg9IjY0cHgiIHZpZXdCb3g9IjAgMCA2NCAxNiI+PGc+PHBhdGggZD0iTTMzLjIxNSw3LjY2NyBDMzMuODg4LDcuNjY3IDM0LjEyMiw4LjA3NSAzNC4xMjIsOC41NjIgQzM0LjEyMiw5LjM4NiAzMy40ODIsOS44ODkgMzIuNDgxLDkuODg5IEMzMi4xMjQsOS44ODkgMzEuNjI1LDkuODA0IDMxLjMyOSw5LjcwNCBDMzEuNDUyLDguOTQ4IDMxLjk0LDcuNjY3IDMzLjIxNSw3LjY2NyBMMzMuMjE1LDcuNjY3IFogTTQ3LjY2OSw3LjY2NyBDNDguMjg0LDcuNjY3IDQ4LjU3MSw4LjA3NSA0OC41NzEsOC41NjIgQzQ4LjU3MSw5LjM4NiA0Ny45MzYsOS44ODkgNDYuOTMxLDkuODg5IEM0Ni41NzIsOS44ODkgNDYuMDcsOS44MDQgNDUuNzcyLDkuNzA0IEM0NS44OTUsOC45NDggNDYuNDM5LDcuNjY3IDQ3LjY1OSw3LjY2NyBMNDcuNjY5LDcuNjY3IFogTTYyLjkwNiw3LjczNiBDNjMuMTExLDcuNzM2IDYzLjI0NSw3LjY1IDYzLjI4Niw3LjQ1NCBDNjMuMzQ3LDcuMTY2IDYzLjQ3LDYuNjY0IDYzLjUxMSw2LjUzMSBDNjMuNTUyLDYuMzU2IDYzLjQ1LDYuMjIzIDYzLjI1NSw2LjIyMyBMNjEuNzM3LDYuMjIzIEM2MS44NCw1Ljc4MiA2Mi4yNzEsNC4zNjcgNjIuMjcxLDMuNDQ0IEM2Mi4yNzEsMS41OTkgNjAuNzAyLDAuMDMgNTguNDg3LDAuMDMgQzU1Ljk3NSwwLjAzIDU0LjM0NCwxLjcxMSA1NC4zNDQsNC4wOCBDNTQuMzQ0LDQuNzY3IDU0LjYwMSw1LjU3NyA1NC45MTksNi4wNjkgQzU0Ljc4NSw2LjA1OSA1NC42NDIsNi4wNTQgNTQuNTA4LDYuMDU0IEM1Mi42MDEsNi4wNTQgNTEuNDAyLDcuMDkgNTEuNDAyLDguNTkzIEM1MS40MDIsMTAuMDA4IDUyLjUwOSwxMC41NTkgNTMuNTY1LDEwLjkyIEM1NC40ODgsMTEuMjQ5IDU1LjM0OSwxMS40IDU1LjM0OSwxMi4xMiBDNTUuMzQ5LDEyLjYxMiA1NC44NzgsMTIuODk5IDUzLjk1NSwxMi44OTkgQzUyLjg1OCwxMi44OTkgNTIuMjUzLDEyLjM4NyA1Mi4wOTksMTIuMTkyIEM1Mi4yMDEsMTIuMTEgNTIuMzU1LDExLjkxNSA1Mi4zNTUsMTEuNTk1IEM1Mi4zNTUsMTEuMTQ0IDUyLjAzOSwxMC43NzUgNTEuNDQ5LDEwLjc3NSBDNTAuOTQ4LDEwLjc3NSA1MC41MjYsMTEuMTg1IDUwLjQxOSwxMS43MTggQzQ5LjYxOSwxMi4zNzQgNDguNzQzLDEyLjgwMiA0Ny41MDMsMTIuODAyIEM0Ni4yODMsMTIuODAyIDQ1LjY0NywxMi4xNjYgNDUuNjQ3LDEwLjgxMyBDNDUuOTM0LDEwLjkwMiA0Ni42ODMsMTEuMDA4IDQ3LjE3NSwxMS4wMDggQzQ5LjI0NiwxMS4wMDggNTAuNjUxLDEwLjA2NCA1MC42NTEsOC4xODQgQzUwLjY1MSw3LjE3MiA0OS43NjksNi4xMDggNDguMDA1LDYuMTA4IEM0NS42OTIsNi4xMDggNDQuMzk5LDcuNTc1IDQzLjgzMiw5LjE4NCBMNDMuMzU1LDkuMDc2IEM0My40ODksOC43MTcgNDMuNTc3LDguMzAxIDQzLjU3Nyw3Ljg0NSBDNDMuNTc3LDcuMDQ1IDQzLjA4NSw2LjEwNyA0MS43NjIsNi4xMDcgQzQwLjg0NSw2LjEwNyAzOS45NzQsNi43MDggMzkuMzcsNy42MSBMMzkuNjI2LDYuNjA2IEMzOS42NjQsNi40NTIgMzkuNTk5LDYuMjgzIDM5LjM1OSw2LjI4MyBMMzguMDA2LDYuMjgzIEMzNy44MTQsNi4yODMgMzcuNjc4LDYuMzU0IDM3LjYyLDYuNTcgTDM2LjY2NywxMC4zMTIgQzM2LjM5LDExLjQzIDM0LjkxMywxMi44MTQgMzMuMDU3LDEyLjgxNCBDMzEuODM1LDEyLjgxNCAzMS4yMDEsMTIuMTM4IDMxLjIwMSwxMC43ODQgQzMxLjUyMiwxMC45MTIgMzIuMjM1LDExLjAyIDMyLjcyNiwxMS4wMiBDMzQuODc5LDExLjAyIDM2LjIwNSwxMC4wODEgMzYuMjA1LDguMTk3IEMzNi4yMDUsNy4xODcgMzUuMzEzLDYuMTI0IDMzLjU2LDYuMTI0IEMzMC45NDUsNi4xMjQgMjkuMzQ1LDguMTQ4IDI5LjA3OSwxMC40NDEgQzI4Ljk2NiwxMS4zOTQgMjguMTU2LDEyLjcwMyAyNy4yODQsMTIuNzAzIEMyNi44NjQsMTIuNzAzIDI2LjYyOCwxMi40MzYgMjYuNjI4LDExLjk4NSBDMjYuNjI4LDExLjU5NSAyNi45MDEsMTAuNjMxIDI3LjIwMiw5LjQzMiBDMjcuMzA1LDkuMDMyIDI3LjQ1Niw4LjQxNiAyNy42MjYsNy43NCBMMjkuMDUxLDcuNzQgQzI5LjI1OSw3Ljc0IDI5LjM4Miw3LjY0NyAyOS40MzEsNy40NTMgQzI5LjQ5OCw3LjE2NSAyOS42MjIsNi42NzMgMjkuNjU2LDYuNTQgQzI5LjcwNCw2LjM2NiAyOS42MDEsNi4yMjcgMjkuNDA0LDYuMjI3IEwyOC4wMDksNi4yMjcgTDI4LjY2NiwzLjYwNiBDMjguNzI3LDMuMzQ2IDI4LjUwOCwzLjE5NiAyOC4yODEsMy4yNDQgQzI4LjI4MSwzLjI0NCAyNy4yMDQsMy40NTUgMjcuMDA2LDMuNDk4IEMyNi44MDQsMy41MzkgMjYuNjQ3LDMuNjQ2IDI2LjU3NSwzLjkzOSBMMjYuMDExLDYuMjI1IEwyNC45MDQsNi4yMjUgQzI0LjY5MSw2LjIyNSAyNC41NjgsNi4zMTIgMjQuNTIyLDYuNTA5IEMyNC40NTMsNi43OTIgMjQuMzI3LDcuMjg4IDI0LjI5Myw3LjQyMiBDMjQuMjQ1LDcuNiAyNC4zNSw3LjczNSAyNC41NSw3LjczNSBMMjUuNjQ1LDcuNzM1IEMyNS42MzgsNy43NjkgMjUuMjUsOS4yNDIgMjQuOTM3LDEwLjU2NSBDMjQuNzg5LDExLjIwNCAyNC4yOTMsMTIuNjkxIDIzLjQ4MSwxMi42OTEgQzIyLjk5OSwxMi42OTEgMjIuNzk0LDEyLjQ0NSAyMi43OTQsMTEuOTIyIEMyMi43OTQsMTEuMDk2IDIzLjYwNiw5LjAzMSAyMy42MDYsOC4wOTMgQzIzLjYwNiw2Ljg0MiAyMi45MzUsNi4xMTQgMjEuNTU5LDYuMTE0IEMyMC42OTMsNi4xMTQgMTkuNzk1LDYuNjc4IDE5LjQxNCw3LjE3MSBDMTkuNDE0LDcuMTcxIDE5LjUyOSw2Ljc3MSAxOS41Nyw2LjYxNyBDMTkuNjEyLDYuNDUzIDE5LjUyOSw2LjI5MiAxOS4zMTQsNi4yOTIgTDE3Ljk3MSw2LjI5MiBDMTcuNjg0LDYuMjkyIDE3LjYwOSw2LjQ0NiAxNy41NjcsNi42MTIgTDE2LjU5OCwxMC40MDYgQzE2LjI3NSwxMS42NTcgMTUuNTAzLDEyLjcwMyAxNC42OCwxMi43MDMgQzE0LjI1LDEyLjcwMyAxNC4wNjUsMTIuNDM2IDE0LjA2NSwxMS45NzQgQzE0LjA2NSwxMS41ODUgMTQuMzEzLDEwLjYyMSAxNC42MTksOS40MjEgQzE0Ljk4Myw3Ljk2NSAxNS4zMDYsNi43NjYgMTUuMzQyLDYuNjIyIEMxNS4zODgsNi40NDQgMTUuMzA3LDYuMjg4IDE1LjA3NSw2LjI4OCBMMTMuNzIyLDYuMjg4IEMxMy40NzYsNi4yODggMTMuMzg4LDYuNDE0IDEzLjMzOCw2LjU5NSBDMTMuMzM4LDYuNTk1IDEyLjk1OSw4LjAzNCAxMi41NTcsOS42NDEgQzEyLjI3LDEwLjgwNiAxMS45NDIsMTEuOTkzIDExLjk0MiwxMi41NDkgQzExLjk0MiwxMy41NDMgMTIuMzg2LDE0LjI5MiAxMy42MTYsMTQuMjkyIEMxNC41NTksMTQuMjkyIDE1LjMwOCwxMy44MSAxNS44ODIsMTMuMjAyIEwxNS43MzksMTMuNzY2IEMxNS42ODcsMTMuOTU3IDE1Ljc0OSwxNC4xMjUgMTUuOTY3LDE0LjEyNSBMMTcuMzUyLDE0LjEyNSBDMTcuNTkzLDE0LjEyNSAxNy42ODUsMTQuMDI3IDE3LjczNiwxMy44MTcgTDE4LjgzMyw5LjU1MSBDMTkuMTAzLDguNDUxIDE5Ljc3Nyw3LjcyNiAyMC43Myw3LjcyNiBDMjEuMTgxLDcuNzI2IDIxLjU3MSw4LjAyNCAyMS41MjYsOC42MDUgQzIxLjQ3NSw5LjI0NCAyMC43MDYsMTEuNTM4IDIwLjcwNiwxMi41NDUgQzIwLjcwNiwxMy4zMDMgMjAuOTg5LDE0LjI4OCAyMi40MjIsMTQuMjg4IEMyMy4zOTYsMTQuMjg4IDI0LjExNCwxMy44MTYgMjQuNjM3LDEzLjIxMSBDMjQuODMyLDEzLjg0OSAyNS4zMzQsMTQuMjggMjYuMjY3LDE0LjI4IEMyNy44MTYsMTQuMjggMjguNzQ5LDEzLjM2IDI5LjMwMiwxMi40MzggQzI5Ljc1MSwxMy41MTUgMzAuODE1LDE0LjI4NCAzMi4zNzksMTQuMjg0IEMzMy45NjgsMTQuMjg0IDM1LjIwNCwxMy42MSAzNi4wNzYsMTIuNjk3IEwzNS44MDYsMTMuNzgxIEMzNS43NTUsMTMuOTczIDM1Ljg0MSwxNC4xMjUgMzYuMDY3LDE0LjEyNSBMMzcuNDM3LDE0LjEyNSBDMzcuNjIxLDE0LjEyNSAzNy43NTcsMTQuMDI4IDM3LjgwNiwxMy44MyBDMzcuODI4LDEzLjczNCAzOC4wMjcsMTIuOTY5IDM4LjMwOCwxMS44ODIgQzM4Ljg0Miw5LjgwMSAzOS43MDMsNy42NDIgNDAuOTkzLDcuNjQyIEM0MS40NDksNy42NDIgNDEuNjM3LDcuODk3IDQxLjYzNyw4LjI5OCBDNDEuNjM3LDguNDg3IDQxLjU4MSw4LjY0OSA0MS41MzQsOC43MzkgQzQwLjkwOSw4LjYxNCA0MC40MDQsOC45MjIgNDAuNDA0LDkuNTkgQzQwLjQwNCwxMC4wMjcgNDAuODYzLDEwLjQyMyA0MS40ODEsMTAuNDIzIEM0MS45NTMsMTAuNDIzIDQyLjM0NSwxMC4zMDggNDIuNjU3LDEwLjA5NyBDNDIuOTU0LDEwLjE1OSA0My4yNjIsMTAuMjI1IDQzLjU4LDEwLjI5NyBDNDMuNTM5LDEwLjYxIDQzLjUwOCwxMC45MTggNDMuNTA4LDExLjIwNyBDNDMuNTA4LDEyLjg3OSA0NC43NjksMTQuMjk3IDQ2LjkwMiwxNC4yOTcgQzQ4LjU4NCwxNC4yOTcgNDkuNjUsMTMuNzMzIDUwLjY2NSwxMi44OTggQzUxLjE0NywxMy42NzggNTIuMzQ3LDE0LjMwMyA1My45MjYsMTQuMzAzIEM1Ni4wOSwxNC4zMDMgNTcuMzIsMTMuMTc1IDU3LjMyLDExLjY4OCBDNTcuMzIsMTAuMzM1IDU2LjIxMyw5Ljg0MyA1NS4wNzQsOS40MzMgQzU0LjE1Miw5LjA5NCA1My4zNzIsOC45MiA1My4zNzIsOC4yNjQgQzUzLjM3Miw3LjcyIDUzLjgwMyw3LjQ3NCA1NC41MjEsNy40NzQgQzU0Ljk5Miw3LjQ3NCA1NS4zNDEsNy41NzcgNTUuNTM2LDcuNjI4IEM1NS43Miw4LjA4OSA1Ni4xMSw4LjYxMiA1Ni43NzcsOC42MTIgQzU3LjMzNSw4LjYxMiA1Ny41ODcsOC4xNzEgNTcuNTg3LDcuNzYxIEM1Ny41ODcsNi42MDIgNTUuNjU3LDYuNDc5IDU1LjY1NywzLjk5OCBDNTUuNjU3LDIuNDUgNTYuNTMzLDEuMTc4IDU4LjM0MywxLjE3OCBDNTkuNjAzLDEuMTc4IDYwLjQyNSwxLjk3OCA2MC40MjUsMy4yNiBDNjAuNDI1LDQuMzE2IDU5Ljc3OSw2LjIxMyA1OS43NzksNi4yMTMgTDU4LjY4Miw2LjIxMyBDNTguNDcyLDYuMjEzIDU4LjM0Nyw2LjI5NSA1OC4yOTksNi40OSBMNTguMDcxLDcuNDAyIEM1OC4wMjcsNy41NzcgNTguMTI4LDcuNzEgNTguMzI3LDcuNzEgTDU5LjM5Myw3LjcxIEM1OS42MTcsNy43NDkgNTguMjg2LDEyLjQ1IDU4LjI4NiwxMi41MjkgQzU4LjI4NiwxMy41MjQgNTguODQ4LDE0LjI3MiA2MC4wNzUsMTQuMjcyIEM2MS44MDgsMTQuMjcyIDYyLjg5NSwxMy4xNDQgNjMuMzY3LDExLjUwNCBDNjMuNDA0LDExLjM3MyA2My4zMzMsMTEuMjcgNjMuMjAzLDExLjI3IEw2Mi41MzYsMTEuMjcgQzYyLjQwMywxMS4yNyA2Mi4zMjcsMTEuMzQ0IDYyLjI5NCwxMS40NzUgQzYyLjE0OCwxMi4wNiA2MS43NzgsMTIuNjc1IDYxLjA0MywxMi42NzUgQzYwLjYyMywxMi42NzUgNjAuMzg1LDEyLjQwOCA2MC4zODUsMTEuOTUxIEM2MC4zODUsMTEuNTYxIDYxLjM5LDcuNzA5IDYxLjM5LDcuNzA5IEw2Mi45MDYsNy43MzYgTDYyLjkwNiw3LjczNiBaIE0xNi4wOTksNC4xMyBDMTYuMDUyLDQuODQ1IDE1LjQ1Myw1LjQyNiAxNC43NjMsNS40MjYgQzE0LjA3Niw1LjQyNiAxMy41NTQsNC44NDUgMTMuNjA1LDQuMTI5IEMxMy42NTYsMy40MTQgMTQuMjUxLDIuODMzIDE0Ljk0LDIuODMzIEMxNS42MjksMi44MzMgMTYuMTUsMy40MDkgMTYuMDk5LDQuMTI1IEwxNi4wOTksNC4xMyBaIE02LjQ1LDAgQzIuMjQ2LDAgMC4wMSwyLjgyNSAwLjAxLDUuOTAyIEMwLDcuMzQyIDAuNzY0LDkuMTIyIDEuOTc5LDkuNjkgQzIuMTY0LDkuNzc1IDIuMjYyLDkuNzM3IDIuMzA0LDkuNTU5IEMyLjMzNSw5LjQyMyAyLjUwMSw4Ljc2MiAyLjU3NSw4LjQ1MyBDMi42MDYsOC4zNTUgMi41OTUsOC4yNjkgMi41MTMsOC4xNzIgQzIuMTEzLDcuNjg2IDEuNzk1LDYuNzg4IDEuNzk1LDUuOTQ5IEMxLjc5NSwzLjggMy40MjYsMS43MiA2LjE5NCwxLjcyIEM4LjU5NCwxLjcyIDEwLjI2NSwzLjM1IDEwLjI2NSw1LjY4NSBDMTAuMjY1LDguMzIyIDguOTQyLDEwLjE0OCA3LjIwOSwxMC4xNDggQzYuMjU2LDEwLjE0OCA1LjUzOCw5LjM1OSA1Ljc2NCw4LjM4NyBDNi4wNDEsNy4yMjggNi41NzQsNS45NzcgNi41NzQsNS4xMzYgQzYuNTc0LDQuMzg4IDYuMTc0LDMuNzYyIDUuMzQzLDMuNzYyIEM0LjM2OSwzLjc2MiAzLjU4LDQuNzY3IDMuNTgsNi4xMzEgQzMuNTgsNi45OTIgMy44NzcsNy41NzcgMy44NzcsNy41NzcgTDIuNzA3LDEyLjQyOCBDMi40MDcsMTMuNzIgMi43NDgsMTUuODExIDIuNzc3LDE1Ljk5MyBDMi43OTIsMTYuMDkgMi45LDE2LjEyNCAyLjk2MSwxNi4wNDEgQzMuMDU4LDE1LjkxNSA0LjIyMywxNC4xNjkgNC41NTEsMTIuOTA2IEw1LjE1NiwxMC41ODggQzUuNDc3LDExLjE5MyA2LjQwNCwxMS43MDYgNy4zOTEsMTEuNzA2IEMxMC4zMzEsMTEuNzA2IDEyLjQ1LDkuMDAzIDEyLjQ1LDUuNjQ0IEMxMi40NSwyLjQyNCA5LjgyMiwwLjAxNCA2LjQ0MSwwLjAxNCBMNi40NSwwIFoiIGZpbGw9IiNiZDA4MWMiPjwvcGF0aD48L2c+PC9zdmc+) 50% 50% no-repeat;
+  background-size: 60px 15px;
+}
+ .PIN_1512391145534_embed_grid .PIN_1512391145534_ft .PIN_1512391145534_button:hover { 
+  box-shadow: inset 0 0 1px #000;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_noscroll .PIN_1512391145534_bd { 
+  overflow: hidden;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_board .PIN_1512391145534_hd .PIN_1512391145534_pinner { 
+  top: 10px;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_board .PIN_1512391145534_hd .PIN_1512391145534_board { 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 75%;
+  position: absolute;
+  bottom: 10px;
+  left: 56px;
+  color: #363636;
+  font-size: 12px;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c2 { 
+  max-width: 494px;
+  min-width: 140px;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c2 .PIN_1512391145534_bd .PIN_1512391145534_ct .PIN_1512391145534_col { 
+  width: 50%;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c3 { 
+  max-width: 731px;
+  min-width: 200px;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c3 .PIN_1512391145534_bd .PIN_1512391145534_ct .PIN_1512391145534_col { 
+  width: 33.33%;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c4 { 
+  max-width: 968px;
+  min-width: 260px;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c4 .PIN_1512391145534_bd .PIN_1512391145534_ct .PIN_1512391145534_col { 
+  width: 25%;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c5 { 
+  max-width: 1205px;
+  min-width: 320px;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c5 .PIN_1512391145534_bd .PIN_1512391145534_ct .PIN_1512391145534_col { 
+  width: 20%;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c6 { 
+  max-width: 1442px;
+  min-width: 380px;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c6 .PIN_1512391145534_bd .PIN_1512391145534_ct .PIN_1512391145534_col { 
+  width: 16.66%;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c7 { 
+  max-width: 1679px;
+  min-width: 440px;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c7 .PIN_1512391145534_bd .PIN_1512391145534_ct .PIN_1512391145534_col { 
+  width: 14.28%;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c8 { 
+  max-width: 1916px;
+  min-width: 500px;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c8 .PIN_1512391145534_bd .PIN_1512391145534_ct .PIN_1512391145534_col { 
+  width: 12.5%;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c9 { 
+  max-width: 2153px;
+  min-width: 560px;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c9 .PIN_1512391145534_bd .PIN_1512391145534_ct .PIN_1512391145534_col { 
+  width: 11.11%;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c10 { 
+  max-width: 2390px;
+  min-width: 620px;
+}
+ .PIN_1512391145534_embed_grid.PIN_1512391145534_c10 .PIN_1512391145534_bd .PIN_1512391145534_ct .PIN_1512391145534_col { 
+  width: 10%;
+}
+ .PIN_1512391145534_embed_pin { 
+  width: 100%;
+  min-width: 160px;
+  max-width: 236px;
+  display: inline-block;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 1px #000;
+  border-radius: 5px;
+  overflow: hidden;
+  font: 12px "Helvetica Neue", Helvetica, arial, sans-serif;
+  color: #363636;
+  background: #fff;
+  cursor: pointer;
+  -moz-font-smoothing: antialiased;
+}
+ .PIN_1512391145534_embed_pin * { 
+  display: block;
+  position: relative;
+  font: inherit;
+  cursor: inherit;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd { 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_hd { 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_container { 
+  width: 100%;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_container .PIN_1512391145534_img,  .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_container .PIN_1512391145534_iframe,  .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_container .PIN_1512391145534_video { 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  background: transparent url() 0 0 no-repeat;
+  background-size: cover;
+  border: none;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_container .PIN_1512391145534_native { 
+  height: 64px;
+  width: 64px;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNjNweCIgd2lkdGg9IjYzcHgiIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGc+PHBhdGggZD0iTSAzMiAzMiBtIC0zMiwgMCBhIDMxLCAzMSAwIDEsIDAgNjMsIDAgYSAzMSwgMzEgMCAxLDAgLTYzLCAwIHoiIGZpbGw9IiMwMDAiPjwvcGF0aD48cGF0aCBkPSJNIDI1IDE5IEwgNDggMzIgIEwgMjUgNDUgWiIgZmlsbD0iI2ZmZiI+PC9wYXRoPjwvZz48L3N2Zz4=) 0 0 no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -32px;
+  margin-left: -32px;
+  opacity: .75;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_container .PIN_1512391145534_control { 
+  width: 50px;
+  height: 24px;
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, .4);
+  color: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+  border: 2px solid rgba(255, 255, 255, .68);
+  border-radius: 13px;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_container .PIN_1512391145534_control.PIN_1512391145534_paused::after,  .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_container .PIN_1512391145534_control.PIN_1512391145534_playing::after { 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 10px;
+  line-height: 19px;
+  white-space: pre;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_container .PIN_1512391145534_control.PIN_1512391145534_paused::after { 
+  content: "▶ GIF";
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_container .PIN_1512391145534_control.PIN_1512391145534_playing::after { 
+  content: "❙ ❙ GIF";
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_repin { 
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 28px;
+  width: auto;
+  color: #fff;
+  background: #bd081c url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjYmQwODFjIj48L3BhdGg+PC9nPjwvc3ZnPg==) 5px 50% no-repeat;
+  background-size: 18px 18px;
+  text-indent: 28px;
+  font: 14px/28px "Helvetica Neue", Helvetica, Arial, "sans-serif";
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 0 6px 0 0;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_repin:hover { 
+  background-color: #aa0719;
+  box-shadow: none;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_source { 
+  height: 38px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_source .PIN_1512391145534_img { 
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  left: 10px;
+  height: 16px;
+  width: 16px;
+  background: transparent url() 0 0 no-repeat;
+  background-size: 16px 16px;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_source .PIN_1512391145534_domain { 
+  line-height: 38px;
+  max-width: 75%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: bold;
+  color: #b9b9b9;
+  position: absolute;
+  top: 0px;
+  left: 35px;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_source.PIN_1512391145534_nofav .PIN_1512391145534_img { 
+  display: none;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_source.PIN_1512391145534_nofav .PIN_1512391145534_domain { 
+  max-width: 85%;
+  left: 10px;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_source .PIN_1512391145534_menu { 
+  height: inherit;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_source .PIN_1512391145534_menu .PIN_1512391145534_toggle { 
+  position: absolute;
+  top: 0;
+  right: 5px;
+  height: inherit;
+  width: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  background: #fff url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNXB4IiB3aWR0aD0iMjBweCIgdmlld0JveD0iMCAwIDIwIDUiPjxnPjxwYXRoIGQ9Ik0xNy41LDUgQzE4Ljg4MSw1IDIwLDMuODgxIDIwLDIuNSBDMjAsMS4xMTkgMTguODgxLDAgMTcuNSwwIEMxNi4xMTksMCAxNSwxLjExOSAxNSwyLjUgQzE1LDMuODgxIDE2LjExOSw1IDE3LjUsNSBaIE0xMCw1IEMxMS4zOCw1IDEyLjUsMy44ODEgMTIuNSwyLjUgQzEyLjUsMS4xMTkgMTEuMzgsMCAxMCwwIEM4LjYyLDAgNy41LDEuMTE5IDcuNSwyLjUgQzcuNSwzLjg4MSA4LjYyLDUgMTAsNSBNMi41LDUgQzMuODgxLDUgNSwzLjg4MSA1LDIuNSBDNSwxLjExOSAzLjg4MSwwIDIuNSwwIEMxLjEyLDAgMCwxLjExOSAwLDIuNSBDMCwzLjg4MSAxLjEyIDUsMi41LDUgWiIgZmlsbD0iI2I1YjViNSI+PC9wYXRoPjwvZz48L3N2Zz4=) 50% 50% no-repeat;
+  background-size: fill;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_source .PIN_1512391145534_menu .PIN_1512391145534_dropdown { 
+  display: none;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .33);
+  font-weight: bold;
+  font-size: 12px;
+  background: #fff;
+  text-align: left;
+  padding: 10px;
+  position: absolute;
+  max-width: 195px;
+  right: 10px;
+  top: 39px;
+  z-index: 1;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_source .PIN_1512391145534_menu .PIN_1512391145534_dropdown::after { 
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 1px;
+  border-bottom: 8px solid #fff;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_source .PIN_1512391145534_menu .PIN_1512391145534_dropdown::before { 
+  content: "";
+  position: absolute;
+  top: -7px;
+  right: 2px;
+  border-bottom: 7px solid #e2e2e2;
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_description { 
+  font-size: 14px;
+  line-height: 17px;
+  margin: 8px 12px;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_attribution { 
+  height: 22px;
+  margin-top: 5px;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_attribution .PIN_1512391145534_img { 
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  left: 10px;
+  height: 16px;
+  width: 16px;
+  background: transparent url() 0 0 no-repeat;
+  background-size: 16px 16px;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_attribution .PIN_1512391145534_by { 
+  line-height: 22px;
+  max-width: 75%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 11px;
+  font-weight: bold;
+  color: #b9b9b9;
+  position: absolute;
+  top: 0px;
+  left: 35px;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_stats { 
+  height: 24px;
+  line-height: 24px;
+  margin: 0 0 0 10px;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_stats .PIN_1512391145534_repins { 
+  padding-left: 17px;
+  padding-right: 10px;
+  color: #a8a8a8;
+  font-size: 11px;
+  font-weight: bold;
+  display: inline-block;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMTRweCIgd2lkdGg9IjE0cHgiIHZpZXdCb3g9IjAgMCAxNCAxNCI+PGc+PHBhdGggZD0iTTExLjk3OSw2Ljg1OSBMMTMuOTksNS4wMTEgTDExLjI0MSw1LjAxMSBMMTAuNDg2LDAgTDkuNzM5LDUuMDExIEw3LDUuMDExIEw4Ljk4Niw2Ljg1OCBMOC45ODYsMTEuMDE3IEM4LjUwNSwxMC45ODUgOC4xNDMsMTEuMDEyIDguMTQzLDExLjIxMyBDOC4xNDMsMTEuNjg3IDguNTAzLDEyLjAwMSA4Ljk4NiwxMi4wMDEgTDExLjk4MiwxMiBDMTIuNDY1LDEyIDEyLjg4OCwxMS42ODYgMTIuODg4LDExLjIxMyBDMTIuODg4LDExLjAxMSAxMi40NjUsMTAuOTg1IDExLjk4MiwxMS4wMTcgTDExLjk3OSw2Ljg1OSBaIE00Ljk3OSw3LjE0MiBMNi45OSw4Ljk5IEw0LjI0MSw4Ljk5IEwzLjQ4NiwxNC4wMDEgTDIuNzM5LDguOTkgTDAsOC45OSBMMS45ODYsNy4xNDMgTDEuOTg2LDIuOTg0IEMxLjUwNSwzLjAxNiAxLjE0MywyLjk4OSAxLjE0MywyLjc4OCBDMS4xNDMsMi4zMTUgMS41MDMsMiAxLjk4NiwyIEw0Ljk4MiwyLjAwMSBDNS40NjUsMi4wMDEgNS44ODgsMi4zMTUgNS44ODgsMi43ODkgQzUuODg4LDIuOTkgNS40NjUsMy4wMTcgNC45ODIsMi45ODQgTDQuOTc5LDcuMTQyIFoiIGZpbGw9IiNiNWI1YjUiPjwvcGF0aD48L2c+PC9zdmc+) 0 50% no-repeat;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_bd .PIN_1512391145534_stats .PIN_1512391145534_done { 
+  padding-left: 15px;
+  padding-right: 10px;
+  color: #a8a8a8;
+  font-size: 11px;
+  font-weight: bold;
+  display: inline-block;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMTJweCIgd2lkdGg9IjEycHgiIHZpZXdCb3g9IjAgMCAxMiAxMiI+PGc+PHBhdGggZD0iTTAsNiBMMiw0IEw1LDcgTDEwLDEgTDEyLDMgTDUsMTEgWiIgZmlsbD0iI2I1YjViNSI+PC9wYXRoPjwvZz48L3N2Zz4=) 0 50% no-repeat;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_ft { 
+  height: 50px;
+  margin-right: 10px;
+  overflow: hidden;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_ft:after { 
+  content: '-------------------------------------------------------------------------------------';
+  display: block;
+  height: 1px;
+  line-height: 1px;
+  color: #fff;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_ft .PIN_1512391145534_img { 
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  height: 30px;
+  width: 30px;
+  border-radius: 30px;
+  background: transparent url() 0 0 no-repeat;
+  background-size: 30px 30px;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_ft .PIN_1512391145534_pinner,  .PIN_1512391145534_embed_pin .PIN_1512391145534_ft  .PIN_1512391145534_board { 
+  position: absolute;
+  left: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 75%;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_ft .PIN_1512391145534_pinner { 
+  font-weight: bold;
+  top: 10px;
+}
+ .PIN_1512391145534_embed_pin .PIN_1512391145534_ft .PIN_1512391145534_board { 
+  bottom: 10px;
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_ja .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_repin { 
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMThweCIgd2lkdGg9IjQxcHgiIHZpZXdCb3g9IjAgMCA0MSAxOCI+PGc+PHBhdGggZD0iTTE5LjgyMiw3LjE3MyBDMTkuODIyLDYuNTEgMTkuODM1LDYuMjc2IDE5Ljg4Nyw1Ljk2NCBMMTguMTQ1LDUuOTY0IEMxOC4xOTcsNi4yODkgMTguMTk3LDYuNDk3IDE4LjE5Nyw3LjE2IEwxOC4yMSwxMy4xOTIgQzE4LjIxLDEzLjk0NiAxOC4yMjMsMTQuMTY3IDE4LjI0OSwxNC4zODggQzE4LjMyNywxNS4wMjUgMTguNTIyLDE1LjQ0MSAxOC44ODYsMTUuNzE0IEMxOS4zOTMsMTYuMTA0IDIwLjI5LDE2LjI3MyAyMS45MjgsMTYuMjczIEMyMi43MjEsMTYuMjczIDI0LjM1OSwxNi4xOTUgMjUuMTI2LDE2LjExNyBDMjYuNTA0LDE1Ljk4NyAyNi41NjksMTUuOTc0IDI2Ljg0MiwxNS45NzQgTDI2Ljc2NCwxNC4yNDUgQzI2LjE5MiwxNC40MTQgMjUuOTA2LDE0LjQ3OSAyNS4yODIsMTQuNTU3IEMyNC4zMzMsMTQuNjg3IDIzLjEzNywxNC43NjUgMjIuMjY2LDE0Ljc2NSBDMjEuMDA1LDE0Ljc2NSAyMC4yNjQsMTQuNjQ4IDIwLjA0MywxNC40MjcgQzE5Ljg2MSwxNC4yNDUgMTkuODA5LDEzLjk1OSAxOS44MDksMTMuMjMxIEMxOS44MDksMTMuMTc5IDE5LjgwOSwxMy4xMDEgMTkuODIyLDEzLjAyMyBMMTkuODIyLDExLjMwNyBDMjEuOTkzLDEwLjkwNCAyNC4wMDgsMTAuMjI4IDI1LjkzMiw5LjI0IEwyNi4yNyw5LjA3MSBDMjYuMzc0LDkuMDE5IDI2LjQsOS4wMDYgMjYuNTQzLDguOTU0IEwyNS41MDMsNy40ODUgQzI0LjY1OCw4LjI3OCAyMS43ODUsOS40MzUgMTkuODIyLDkuNzk5IEwxOS44MjIsNy4xNzMgWiBNMjcuMzEsNC44NzIgQzI2LjQ5MSw0Ljg3MiAyNS44MTUsNS41NDggMjUuODE1LDYuMzY3IEMyNS44MTUsNy4xOTkgMjYuNDkxLDcuODc1IDI3LjMxLDcuODc1IEMyOC4xNDIsNy44NzUgMjguODE4LDcuMTk5IDI4LjgxOCw2LjM2NyBDMjguODE4LDUuNTQ4IDI4LjE0Miw0Ljg3MiAyNy4zMSw0Ljg3MiBMMjcuMzEsNC44NzIgWiBNMjcuMzEsNS41MjIgQzI3Ljc5MSw1LjUyMiAyOC4xNjgsNS44OTkgMjguMTY4LDYuMzY3IEMyOC4xNjgsNi44MzUgMjcuNzkxLDcuMjI1IDI3LjMxLDcuMjI1IEMyNi44NDIsNy4yMjUgMjYuNDY1LDYuODM1IDI2LjQ2NSw2LjM2NyBDMjYuNDY1LDUuODk5IDI2Ljg0Miw1LjUyMiAyNy4zMSw1LjUyMiBMMjcuMzEsNS41MjIgWiBNMzAuNTg2LDcuNjU0IEMzMS43OTUsOC4zMyAzMi44NjEsOS4xODggMzMuOTAxLDEwLjI5MyBMMzUuMDE5LDguODc2IEMzNC4wMTgsNy45MjcgMzMuMjEyLDcuMzI5IDMxLjY2NSw2LjM2NyBMMzAuNTg2LDcuNjU0IFogTTMxLjA0MSwxNi4yMzQgQzMxLjM0LDE2LjEzIDMxLjM3OSwxNi4xMTcgMzEuODk5LDE2LjAxMyBDMzMuOTE0LDE1LjU4NCAzNS41MjYsMTQuOTQ3IDM2Ljg1MiwxNC4wNjMgQzM4LjYzMywxMi44OCAzOS44NjgsMTEuMzQ2IDQwLjk3Myw4Ljk2NyBDNDAuMzEsOC40OTkgNDAuMTAyLDguMzA0IDM5LjU5NSw3LjY5MyBDMzkuMjA1LDguNzQ2IDM4Ljg0MSw5LjQ2MSAzOC4yNjksMTAuMjkzIEMzNy4yNDIsMTEuNzc1IDM2LjAzMywxMi43NzYgMzQuNDA4LDEzLjQ3OCBDMzMuMjI1LDEzLjk5OCAzMS42NzgsMTQuMzc1IDMwLjU2LDE0LjQ0IEwzMS4wNDEsMTYuMjM0IFogTTcuNDU4LDAgQzIuNSwwIDAsMy41MjIgMCw2LjQ1OSBDMCw4LjIzNyAwLjY4LDkuODE5IDIuMTM3LDEwLjQwOSBDMi4zNzYsMTAuNTA1IDIuNTksMTAuNDEyIDIuNjYsMTAuMTUgQzIuNzA4LDkuOTY5IDIuODIyLDkuNTExIDIuODczLDkuMzIgQzIuOTQzLDkuMDYxIDIuOTE2LDguOTcgMi43MjMsOC43NDQgQzIuMzAyLDguMjUzIDIuMDM0LDcuNjE3IDIuMDM0LDYuNzE2IEMyLjAzNCw0LjEwNCA0LjAwNywxLjc2NSA3LjE3MiwxLjc2NSBDOS45NzUsMS43NjUgMTEuNTE0LDMuNDYxIDExLjUxNCw1LjcyNiBDMTEuNTE0LDguNzA4IDEwLjE4MywxMS4xOCA4LjIwNiwxMS4xOCBDNy4xMTQsMTEuMTggNi4yOTcsMTAuMzI5IDYuNTU5LDkuMjMzIEM2Ljg3Miw3LjkyMiA3LjQ4LDYuNTA5IDcuNDgsNS41NjQgQzcuNDgsNC43MTcgNy4wMjIsNC4wMTEgNi4wNzIsNC4wMTEgQzQuOTU2LDQuMDExIDQuMDYsNS4xNTUgNC4wNiw2LjY4NyBDNC4wNiw3LjY2MyA0LjM5Myw4LjMyMyA0LjM5Myw4LjMyMyBDNC4zOTMsOC4zMjMgMy4yNTEsMTMuMTE3IDMuMDUxLDEzLjk1NyBDMi42NTIsMTUuNjI5IDIuOTkxLDE3LjY3OSAzLjAxOSwxNy44ODYgQzMuMDM2LDE4LjAwOSAzLjE5NSwxOC4wMzggMy4yNjcsMTcuOTQ2IEMzLjM3LDE3LjgxMiA0LjcsMTYuMTg3IDUuMTUxLDE0LjU2MiBDNS4yNzksMTQuMTAyIDUuODg1LDExLjcyIDUuODg1LDExLjcyIEM2LjI0OCwxMi40MDYgNy4zMDgsMTMuMDA5IDguNDM1LDEzLjAwOSBDMTEuNzksMTMuMDA5IDE0LjA2Niw5Ljk3OSAxNC4wNjYsNS45MjMgQzE0LjA2NiwyLjg1NyAxMS40NDQsMCA3LjQ1OCwwIFoiIGZpbGw9IiNmZmYiPjwvcGF0aD48L2c+PC9zdmc+);
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_ja .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_repin.PIN_1512391145534_save { 
+  background: #bd081c url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjYmQwODFjIj48L3BhdGg+PC9nPjwvc3ZnPg==) 5px 50% no-repeat;
+  background-size: 16px 16px;
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_medium { 
+  min-width: 237px;
+  max-width: 345px;
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_large { 
+  min-width: 345px;
+  max-width: 600px;
+  padding: 30px 34px 10px;
+  font-size: 14px;
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_large .PIN_1512391145534_bd { 
+  border-bottom: none;
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_large .PIN_1512391145534_bd .PIN_1512391145534_hd { 
+  padding-top: 50px;
+  border-bottom: none;
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_large .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_container .PIN_1512391145534_img,  .PIN_1512391145534_embed_pin.PIN_1512391145534_large .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_container .PIN_1512391145534_video { 
+  border-radius: 8px;
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_large .PIN_1512391145534_bd .PIN_1512391145534_hd .PIN_1512391145534_repin { 
+  top: 0px;
+  left: 0px;
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_large .PIN_1512391145534_bd .PIN_1512391145534_source { 
+  height: 50px;
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_large .PIN_1512391145534_bd .PIN_1512391145534_source .PIN_1512391145534_domain { 
+  line-height: 50px;
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_large .PIN_1512391145534_bd .PIN_1512391145534_stats { 
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_large .PIN_1512391145534_bd .PIN_1512391145534_description { 
+  font-size: 16px;
+  line-height: 20px;
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_large .PIN_1512391145534_bd .PIN_1512391145534_menu { 
+  height: inherit;
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_large .PIN_1512391145534_bd .PIN_1512391145534_menu .PIN_1512391145534_dropdown { 
+  top: 50px;
+  font-size: 14px;
+  padding: 10px;
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_large .PIN_1512391145534_ft { 
+  height: 60px;
+  font-size: 16px;
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_large .PIN_1512391145534_ft .PIN_1512391145534_board,  .PIN_1512391145534_embed_pin.PIN_1512391145534_large .PIN_1512391145534_ft .PIN_1512391145534_pinner { 
+  left: 60px;
+}
+ .PIN_1512391145534_embed_pin.PIN_1512391145534_large .PIN_1512391145534_ft .PIN_1512391145534_img { 
+  height: 40px;
+  width: 40px;
+  background-size: 40px 40px;
+  border-radius: 20px;
+}
+ .PIN_1512391145534_button_follow { 
+  display: inline-block;
+  color: #363636;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 1px #888;
+  border-radius: 3px;
+  font: 11px "Helvetica Neue", Helvetica, arial, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  -moz-font-smoothing: antialiased;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 4px 0 20px;
+  background-color: #efefef;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+ .PIN_1512391145534_button_follow:hover { 
+  box-shadow: inset 0 0 1px #000;
+}
+ .PIN_1512391145534_button_follow::after { 
+  content: "";
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  top: 3px;
+  left: 3px;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjYmQwODFjIj48L3BhdGg+PC9nPjwvc3ZnPg==) 0 0 no-repeat;
+  background-size: 14px 14px;
+}
+ .PIN_1512391145534_button_follow.PIN_1512391145534_tall { 
+  height: 26px;
+  line-height: 26px;
+  font-size: 13px;
+  padding: 0 6px 0 25px;
+  border-radius: 3px;
+}
+ .PIN_1512391145534_button_follow.PIN_1512391145534_tall::after { 
+  height: 18px;
+  width: 18px;
+  top: 4px;
+  left: 4px;
+  background-size: 18px 18px;
+}
+ .PIN_1512391145534_button_pin { 
+  cursor: pointer;
+  display: inline-block;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 1px #888;
+  border-radius: 3px;
+  height: 20px;
+  width: 40px;
+  -moz-font-smoothing: antialiased;
+  background: #efefef url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMThweCIgd2lkdGg9IjQycHgiIHZpZXdCb3g9IjAgMCA0MiAxOCI+PGc+PHBhdGggZD0iTTE2Ljg1Myw2LjM0NSBDMTcuNjMyLDYuMzQ1IDE4LjM4LDUuNzAyIDE4LjUxLDQuOTA5IEMxOC42NjQsNC4xMzggMTguMTM1LDMuNDk0IDE3LjM1NywzLjQ5NCBDMTYuNTc4LDMuNDk0IDE1LjgzLDQuMTM4IDE1LjY5OCw0LjkwOSBDMTUuNTQ2LDUuNzAyIDE2LjA1Myw2LjM0NSAxNi44NTMsNi4zNDUgWiBNNy40NTgsMCBDMi41LDAgMCwzLjUyMiAwLDYuNDU5IEMwLDguMjM3IDAuNjgsOS44MTkgMi4xMzcsMTAuNDA5IEMyLjM3NiwxMC41MDUgMi41OSwxMC40MTIgMi42NiwxMC4xNSBDMi43MDgsOS45NjkgMi44MjIsOS41MTEgMi44NzMsOS4zMiBDMi45NDMsOS4wNjEgMi45MTYsOC45NyAyLjcyMyw4Ljc0NCBDMi4zMDIsOC4yNTMgMi4wMzQsNy42MTcgMi4wMzQsNi43MTYgQzIuMDM0LDQuMTA0IDQuMDA3LDEuNzY1IDcuMTcyLDEuNzY1IEM5Ljk3NSwxLjc2NSAxMS41MTQsMy40NjEgMTEuNTE0LDUuNzI2IEMxMS41MTQsOC43MDggMTAuMTgzLDExLjE4IDguMjA2LDExLjE4IEM3LjExNCwxMS4xOCA2LjI5NywxMC4zMjkgNi41NTksOS4yMzMgQzYuODcyLDcuOTIyIDcuNDgsNi41MDkgNy40OCw1LjU2NCBDNy40OCw0LjcxNyA3LjAyMiw0LjAxMSA2LjA3Miw0LjAxMSBDNC45NTYsNC4wMTEgNC4wNiw1LjE1NSA0LjA2LDYuNjg3IEM0LjA2LDcuNjYzIDQuMzkzLDguMzIzIDQuMzkzLDguMzIzIEM0LjM5Myw4LjMyMyAzLjI1MSwxMy4xMTcgMy4wNTEsMTMuOTU3IEMyLjY1MiwxNS42MjkgMi45OTEsMTcuNjc5IDMuMDE5LDE3Ljg4NiBDMy4wMzYsMTguMDA5IDMuMTk1LDE4LjAzOCAzLjI2NywxNy45NDYgQzMuMzcsMTcuODEyIDQuNywxNi4xODcgNS4xNTEsMTQuNTYyIEM1LjI3OSwxNC4xMDIgNS44ODUsMTEuNzIgNS44ODUsMTEuNzIgQzYuMjQ4LDEyLjQwNiA3LjMwOCwxMy4wMDkgOC40MzUsMTMuMDA5IEMxMS43OSwxMy4wMDkgMTQuMDY2LDkuOTc5IDE0LjA2Niw1LjkyMyBDMTQuMDY2LDIuODU3IDExLjQ0NCwwIDcuNDU4LDAgWiBNMjYuODk2LDE0LjE4OSBDMjYuMzQ4LDE0LjE4OSAyNi4xMTcsMTMuOTE1IDI2LjExNywxMy4zMjggQzI2LjExNywxMi40MDQgMjcuMDM1LDEwLjA5MSAyNy4wMzUsOS4wNDEgQzI3LjAzNSw3LjYzOCAyNi4yNzYsNi44MjYgMjQuNzIsNi44MjYgQzIzLjczOSw2LjgyNiAyMi43MjIsNy40NTMgMjIuMjkxLDguMDAzIEMyMi4yOTEsOC4wMDMgMjIuNDIyLDcuNTUzIDIyLjQ2Nyw3LjM4IEMyMi41MTUsNy4xOTYgMjIuNDE1LDYuODg0IDIyLjE3Myw2Ljg4NCBMMjAuNjUxLDYuODg0IEMyMC4zMjgsNi44ODQgMjAuMjM4LDcuMDU1IDIwLjE5MSw3LjI0NCBDMjAuMTcyLDcuMzIgMTkuNjI0LDkuNTg0IDE5LjA5OCwxMS42MzIgQzE4LjczOCwxMy4wMzQgMTcuODYzLDE0LjIwNSAxNi45MjgsMTQuMjA1IEMxNi40NDcsMTQuMjA1IDE2LjIzMywxMy45MDYgMTYuMjMzLDEzLjM5OSBDMTYuMjMzLDEyLjk1OSAxNi41MTksMTEuODc3IDE2Ljg2LDEwLjUzNCBDMTcuMjc2LDguODk4IDE3LjY0Miw3LjU1MSAxNy42ODEsNy4zOTQgQzE3LjczMiw3LjE5MiAxNy42NDIsNy4wMTcgMTcuMzc5LDcuMDE3IEwxNS44NDksNy4wMTcgQzE1LjU3Miw3LjAxNyAxNS40NzMsNy4xNjEgMTUuNDE0LDcuMzYxIEMxNS40MTQsNy4zNjEgMTQuOTgzLDguOTc3IDE0LjUyNywxMC43NzUgQzE0LjE5NiwxMi4wNzkgMTMuODMsMTMuNDA5IDEzLjgzLDE0LjAzNCBDMTMuODMsMTUuMTQ4IDE0LjMzNiwxNS45NDQgMTUuNzI0LDE1Ljk0NCBDMTYuNzk2LDE1Ljk0NCAxNy42NDQsMTUuNDUgMTguMjkyLDE0Ljc2NCBDMTguMTk3LDE1LjEzNSAxOC4xMzYsMTUuNDE0IDE4LjEzLDE1LjQzOSBDMTguMDc0LDE1LjY1IDE4LjE0MiwxNS44MzggMTguMzk0LDE1LjgzOCBMMTkuOTYxLDE1LjgzOCBDMjAuMjMzLDE1LjgzOCAyMC4zMzcsMTUuNzMgMjAuMzk0LDE1LjQ5NCBDMjAuNDQ5LDE1LjI2OSAyMS42MTksMTAuNjY3IDIxLjYxOSwxMC42NjcgQzIxLjkyOCw5LjQ0MyAyMi42OTIsOC42MzIgMjMuNzY4LDguNjMyIEMyNC4yNzksOC42MzIgMjQuNzIsOC45NjcgMjQuNjY5LDkuNjE4IEMyNC42MTIsMTAuMzMzIDIzLjc0MSwxMi45MDMgMjMuNzQxLDE0LjAzMSBDMjMuNzQxLDE0Ljg4NCAyNC4wNiwxNS45NDUgMjUuNjgzLDE1Ljk0NSBDMjYuNzg5LDE1Ljk0NSAyNy42MDMsMTUuNDY0IDI4LjE5NSwxNC43ODYgTDI3LjQ4OSwxMy45NDEgQzI3LjMxMSwxNC4wOTQgMjcuMTE0LDE0LjE4OSAyNi44OTYsMTQuMTg5IFogTTQxLjcwMSw2Ljg3MyBMNDAuMTM0LDYuODczIEM0MC4xMzQsNi44NzMgNDAuODU2LDQuMTA5IDQwLjg3Myw0LjAzNSBDNDAuOTQyLDMuNzQ1IDQwLjY5OCwzLjU3OCA0MC40NDEsMy42MzEgQzQwLjQ0MSwzLjYzMSAzOS4yMywzLjg2NiAzOS4wMDUsMy45MTMgQzM4Ljc3OSwzLjk1OCAzOC42MDQsNC4wODEgMzguNTIyLDQuNDAzIEMzOC41MTIsNC40NDUgMzcuODgsNi44NzMgMzcuODgsNi44NzMgTDM2LjYyMiw2Ljg3MyBDMzYuMzg1LDYuODczIDM2LjI0NSw2Ljk2OCAzNi4xOTIsNy4xODggQzM2LjExNSw3LjUwNCAzNS45NzUsOC4xNDUgMzUuOTM2LDguMjk3IEMzNS44ODUsOC40OTQgMzYsOC42NDQgMzYuMjIyLDguNjQ0IEwzNy40NTcsOC42NDQgQzM3LjQ0OCw4LjY3NyAzNy4wNjQsMTAuMTI1IDM2LjcyNSwxMS41MjEgTDM2LjcyNCwxMS41MTYgQzM2LjcyLDExLjUzMiAzNi43MTYsMTEuNTQ2IDM2LjcxMiwxMS41NjIgTDM2LjcxMiwxMS41NTYgQzM2LjcxMiwxMS41NTYgMzYuNzA4LDExLjU3MSAzNi43MDIsMTEuNTk4IEMzNi4zMjQsMTIuOTY4IDM1LjExOCwxNC4yMDkgMzQuMjAxLDE0LjIwOSBDMzMuNzIxLDE0LjIwOSAzMy41MDYsMTMuOTA5IDMzLjUwNiwxMy40MDIgQzMzLjUwNiwxMi45NjMgMzMuNzkyLDExLjg4IDM0LjEzNCwxMC41MzcgQzM0LjU0OSw4LjkwMSAzNC45MTUsNy41NTUgMzQuOTU1LDcuMzk3IEMzNS4wMDYsNy4xOTYgMzQuOTE1LDcuMDIgMzQuNjUyLDcuMDIgTDMzLjEyMiw3LjAyIEMzMi44NDUsNy4wMiAzMi43NDYsNy4xNjQgMzIuNjg3LDcuMzY0IEMzMi42ODcsNy4zNjQgMzIuMjU3LDguOTggMzEuOCwxMC43NzggQzMxLjQ2OSwxMi4wODMgMzEuMTAzLDEzLjQxMiAzMS4xMDMsMTQuMDM3IEMzMS4xMDMsMTUuMTUxIDMxLjYwOSwxNS45NDggMzIuOTk3LDE1Ljk0OCBDMzQuMDcsMTUuOTQ4IDM1LjEzNiwxNS40NTMgMzUuNzgzLDE0Ljc2NyBDMzUuNzgzLDE0Ljc2NyAzNi4wMTEsMTQuNTIxIDM2LjIzLDE0LjIyOSBDMzYuMjQxLDE0LjU4MSAzNi4zMjQsMTQuODM3IDM2LjQxMSwxNS4wMTggQzM2LjQ1OCwxNS4xMTkgMzYuNTE1LDE1LjIxNSAzNi41ODEsMTUuMzAzIEMzNi41ODIsMTUuMzA0IDM2LjU4MywxNS4zMDYgMzYuNTg1LDE1LjMwOCBMMzYuNTg1LDE1LjMwOCBDMzYuODkxLDE1LjcxMyAzNy4zOTgsMTUuOTYyIDM4LjE1MSwxNS45NjIgQzM5Ljg5NCwxNS45NjIgNDAuOTQ0LDE0LjkzOCA0MS41NjIsMTMuOTA5IEw0MC43MDQsMTMuMjM5IEM0MC4zMzMsMTMuNzc0IDM5LjgzOSwxNC4xNzUgMzkuMzI0LDE0LjE3NSBDMzguODQ2LDE0LjE3NSAzOC41NzksMTMuODc4IDM4LjU3OSwxMy4zNzIgQzM4LjU3OSwxMi45MzUgMzguODg5LDExLjg2OCAzOS4yMjksMTAuNTMgQzM5LjM0NCwxMC4wODMgMzkuNTE2LDkuNDAxIDM5LjcwOCw4LjY0NCBMNDEuMzAyLDguNjQ0IEM0MS41MzksOC42NDQgNDEuNjc4LDguNTQ5IDQxLjczMiw4LjMyOSBDNDEuODA4LDguMDEyIDQxLjk0OCw3LjM3MiA0MS45ODgsNy4yMjEgQzQyLjAzOSw3LjAyMyA0MS45MjMsNi44NzMgNDEuNzAxLDYuODczIFogTTM0LjEyNiw2LjM0OCBDMzQuOTA1LDYuMzQ4IDM1LjY1Myw1LjcwNiAzNS43ODMsNC45MTIgQzM1LjkzNyw0LjE0MSAzNS40MDksMy40OTggMzQuNjMsMy40OTggQzMzLjg1MSwzLjQ5OCAzMy4xMDMsNC4xNDEgMzIuOTcxLDQuOTEyIEMzMi44MTksNS43MDYgMzMuMzI2LDYuMzQ4IDM0LjEyNiw2LjM0OCBaIiBmaWxsPSIjYmQwODFjIj48L3BhdGg+PC9nPjwvc3ZnPg==) 50% 50% no-repeat;
+  background-size: 75%;
+  position: relative;
+  font: 12px "Helvetica Neue", Helvetica, arial, sans-serif;
+  color: #555;
+  text-align: center;
+  vertical-align: baseline;
+}
+ .PIN_1512391145534_button_pin:hover { 
+  box-shadow: inset 0 0 1px #000;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_above .PIN_1512391145534_count { 
+  position: absolute;
+  top: -28px;
+  left: 0;
+  height: 28px;
+  width: inherit;
+  line-height: 24px;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNzZweCIgd2lkdGg9IjExNHB4IiB2aWV3Qm94PSIwIDAgMTE0IDc2Ij48Zz48cGF0aCBkPSJNOSAxQzQuNiAxIDEgNC42IDEgOXY0M2MwIDQuMyAzLjYgOCA4IDhoMjZsMTggMTVoNy41bDE2LTE1SDEwNWM0LjQgMCA4LTMuNyA4LThWOWMwLTQuNC0zLjYtOC04LThIOXoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2I1YjViNSIgc3Ryb2tlLXdpZHRoPSIyIj48L3BhdGg+PC9nPjwvc3ZnPg==) 0 0 no-repeat;
+  background-size: 40px 28px;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_above.PIN_1512391145534_padded { 
+  margin-top: 28px;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_beside .PIN_1512391145534_count { 
+  position: absolute;
+  right: -45px;
+  text-align: center;
+  text-indent: 5px;
+  height: inherit;
+  width: 45px;
+  font-size: 11px;
+  line-height: 20px;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNTZweCIgd2lkdGg9IjEyNnB4IiB2aWV3Qm94PSIyIDAgMTMwIDYwIj48Zz48cGF0aCBkPSJNMTE5LjYgMmM0LjUgMCA4IDMuNiA4IDh2NDBjMCA0LjQtMy41IDgtOCA4SDIzLjNMMS42IDMyLjR2LTQuNkwyMy4zIDJoOTYuM3oiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2I1YjViNSIgc3Ryb2tlLXdpZHRoPSIyIj48L3BhdGg+PC9nPjwvc3ZnPg==);
+  background-size: cover;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_beside.PIN_1512391145534_padded { 
+  margin-right: 45px;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_ja { 
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMThweCIgd2lkdGg9IjQxcHgiIHZpZXdCb3g9IjAgMCA0MSAxOCI+PGc+PHBhdGggZD0iTTE5LjgyMiw3LjE3MyBDMTkuODIyLDYuNTEgMTkuODM1LDYuMjc2IDE5Ljg4Nyw1Ljk2NCBMMTguMTQ1LDUuOTY0IEMxOC4xOTcsNi4yODkgMTguMTk3LDYuNDk3IDE4LjE5Nyw3LjE2IEwxOC4yMSwxMy4xOTIgQzE4LjIxLDEzLjk0NiAxOC4yMjMsMTQuMTY3IDE4LjI0OSwxNC4zODggQzE4LjMyNywxNS4wMjUgMTguNTIyLDE1LjQ0MSAxOC44ODYsMTUuNzE0IEMxOS4zOTMsMTYuMTA0IDIwLjI5LDE2LjI3MyAyMS45MjgsMTYuMjczIEMyMi43MjEsMTYuMjczIDI0LjM1OSwxNi4xOTUgMjUuMTI2LDE2LjExNyBDMjYuNTA0LDE1Ljk4NyAyNi41NjksMTUuOTc0IDI2Ljg0MiwxNS45NzQgTDI2Ljc2NCwxNC4yNDUgQzI2LjE5MiwxNC40MTQgMjUuOTA2LDE0LjQ3OSAyNS4yODIsMTQuNTU3IEMyNC4zMzMsMTQuNjg3IDIzLjEzNywxNC43NjUgMjIuMjY2LDE0Ljc2NSBDMjEuMDA1LDE0Ljc2NSAyMC4yNjQsMTQuNjQ4IDIwLjA0MywxNC40MjcgQzE5Ljg2MSwxNC4yNDUgMTkuODA5LDEzLjk1OSAxOS44MDksMTMuMjMxIEMxOS44MDksMTMuMTc5IDE5LjgwOSwxMy4xMDEgMTkuODIyLDEzLjAyMyBMMTkuODIyLDExLjMwNyBDMjEuOTkzLDEwLjkwNCAyNC4wMDgsMTAuMjI4IDI1LjkzMiw5LjI0IEwyNi4yNyw5LjA3MSBDMjYuMzc0LDkuMDE5IDI2LjQsOS4wMDYgMjYuNTQzLDguOTU0IEwyNS41MDMsNy40ODUgQzI0LjY1OCw4LjI3OCAyMS43ODUsOS40MzUgMTkuODIyLDkuNzk5IEwxOS44MjIsNy4xNzMgWiBNMjcuMzEsNC44NzIgQzI2LjQ5MSw0Ljg3MiAyNS44MTUsNS41NDggMjUuODE1LDYuMzY3IEMyNS44MTUsNy4xOTkgMjYuNDkxLDcuODc1IDI3LjMxLDcuODc1IEMyOC4xNDIsNy44NzUgMjguODE4LDcuMTk5IDI4LjgxOCw2LjM2NyBDMjguODE4LDUuNTQ4IDI4LjE0Miw0Ljg3MiAyNy4zMSw0Ljg3MiBMMjcuMzEsNC44NzIgWiBNMjcuMzEsNS41MjIgQzI3Ljc5MSw1LjUyMiAyOC4xNjgsNS44OTkgMjguMTY4LDYuMzY3IEMyOC4xNjgsNi44MzUgMjcuNzkxLDcuMjI1IDI3LjMxLDcuMjI1IEMyNi44NDIsNy4yMjUgMjYuNDY1LDYuODM1IDI2LjQ2NSw2LjM2NyBDMjYuNDY1LDUuODk5IDI2Ljg0Miw1LjUyMiAyNy4zMSw1LjUyMiBMMjcuMzEsNS41MjIgWiBNMzAuNTg2LDcuNjU0IEMzMS43OTUsOC4zMyAzMi44NjEsOS4xODggMzMuOTAxLDEwLjI5MyBMMzUuMDE5LDguODc2IEMzNC4wMTgsNy45MjcgMzMuMjEyLDcuMzI5IDMxLjY2NSw2LjM2NyBMMzAuNTg2LDcuNjU0IFogTTMxLjA0MSwxNi4yMzQgQzMxLjM0LDE2LjEzIDMxLjM3OSwxNi4xMTcgMzEuODk5LDE2LjAxMyBDMzMuOTE0LDE1LjU4NCAzNS41MjYsMTQuOTQ3IDM2Ljg1MiwxNC4wNjMgQzM4LjYzMywxMi44OCAzOS44NjgsMTEuMzQ2IDQwLjk3Myw4Ljk2NyBDNDAuMzEsOC40OTkgNDAuMTAyLDguMzA0IDM5LjU5NSw3LjY5MyBDMzkuMjA1LDguNzQ2IDM4Ljg0MSw5LjQ2MSAzOC4yNjksMTAuMjkzIEMzNy4yNDIsMTEuNzc1IDM2LjAzMywxMi43NzYgMzQuNDA4LDEzLjQ3OCBDMzMuMjI1LDEzLjk5OCAzMS42NzgsMTQuMzc1IDMwLjU2LDE0LjQ0IEwzMS4wNDEsMTYuMjM0IFogTTcuNDU4LDAgQzIuNSwwIDAsMy41MjIgMCw2LjQ1OSBDMCw4LjIzNyAwLjY4LDkuODE5IDIuMTM3LDEwLjQwOSBDMi4zNzYsMTAuNTA1IDIuNTksMTAuNDEyIDIuNjYsMTAuMTUgQzIuNzA4LDkuOTY5IDIuODIyLDkuNTExIDIuODczLDkuMzIgQzIuOTQzLDkuMDYxIDIuOTE2LDguOTcgMi43MjMsOC43NDQgQzIuMzAyLDguMjUzIDIuMDM0LDcuNjE3IDIuMDM0LDYuNzE2IEMyLjAzNCw0LjEwNCA0LjAwNywxLjc2NSA3LjE3MiwxLjc2NSBDOS45NzUsMS43NjUgMTEuNTE0LDMuNDYxIDExLjUxNCw1LjcyNiBDMTEuNTE0LDguNzA4IDEwLjE4MywxMS4xOCA4LjIwNiwxMS4xOCBDNy4xMTQsMTEuMTggNi4yOTcsMTAuMzI5IDYuNTU5LDkuMjMzIEM2Ljg3Miw3LjkyMiA3LjQ4LDYuNTA5IDcuNDgsNS41NjQgQzcuNDgsNC43MTcgNy4wMjIsNC4wMTEgNi4wNzIsNC4wMTEgQzQuOTU2LDQuMDExIDQuMDYsNS4xNTUgNC4wNiw2LjY4NyBDNC4wNiw3LjY2MyA0LjM5Myw4LjMyMyA0LjM5Myw4LjMyMyBDNC4zOTMsOC4zMjMgMy4yNTEsMTMuMTE3IDMuMDUxLDEzLjk1NyBDMi42NTIsMTUuNjI5IDIuOTkxLDE3LjY3OSAzLjAxOSwxNy44ODYgQzMuMDM2LDE4LjAwOSAzLjE5NSwxOC4wMzggMy4yNjcsMTcuOTQ2IEMzLjM3LDE3LjgxMiA0LjcsMTYuMTg3IDUuMTUxLDE0LjU2MiBDNS4yNzksMTQuMTAyIDUuODg1LDExLjcyIDUuODg1LDExLjcyIEM2LjI0OCwxMi40MDYgNy4zMDgsMTMuMDA5IDguNDM1LDEzLjAwOSBDMTEuNzksMTMuMDA5IDE0LjA2Niw5Ljk3OSAxNC4wNjYsNS45MjMgQzE0LjA2NiwyLjg1NyAxMS40NDQsMCA3LjQ1OCwwIFoiIGZpbGw9IiNiZDA4MWMiPjwvcGF0aD48L2c+PC9zdmc+);
+  background-size: 72%;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_red { 
+  background-color: #bd081c;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMThweCIgd2lkdGg9IjQycHgiIHZpZXdCb3g9IjAgMCA0MiAxOCI+PGc+PHBhdGggZD0iTTE2Ljg1Myw2LjM0NSBDMTcuNjMyLDYuMzQ1IDE4LjM4LDUuNzAyIDE4LjUxLDQuOTA5IEMxOC42NjQsNC4xMzggMTguMTM1LDMuNDk0IDE3LjM1NywzLjQ5NCBDMTYuNTc4LDMuNDk0IDE1LjgzLDQuMTM4IDE1LjY5OCw0LjkwOSBDMTUuNTQ2LDUuNzAyIDE2LjA1Myw2LjM0NSAxNi44NTMsNi4zNDUgWiBNNy40NTgsMCBDMi41LDAgMCwzLjUyMiAwLDYuNDU5IEMwLDguMjM3IDAuNjgsOS44MTkgMi4xMzcsMTAuNDA5IEMyLjM3NiwxMC41MDUgMi41OSwxMC40MTIgMi42NiwxMC4xNSBDMi43MDgsOS45NjkgMi44MjIsOS41MTEgMi44NzMsOS4zMiBDMi45NDMsOS4wNjEgMi45MTYsOC45NyAyLjcyMyw4Ljc0NCBDMi4zMDIsOC4yNTMgMi4wMzQsNy42MTcgMi4wMzQsNi43MTYgQzIuMDM0LDQuMTA0IDQuMDA3LDEuNzY1IDcuMTcyLDEuNzY1IEM5Ljk3NSwxLjc2NSAxMS41MTQsMy40NjEgMTEuNTE0LDUuNzI2IEMxMS41MTQsOC43MDggMTAuMTgzLDExLjE4IDguMjA2LDExLjE4IEM3LjExNCwxMS4xOCA2LjI5NywxMC4zMjkgNi41NTksOS4yMzMgQzYuODcyLDcuOTIyIDcuNDgsNi41MDkgNy40OCw1LjU2NCBDNy40OCw0LjcxNyA3LjAyMiw0LjAxMSA2LjA3Miw0LjAxMSBDNC45NTYsNC4wMTEgNC4wNiw1LjE1NSA0LjA2LDYuNjg3IEM0LjA2LDcuNjYzIDQuMzkzLDguMzIzIDQuMzkzLDguMzIzIEM0LjM5Myw4LjMyMyAzLjI1MSwxMy4xMTcgMy4wNTEsMTMuOTU3IEMyLjY1MiwxNS42MjkgMi45OTEsMTcuNjc5IDMuMDE5LDE3Ljg4NiBDMy4wMzYsMTguMDA5IDMuMTk1LDE4LjAzOCAzLjI2NywxNy45NDYgQzMuMzcsMTcuODEyIDQuNywxNi4xODcgNS4xNTEsMTQuNTYyIEM1LjI3OSwxNC4xMDIgNS44ODUsMTEuNzIgNS44ODUsMTEuNzIgQzYuMjQ4LDEyLjQwNiA3LjMwOCwxMy4wMDkgOC40MzUsMTMuMDA5IEMxMS43OSwxMy4wMDkgMTQuMDY2LDkuOTc5IDE0LjA2Niw1LjkyMyBDMTQuMDY2LDIuODU3IDExLjQ0NCwwIDcuNDU4LDAgWiBNMjYuODk2LDE0LjE4OSBDMjYuMzQ4LDE0LjE4OSAyNi4xMTcsMTMuOTE1IDI2LjExNywxMy4zMjggQzI2LjExNywxMi40MDQgMjcuMDM1LDEwLjA5MSAyNy4wMzUsOS4wNDEgQzI3LjAzNSw3LjYzOCAyNi4yNzYsNi44MjYgMjQuNzIsNi44MjYgQzIzLjczOSw2LjgyNiAyMi43MjIsNy40NTMgMjIuMjkxLDguMDAzIEMyMi4yOTEsOC4wMDMgMjIuNDIyLDcuNTUzIDIyLjQ2Nyw3LjM4IEMyMi41MTUsNy4xOTYgMjIuNDE1LDYuODg0IDIyLjE3Myw2Ljg4NCBMMjAuNjUxLDYuODg0IEMyMC4zMjgsNi44ODQgMjAuMjM4LDcuMDU1IDIwLjE5MSw3LjI0NCBDMjAuMTcyLDcuMzIgMTkuNjI0LDkuNTg0IDE5LjA5OCwxMS42MzIgQzE4LjczOCwxMy4wMzQgMTcuODYzLDE0LjIwNSAxNi45MjgsMTQuMjA1IEMxNi40NDcsMTQuMjA1IDE2LjIzMywxMy45MDYgMTYuMjMzLDEzLjM5OSBDMTYuMjMzLDEyLjk1OSAxNi41MTksMTEuODc3IDE2Ljg2LDEwLjUzNCBDMTcuMjc2LDguODk4IDE3LjY0Miw3LjU1MSAxNy42ODEsNy4zOTQgQzE3LjczMiw3LjE5MiAxNy42NDIsNy4wMTcgMTcuMzc5LDcuMDE3IEwxNS44NDksNy4wMTcgQzE1LjU3Miw3LjAxNyAxNS40NzMsNy4xNjEgMTUuNDE0LDcuMzYxIEMxNS40MTQsNy4zNjEgMTQuOTgzLDguOTc3IDE0LjUyNywxMC43NzUgQzE0LjE5NiwxMi4wNzkgMTMuODMsMTMuNDA5IDEzLjgzLDE0LjAzNCBDMTMuODMsMTUuMTQ4IDE0LjMzNiwxNS45NDQgMTUuNzI0LDE1Ljk0NCBDMTYuNzk2LDE1Ljk0NCAxNy42NDQsMTUuNDUgMTguMjkyLDE0Ljc2NCBDMTguMTk3LDE1LjEzNSAxOC4xMzYsMTUuNDE0IDE4LjEzLDE1LjQzOSBDMTguMDc0LDE1LjY1IDE4LjE0MiwxNS44MzggMTguMzk0LDE1LjgzOCBMMTkuOTYxLDE1LjgzOCBDMjAuMjMzLDE1LjgzOCAyMC4zMzcsMTUuNzMgMjAuMzk0LDE1LjQ5NCBDMjAuNDQ5LDE1LjI2OSAyMS42MTksMTAuNjY3IDIxLjYxOSwxMC42NjcgQzIxLjkyOCw5LjQ0MyAyMi42OTIsOC42MzIgMjMuNzY4LDguNjMyIEMyNC4yNzksOC42MzIgMjQuNzIsOC45NjcgMjQuNjY5LDkuNjE4IEMyNC42MTIsMTAuMzMzIDIzLjc0MSwxMi45MDMgMjMuNzQxLDE0LjAzMSBDMjMuNzQxLDE0Ljg4NCAyNC4wNiwxNS45NDUgMjUuNjgzLDE1Ljk0NSBDMjYuNzg5LDE1Ljk0NSAyNy42MDMsMTUuNDY0IDI4LjE5NSwxNC43ODYgTDI3LjQ4OSwxMy45NDEgQzI3LjMxMSwxNC4wOTQgMjcuMTE0LDE0LjE4OSAyNi44OTYsMTQuMTg5IFogTTQxLjcwMSw2Ljg3MyBMNDAuMTM0LDYuODczIEM0MC4xMzQsNi44NzMgNDAuODU2LDQuMTA5IDQwLjg3Myw0LjAzNSBDNDAuOTQyLDMuNzQ1IDQwLjY5OCwzLjU3OCA0MC40NDEsMy42MzEgQzQwLjQ0MSwzLjYzMSAzOS4yMywzLjg2NiAzOS4wMDUsMy45MTMgQzM4Ljc3OSwzLjk1OCAzOC42MDQsNC4wODEgMzguNTIyLDQuNDAzIEMzOC41MTIsNC40NDUgMzcuODgsNi44NzMgMzcuODgsNi44NzMgTDM2LjYyMiw2Ljg3MyBDMzYuMzg1LDYuODczIDM2LjI0NSw2Ljk2OCAzNi4xOTIsNy4xODggQzM2LjExNSw3LjUwNCAzNS45NzUsOC4xNDUgMzUuOTM2LDguMjk3IEMzNS44ODUsOC40OTQgMzYsOC42NDQgMzYuMjIyLDguNjQ0IEwzNy40NTcsOC42NDQgQzM3LjQ0OCw4LjY3NyAzNy4wNjQsMTAuMTI1IDM2LjcyNSwxMS41MjEgTDM2LjcyNCwxMS41MTYgQzM2LjcyLDExLjUzMiAzNi43MTYsMTEuNTQ2IDM2LjcxMiwxMS41NjIgTDM2LjcxMiwxMS41NTYgQzM2LjcxMiwxMS41NTYgMzYuNzA4LDExLjU3MSAzNi43MDIsMTEuNTk4IEMzNi4zMjQsMTIuOTY4IDM1LjExOCwxNC4yMDkgMzQuMjAxLDE0LjIwOSBDMzMuNzIxLDE0LjIwOSAzMy41MDYsMTMuOTA5IDMzLjUwNiwxMy40MDIgQzMzLjUwNiwxMi45NjMgMzMuNzkyLDExLjg4IDM0LjEzNCwxMC41MzcgQzM0LjU0OSw4LjkwMSAzNC45MTUsNy41NTUgMzQuOTU1LDcuMzk3IEMzNS4wMDYsNy4xOTYgMzQuOTE1LDcuMDIgMzQuNjUyLDcuMDIgTDMzLjEyMiw3LjAyIEMzMi44NDUsNy4wMiAzMi43NDYsNy4xNjQgMzIuNjg3LDcuMzY0IEMzMi42ODcsNy4zNjQgMzIuMjU3LDguOTggMzEuOCwxMC43NzggQzMxLjQ2OSwxMi4wODMgMzEuMTAzLDEzLjQxMiAzMS4xMDMsMTQuMDM3IEMzMS4xMDMsMTUuMTUxIDMxLjYwOSwxNS45NDggMzIuOTk3LDE1Ljk0OCBDMzQuMDcsMTUuOTQ4IDM1LjEzNiwxNS40NTMgMzUuNzgzLDE0Ljc2NyBDMzUuNzgzLDE0Ljc2NyAzNi4wMTEsMTQuNTIxIDM2LjIzLDE0LjIyOSBDMzYuMjQxLDE0LjU4MSAzNi4zMjQsMTQuODM3IDM2LjQxMSwxNS4wMTggQzM2LjQ1OCwxNS4xMTkgMzYuNTE1LDE1LjIxNSAzNi41ODEsMTUuMzAzIEMzNi41ODIsMTUuMzA0IDM2LjU4MywxNS4zMDYgMzYuNTg1LDE1LjMwOCBMMzYuNTg1LDE1LjMwOCBDMzYuODkxLDE1LjcxMyAzNy4zOTgsMTUuOTYyIDM4LjE1MSwxNS45NjIgQzM5Ljg5NCwxNS45NjIgNDAuOTQ0LDE0LjkzOCA0MS41NjIsMTMuOTA5IEw0MC43MDQsMTMuMjM5IEM0MC4zMzMsMTMuNzc0IDM5LjgzOSwxNC4xNzUgMzkuMzI0LDE0LjE3NSBDMzguODQ2LDE0LjE3NSAzOC41NzksMTMuODc4IDM4LjU3OSwxMy4zNzIgQzM4LjU3OSwxMi45MzUgMzguODg5LDExLjg2OCAzOS4yMjksMTAuNTMgQzM5LjM0NCwxMC4wODMgMzkuNTE2LDkuNDAxIDM5LjcwOCw4LjY0NCBMNDEuMzAyLDguNjQ0IEM0MS41MzksOC42NDQgNDEuNjc4LDguNTQ5IDQxLjczMiw4LjMyOSBDNDEuODA4LDguMDEyIDQxLjk0OCw3LjM3MiA0MS45ODgsNy4yMjEgQzQyLjAzOSw3LjAyMyA0MS45MjMsNi44NzMgNDEuNzAxLDYuODczIFogTTM0LjEyNiw2LjM0OCBDMzQuOTA1LDYuMzQ4IDM1LjY1Myw1LjcwNiAzNS43ODMsNC45MTIgQzM1LjkzNyw0LjE0MSAzNS40MDksMy40OTggMzQuNjMsMy40OTggQzMzLjg1MSwzLjQ5OCAzMy4xMDMsNC4xNDEgMzIuOTcxLDQuOTEyIEMzMi44MTksNS43MDYgMzMuMzI2LDYuMzQ4IDM0LjEyNiw2LjM0OCBaIiBmaWxsPSIjZmZmIj48L3BhdGg+PC9nPjwvc3ZnPg==);
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_red.PIN_1512391145534_ja { 
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMThweCIgd2lkdGg9IjQxcHgiIHZpZXdCb3g9IjAgMCA0MSAxOCI+PGc+PHBhdGggZD0iTTE5LjgyMiw3LjE3MyBDMTkuODIyLDYuNTEgMTkuODM1LDYuMjc2IDE5Ljg4Nyw1Ljk2NCBMMTguMTQ1LDUuOTY0IEMxOC4xOTcsNi4yODkgMTguMTk3LDYuNDk3IDE4LjE5Nyw3LjE2IEwxOC4yMSwxMy4xOTIgQzE4LjIxLDEzLjk0NiAxOC4yMjMsMTQuMTY3IDE4LjI0OSwxNC4zODggQzE4LjMyNywxNS4wMjUgMTguNTIyLDE1LjQ0MSAxOC44ODYsMTUuNzE0IEMxOS4zOTMsMTYuMTA0IDIwLjI5LDE2LjI3MyAyMS45MjgsMTYuMjczIEMyMi43MjEsMTYuMjczIDI0LjM1OSwxNi4xOTUgMjUuMTI2LDE2LjExNyBDMjYuNTA0LDE1Ljk4NyAyNi41NjksMTUuOTc0IDI2Ljg0MiwxNS45NzQgTDI2Ljc2NCwxNC4yNDUgQzI2LjE5MiwxNC40MTQgMjUuOTA2LDE0LjQ3OSAyNS4yODIsMTQuNTU3IEMyNC4zMzMsMTQuNjg3IDIzLjEzNywxNC43NjUgMjIuMjY2LDE0Ljc2NSBDMjEuMDA1LDE0Ljc2NSAyMC4yNjQsMTQuNjQ4IDIwLjA0MywxNC40MjcgQzE5Ljg2MSwxNC4yNDUgMTkuODA5LDEzLjk1OSAxOS44MDksMTMuMjMxIEMxOS44MDksMTMuMTc5IDE5LjgwOSwxMy4xMDEgMTkuODIyLDEzLjAyMyBMMTkuODIyLDExLjMwNyBDMjEuOTkzLDEwLjkwNCAyNC4wMDgsMTAuMjI4IDI1LjkzMiw5LjI0IEwyNi4yNyw5LjA3MSBDMjYuMzc0LDkuMDE5IDI2LjQsOS4wMDYgMjYuNTQzLDguOTU0IEwyNS41MDMsNy40ODUgQzI0LjY1OCw4LjI3OCAyMS43ODUsOS40MzUgMTkuODIyLDkuNzk5IEwxOS44MjIsNy4xNzMgWiBNMjcuMzEsNC44NzIgQzI2LjQ5MSw0Ljg3MiAyNS44MTUsNS41NDggMjUuODE1LDYuMzY3IEMyNS44MTUsNy4xOTkgMjYuNDkxLDcuODc1IDI3LjMxLDcuODc1IEMyOC4xNDIsNy44NzUgMjguODE4LDcuMTk5IDI4LjgxOCw2LjM2NyBDMjguODE4LDUuNTQ4IDI4LjE0Miw0Ljg3MiAyNy4zMSw0Ljg3MiBMMjcuMzEsNC44NzIgWiBNMjcuMzEsNS41MjIgQzI3Ljc5MSw1LjUyMiAyOC4xNjgsNS44OTkgMjguMTY4LDYuMzY3IEMyOC4xNjgsNi44MzUgMjcuNzkxLDcuMjI1IDI3LjMxLDcuMjI1IEMyNi44NDIsNy4yMjUgMjYuNDY1LDYuODM1IDI2LjQ2NSw2LjM2NyBDMjYuNDY1LDUuODk5IDI2Ljg0Miw1LjUyMiAyNy4zMSw1LjUyMiBMMjcuMzEsNS41MjIgWiBNMzAuNTg2LDcuNjU0IEMzMS43OTUsOC4zMyAzMi44NjEsOS4xODggMzMuOTAxLDEwLjI5MyBMMzUuMDE5LDguODc2IEMzNC4wMTgsNy45MjcgMzMuMjEyLDcuMzI5IDMxLjY2NSw2LjM2NyBMMzAuNTg2LDcuNjU0IFogTTMxLjA0MSwxNi4yMzQgQzMxLjM0LDE2LjEzIDMxLjM3OSwxNi4xMTcgMzEuODk5LDE2LjAxMyBDMzMuOTE0LDE1LjU4NCAzNS41MjYsMTQuOTQ3IDM2Ljg1MiwxNC4wNjMgQzM4LjYzMywxMi44OCAzOS44NjgsMTEuMzQ2IDQwLjk3Myw4Ljk2NyBDNDAuMzEsOC40OTkgNDAuMTAyLDguMzA0IDM5LjU5NSw3LjY5MyBDMzkuMjA1LDguNzQ2IDM4Ljg0MSw5LjQ2MSAzOC4yNjksMTAuMjkzIEMzNy4yNDIsMTEuNzc1IDM2LjAzMywxMi43NzYgMzQuNDA4LDEzLjQ3OCBDMzMuMjI1LDEzLjk5OCAzMS42NzgsMTQuMzc1IDMwLjU2LDE0LjQ0IEwzMS4wNDEsMTYuMjM0IFogTTcuNDU4LDAgQzIuNSwwIDAsMy41MjIgMCw2LjQ1OSBDMCw4LjIzNyAwLjY4LDkuODE5IDIuMTM3LDEwLjQwOSBDMi4zNzYsMTAuNTA1IDIuNTksMTAuNDEyIDIuNjYsMTAuMTUgQzIuNzA4LDkuOTY5IDIuODIyLDkuNTExIDIuODczLDkuMzIgQzIuOTQzLDkuMDYxIDIuOTE2LDguOTcgMi43MjMsOC43NDQgQzIuMzAyLDguMjUzIDIuMDM0LDcuNjE3IDIuMDM0LDYuNzE2IEMyLjAzNCw0LjEwNCA0LjAwNywxLjc2NSA3LjE3MiwxLjc2NSBDOS45NzUsMS43NjUgMTEuNTE0LDMuNDYxIDExLjUxNCw1LjcyNiBDMTEuNTE0LDguNzA4IDEwLjE4MywxMS4xOCA4LjIwNiwxMS4xOCBDNy4xMTQsMTEuMTggNi4yOTcsMTAuMzI5IDYuNTU5LDkuMjMzIEM2Ljg3Miw3LjkyMiA3LjQ4LDYuNTA5IDcuNDgsNS41NjQgQzcuNDgsNC43MTcgNy4wMjIsNC4wMTEgNi4wNzIsNC4wMTEgQzQuOTU2LDQuMDExIDQuMDYsNS4xNTUgNC4wNiw2LjY4NyBDNC4wNiw3LjY2MyA0LjM5Myw4LjMyMyA0LjM5Myw4LjMyMyBDNC4zOTMsOC4zMjMgMy4yNTEsMTMuMTE3IDMuMDUxLDEzLjk1NyBDMi42NTIsMTUuNjI5IDIuOTkxLDE3LjY3OSAzLjAxOSwxNy44ODYgQzMuMDM2LDE4LjAwOSAzLjE5NSwxOC4wMzggMy4yNjcsMTcuOTQ2IEMzLjM3LDE3LjgxMiA0LjcsMTYuMTg3IDUuMTUxLDE0LjU2MiBDNS4yNzksMTQuMTAyIDUuODg1LDExLjcyIDUuODg1LDExLjcyIEM2LjI0OCwxMi40MDYgNy4zMDgsMTMuMDA5IDguNDM1LDEzLjAwOSBDMTEuNzksMTMuMDA5IDE0LjA2Niw5Ljk3OSAxNC4wNjYsNS45MjMgQzE0LjA2NiwyLjg1NyAxMS40NDQsMCA3LjQ1OCwwIFoiIGZpbGw9IiNmZmYiPjwvcGF0aD48L2c+PC9zdmc+);
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_white { 
+  background-color: #fff;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_save { 
+  border-radius: 2px;
+  text-indent: 20px;
+  width: auto;
+  padding: 0 4px 0 0;
+  text-align: center;
+  text-decoration: none;
+  font: 11px/20px "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: bold;
+  color: #fff!important;
+  background: #bd081c url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjYmQwODFjIj48L3BhdGg+PC9nPjwvc3ZnPg==) 3px 50% no-repeat;
+  background-size: 14px 14px;
+  -webkit-font-smoothing: antialiased;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_save:hover { 
+  background-color: #aa0719;
+  box-shadow: none;
+  color: #fff!important;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_save .PIN_1512391145534_count { 
+  text-indent: 0;
+  position: absolute;
+  color: #555;
+  background: #efefef;
+  border-radius: 2px;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_save .PIN_1512391145534_count::before { 
+  content: "";
+  position: absolute;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_save.PIN_1512391145534_beside .PIN_1512391145534_count { 
+  right: -46px;
+  height: 20px;
+  width: 40px;
+  font-size: 10px;
+  line-height: 20px;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_save.PIN_1512391145534_beside .PIN_1512391145534_count::before { 
+  top: 3px;
+  left: -4px;
+  border-right: 7px solid #efefef;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_save.PIN_1512391145534_above .PIN_1512391145534_count { 
+  top: -36px;
+  width: 100%;
+  height: 30px;
+  font-size: 10px;
+  line-height: 30px;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_save.PIN_1512391145534_above .PIN_1512391145534_count::before { 
+  bottom: -4px;
+  left: 4px;
+  border-top: 7px solid #efefef;
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_save.PIN_1512391145534_above.PIN_1512391145534_padded { 
+  margin-top: 28px;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_tall { 
+  height: 28px;
+  width: 56px;
+  border-radius: 3px;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_tall.PIN_1512391145534_above .PIN_1512391145534_count { 
+  position: absolute;
+  height: 37px;
+  width: inherit;
+  top: -37px;
+  left: 0;
+  line-height: 30px;
+  font-size: 14px;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNzZweCIgd2lkdGg9IjExNHB4IiB2aWV3Qm94PSIwIDAgMTE0IDc2Ij48Zz48cGF0aCBkPSJNOSAxQzQuNiAxIDEgNC42IDEgOXY0M2MwIDQuMyAzLjYgOCA4IDhoMjZsMTggMTVoNy41bDE2LTE1SDEwNWM0LjQgMCA4LTMuNyA4LThWOWMwLTQuNC0zLjYtOC04LThIOXoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2I1YjViNSIgc3Ryb2tlLXdpZHRoPSIyIj48L3BhdGg+PC9nPjwvc3ZnPg==);
+  background-size: cover;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_tall.PIN_1512391145534_above.PIN_1512391145534_padded { 
+  margin-top: 37px;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_tall.PIN_1512391145534_beside .PIN_1512391145534_count { 
+  text-indent: 5px;
+  position: absolute;
+  right: -63px;
+  height: inherit;
+  width: 63px;
+  font-size: 14px;
+  line-height: 28px;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNTZweCIgd2lkdGg9IjEyNnB4IiB2aWV3Qm94PSIyIDAgMTMwIDYwIj48Zz48cGF0aCBkPSJNMTE5LjYgMmM0LjUgMCA4IDMuNiA4IDh2NDBjMCA0LjQtMy41IDgtOCA4SDIzLjNMMS42IDMyLjR2LTQuNkwyMy4zIDJoOTYuM3oiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2I1YjViNSIgc3Ryb2tlLXdpZHRoPSIyIj48L3BhdGg+PC9nPjwvc3ZnPg==);
+  background-size: cover;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_tall.PIN_1512391145534_beside.PIN_1512391145534_padded { 
+  margin-right: 63px;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_tall.PIN_1512391145534_save { 
+  border-radius: 4px;
+  width: auto;
+  background-position-x: 6px;
+  background-size: 18px 18px;
+  text-indent: 29px;
+  font: 14px/28px "Helvetica Neue", Helvetica, Arial, "sans-serif";
+  font-weight: bold;
+  padding: 0 6px 0 0;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_tall.PIN_1512391145534_save .PIN_1512391145534_count { 
+  position: absolute;
+  color: #555;
+  font-size: 12px;
+  text-indent: 0;
+  background: #efefef;
+  border-radius: 4px;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_tall.PIN_1512391145534_save .PIN_1512391145534_count::before { 
+  content: "";
+  position: absolute;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_tall.PIN_1512391145534_save.PIN_1512391145534_above .PIN_1512391145534_count { 
+  font-size: 14px;
+  top: -50px;
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_tall.PIN_1512391145534_save.PIN_1512391145534_above .PIN_1512391145534_count::before { 
+  bottom: -4px;
+  left: 7px;
+  border-top: 7px solid #efefef;
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_tall.PIN_1512391145534_save.PIN_1512391145534_beside .PIN_1512391145534_count { 
+  font-size: 14px;
+  right: -63px;
+  width: 56px;
+  height: 28px;
+  line-height: 28px;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_tall.PIN_1512391145534_save.PIN_1512391145534_beside .PIN_1512391145534_count::before { 
+  top: 7px;
+  left: -4px;
+  border-right: 7px solid #efefef;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_round { 
+  height: 16px;
+  width: 16px;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjYmQwODFjIj48L3BhdGg+PC9nPjwvc3ZnPg==) 0 0 no-repeat;
+  background-size: 16px 16px;
+  box-shadow: none;
+}
+ .PIN_1512391145534_button_pin.PIN_1512391145534_round.PIN_1512391145534_tall { 
+  height: 32px;
+  width: 32px;
+  background-size: 32px 32px;
+}
+</style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{height:100%;overflow:hidden;position:fixed;width:100%}.fb_shrink_active{opacity:1;transform:scale(1, 1);transition-duration:200ms;transition-timing-function:ease-out}.fb_shrink_active:active{opacity:.5;transform:scale(.75, .75)}</style></head>
+<body>
+
+
+
+<header class="primary">
+  <a href="https://howchoo.com/" class="logo" title="howchoo"></a>
+  <span class="tagline">Knowledge for the World</span>
+  <nav class="desktop">
+    <ul>
+      <li><a href="https://howchoo.com/">Home</a></li>
+      <li><a href="https://howchoo.com/technology" class="technology">Technology</a></li>
+      <li><a href="https://howchoo.com/workshop" class="workshop">Workshop</a></li>
+      <li><a href="https://howchoo.com/living" class="living">Living</a></li>
+      <li><a href="https://howchoo.com/interests">Interests</a></li>
+      
+      <li><a href="https://howchoo.com/user/signup" data-user-action="signup" class="highlight">Sign up</a></li>
+      <li><a href="https://howchoo.com/user/signin" data-user-action="signin">Sign in</a></li>
+      
+      <li><a href="https://www.facebook.com/howchoo" class="facebook" target="_blank"></a></li>
+      <li class="search">
+        <form action="/search" method="GET">
+          <label for="search"></label>
+          <input id="search" type="checkbox">
+          <input name="q" placeholder="Find a guide.." type="search">
+        </form>
+      </li>
+    </ul>
+  </nav>
+  <nav class="touch">
+    <button type="button" class="js-menu-trigger"></button>
+    <ul class="js-menu sliding-menu-content">
+      <li><a href="https://howchoo.com/">Home</a></li>
+      <li><a href="https://howchoo.com/technology" class="technology">Technology</a></li>
+      <li><a href="https://howchoo.com/workshop" class="workshop">Workshop</a></li>
+      <li><a href="https://howchoo.com/living" class="living">Living</a></li>
+      <li><a href="https://howchoo.com/interests">Interests</a></li>
+      
+      <li><a href="https://howchoo.com/user/signup" data-user-action="signup" class="highlight">Sign up</a></li>
+      <li><a href="https://howchoo.com/user/signin" data-user-action="signin">Sign in</a></li>
+      
+      <li>
+        <form action="/search" method="GET">
+          <input name="q" placeholder="Find a guide.." type="search">
+        </form>
+      </li>
+      <li><a href="https://www.facebook.com/howchoo" class="facebook" target="_blank"></a></li>
+    </ul>
+    <div class="js-menu-screen sliding-menu-fade-screen"></div>
+  </nav>
+</header>
+
+
+
+
+<div class="content">
+    
+    <div class="hero" style="background-image: url('https://howchoo.com/media/ow/vm/yt/owvmytdhyjcl.jpeg');"></div>
+    
+
+    <main>
+        <article class="guide">
+            <header>
+                <h1>How to run a Raspberry Pi cluster with Docker Swarm</h1>
+                
+                <ul class="meta">
+                    <li class="author">
+                        <a href="https://howchoo.com/u/tyler" class="author-photo" style="background-image: url('/media/od/zh/mt/odzhmtfinmqt.jpeg');"></a>
+                        by <a href="https://howchoo.com/u/tyler" title="View tyler's profile">tyler</a> (<a href="https://howchoo.com/u/tyler" title="See all guides by tyler">189</a>)
+                    </li>
+                    
+                    
+                    
+                    
+                </ul>
+
+                <div class="user-actions">
+                    
+
+<div class="widget-common widget-share">
+  <a href="#share" class="action" data-scroll="">Share</a>
+  <a href="#share" class="badge-count count-visible" data-share-count-int="" data-scroll="">49</a>
+  <div class="count count-visible" data-share-count="">49 shares</div>
+</div>
+
+                    <div class="widget-common widget-favorite">
+  
+    <span class="action" data-user-action="signin">Favorite</span>
+  
+  <div class="count count-visible"><span class="favorite-count">2</span> <span class="favorite-text">favorites</span></div>
+  <div class="badge-count count-visible"><span class="favorite-count">2</span></div>
+</div>
+
+                    
+
+<div class="widget-common widget-comment">
+  <a href="#comments" class="action" data-scroll="">Comment</a>
+  <a href="#comments" class="badge-count disqus-comment-count count-visible" data-disqus-url="https://howchoo.com/g/njy4zdm3mwy/how-to-run-a-raspberry-pi-cluster-with-docker-swarm" data-scroll="">5</a>
+  <div class="count disqus-comment-count count-visible" data-disqus-url="https://howchoo.com/g/njy4zdm3mwy/how-to-run-a-raspberry-pi-cluster-with-docker-swarm">5 comments</div>
+</div>
+
+                </div>
+
+                
+                <!-- start introduction -->
+                <p>A cluster is a group of computers performing the same
+ task, operating as a single system. Although Raspberry Pi's are pretty 
+incredible devices, a single Pi can only do so much. </p><p>A Raspberry 
+Pi cluster can be used anytime you want to improve performance or 
+availability, and there are many use cases including serving web 
+content, mining cryptocurrency, processing large amounts of data (using 
+tools like hadoop), and much more. This guide will show you how to run a
+ Raspberry Pi cluster using Docker Swarm.</p>
+                <!-- end introduction -->
+                
+
+                
+                <!-- start resources -->
+                <aside class="tm" id="parts-list">
+                    <div class="tm__heading">
+                        <a href="#parts-list" class="permalink">What you'll need:</a>
+                    </div>
+                    <table class="tm__table">
+                        <tbody>
+                            
+                                
+                                <tr>
+                                    <td>
+                                        
+                                            <a href="https://howchoo.com/resource/tool/zjyxm2i5mdi/njy4zdm3mwy" data-resource-type="tool" data-resource-name="Photive USB Charging Hub" data-tooltip="See on Amazon" target="_blank" data-html-tooltip="">Photive USB Charging Hub</a>
+                                        
+                                        
+
+                                    </td>
+                                    <td class="tm__x">×</td>
+                                    <td>1 </td>
+                                    <td class="tm__icon">
+                                        
+                                        <a href="https://howchoo.com/resource/tool/zjyxm2i5mdi/njy4zdm3mwy" class="tm__button tm__button--cart" data-resource-type="tool" data-resource-name="Photive USB Charging Hub" data-tooltip="See on Amazon" target="_blank" data-html-tooltip=""></a>
+                                        
+                                    </td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td>
+                                        
+                                            <a href="https://howchoo.com/resource/tool/ztkwmzfinjc/njy4zdm3mwy" data-resource-type="tool" data-resource-name="Standoff Spacers" data-tooltip="See on Amazon" target="_blank" data-html-tooltip="">Standoff Spacers</a>
+                                        
+                                        
+
+                                    </td>
+                                    <td class="tm__x">×</td>
+                                    <td>1 box</td>
+                                    <td class="tm__icon">
+                                        
+                                        <a href="https://howchoo.com/resource/tool/ztkwmzfinjc/njy4zdm3mwy" class="tm__button tm__button--cart" data-resource-type="tool" data-resource-name="Standoff Spacers" data-tooltip="See on Amazon" target="_blank" data-html-tooltip=""></a>
+                                        
+                                    </td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td>
+                                        
+                                            <a href="https://howchoo.com/resource/tool/nze5mduwnti/njy4zdm3mwy" data-resource-type="tool" data-resource-name="3ft USB cables" data-tooltip="See on Amazon" target="_blank" data-html-tooltip="">3ft USB cables</a>
+                                        
+                                        
+
+                                    </td>
+                                    <td class="tm__x">×</td>
+                                    <td>1 pack</td>
+                                    <td class="tm__icon">
+                                        
+                                        <a href="https://howchoo.com/resource/tool/nze5mduwnti/njy4zdm3mwy" class="tm__button tm__button--cart" data-resource-type="tool" data-resource-name="3ft USB cables" data-tooltip="See on Amazon" target="_blank" data-html-tooltip=""></a>
+                                        
+                                    </td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td>
+                                        
+                                            <a href="https://howchoo.com/resource/tool/ndiznme5zwf/njy4zdm3mwy" data-resource-type="tool" data-resource-name="8GB SD card" data-tooltip="See on Amazon" target="_blank" data-html-tooltip="">8GB SD card</a>
+                                        
+                                        
+
+                                    </td>
+                                    <td class="tm__x">×</td>
+                                    <td>4 </td>
+                                    <td class="tm__icon">
+                                        
+                                        <a href="https://howchoo.com/resource/tool/ndiznme5zwf/njy4zdm3mwy" class="tm__button tm__button--cart" data-resource-type="tool" data-resource-name="8GB SD card" data-tooltip="See on Amazon" target="_blank" data-html-tooltip=""></a>
+                                        
+                                    </td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td>
+                                        
+                                            <a href="https://howchoo.com/resource/tool/mmi0mjg1nty/njy4zdm3mwy" data-resource-type="tool" data-resource-name="Raspberry Pi 3" data-tooltip="See on Amazon" target="_blank" data-html-tooltip="">Raspberry Pi 3</a>
+                                        
+                                        
+
+                                    </td>
+                                    <td class="tm__x">×</td>
+                                    <td>4 </td>
+                                    <td class="tm__icon">
+                                        
+                                        <a href="https://howchoo.com/resource/tool/mmi0mjg1nty/njy4zdm3mwy" class="tm__button tm__button--cart" data-resource-type="tool" data-resource-name="Raspberry Pi 3" data-tooltip="See on Amazon" target="_blank" data-html-tooltip=""></a>
+                                        
+                                    </td>
+                                </tr>
+                                
+                                
+                            
+                        </tbody>
+                    </table>
+                </aside>
+                <!-- end resources -->
+                
+
+                
+
+
+<div class="sidebar__item widget-interests">
+  <div class="sidebar__heading">In these interests <span class="sidebar__heading-icon sidebar__heading-icon--help" data-tooltip="Interests are collections of guides. Subscribe to these interests to discover new things." data-tooltip-direction="e" data-html-tooltip=""></span></div>
+  <ul>
+    
+    <li>
+      <a href="https://howchoo.com/h/docker" class="interest-photo" style="background-image: url('/media/ot/g5/nj/otg5njlkzjut.png');"></a>
+      <a href="https://howchoo.com/h/docker" class="interest-name" data-primary-interest="">docker</a>
+      <div>
+        <span class="widget-count">
+          <span class="subscriber-count">28</span> <span class="subscriber-text">Subscribers</span>
+        </span>
+        <span class="interest-loop__action-link" data-interest="docker" data-user-action="signin">Subscribe
+  
+</span>
+
+      </div>
+    </li>
+    
+    <li>
+      <a href="https://howchoo.com/h/pi" class="interest-photo" style="background-image: url('/media/nw/rl/nj/nwrlnjbjnzct.jpeg');"></a>
+      <a href="https://howchoo.com/h/pi" class="interest-name">pi</a>
+      <div>
+        <span class="widget-count">
+          <span class="subscriber-count">144</span> <span class="subscriber-text">Subscribers</span>
+        </span>
+        <span class="interest-loop__action-link" data-interest="pi" data-user-action="signin">Subscribe
+  
+</span>
+
+      </div>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+                
+                <!-- start table of contents -->
+                <div class="sidebar__item">
+                    <nav class="how-to table-of-contents toc">
+                        <h6 class="sidebar__heading">Jump to step</h6>
+                        <ol class="toc__list">
+                            
+                            <li class="toc__item"><a href="#build-your-tower" data-scroll="">Build your tower</a></li>
+                            
+                            
+                            <li class="toc__item"><a href="#install-raspbian-jessie-on-all-four-sd-cards" data-scroll="">Install Raspbian Jessie on all four SD cards</a></li>
+                            
+                            
+                            <li class="toc__item"><a href="#configure-raspbian-from-the-sd-card" data-scroll="">Configure Raspbian from the SD card</a></li>
+                            
+                            
+                            <li class="toc__item"><a href="#power-up-and-test" data-scroll="">Power up and test</a></li>
+                            
+                            
+                            <li class="toc__item"><a href="#find-the-ip-address-of-each-node" data-scroll="">Find the IP address of each node</a></li>
+                            
+                            
+                            <li class="toc__item"><a href="#change-the-hostname-for-each-node" data-scroll="">Change the hostname for each node</a></li>
+                            
+                            
+                            <li class="toc__item"><a href="#copy-ssh-keys-to-each-node" data-scroll="">Copy SSH keys to each node</a></li>
+                            
+                                
+                                <li class="toc__more link" data-expand-item="table of contents">→ Show all</li>
+                                
+                            
+                            
+                            <li class="toc__item"><a href="#install-docker-on-each-node" data-scroll="">Install Docker on each node</a></li>
+                            
+                            
+                            <li class="toc__item"><a href="#create-the-swarm" data-scroll="">Create the swarm</a></li>
+                            
+                            
+                            <li class="toc__item"><a href="#add-the-rest-of-the-nodes-to-the-swarm" data-scroll="">Add the rest of the nodes to the swarm</a></li>
+                            
+                            
+                            <li class="toc__item"><a href="#run-our-first-service" data-scroll="">Run our first service</a></li>
+                            
+                            
+                        </ol>
+                    </nav>
+                </div>
+                <!-- end table of contents -->
+                
+                
+
+
+
+
+
+
+
+
+<div class="advertisement advertisement-top">
+  <div class="ad-small-devices">
+    <div id="ad_mobile_top" class="mrec" data-ad=""></div>
+  </div>
+</div>
+
+
+
+
+
+
+            </header>
+
+            
+            <!-- start steps -->
+            
+            <section class="step">
+                <span>1</span>
+                <h2 id="build-your-tower"><a href="#build-your-tower" class="permalink">Build your tower</a></h2>
+                
+                <div class="step-image">
+                    <img data-position="" data-ratio="1.33333333333" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/mdy0mwzjy2fg.jpeg" data-src="/media/md/y0/mw/mdy0mwzjy2fg.jpeg" data-lightbox="/media/md/y0/mw/mdy0mwzjy2fl.jpeg" alt="Build your tower">
+                </div>
+                
+                
+                <p>This is fun part. </p><p>You don't actually need a 
+tower, but you might as well build one. Using a tower like this makes 
+everything more organized and easier to work with.</p>
+                
+                
+                
+
+
+
+                
+            </section>
+
+            
+            
+            <section class="step">
+                <span>2</span>
+                <h2 id="install-raspbian-jessie-on-all-four-sd-cards"><a href="#install-raspbian-jessie-on-all-four-sd-cards" class="permalink">Install Raspbian Jessie on all four SD cards</a></h2>
+                
+                
+                <p>We've written a detailed guide that will walk you through the process of <a href="https://howchoo.com/g/zthlmgy2yzn/how-to-install-raspbian-jessie-on-the-raspberry-pi" class="guide-link" data-guid="zthlmgy2yzn" data-callout="true" target="_blank">installing Jessie on your Raspberry Pi</a>. Since we're dealing with multiple Pi's, you'll have to do this for each one.</p><p><em>Note:
+ For each Pi we're going to do some configuration while the SD card is 
+in your computer. So read the next step to see what to do after 
+installing Raspbian on each SD card.</em></p>
+                
+                
+                
+
+
+  <aside>
+    <div class="note callout">
+        <div class="note__heading">Mentioned here:</div>
+        <ul class="loop">
+          
+            <li>
+              <a href="https://howchoo.com/g/zthlmgy2yzn/how-to-install-raspbian-jessie-on-the-raspberry-pi" style="background-image:url(/media/mj/vl/nj/mjvlnjk3ymft.jpeg);" class="loop-image" target="_blank"></a>
+              <h4><a href="https://howchoo.com/g/zthlmgy2yzn/how-to-install-raspbian-jessie-on-the-raspberry-pi" target="_blank">How to install Raspbian Jessie on the Raspberry Pi</a></h4>
+            </li>
+          
+        </ul>
+    </div>
+  </aside>
+
+
+                
+            </section>
+
+            
+            
+            <section class="step">
+                <span>3</span>
+                <h2 id="configure-raspbian-from-the-sd-card"><a href="#configure-raspbian-from-the-sd-card" class="permalink">Configure Raspbian from the SD card</a></h2>
+                
+                
+                <p>After installing Jessie, and while the SD card is 
+still in your computer, we're going make a few changes to the 
+configuration. Follow the links in this step for detailed instructions 
+on each change.</p><p>First, go ahead and <a href="https://howchoo.com/g/ote0ywmzywj/how-to-enable-ssh-on-raspbian-jessie-without-a-screen" class="guide-link" data-guid="ote0ywmzywj" data-callout="true" target="_blank">enable SSH</a>.</p><p>Then <a href="https://howchoo.com/g/ndy1zte2yjn/how-to-set-up-wifi-on-your-raspberry-pi-without-ethernet" class="guide-link" data-guid="ndy1zte2yjn" data-callout="true" target="_blank">set up WiFi for the Pi</a>. </p><p>Once you've installed and configured each SD card, insert one into each Raspberry Pi.</p><p>*Protip: Once you've configured one SD card, you can use a utility such as <a href="https://www.tweaking4all.com/software/macosx-software/macosx-apple-pi-baker/" class="guide-link" target="_blank">ApplePi Baker</a> to clone it onto the other SD cards.</p>
+                
+                
+                
+
+
+  <aside>
+    <div class="note callout">
+        <div class="note__heading">Mentioned here:</div>
+        <ul class="loop">
+          
+            <li>
+              <a href="https://howchoo.com/g/ote0ywmzywj/how-to-enable-ssh-on-raspbian-jessie-without-a-screen" style="background-image:url(/static/images/platform/default-thumbnail-image.png);" class="loop-image" target="_blank"></a>
+              <h4><a href="https://howchoo.com/g/ote0ywmzywj/how-to-enable-ssh-on-raspbian-jessie-without-a-screen" target="_blank">How to enable SSH on Raspbian Jessie without a screen</a></h4>
+            </li>
+          
+            <li>
+              <a href="https://howchoo.com/g/ndy1zte2yjn/how-to-set-up-wifi-on-your-raspberry-pi-without-ethernet" style="background-image:url(/media/yj/c4/ow/yjc4owvjmwut.jpeg);" class="loop-image" target="_blank"></a>
+              <h4><a href="https://howchoo.com/g/ndy1zte2yjn/how-to-set-up-wifi-on-your-raspberry-pi-without-ethernet" target="_blank">How to set up WiFi on your Raspberry Pi without a keyboard or monitor (or ethernet)</a></h4>
+            </li>
+          
+        </ul>
+    </div>
+  </aside>
+
+
+                
+            </section>
+
+            
+            
+            <section class="step">
+                <span>4</span>
+                <h2 id="power-up-and-test"><a href="#power-up-and-test" class="permalink">Power up and test</a></h2>
+                
+                <div class="step-image">
+                    <img data-position="" data-ratio="1.33333333333" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/nzg3nteynmqg.jpeg" data-src="/media/nz/g3/nt/nzg3nteynmqg.jpeg" data-lightbox="/media/nz/g3/nt/nzg3nteynmql.jpeg" alt="Power up and test">
+                </div>
+                
+                
+                <p>Connect your Raspberry Pi's to their power supplies, 
+and make sure they boot properly. Near the USB connector, you should see
+ a solid red LED. This indicates that the Pi has power. Then you should 
+see a green flashing LED, which indicates there is SD card activity.</p>
+                
+                
+                
+
+
+
+                
+            </section>
+
+            
+              
+
+
+
+
+<div class="advertisement advertisement-top">
+  <div class="ad-large-devices">
+    <div id="ad_inline" class="mrec" data-ad="" data-google-query-id="CMu3kYiw8NcCFcqTZAodfRkI7w"><div id="google_ads_iframe_/67904404/Inline_0__container__" style="border: 0pt none; display: inline-block; width: 300px; height: 250px;"><iframe style="border: 0px none; vertical-align: bottom;" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/container.htm" id="google_ads_iframe_/67904404/Inline_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" data-is-safeframe="true" frameborder="0" width="300" height="250"></iframe></div></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+              
+
+
+
+
+
+
+
+
+
+
+<div class="advertisement advertisement-top">
+  <div class="ad-small-devices">
+    <div id="ad_mobile_inline" class="mrec" data-ad=""></div>
+  </div>
+</div>
+
+
+
+
+            
+            
+            <section class="step">
+                <span>5</span>
+                <h2 id="find-the-ip-address-of-each-node"><a href="#find-the-ip-address-of-each-node" class="permalink">Find the IP address of each node</a></h2>
+                
+                
+                <p>We've written a guide that shows you <a href="https://howchoo.com/g/mjk3m2e2njy/find-your-raspberry-pis-ip-address" class="guide-link" data-guid="mjk3m2e2njy" data-callout="true" target="_blank">how to find the IP address of your Raspberry Pi</a>. So follow this guide if you need more detailed instructions, but we're going to use nmap.</p><p></p><pre class=" language-bash"><code class=" language-bash"><span class="token function">sudo</span> nmap -sn 192.168.1.0/24</code></pre><p></p><p><em>Note: You might need to use a different subnet range. Follow the guide for more information on finding the correct subnet.</em></p><p>This
+ will list all of the devices connected to the network, so we should see
+ all four of our Raspberry Pi's. When you spot them, take note of the IP
+ address for each. Here is my output:</p><p></p><pre class=" language-bash"><code class=" language-bash">Starting Nmap 7.40 <span class="token punctuation">(</span> https://nmap.org <span class="token punctuation">)</span> at 2017-03-21 15:52 PDT
+Nmap scan report <span class="token keyword">for</span> Chromecast.attlocal.net <span class="token punctuation">(</span>192.168.1.78<span class="token punctuation">)</span>
+Host is up <span class="token punctuation">(</span>0.063s latency<span class="token punctuation">)</span>.
+MAC Address: 54:60:09:06:76:0A <span class="token punctuation">(</span>Google<span class="token punctuation">)</span>
+Nmap scan report <span class="token keyword">for</span> unknownc24b2b235d18.attlocal.net <span class="token punctuation">(</span>192.168.1.178<span class="token punctuation">)</span>
+Host is up <span class="token punctuation">(</span>0.0059s latency<span class="token punctuation">)</span>.
+MAC Address: C2:4B:2B:23:5D:18 <span class="token punctuation">(</span>Unknown<span class="token punctuation">)</span>
+Nmap scan report <span class="token keyword">for</span> raspberrypi.attlocal.net <span class="token punctuation">(</span>192.168.1.181<span class="token punctuation">)</span>
+Host is up <span class="token punctuation">(</span>0.29s latency<span class="token punctuation">)</span>.
+MAC Address: B8:27:EB:79:49:F2 <span class="token punctuation">(</span>Raspberry Pi Foundation<span class="token punctuation">)</span>
+Nmap scan report <span class="token keyword">for</span> raspberrypi.attlocal.net <span class="token punctuation">(</span>192.168.1.183<span class="token punctuation">)</span>
+Host is up <span class="token punctuation">(</span>0.17s latency<span class="token punctuation">)</span>.
+MAC Address: B8:27:EB:95:6D:7A <span class="token punctuation">(</span>Raspberry Pi Foundation<span class="token punctuation">)</span>
+Nmap scan report <span class="token keyword">for</span> raspberrypi.attlocal.net <span class="token punctuation">(</span>192.168.1.184<span class="token punctuation">)</span>
+Host is up <span class="token punctuation">(</span>0.22s latency<span class="token punctuation">)</span>.
+MAC Address: B8:27:EB:6E:DE:EF <span class="token punctuation">(</span>Raspberry Pi Foundation<span class="token punctuation">)</span>
+Nmap scan report <span class="token keyword">for</span> raspberrypi.attlocal.net <span class="token punctuation">(</span>192.168.1.185<span class="token punctuation">)</span>
+Host is up <span class="token punctuation">(</span>0.22s latency<span class="token punctuation">)</span>.
+MAC Address: B8:27:EB:B6:4A:6E <span class="token punctuation">(</span>Raspberry Pi Foundation<span class="token punctuation">)</span></code></pre><p></p><p>So the IP addresses for all four of my Raspberry Pi's are: </p><p>192.168.1.181<br>192.168.1.183<br>192.168.1.184<br>192.168.1.185</p>
+                
+                
+                
+
+
+  <aside>
+    <div class="note callout">
+        <div class="note__heading">Mentioned here:</div>
+        <ul class="loop">
+          
+            <li>
+              <a href="https://howchoo.com/g/mjk3m2e2njy/find-your-raspberry-pis-ip-address" style="background-image:url(/media/mz/fh/zw/mzfhzwvlytit.png);" class="loop-image" target="_blank"></a>
+              <h4><a href="https://howchoo.com/g/mjk3m2e2njy/find-your-raspberry-pis-ip-address" target="_blank">Find your Raspberry Pi's IP Address</a></h4>
+            </li>
+          
+        </ul>
+    </div>
+  </aside>
+
+
+                
+            </section>
+
+            
+            
+            <section class="step">
+                <span>6</span>
+                <h2 id="change-the-hostname-for-each-node"><a href="#change-the-hostname-for-each-node" class="permalink">Change the hostname for each node</a></h2>
+                
+                
+                <p>For each Raspberry Pi (node) in our cluster, I'm 
+going to change the hostname so it's easier to access. Since I've got 
+four nodes I'm going to name them docker1, docker2, docker3, and docker 
+4.</p><p>Follow this <a href="https://howchoo.com/g/nmyzm2u0nwu/how-to-change-the-hostname-of-your-raspberry-pi" class="guide-link" data-guid="nmyzm2u0nwu" data-callout="true" target="_blank">guide to learn how to change the hostname of your Raspberry Pi</a>. </p><p>You'll
+ also want to add an entry in your local /etc/hosts file that maps the 
+new hostname to the IP address for each Pi. The end of my /etc/hosts now
+ looks like this:</p><p></p><pre class=" language-bash"><code class=" language-bash">192.168.1.181         docker1
+192.168.1.183         docker2
+192.168.1.184         docker3
+192.168.1.185         docker4</code></pre><p></p>
+                
+                
+                
+
+
+  <aside>
+    <div class="note callout">
+        <div class="note__heading">Mentioned here:</div>
+        <ul class="loop">
+          
+            <li>
+              <a href="https://howchoo.com/g/nmyzm2u0nwu/how-to-change-the-hostname-of-your-raspberry-pi" style="background-image:url(/static/images/platform/default-thumbnail-image.png);" class="loop-image" target="_blank"></a>
+              <h4><a href="https://howchoo.com/g/nmyzm2u0nwu/how-to-change-the-hostname-of-your-raspberry-pi" target="_blank">How to change the hostname of your Raspberry Pi</a></h4>
+            </li>
+          
+        </ul>
+    </div>
+  </aside>
+
+
+                
+            </section>
+
+            
+            
+            <section class="step">
+                <span>7</span>
+                <h2 id="copy-ssh-keys-to-each-node"><a href="#copy-ssh-keys-to-each-node" class="permalink">Copy SSH keys to each node</a></h2>
+                
+                
+                <p>This step is optional, but it will allow us to easily
+ SSH into each node without using a password. I'll use the ssh-copy-id 
+command to copy my public key to the remote server.</p><p>If you don't have a key generated already, you can do so with:</p><p></p><pre class=" language-bash"><code class=" language-bash">ssh-keygen -t rsa</code></pre><p></p><p>Hit enter twice and leave the passphrase empty (unless you really want to use a passphrase).</p><p>Then copy the key to each node with:</p><p></p><pre class=" language-bash"><code class=" language-bash">ssh-copy-id pi@docker1</code></pre><p></p><p>You'll have to enter your password to copy the key. Do this for each node.</p>
+                
+                
+                
+
+
+
+                
+            </section>
+
+            
+            
+            <section class="step">
+                <span>8</span>
+                <h2 id="install-docker-on-each-node"><a href="#install-docker-on-each-node" class="permalink">Install Docker on each node</a></h2>
+                
+                
+                <p>You can use this simple bash one-liner to install docker on each node.</p><p></p><pre class=" language-bash"><code class=" language-bash"><span class="token keyword">for</span> host <span class="token keyword">in</span> docker1 docker2 docker3 docker4<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token function">ssh</span> pi@<span class="token variable">$host</span> curl -sSL https://get.docker.com <span class="token operator">|</span> sh<span class="token punctuation">;</span> <span class="token keyword">done</span></code></pre><p></p><p>Of
+ course, you'll have to use your own hostnames, but this should loop 
+through each host and install docker. For more detailed instructions on <a href="https://howchoo.com/g/nmrlzmq1ymn/how-to-install-docker-on-your-raspberry-pi" class="guide-link" data-guid="nmrlzmq1ymn" data-callout="true" target="_blank">how to install Docker on your Raspberry Pi see this guide</a>.</p>
+                
+                
+                
+
+
+  <aside>
+    <div class="note callout">
+        <div class="note__heading">Mentioned here:</div>
+        <ul class="loop">
+          
+            <li>
+              <a href="https://howchoo.com/g/nmrlzmq1ymn/how-to-install-docker-on-your-raspberry-pi" style="background-image:url(/media/zw/fi/ot/zwfiotc4nmet.png);" class="loop-image" target="_blank"></a>
+              <h4><a href="https://howchoo.com/g/nmrlzmq1ymn/how-to-install-docker-on-your-raspberry-pi" target="_blank">How to install Docker on your Raspberry Pi</a></h4>
+            </li>
+          
+        </ul>
+    </div>
+  </aside>
+
+
+                
+            </section>
+
+            
+            
+            <section class="step">
+                <span>9</span>
+                <h2 id="create-the-swarm"><a href="#create-the-swarm" class="permalink">Create the swarm</a></h2>
+                
+                
+                <p>Now that Docker is installed we need to create our 
+swarm. We only need to do this on one of the nodes. So the order of 
+operations will be: 1. create swarm on a single node (this node will be a
+ manager node), 2. join one more node as a manager, and 3. join two more
+ nodes as workers. So we'll have a total of 2 managers and 2 workers in 
+our swarm.</p><p>So in this step, I'll create the swarm on docker1.</p><p>To
+ do this, we'll first have to get the IP address of the node. If you're 
+following this guide step by step, we already have the IP address in our
+ local /etc/hosts file. If not, you can use <a href="https://howchoo.com/g/mjk3m2e2njy/find-your-raspberry-pis-ip-address" class="guide-link" data-guid="mjk3m2e2njy" data-callout="true" target="_blank">this guide</a> as a reference.</p><p>For me, the address of docker1 is <strong>192.168.1.181</strong>. So I'll use this command to create the swarm:</p><p></p><pre class=" language-bash"><code class=" language-bash"><span class="token function">ssh</span> pi@docker1
+<span class="token function">sudo</span> docker swarm init --advertise-addr 192.168.1.181</code></pre><p></p><p>You'll
+ notice that this outputs a command that can be used to join other nodes
+ to the swarm as a worker. The command looks something like this:</p><p></p><pre class=" language-bash"><code class=" language-bash">docker swarm <span class="token function">join</span> \
+        --token SWMTKN-1-49nj1cmql0jkz5s954yi3oex3nedyz0fb0xx14ie39trti4wxv-8vxv8rssmk743ojnwacrr2e7c \
+       192.168.1.181:2377</code></pre><p></p><p>Keep track of this command. Although you can regenerate a token if necessary, we're going to use this in the next step.</p><p>Now we've got our swarm with one manager node. You can confirm by typing:</p><p></p><pre class=" language-bash"><code class=" language-bash"><span class="token function">sudo</span> docker node <span class="token function">ls</span></code></pre><p></p>
+                
+                
+                
+
+
+  <aside>
+    <div class="note callout">
+        <div class="note__heading">Mentioned here:</div>
+        <ul class="loop">
+          
+            <li>
+              <a href="https://howchoo.com/g/mjk3m2e2njy/find-your-raspberry-pis-ip-address" style="background-image:url(/media/mz/fh/zw/mzfhzwvlytit.png);" class="loop-image" target="_blank"></a>
+              <h4><a href="https://howchoo.com/g/mjk3m2e2njy/find-your-raspberry-pis-ip-address" target="_blank">Find your Raspberry Pi's IP Address</a></h4>
+            </li>
+          
+        </ul>
+    </div>
+  </aside>
+
+
+                
+            </section>
+
+            
+            
+            <section class="step">
+                <span>10</span>
+                <h2 id="add-the-rest-of-the-nodes-to-the-swarm"><a href="#add-the-rest-of-the-nodes-to-the-swarm" class="permalink">Add the rest of the nodes to the swarm</a></h2>
+                
+                
+                <p>Now we've got to add the rest of the nodes to the 
+swarm. As I mentioned in the previous step, we're going to add one more 
+manager and two more workers.</p><p>Let's start by adding our next 
+manager node on docker2. To do this, we'll have to generate a manager 
+token. While still logged into docker1, type:</p><p></p><pre class=" language-bash"><code class=" language-bash"><span class="token function">sudo</span> docker swarm join-token manager</code></pre><p></p><p>This
+ will generate another join command like the one from the previous step.
+ So we'll grab this command, ssh into docker2 (from our local machine), 
+and use the manager join command.</p><p></p><pre class=" language-bash"><code class=" language-bash"><span class="token function">ssh</span> pi@docker2
+<span class="token function">sudo</span> docker swarm <span class="token function">join</span> --token SWMTKN-abc<span class="token punctuation">..</span>.manager<span class="token punctuation">..</span>.xyz 192.168.1.181:2377</code></pre><p></p><p>Keep
+ in mind that the two swarm join commands look similar, so we'll have to
+ keep track of which is which. We just joined docker2 to the swarm as a 
+manager, so now we'll use the other token and join docker3 and docker4 
+as workers.</p><p></p><pre class=" language-bash"><code class=" language-bash"><span class="token function">ssh</span> pi@docker3
+<span class="token function">sudo</span> docker swarm <span class="token function">join</span> --token SWMTKN-abc<span class="token punctuation">..</span>.worker<span class="token punctuation">..</span>.xyz 192.168.1.181:2377</code></pre><p></p><p>And again from your local machine:</p><p></p><pre class=" language-bash"><code class=" language-bash"><span class="token function">ssh</span> pi@docker4
+<span class="token function">sudo</span> docker swarm <span class="token function">join</span> --token SWMTKN-abc<span class="token punctuation">..</span>.worker<span class="token punctuation">..</span>.xyz 192.168.1.181:2377</code></pre><p></p><p>Now all of our nodes have joined the swarm. Let's run our <strong>node ls</strong> command again to confirm.</p><p></p><pre class=" language-bash"><code class=" language-bash"><span class="token function">ssh</span> pi@docker1
+<span class="token function">sudo</span> docker node <span class="token function">ls</span></code></pre><p></p><p>And you should see all of the nodes listed:</p><p></p><pre class=" language-bash"><code class=" language-bash">7x52m1rsps550g89n1zngqqw2    docker4   Ready   Active
+nck7h1z5ka7q5x05ek73iw3p2    docker3   Ready   Active
+q0p4wnzs9wg58yj8m10fk41t3 *  docker1   Ready   Active        Reachable
+tunc46ypfdl9uhvin4g4ofddz    docker2   Ready   Active        Leader</code></pre><p></p>
+                
+                
+                
+
+
+
+                
+            </section>
+
+            
+            
+            <section class="step">
+                <span>11</span>
+                <h2 id="run-our-first-service"><a href="#run-our-first-service" class="permalink">Run our first service</a></h2>
+                
+                <div class="step-image">
+                    <img data-position="" data-ratio="1.64948453608" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/ngixmtyxzgfg.png" data-src="/media/ng/ix/mt/ngixmtyxzgfg.png" data-lightbox="/media/ng/ix/mt/ngixmtyxzgfl.png" alt="Run our first service">
+                </div>
+                
+                
+                <p>At this point we've accomplished the purpose of the 
+guide, but we might as well run a service to demonstrate how to use the 
+swarm. Our swarm can run any number of services and they can be scaled 
+and distributed across the nodes in our cluster according to our 
+preferences. To begin, we can run a visualizer service that will provide
+ a web interface to visualize how the containers are distributed across 
+the swarm.</p><p>This service is built from an image called "visualizer" originally created by <a href="https://github.com/ManoMarks/docker-swarm-visualizer" class="guide-link" target="_blank">Github user ManoMarks</a>. But we'll have to use a version of this image that was built to work on the Raspberry Pi and other ARM devices.</p><p>So let's log on to docker1 and create our visualizer service:</p><p></p><pre class=" language-bash"><code class=" language-bash"><span class="token function">ssh</span> pi@docker1
+<span class="token function">sudo</span> docker <span class="token function">service</span> create \
+        --name viz \
+        --publish 8080:8080/tcp \
+        --constraint node.role<span class="token operator">==</span>manager \
+        --mount type<span class="token operator">=</span>bind,src<span class="token operator">=</span>/var/run/docker.sock,dst<span class="token operator">=</span>/var/run/docker.sock \
+        alexellis2/visualizer-arm:latest</code></pre><p></p><p>This will probably take a few minutes to spin up because it has to download the image. We can check the status by typing:</p><p></p><pre class=" language-bash"><code class=" language-bash"><span class="token function">sudo</span> docker <span class="token function">service</span> <span class="token function">ls</span></code></pre><p></p><p>Until the service is ready, you'll see the REPLICAS value as <strong>0/1</strong>.</p><p></p><pre class=" language-bash"><code class=" language-bash">lqejzqrv0le8  viz   replicated  0/1       alexellis2/visualizer-arm:latest</code></pre><p></p><p>It will say <strong>1/1</strong> when it's ready.</p><p>Once it's ready, you can visit <a href="http://192.168.1.181:8080/" class="guide-link" target="_blank">http://192.168.1.181:8080</a>
+ (the IP of docker1 and port 8080). This will show you a nice 
+visualization of the swarm and which containers are running on which 
+nodes.</p><p>Of course, for your purpose you'll be creating at least one
+ other service. There is a lot of pertinent information about docker 
+that won't (and can't) be covered in this guide, but check out the <a href="https://docs.docker.com/" class="guide-link" target="_blank">official docker documentation</a> for more information and of course check out the <a href="https://howchoo.com/h/docker" class="guide-link" target="_blank">docker interest</a> on howchoo.</p>
+                
+                
+                
+
+
+
+                
+            </section>
+
+            
+            
+            <!-- end steps -->
+            
+        </article>
+
+        
+
+
+<div class="sidebar" id="sidebar" style="left: 1198.45px;">
+    <!-- start guide actions -->
+    <div class="sidebar__item">
+        
+
+<div class="widget-common widget-share">
+  <a href="#share" class="action" data-scroll="">Share</a>
+  <a href="#share" class="badge-count count-visible" data-share-count-int="" data-scroll="">49</a>
+  <div class="count count-visible" data-share-count="">49 shares</div>
+</div>
+
+        <div class="widget-common widget-favorite">
+  
+    <span class="action" data-user-action="signin">Favorite</span>
+  
+  <div class="count count-visible"><span class="favorite-count">2</span> <span class="favorite-text">favorites</span></div>
+  <div class="badge-count count-visible"><span class="favorite-count">2</span></div>
+</div>
+
+        
+
+<div class="widget-common widget-comment">
+  <a href="#comments" class="action" data-scroll="">Comment</a>
+  <a href="#comments" class="badge-count disqus-comment-count count-visible" data-disqus-url="https://howchoo.com/g/njy4zdm3mwy/how-to-run-a-raspberry-pi-cluster-with-docker-swarm" data-scroll="">5</a>
+  <div class="count disqus-comment-count count-visible" data-disqus-url="https://howchoo.com/g/njy4zdm3mwy/how-to-run-a-raspberry-pi-cluster-with-docker-swarm">5 comments</div>
+</div>
+
+    </div>
+    <!-- end guide actions -->
+
+    <!-- guide interests -->
+    
+
+
+<div class="sidebar__item widget-interests">
+  <div class="sidebar__heading">In these interests <span class="sidebar__heading-icon sidebar__heading-icon--help" data-tooltip="Interests are collections of guides. Subscribe to these interests to discover new things." data-tooltip-direction="e" data-html-tooltip=""></span></div>
+  <ul>
+    
+    <li>
+      <a href="https://howchoo.com/h/docker" class="interest-photo" style="background-image: url('/media/ot/g5/nj/otg5njlkzjut.png');"></a>
+      <a href="https://howchoo.com/h/docker" class="interest-name" data-primary-interest="">docker</a>
+      <div>
+        <span class="widget-count">
+          <span class="subscriber-count">28</span> <span class="subscriber-text">Subscribers</span>
+        </span>
+        <span class="interest-loop__action-link" data-interest="docker" data-user-action="signin">Subscribe
+  
+</span>
+
+      </div>
+    </li>
+    
+    <li>
+      <a href="https://howchoo.com/h/pi" class="interest-photo" style="background-image: url('/media/nw/rl/nj/nwrlnjbjnzct.jpeg');"></a>
+      <a href="https://howchoo.com/h/pi" class="interest-name">pi</a>
+      <div>
+        <span class="widget-count">
+          <span class="subscriber-count">144</span> <span class="subscriber-text">Subscribers</span>
+        </span>
+        <span class="interest-loop__action-link" data-interest="pi" data-user-action="signin">Subscribe
+  
+</span>
+
+      </div>
+    </li>
+    
+  </ul>
+</div>
+
+
+    <!-- end guide interests -->
+
+    <!-- right_rail ad unit -->
+    <div class="ad-wrapper ad-wrapper__right-rail">
+        
+<div class="advertisement advertisement-top advertisement__right-rail">
+  <div class="ad-large-devices">
+    <div id="ad_right_rail" class="mrec" data-ad="" data-google-query-id="CLiGpqz57rmZnAEVmptUMB2sfwAA"><div id="google_ads_iframe_/67904404/Right_Rail_0__container__" style="border: 0pt none; display: inline-block; width: 300px; height: 250px;"><iframe style="border: 0px none; vertical-align: bottom;" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/container.htm" id="google_ads_iframe_/67904404/Right_Rail_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" data-is-safeframe="true" frameborder="0" width="300" height="250"></iframe></div></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <!-- end right_rail ad unit -->
+
+    <!-- right_rail_mid -->
+    <div class="ad-wrapper ad-wrapper__right-rail-mid">
+        
+
+
+<div class="advertisement advertisement-top advertisement__right-rail-mid">
+  <div class="ad-large-devices">
+    <div id="ad_right_rail_mid" class="mrec" data-ad="" data-google-query-id="CIPd9piw8NcCFYHJZAodRqwGyw" style="display: none;"><div id="google_ads_iframe_/67904404/Right_Rail_Mid_0__container__" style="border: 0pt none; display: inline-block; width: 300px; height: 600px;"><iframe style="border: 0px none; vertical-align: bottom;" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/container.htm" id="google_ads_iframe_/67904404/Right_Rail_Mid_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" data-is-safeframe="true" frameborder="0" width="300" height="600"></iframe></div></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <!-- end right_rail_mid -->
+
+    
+        <!-- start table of contents -->
+        <div class="sidebar__item">
+            <nav class="how-to table-of-contents toc">
+                <h6 class="sidebar__heading">Jump to step</h6>
+                <ol class="toc__list">
+                    
+                    <li class="toc__item"><a href="#build-your-tower" data-scroll="">Build your tower</a></li>
+                    
+                    
+                    <li class="toc__item"><a href="#install-raspbian-jessie-on-all-four-sd-cards" data-scroll="">Install Raspbian Jessie on all four SD cards</a></li>
+                    
+                    
+                    <li class="toc__item"><a href="#configure-raspbian-from-the-sd-card" data-scroll="">Configure Raspbian from the SD card</a></li>
+                    
+                    
+                    <li class="toc__item"><a href="#power-up-and-test" data-scroll="">Power up and test</a></li>
+                    
+                    
+                    <li class="toc__item"><a href="#find-the-ip-address-of-each-node" data-scroll="">Find the IP address of each node</a></li>
+                    
+                    
+                    <li class="toc__item"><a href="#change-the-hostname-for-each-node" data-scroll="">Change the hostname for each node</a></li>
+                    
+                    
+                    <li class="toc__item"><a href="#copy-ssh-keys-to-each-node" data-scroll="">Copy SSH keys to each node</a></li>
+                    
+                        
+                        <li class="toc__more link" data-expand-item="table of contents">→ Show all</li>
+                        
+                    
+                    
+                    <li class="toc__item"><a href="#install-docker-on-each-node" data-scroll="">Install Docker on each node</a></li>
+                    
+                    
+                    <li class="toc__item"><a href="#create-the-swarm" data-scroll="">Create the swarm</a></li>
+                    
+                    
+                    <li class="toc__item"><a href="#add-the-rest-of-the-nodes-to-the-swarm" data-scroll="">Add the rest of the nodes to the swarm</a></li>
+                    
+                    
+                    <li class="toc__item"><a href="#run-our-first-service" data-scroll="">Run our first service</a></li>
+                    
+                    
+                </ol>
+            </nav>
+        </div>
+        <!-- end table of contents -->
+    
+</div>
+
+    </main>
+    <footer class="guide-footer contain">
+        <div class="item">
+            
+
+<div class="widget-common widget-share widget-common-full">
+  <a href="#share" class="action" data-scroll="">Share</a>
+  <a href="#share" class="badge-count count-visible" data-share-count-int="" data-scroll="">49</a>
+  <div class="count count-visible" data-share-count="">49 shares</div>
+</div>
+
+            <div class="widget-common widget-favorite widget-common-full">
+  
+    <span class="action" data-user-action="signin">Favorite</span>
+  
+  <div class="count count-visible"><span class="favorite-count">2</span> <span class="favorite-text">favorites</span></div>
+  <div class="badge-count count-visible"><span class="favorite-count">2</span></div>
+</div>
+
+            
+
+<div class="widget-common widget-comment widget-common-full">
+  <a href="#comments" class="action" data-scroll="">Comment</a>
+  <a href="#comments" class="badge-count disqus-comment-count count-visible" data-disqus-url="https://howchoo.com/g/njy4zdm3mwy/how-to-run-a-raspberry-pi-cluster-with-docker-swarm" data-scroll="">5</a>
+  <div class="count disqus-comment-count count-visible" data-disqus-url="https://howchoo.com/g/njy4zdm3mwy/how-to-run-a-raspberry-pi-cluster-with-docker-swarm">5 comments</div>
+</div>
+
+        </div>
+
+        
+        <div class="item centered standout">
+            
+<div class="author-bio">
+    <a href="https://howchoo.com/u/tyler" class="author-photo" style="background-image: url('/media/od/zh/mt/odzhmtfinmqt.jpeg');"></a>
+    <h4><a href="https://howchoo.com/u/tyler">tyler</a> (<a href="https://howchoo.com/u/tyler" title="See all guides by tyler">189</a>)</h4>
+    
+
+    
+
+    <p>Software Engineer and creator of howchoo.</p>
+</div>
+
+        </div>
+        
+
+        <div class="item">
+            
+
+
+
+
+
+
+<div class="advertisement advertisement-bottom action-item borderless">
+  <div class="ad-large-devices">
+    <div id="ad_footer" class="leaderboard" data-ad="" data-google-query-id="COLakYiw8NcCFYPOZAodUfgCuw"><div id="google_ads_iframe_/67904404/Footer_0__container__" style="border: 0pt none; display: inline-block; width: 728px; height: 90px;"><iframe style="border: 0px none; vertical-align: bottom;" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/container.htm" id="google_ads_iframe_/67904404/Footer_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" data-is-safeframe="true" frameborder="0" width="728" height="90"></iframe></div></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="advertisement advertisement-bottom action-item borderless">
+  <div class="ad-small-devices">
+    <div id="ad_mobile_footer" class="mobile-leaderboard" data-ad=""></div>
+  </div>
+</div>
+
+
+        </div>
+
+        <div class="item">
+            <h4>Share this guide!</h4>
+            
+
+<ul class="share" id="share">
+  <li class="share__item share__item--facebook">
+    <div class="fb-like fb_iframe_widget" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true" data-href="https://howchoo.com/g/njy4zdm3mwy/how-to-run-a-raspberry-pi-cluster-with-docker-swarm" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=&amp;container_width=0&amp;href=https%3A%2F%2Fhowchoo.com%2Fg%2Fnjy4zdm3mwy%2Fhow-to-run-a-raspberry-pi-cluster-with-docker-swarm&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=true&amp;show_faces=false"><span style="vertical-align: bottom; width: 110px; height: 20px;"><iframe name="f569262ffbdfae" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" style="border: medium none; visibility: visible; width: 110px; height: 20px;" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/like.htm" class="" frameborder="0" width="1000px" height="1000px"></iframe></span></div>
+  </li>
+  <li class="share__item share__item--reddit">
+    <a href="http://reddit.com/submit?url=https://howchoo.com/g/njy4zdm3mwy/how-to-run-a-raspberry-pi-cluster-with-docker-swarm%2F&amp;title=How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm" target="_blank" title="Reddit this (for that sweet, sweet karma)" data-id="reddit"><img src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/share-reddit.png" alt="Reddit this (for that sweet, sweet karma)"></a>
+  </li>
+  <li class="share__item share__item--google">
+    <div style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 32px; height: 20px;" id="___plusone_0"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 32px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" id="I0_1512391145109" name="I0_1512391145109" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/fastbutton.htm" data-gapiattached="true" title="G+" frameborder="0" width="100%"></iframe></div>
+  </li>
+  <li class="share__item share__item--twitter">
+    <iframe id="twitter-widget-0" scrolling="no" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 60px; height: 20px;" title="Twitter Tweet Button" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/tweet_button.htm" data-url="https://howchoo.com/g/njy4zdm3mwy/how-to-run-a-raspberry-pi-cluster-with-docker-swarm" frameborder="0"></iframe>
+  </li>
+  <li class="share__item share__item--email">
+    <a href="mailto:?subject=How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm&amp;body=Raspberry%20Pis%20are%20pretty%20incredible%20devices%2C%20but%20a%20single%20Pi%20can%20only%20do%20so%20much.%20%0A%0Ahttps%3A%2F%2Fhowchoo.com%2Fg%2Fnjy4zdm3mwy%2Fhow-to-run-a-raspberry-pi-cluster-with-docker-swarm%3Futm_medium%3Demail%26utm_source%3Duser-recommendation%26utm_campaign%3Dshare-buttons" title="Email this to a friend">Email</a>
+  </li>
+  
+  <li class="share__item share__item--pinterest">
+      <a class="PIN_1512391145534_button_pin PIN_1512391145534_beside PIN_1512391145534_save" href="https://www.pinterest.com/pin/create/button/?guid=DuoDuXUfUjPc-1&amp;url=https%3A%2F%2Fhowchoo.com%2Fg%2Fnjy4zdm3mwy%2Fhow-to-run-a-raspberry-pi-cluster-with-docker-swarm&amp;media=https%3A%2F%2Fhowchoo.com%2Fmedia%2Fow%2Fvm%2Fyt%2Fowvmytdhyjcl.jpeg&amp;description=Raspberry%20Pis%20are%20pretty%20incredible%20devices%2C%20but%20a%20single%20Pi%20can%20only%20do%20so%20much.%20" data-pin-log="button_pinit" data-pin-href="https://www.pinterest.com/pin/create/button/?guid=DuoDuXUfUjPc-1&amp;url=https%3A%2F%2Fhowchoo.com%2Fg%2Fnjy4zdm3mwy%2Fhow-to-run-a-raspberry-pi-cluster-with-docker-swarm&amp;media=https%3A%2F%2Fhowchoo.com%2Fmedia%2Fow%2Fvm%2Fyt%2Fowvmytdhyjcl.jpeg&amp;description=Raspberry%20Pis%20are%20pretty%20incredible%20devices%2C%20but%20a%20single%20Pi%20can%20only%20do%20so%20much.%20" data-pin-x="10"><span class="PIN_1512391145534_count" data-pin-href="https://www.pinterest.com/pin/create/button/?guid=DuoDuXUfUjPc-1&amp;url=https%3A%2F%2Fhowchoo.com%2Fg%2Fnjy4zdm3mwy%2Fhow-to-run-a-raspberry-pi-cluster-with-docker-swarm&amp;media=https%3A%2F%2Fhowchoo.com%2Fmedia%2Fow%2Fvm%2Fyt%2Fowvmytdhyjcl.jpeg&amp;description=Raspberry%20Pis%20are%20pretty%20incredible%20devices%2C%20but%20a%20single%20Pi%20can%20only%20do%20so%20much.%20" data-pin-log="button_pinit" data-pin-x="10">10</span>Save</a>
+  </li>
+  
+</ul>
+
+        </div>
+
+        
+
+
+  <div class="item">
+    <h4>Related to this guide:</h4>
+    <div class="guide-block__wrapper">
+      
+        
+
+
+<div class="guide-block guide-block--triple">
+    <a href="https://howchoo.com/g/zjrhmjc4mwi/build-your-own-raspberry-pi-amazon-echo" class="guide-block__image" style="background-image: url(/media/og/zj/zt/ogzjzty3ngem.jpeg);" title="Build your own Amazon Echo using a Raspberry Pi"></a>
+    <article class="guide-block__content">
+        <div class="guide-block__header">
+            <h2 class="guide-block__title"><a href="https://howchoo.com/g/zjrhmjc4mwi/build-your-own-raspberry-pi-amazon-echo">Build your own Amazon Echo using a Raspberry Pi</a></h2>
+            <ul class="guide-block__meta">
+                <li class="guide-block__stat" data-tooltip="2 favorites" data-html-tooltip=""><img src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/icon-heart-light-gray.svg" class="guide-block__icon" alt="2 favorites"> <span class="badge-count"> 2</span></li>
+                <li class="guide-block__stat" data-tooltip="1 share" data-html-tooltip=""><img src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/icon-smile-light-gray.svg" class="guide-block__icon" alt="1 share"> <span class="badge-count">1</span></li>
+            </ul>
+        </div>
+        
+        <p class="guide-block__excerpt">The Amazon Echo and Echo Dot are
+ one of the hottest gifts of the 2017 holiday season. This year, instead
+ of buying one, you can make your own!</p>
+        
+        
+        <div class="guide-block__footer">
+            <ul>
+                <li class="guide-block__author"><a href="https://howchoo.com/u/jeremy" class="guide-block__author-photo" style="background-image: url('/media/nw/fh/nj/nwfhnjmzzmnt.png');" title="View Jeremy's profile"></a> <a href="https://howchoo.com/u/jeremy" title="View Jeremy's profile">Jeremy</a></li>
+                <li class="guide-block__actions"><a href="https://howchoo.com/g/zjrhmjc4mwi/build-your-own-raspberry-pi-amazon-echo" class="rounder">View</a></li>
+            </ul>
+        </div>
+    </article>
+</div>
+
+
+      
+        
+
+
+<div class="guide-block guide-block--triple">
+    <a href="https://howchoo.com/g/otewzwmwnzb/amazon-echo-furby-using-raspberry-pi-furlexa" class="guide-block__image" style="background-image: url(/media/zd/m3/zj/zdm3zju0ntam.jpeg);" title="I turned a Furby into an Amazon Echo. Introducing: Furlexa"></a>
+    <article class="guide-block__content">
+        <div class="guide-block__header">
+            <h2 class="guide-block__title"><a href="https://howchoo.com/g/otewzwmwnzb/amazon-echo-furby-using-raspberry-pi-furlexa">I turned a Furby into an Amazon Echo. Introducing: Furlexa</a></h2>
+            <ul class="guide-block__meta">
+                <li class="guide-block__stat" data-tooltip="68 favorites" data-html-tooltip=""><img src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/icon-heart-light-gray.svg" class="guide-block__icon" alt="68 favorites"> <span class="badge-count"> 68</span></li>
+                <li class="guide-block__stat" data-tooltip="3380 shares" data-html-tooltip=""><img src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/icon-smile-light-gray.svg" class="guide-block__icon" alt="3380 shares"> <span class="badge-count">3380</span></li>
+            </ul>
+        </div>
+        
+        <p class="guide-block__excerpt">I thought I'd make Furby a little less annoying and give him an upgrade with a real brain. Step aside, Tin Man.</p>
+        
+        
+        <div class="guide-block__footer">
+            <ul>
+                <li class="guide-block__author"><a href="https://howchoo.com/u/zach" class="guide-block__author-photo" style="background-image: url('/media/nw/i2/ow/nwi2owixmdut.jpeg');" title="View Zach's profile"></a> <a href="https://howchoo.com/u/zach" title="View Zach's profile">Zach</a></li>
+                <li class="guide-block__actions"><a href="https://howchoo.com/g/otewzwmwnzb/amazon-echo-furby-using-raspberry-pi-furlexa" class="rounder">View</a></li>
+            </ul>
+        </div>
+    </article>
+</div>
+
+
+      
+        
+
+
+<div class="guide-block guide-block--triple">
+    <a href="https://howchoo.com/g/mjg5ytzmnjh/controlling-dc-motors-using-your-raspberry-pi" class="guide-block__image" style="background-image: url(/media/nd/m4/mj/ndm4mjrjn2qm.jpeg);" title="How to control a DC motor (or motors) using your Raspberry Pi"></a>
+    <article class="guide-block__content">
+        <div class="guide-block__header">
+            <h2 class="guide-block__title"><a href="https://howchoo.com/g/mjg5ytzmnjh/controlling-dc-motors-using-your-raspberry-pi">How to control a DC motor (or motors) using your Raspberry Pi</a></h2>
+            <ul class="guide-block__meta">
+                <li class="guide-block__stat" data-tooltip="0 favorites" data-html-tooltip=""><img src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/icon-heart-light-gray.svg" class="guide-block__icon" alt="0 favorites"> <span class="badge-count"> 0</span></li>
+                <li class="guide-block__stat" data-tooltip="0 shares" data-html-tooltip=""><img src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/icon-smile-light-gray.svg" class="guide-block__icon" alt="0 shares"> <span class="badge-count">0</span></li>
+            </ul>
+        </div>
+        
+        <p class="guide-block__excerpt">Controlling DC motors from your Raspberry Pi is quite easy!</p>
+        
+        
+        <div class="guide-block__footer">
+            <ul>
+                <li class="guide-block__author"><a href="https://howchoo.com/u/zach" class="guide-block__author-photo" style="background-image: url('/media/nw/i2/ow/nwi2owixmdut.jpeg');" title="View Zach's profile"></a> <a href="https://howchoo.com/u/zach" title="View Zach's profile">Zach</a></li>
+                <li class="guide-block__actions"><a href="https://howchoo.com/g/mjg5ytzmnjh/controlling-dc-motors-using-your-raspberry-pi" class="rounder">View</a></li>
+            </ul>
+        </div>
+    </article>
+</div>
+
+
+      
+    </div>
+  </div>
+
+
+  <div class="item">
+    <h4>People also read:</h4>
+    <ul class="loop">
+      
+        
+
+
+  <li>
+    <a class="loop-image" href="https://howchoo.com/g/ndg2mtbmnmn/how-to-install-raspbian-stretch-on-the-raspbderry-pi" style="background-image:url(/media/mz/a0/zw/mza0zwi2nmzt.jpeg)"></a>
+    <h2><a href="https://howchoo.com/g/ndg2mtbmnmn/how-to-install-raspbian-stretch-on-the-raspbderry-pi">How to install Raspbian Stretch on the Raspbderry Pi</a></h2>
+    
+
+
+    by <a href="https://howchoo.com/u/tyler">tyler</a>
+    
+        in
+        
+            <a href="https://howchoo.com/h/pi">pi</a>
+        
+    
+
+
+  </li>
+
+
+      
+        
+
+
+  <li>
+    <a class="loop-image" href="https://howchoo.com/g/zdg4zmy4yze/how-to-choose-a-raspberry-pi-starter-kit" style="background-image:url(/media/mj/c2/zw/mjc2zwzhmtat.jpeg)"></a>
+    <h2><a href="https://howchoo.com/g/zdg4zmy4yze/how-to-choose-a-raspberry-pi-starter-kit">How to choose a Raspberry Pi starter kit</a></h2>
+    
+
+
+    by <a href="https://howchoo.com/u/zach">Zach</a>
+    
+        in
+        
+            <a href="https://howchoo.com/h/pi">pi</a>
+        
+    
+
+
+  </li>
+
+
+      
+        
+
+
+  <li>
+    <a class="loop-image" href="https://howchoo.com/g/nzmxngzizjd/post-a-message-to-slack-using-your-raspberry-pi-and-an-amazon-dash-button" style="background-image:url(/media/zj/gw/mz/zjgwmzhlntat.jpeg)"></a>
+    <h2><a href="https://howchoo.com/g/nzmxngzizjd/post-a-message-to-slack-using-your-raspberry-pi-and-an-amazon-dash-button">Post a message to Slack using your Raspberry Pi and an Amazon Dash Button</a></h2>
+    
+
+
+    by <a href="https://howchoo.com/u/jeremy">Jeremy</a>
+    
+        in
+        
+            <a href="https://howchoo.com/h/node">node</a>, 
+        
+            <a href="https://howchoo.com/h/amazon">amazon</a>, 
+        
+            <a href="https://howchoo.com/h/pi">pi</a>
+        
+    
+
+
+  </li>
+
+
+      
+      
+        
+          
+
+
+  <li>
+    <a class="loop-image" href="https://howchoo.com/g/mzjmm2yyyzh/how-to-install-kodi-on-retropie" style="background-image:url(/media/zd/ky/mt/zdkymtiyzwet.png)"></a>
+    <h2><a href="https://howchoo.com/g/mzjmm2yyyzh/how-to-install-kodi-on-retropie">How to install Kodi on RetroPie</a></h2>
+    
+
+
+    by <a href="https://howchoo.com/u/zach">Zach</a>
+    
+        in
+        
+            <a href="https://howchoo.com/h/retropie">retropie</a>, 
+        
+            <a href="https://howchoo.com/h/kodi">kodi</a>, 
+        
+            <a href="https://howchoo.com/h/pi">pi</a>
+        
+    
+
+
+  </li>
+
+
+        
+          
+
+
+  <li>
+    <a class="loop-image" href="https://howchoo.com/g/mgmym2fimzd/how-to-take-screenshots-on-the-raspberry-pi" style="background-image:url(/media/od/m1/od/odm1odezmdlt.png)"></a>
+    <h2><a href="https://howchoo.com/g/mgmym2fimzd/how-to-take-screenshots-on-the-raspberry-pi">How to take screenshots on the Raspberry Pi</a></h2>
+    
+
+
+    by <a href="https://howchoo.com/u/zach">Zach</a>
+    
+        in
+        
+            <a href="https://howchoo.com/h/pi">pi</a>
+        
+    
+
+
+  </li>
+
+
+        
+          
+
+
+  <li>
+    <a class="loop-image" href="https://howchoo.com/g/njy0mgvlyta/install-kodi-on-your-raspberry-pi" style="background-image:url(/media/yz/bl/nt/yzblntnhntvt.jpeg)"></a>
+    <h2><a href="https://howchoo.com/g/njy0mgvlyta/install-kodi-on-your-raspberry-pi">Install Kodi on your Raspberry Pi</a></h2>
+    
+
+
+    by <a href="https://howchoo.com/u/jeremy">Jeremy</a>
+    
+        in
+        
+            <a href="https://howchoo.com/h/homeentertainment">homeentertainment</a>, 
+        
+            <a href="https://howchoo.com/h/kodi">kodi</a>, 
+        
+            <a href="https://howchoo.com/h/pi">pi</a>
+        
+    
+
+
+  </li>
+
+
+        
+          
+
+
+  <li>
+    <a class="loop-image" href="https://howchoo.com/g/zmmxm2mwzdu/nes-mini-raspberry-pi-case-review-kintaro" style="background-image:url(/media/mj/cz/ow/mjczowrjywvt.jpeg)"></a>
+    <h2><a href="https://howchoo.com/g/zmmxm2mwzdu/nes-mini-raspberry-pi-case-review-kintaro">NES Mini Raspberry Pi Case Review (Kintaro/Old Skool Tools)</a></h2>
+    
+
+
+    by <a href="https://howchoo.com/u/zach">Zach</a>
+    
+        in
+        
+            <a href="https://howchoo.com/h/retrogaming">retrogaming</a>, 
+        
+            <a href="https://howchoo.com/h/pi">pi</a>
+        
+    
+
+
+  </li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+        <div class="item">
+            <h4>Posted in these interests:</h4>
+            <div class="interest-block__wrapper">
+                
+                
+
+<div class="interest-block interest-block--triple" data-topic="technology">
+    <a href="https://howchoo.com/h/docker" class="interest-image" title="Explore h/docker" style="background-image: url('/media/ot/g5/nj/otg5njlkzjum.png');"></a>
+    <article>
+        <div class="interest-block__header">
+            <h2><a href="https://howchoo.com/h/docker">docker</a></h2>
+            <span class="guide-count">9 guides</span>
+        </div>
+        <p>Docker is an open-source that aims to automate the deployment of applications inside containers. Ea…</p>
+        <div class="interest-block__footer">
+            <ul>
+                <li class="interest-stats">
+                    <span class="widget-count">
+                        <span class="subscriber-count">28</span> <span class="subscriber-text">subscribers</span>
+                    </span>
+                    <span class="interest-loop__action-link" data-interest="docker" data-user-action="signin">Subscribe
+  
+</span>
+
+                </li>
+                <li class="interest-link">
+                    <a href="https://howchoo.com/h/docker" class="rounder technology" title="Explore interest: h/docker">Explore</a>
+                </li>
+            </ul>
+        </div>
+    </article>
+</div>
+
+                
+                
+
+<div class="interest-block interest-block--triple" data-topic="technology">
+    <a href="https://howchoo.com/h/pi" class="interest-image" title="Explore h/pi" style="background-image: url('/media/nw/rl/nj/nwrlnjbjnzcm.jpeg');"></a>
+    <article>
+        <div class="interest-block__header">
+            <h2><a href="https://howchoo.com/h/pi">pi</a></h2>
+            <span class="guide-count">52 guides</span>
+        </div>
+        <p>The Raspberry Pi is a small, inexpensive computer developed by the Raspberry Pi Foundation in the U…</p>
+        <div class="interest-block__footer">
+            <ul>
+                <li class="interest-stats">
+                    <span class="widget-count">
+                        <span class="subscriber-count">144</span> <span class="subscriber-text">subscribers</span>
+                    </span>
+                    <span class="interest-loop__action-link" data-interest="pi" data-user-action="signin">Subscribe
+  
+</span>
+
+                </li>
+                <li class="interest-link">
+                    <a href="https://howchoo.com/h/pi" class="rounder technology" title="Explore interest: h/pi">Explore</a>
+                </li>
+            </ul>
+        </div>
+    </article>
+</div>
+
+                
+            </div>
+        </div>
+        
+
+        <div class="item">
+            <h4>Discuss this guide</h4>
+            <div class="comments" id="comments">
+    <div id="disqus_thread"><iframe id="dsq-app634" name="dsq-app634" allowtransparency="true" scrolling="no" tabindex="0" title="Disqus" style="width: 1px ! important; min-width: 100% ! important; border: medium none ! important; overflow: hidden ! important; height: 1314px ! important;" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/a.htm" horizontalscrolling="no" verticalscrolling="no" frameborder="0" width="100%"></iframe></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'howchootest';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+</div>
+        </div>
+    </footer>
+</div>
+
+
+
+
+
+<footer class="footer">
+    <div class="footer-logo">
+        <a href="https://howchoo.com/h/docker" class="footer-logo__link" title="See more like this on: h/docker">
+            <img src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/logo-h.svg" alt="howchoo">
+        <span class="footer-logo__interest">/docker</span></a>
+    </div>
+    <div class="footer-links">
+        <ul>
+            <li><h3>You.</h3></li>
+            
+                <li><a href="https://howchoo.com/user/signup" data-user-action="signup">Join howchoo</a></li>
+            
+            <li><a href="https://howchoo.com/privacy">About your privacy</a></li>
+        </ul>
+        <ul>
+            <li><h3>Us.</h3></li>
+            <li><a href="https://howchoo.com/team">Our team</a></li>
+            <li><a href="https://howchoo.com/contact">Contact us</a></li>
+        </ul>
+        <ul>
+            <li><h3>Together.</h3></li>
+            <li><a href="https://www.facebook.com/howchoo" target="_blank">Follow us on Facebook</a></li>
+            <li><a href="https://www.pinterest.com/howchoo/" target="_blank">Follow us on Pinterest</a></li>
+            <li><a href="https://www.youtube.com/howchoo" target="_blank">Subcribe to us on YouTube</a></li>
+            <li><a href="https://www.instagram.com/howchoo/" target="_blank">Follow us on Instagram</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <p>©2017 howchoo, llc | <a href="https://howchoo.com/sitemap.xml">Sitemap</a>| <a href="https://howchoo.com/terms-of-service">Terms of service</a> | <a href="https://howchoo.com/dmca">DMCA requests</a></p>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/b238b0d88b47.js"></script><iframe style="display: none;"></iframe>
+
+
+
+    <script type="text/javascript" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/1af7e0539dee.js"></script><script src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/gpt.js"></script><script id="gpt-impl-0.892852736679014" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/pubads_impl_168.js"></script><script src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/integrator.js"></script><script>processGoogleTokenSync({"newToken":"FBS"},5);</script>
+
+
+
+
+
+<script>
+var Howchoo = Howchoo || {};
+Howchoo.pageLevelTargeting = {};
+
+
+</script>
+
+<script>
+    $(function() {
+        Howchoo.Guide.init({
+            guid: 'njy4zdm3mwy'
+        });
+    });
+</script>
+
+
+<script type="application/ld+json">
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement":
+  [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item":
+      {
+        "@id": "https://howchoo.com/h/docker",
+        "name": "docker"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item":
+      {
+        "@id": "https://howchoo.com/g/njy4zdm3mwy/how-to-run-a-raspberry-pi-cluster-with-docker-swarm",
+        "name": "How to run a Raspberry Pi cluster with Docker Swarm"
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement":
+  [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item":
+      {
+        "@id": "https://howchoo.com/h/pi",
+        "name": "pi"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item":
+      {
+        "@id": "https://howchoo.com/g/njy4zdm3mwy/how-to-run-a-raspberry-pi-cluster-with-docker-swarm",
+        "name": "How to run a Raspberry Pi cluster with Docker Swarm"
+      }
+    }
+  ]
+}
+</script>
+
+
+<!-- facebook subscribe/unsubscribe events -->
+<script type="text/javascript">
+window.fbAsyncInit = function() {
+    // report facebook likes
+    FB.Event.subscribe('edge.create',
+        function(response) {
+            ga('send', 'social', {
+                'socialNetwork': 'facebook',
+                'socialAction': 'like',
+                'socialTarget': response
+            });
+        }
+    );
+    // report facebook unlikes
+    FB.Event.subscribe('edge.remove',
+        function(response) {
+            ga('send', 'social', {
+                'socialNetwork': 'facebook',
+                'socialAction': 'unlike',
+                'socialTarget': response
+            });
+        }
+    );
+};
+</script>
+
+<!-- Twitter sdk -->
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+
+<!-- pinterest -->
+<script type="text/javascript">
+    (function(d){
+        var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
+        p.type = 'text/javascript';
+        p.async = true;
+        p.src = '//assets.pinterest.com/js/pinit.js';
+        f.parentNode.insertBefore(p, f);
+    }(document));
+</script>
+
+
+<!-- Social init -->
+<script>
+Howchoo.Social.init();
+</script>
+
+<!-- disqus comment count -->
+<script src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/count.js" id="dsq-count-scr" async=""></script>
+
+
+<script>
+if (typeof Howchoo.Ads !== 'undefined') {
+  $.extend(Howchoo.pageLevelTargeting, {
+    interests: ["docker","pi"],
+    guid: "njy4zdm3mwy"
+  });
+  $(function() {
+    Howchoo.Ads.init();
+  });
+}
+</script>
+
+
+
+
+<!-- Send pv beacon -->
+<script>Howchoo.Tracking.sendPageview()</script>
+
+<!-- Facebook SDK -->
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Facebook Events -->
+<script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '637189046423550');
+    fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display: none;" src="https://www.facebook.com/tr?id=637189046423550&amp;ev=PageView&amp;noscript=1" alt="Facebook tracking" /></noscript>
+
+<!-- Twitter -->
+<script type="text/javascript">
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+
+<!-- Google Plus -->
+<script src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/platform.js" async="" defer="defer" gapi_processed="true"></script>
+
+<!-- Quantcast -->
+<script type="text/javascript">
+    var _qevents = _qevents || [];
+
+    (function() {
+    var elem = document.createElement('script');
+    elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+    elem.async = true;
+    elem.type = "text/javascript";
+    var scpt = document.getElementsByTagName('script')[0];
+    scpt.parentNode.insertBefore(elem, scpt);
+    })();
+
+    _qevents.push({
+    qacct:"p-S2uPTTTFT6vX5"
+    });
+</script>
+<noscript><img src="//pixel.quantserve.com/pixel/p-S2uPTTTFT6vX5.gif" height="1" width="1" style="display: none;" alt="Quantcast"/></noscript>
+
+
+<!-- Rollbar jQuery snippet -->
+<script>
+    !function(r){function t(o){if(e[o])return e[o].exports;var n=e[o]={exports:{},id:o,loaded:!1};return r[o].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var e={};return t.m=r,t.c=e,t.p="",t(0)}([function(r,t,e){"use strict";!function(r,t,e){var o=t.Rollbar;if(o){var n="0.0.8";o.configure({notifier:{plugins:{jquery:{version:n}}}});var a=function(r){if(o.error(r),t.console){var e="[reported to Rollbar]";o.options&&!o.options.enabled&&(e="[Rollbar not enabled]"),t.console.log(r.message+" "+e)}};r(e).ajaxError(function(r,t,e,n){var a=t.status,i=e.url,l=e.type;if(a){var u={status:a,url:i,type:l,isAjax:!0,data:e.data,jqXHR_responseText:t.responseText,jqXHR_statusText:t.statusText},s=n?n:"jQuery ajax error for "+l;o.warning(s,u)}});var i=r.fn.ready;r.fn.ready=function(r){return i.call(this,function(t){try{r(t)}catch(e){a(e)}})};var l=r.event.add;r.event.add=function(t,e,o,n,i){var u,s=function(r){return function(){try{return r.apply(this,arguments)}catch(t){a(t)}}};return o.handler?(u=o.handler,o.handler=s(o.handler)):(u=o,o=s(o)),u.guid?o.guid=u.guid:o.guid=u.guid=r.guid++,l.call(this,t,e,o,n,i)}}}(jQuery,window,document)}]);
+</script>
+
+
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/lY4eZXm_YWu.htm" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div><iframe name="oauth2relay731618565" id="oauth2relay731618565" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/postmessageRelay.htm" style="width: 1px; height: 1px; position: absolute; top: -100px;" tabindex="-1" aria-hidden="true"></iframe><iframe id="google_osd_static_frame_4240378567145" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe><script id="PIN_1512391145534.f.callback[1]" type="text/javascript" charset="utf-8" src="How%20to%20run%20a%20Raspberry%20Pi%20cluster%20with%20Docker%20Swarm%20-%20howchoo_files/a.asc"></script></body></html>
