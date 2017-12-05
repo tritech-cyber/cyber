@@ -1,0 +1,11 @@
+docker service ls
+ID                  NAME                MODE                REPLICAS            IMAGE                           PORTS
+vjntu6urgc9l        viz                 replicated          0/1                 alexellis2/visualizer-arm:0.4   *:8080->8080/tcp
+pi@swarm1:~ $ docker service ps viz
+ID                  NAME                IMAGE                           NODE                DESIRED STATE       CURRENT STATE                ERROR                              PORTS
+or58nhxcaeno        viz.1               alexellis2/visualizer-arm:0.4   swarm1              Ready               Preparing 1 second ago                                          
+zqhge5ihqxla         \_ viz.1           alexellis2/visualizer-arm:0.4   swarm1              Shutdown            Rejected 6 minutes ago       "No such image: alexellis2/vis…"   
+zykupiqqydzw         \_ viz.1           alexellis2/visualizer-arm:0.4   swarm1              Shutdown            Rejected 11 minutes ago      "No such image: alexellis2/vis…"   
+zw1kx5vg24t2         \_ viz.1           alexellis2/visualizer-arm:0.4   swarm1              Shutdown            Rejected 40 minutes ago      "No such image: alexellis2/vis…"   
+zxva2xz7s4tb         \_ viz.1           alexellis2/visualizer-arm:0.4   swarm1              Shutdown            Rejected about an hour ago   "No such image: alexellis2/vis…"   
+
