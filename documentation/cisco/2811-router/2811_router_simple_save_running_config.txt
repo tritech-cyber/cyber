@@ -1,0 +1,12 @@
+copy startup-config running-config
+
+Saving Configuration Changes
+
+Whenever you make changes to the RPM configuration, you must save the changes to memory so they will not be lost if the system is rebooted. There are two types of configuration files: the running (current operating) configuration and the startup configuration. The running configuration is stored in RAM; the startup configuration is stored in NVRAM.
+To display the current running configuration, enter the show running-config command. Enter the copy running-config startup-config command to save the current running configuration to the startup configuration file in NVRAM.
+ MGX8850-RPM> enable
+ MGX8850-RPM# copy running-config startup-config
+
+To display the startup configuration, enter the show startup-config command. Enter the copy startup-config running-config command to write the startup configuration to the running configuration.
+ MGX8850-RPM> enable
+ MGX8850-RPM# copy startup-config running-config   
