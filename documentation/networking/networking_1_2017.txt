@@ -1,0 +1,88 @@
+Introduction to Networking and computer hardware.
+Document created by:  Craig Coleman
+
+1)Q: List 8 different types of network topologies
+
+2) Q: What is the difference between IPV4 and IPV6? 3 sentences
+
+3)An example of an IPv6 address is: 
+
+4)Q: List the ip addresses for CLASS A, B, C AND D Ipv4 classes
+Class A: 
+Class B: 
+Class C: 
+Class D: 
+Class E: 240.0.0.0 to 247.255.255.255: experimental
+
+5)what is the difference between a private and public network?
+List the public IP4 octets. 
+
+6) Networking hardware.  What are these? 1 sentence or word.
+- NIC - 802.3
+
+- NIC - 802.11
+
+- Ethernet cable 
+
+- Switch
+
+- Router (Off the shelf) Like a WRT 1900AC
+
+- Router (Commercial Cisco)
+
+- Firewall (Hardware)
+
+7)  What does a router do ?  What OSI layer is it in? Keep it simple. 
+
+
+8) IEEE is 
+IEEE (                                           )
+
+
+
+
+
+
+9)  What are the following services?
+DNS : 
+DHCP : 
+HTTP:          
+HTTPS: 
+TELNET: 
+SSH:         
+VPN:     
+
+10)  What is a socket with respect to an IP or a domain name?
+
+
+11)  Define the following with a few words or a word
+
+802.1 
+802.3 
+802.11 
+802.15 
+802.16 
+802.18 
+802.19 
+802.21
+802.22 
+802.24 
+
+12)  Who sets world networking standards?
+
+
+!  You need to start designing two computers. 
+Document your parts on a google doc and save it in your google docs networking folder. One computer will be for OFFICE (simple) and one will be for GAMING.  You also could design a CAD computer or server. If you design a MAC goto Apple.com and customize a MAC.  Keep track of the prices!!  The price list is the most critical part of this lesson.
+
+Go to https://pcpartpicker.com/ , https://www.newegg.com/ or https://www.amazon.com/ to pick out parts.  You might need help from someone who has built a computer.  Parts required:
+- MOTHERBOARD
+- CPU (AMD OR INTEL)
+- RAM
+- POWER SUPPLY
+- CASE
+- HARD DRIVE (SATA, SSD, PCI-E OR M.2)
+EXTRAS (VIDEO CARD, SOUND CARD, OR DVD)
+The text version of this document is located at http://tritechsc.ksd.org/cyber/documentation/networking/
+networking_1_2017.txt
+
+
