@@ -1,0 +1,49 @@
+Becoming proficient with the Cisco IOS means learning some essential commands. This quick reference describes 10 commands you'll need to rely on when handling various configuration and troubleshooting tasks.
+
+#1: The "?"
+It may seem entirely too obvious that you should know how to type ? to ask for help when using the Cisco IOS. However, the Cisco IOS is completely different from other operating systems when it comes to using the question mark (help key). As the IOS is a command-line operating system with thousands of possible commands and parameters, using the ? can save your day.
+
+You can use the command in many ways. First, use it when you don't know what command to type. For example, type ? at the command line for a list of all possible commands. You can also use ? when you don't know what a command's next parameter should be. For example, you might type show ip ? If the router requires no other parameters for the command, the router will offer <CR> as the only option.
+
+Finally, use ? to see all commands that start with a particular letter. For example, show c? will return a list of commands that start with the letter "c".
+
+#2: show running-configuration
+The show running-config command shows the router, switch, or firewall's current configuration. The running-configuration is the config that is in the router's memory. You change this config when you make changes to the router. Keep in mind that config is not saved until you do a copy running-configuration startup-configuration. This command can be abbreviated sh run.
+
+#3: copy running-configuration startup-configuration
+This command will save the configuration that is currently being modified (in RAM), also known as the running-configuration, to the nonvolatile RAM (NVRAM). If the power is lost, the NVRAM will preserve this configuration. In other words, if you edit the router's configuration, don't use this command and reboot the router—those changes will be lost. This command can be abbreviated copy run start. The copy command can also be used to copy the running or startup configuration from the router to a TFTP server in case something happens to the router.
+
+#4: show interface
+The show interface command displays the status of the router's interfaces. Among other things, this output provides the following:
+
+Interface status (up/down)
+Protocol status on the interface
+Utilization
+Errors
+MTU
+This command is essential for troubleshooting a router or switch. It can also be used by specifying a certain interface, like sh int g0/0.
+
+#5: show ip interface
+
+Even more popular than show interface are show ip interface and show ip interface brief. The show ip interface command provides tons of useful information about the configuration and status of the IP protocol and its services, on all interfaces. The show ip interface brief command provides a quick status of the interfaces on the router, including their IP address, Layer 2 status, and Layer 3 status.
+
+#6: config terminal, enable, interface, and router
+Cisco routers have different modes where only certain things can be shown or certain things can be changed. Being able to move between these modes is critical to successfully configuring the router.
+
+For example, when logging in, you start off at the user mode (where the prompt looks like >). From there, you type enable to move to privileged mode (where the prompt looks like #). In privileged mode, you can show anything but not make changes. Next, type config terminal (or config t) to go to global configuration mode (where the prompt looks like router(config)# ). From here, you can change global parameters. To change a parameter on an interface (like the IP address), go to interface configuration mode with the interface command (where the prompt looks like router(config-if)#). Also from the global configuration mode, you can go into router configuration using the router {protocol} command. To exit from a mode, type exit.
+
+#7: no shutdown
+The no shutdown command enables an interface (brings it up). This command must be used in interface configuration mode. It is useful for new interfaces and for troubleshooting. When you're having trouble with an interface, you may want to try a shut and no shut. Of course, to bring the interface down, reverse the command and just say shutdown. This command can be abbreviated no shut.
+
+SEE: Systems downtime expense calculator (Tech Pro Research)
+
+#8: show ip route
+The show ip route command is used to show the router's routing table. This is the list of all networks that the router can reach, their metric (the router's preference for them), and how to get there. This command can be abbreviated sh ip ro and can have parameters after it, like sh ip ro ospf for all OSPF routes. To clear the routing table of all routes, you do clear ip route. To clear it of just one routes, issue the command clear ip route x.x.x.x (where x.x.x.x is the network you want to clear).
+
+#9: show version
+The show version command gives you the router's configuration register (essentially, the router's firmware settings for booting up), the last time the router was booted, the version of the IOS, the name of the IOS file, the model of the router, and the router's amount of RAM and Flash. This command can be abbreviated sh ver.
+
+#10: debug
+The debug command has many options and does not work by itself. It provides detailed debugging output on a certain application, protocol, or service. For example, debug ip routing will tell you every time a route is added to or removed from the router. Debugging can be dangerous as its process takes priority over all others. Be prepared to disable the feature using the no debug command or undebug all command.
+
+

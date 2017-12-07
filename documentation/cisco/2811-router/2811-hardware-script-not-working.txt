@@ -1,0 +1,47 @@
+Router#erase startup-config
+Router#enable
+Router#configure terminal
+Router(config)#interface FastEthernet 0/0
+Router(config-if)#ip address 192.168.0.1 255.255.255.0
+Router(config-if)#no shutdown
+
+Router(config)#interface fastEthernet 0/1
+Router(config-if)#ip address 192.168.1.254 255.255.255.0
+Router(config-if)#no shutdown
+
+Router#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+FastEthernet0/0        192.168.0.1     YES manual up                    down
+FastEthernet0/1        192.186.1.254     YES manual up                    down
+Vlan1                  unassigned      YES unset  administratively down down
+
+Router(config-if)#ip route 192.168.0.0 255.255.255.0 192.168.1.0    
+Router(config-if)#ip route 192.168.1.0 255.255.255.0 192.168.0.0       
+
+
+Notes:
+https://www.certificationkits.com/cisco-two-router-lab/
+Step 6: Adding Default Routes
+Good candidates for default routes are routers which are known as the boundary router. This is a router which is normally part of a stub network. Inside the stub network, the routers may be participating in a dynamic routing using a protocol like RIP, but only a static default route is needed to connect the stub network to the Internet.
+
+RouterA
+
+RouterA>en
+RouterA#config t
+RouterA(config)#ip route 0.0.0.0 0.0.0.0 172.16.10.2
+
+RouterB
+
+RouterB>en
+RouterB#config t 
+RouterB(config)#ip route 0.0.0.0 0.0.0.0 172.16.10.1
+
+Step 7: Adding Static Routes
+A static route can be used for different reasons. One reason may be for a router to connect to another router in a lab. You'll need to turn off all routing protocols before you configure the router for static routing.
+
+RouterA
+
+RouterA>en
+RouterA#config t
+RouterA(config)#no router igrp 100
+RouterA(config)#ip route 172.16.11.0 255.255.255.0 172.16.10.2
