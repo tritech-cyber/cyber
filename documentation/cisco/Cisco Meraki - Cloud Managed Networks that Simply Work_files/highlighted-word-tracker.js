@@ -1,0 +1,3 @@
+// Track highlighted text in GA
+// https://code.google.com/p/highlighted-word-tracker/source/browse/trunk/async.js
+var e=null, g=60, h=3, c=document.getElementsByTagName('body')[0];if(c){c.onmouseup=function(j){e=b();f=e.length;d=i(e);if(e!==null&&d<g&&f>h){ga('send', 'event','CopyText','Highlighted',e)}function i(k){var l=k;var m=0;a=l.replace(/\s/g,' ');a=a.split(' ');for(z=0;z<a.length;z++){if(a[z].length>0){m++}}return m}function b(){if(window.getSelection){d=window.getSelection()}else{if(document.getSelection){d=document.getSelection()}else{if(document.selection){d=document.selection.createRange().text}else{return''}}}return d.toString()}}};
