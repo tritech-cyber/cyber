@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>Citi_DiamondPreferred_Template_Banner_300x250</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="ad.size" content="width=300,height=250">
+    <style>
+    *{margin:0;padding:0;border:0;}
+    div{position:absolute;}
+    #loader-container {width:300px;height:250px;text-align:center;}
+    #loader{margin:0 auto;right:0;left:0;top:45%;}
+</style>
+    <script type="text/javascript"> var clickTag="http://www.google.com"; </script>
+    <script type="text/javascript">
+    
+      (function() {
+        var relegateNavigation = '';
+        var handleClickTagMessage = function(e) {
+          try {
+            var eventData = JSON.parse(e.data);
+          } catch (err) {
+            return;
+          }
+          if (eventData.isInitClickTag) {
+            if (eventData.clickTags) {
+              for (var i = 0; i < eventData.clickTags.length; i++) {
+                var clkTag = eventData.clickTags[i];
+                window[clkTag.name] = clkTag.url;
+              }
+            } else if (eventData.clickTag) {
+              window.clickTag = eventData.clickTag;
+            }
+            relegateNavigation = eventData.relegateNavigation;
+          }
+        };
+
+        if (open.call) {
+          window.open = function(open) {
+            return function(url, name, features) {
+              if (relegateNavigation === 'parent') {
+                var message = {'clickTag': url, 'isPostClickTag': true};
+                parent.postMessage(JSON.stringify(message), '*');
+              } else {
+                var args = [url, name];
+                if (features) {
+                  args.push(features);
+                }
+                open.apply(window, args);
+              }
+            };
+          }(window.open);
+        }
+
+        if (window.addEventListener) {
+          window.addEventListener(
+              'message', handleClickTagMessage, false);
+        } else {
+          window.attachEvent('onmessage', handleClickTagMessage);
+        }
+      })();
+    
+  </script><link rel="stylesheet" type="text/css" href="index_data/style.css"></head>
+    <body>
+    <div id="loader"></div>
+    <div class="banner" style="display: none">
+            <div id="frame_1">
+
+
+                     <div id="mask5">
+                     <div id="bg1"></div>
+                     <div id="txt5"></div>
+                     <div id="logo" style="opacity: 1;"></div>  
+                              <div id="ctaOut3"></div>          
+                 </div>
+
+                <div id="mask4" style="clip: rect(0px, 400px, 19px, 0px);">
+                     <div id="bg2"></div>
+                     <div id="txt4"></div>
+                     <div id="logo2"></div>
+                     <div id="ctaOut2"></div>
+                 </div>
+
+                   <div id="mask3" style="clip: rect(0px, 0px, 500px, 0px);">
+                     <div id="bg1"></div>
+                     <div id="txt3"></div>
+                     <div id="logo" style="opacity: 1;"></div>
+                     <div id="ctaOut" style="opacity: 1;"></div>
+                 </div>
+
+                  <div id="mask2" style="clip: rect(459px, 400px, 499px, 0px);">
+                     <div id="bg2"></div>
+                     <div id="txt2"></div>
+                     <div id="logo2"></div>
+                     <div id="ctaOut2"></div>
+
+                 </div>
+
+                <div id="mask1" style="clip: rect(0px, 417px, 480px, 413px);">
+                    <div id="bg1"></div>
+                    <div id="txt1" style="opacity: 1;"></div>
+                    <div id="logo" style="opacity: 1;"></div>
+                    <div id="ctaOut" style="opacity: 1;"></div>
+                </div>
+
+
+
+                    <svg id="BG1" width="300" height="250" xlink="http://www.w3.org/1999/xlink">
+                        <defs>
+                            <mask id="mask1" style="clip: rect(0px, 417px, 480px, 413px);">
+                                <rect id="rectMaskIn_pst" x="0" y="0" width="1420" height="215" fill="#000"></rect>
+                            </mask>
+                        </defs>       
+                            <image id="BG1_image" x="0" y="0" xlink:href="bg1.png" width="300" height="250" mask="url(#mask1)"></image>
+                    </svg>
+<div id="ctaOver"></div> 
+<div id="card" style="opacity: 1;"></div>
+         
+                   <div id="btn-exit"></div>
+        
+                </div>
+                  <div id="replay" style="opacity: 1; display: block;"></div>   
+    <script src="index_data/TweenMax.js"></script>
+    <script type="text/javascript" src="index_data/main.js"></script>
+    <script type="text/javascript">
+    var _btnExit = document.getElementById('btn-exit');
+    _btnExit.addEventListener('click', clickTagHandler)
+    function clickTagHandler(){ window.open(window.clickTag);}
+    </script>
+    
+</div></body></html>

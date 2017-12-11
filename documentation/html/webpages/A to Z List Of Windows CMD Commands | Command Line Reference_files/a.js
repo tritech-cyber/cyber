@@ -1,0 +1,1 @@
+/**/skimlinksBeaconCallback({"country":"US","ts":1512950312,"sessid":"987747d2044c9f885b493c875d7c1ab9","csp":"liveramp:1508692911|lotame:1512950242","guid":"f92a22d9e93274d73c3290ae94f5d75d","merchant_domains":["technet.microsoft.com","privateinternetaccess.com"]});

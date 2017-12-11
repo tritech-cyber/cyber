@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,maximum-scale=1,minimum-scale=1,initial-scale=1"><meta name="ad.size" content="width=300, height=600"><title></title><link rel="stylesheet" type="text/css" href="index_data/main.css"><script type="text/javascript">var clickTag = "";</script><script type="text/javascript">
+    
+      (function() {
+        var relegateNavigation = '';
+        var handleClickTagMessage = function(e) {
+          try {
+            var eventData = JSON.parse(e.data);
+          } catch (err) {
+            return;
+          }
+          if (eventData.isInitClickTag) {
+            if (eventData.clickTags) {
+              for (var i = 0; i < eventData.clickTags.length; i++) {
+                var clkTag = eventData.clickTags[i];
+                window[clkTag.name] = clkTag.url;
+              }
+            } else if (eventData.clickTag) {
+              window.clickTag = eventData.clickTag;
+            }
+            relegateNavigation = eventData.relegateNavigation;
+          }
+        };
+
+        if (open.call) {
+          window.open = function(open) {
+            return function(url, name, features) {
+              if (relegateNavigation === 'parent') {
+                var message = {'clickTag': url, 'isPostClickTag': true};
+                parent.postMessage(JSON.stringify(message), '*');
+              } else {
+                var args = [url, name];
+                if (features) {
+                  args.push(features);
+                }
+                open.apply(window, args);
+              }
+            };
+          }(window.open);
+        }
+
+        if (window.addEventListener) {
+          window.addEventListener(
+              'message', handleClickTagMessage, false);
+        } else {
+          window.attachEvent('onmessage', handleClickTagMessage);
+        }
+      })();
+    
+  </script></head><body><div id="banner"><div id="banner-holder" style="left: 0px;"><img id="txt-where" src="index_data/txt_where.png" alt="txt_where" style="opacity: 1; width: 312px; height: 386px; transition: all 0.75s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s; transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1) skewX(0deg) skewY(0deg);"> <img id="txt1" src="index_data/txt1.png" alt="txt1" style="opacity: 1; width: 477px; height: 549px; transition: all 0.5s ease 0s; transform: translate3d(-477px, 477px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(0.25, 1, 1) skewX(0deg) skewY(0deg);"> <img id="txt2" src="index_data/txt2.png" alt="txt2" style="opacity: 1; width: 537px; height: 608px; transition: all 0.5s ease 0s; transform: translate3d(-537px, 537px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(0.25, 1, 1) skewX(0deg) skewY(0deg);"> <img id="txt3" src="index_data/txt3.png" alt="txt3" style="opacity: 1; width: 403px; height: 484px; transition: all 0.5s ease 0s; transform: translate3d(-403px, 403px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1) skewX(0deg) skewY(0deg);"> <img id="txt4" src="index_data/txt4.png" alt="txt4" style="opacity: 1; width: 249px; height: 330px; transition: all 0.75s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s; transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1) skewX(0deg) skewY(0deg);"> <img id="txt-happens" src="index_data/txt_happens.png" alt="txt_happens" style="opacity: 1; width: 402px; height: 479px; transition: all 0.75s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s; transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1) skewX(0deg) skewY(0deg);"> <img id="cta" src="index_data/cta.png" alt="cta" style="opacity: 1; width: 554px; height: 130px; transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s; transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1) skewX(0deg) skewY(0deg);"> <a href="javascript:(function(){open(window.clickTag)})()"><div id="bg-exit"></div></a></div></div><script type="text/javascript" src="index_data/Bannermator.js"></script><script type="text/javascript" src="index_data/main.js"></script></body></html>

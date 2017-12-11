@@ -1,0 +1,281 @@
+@charset "UTF-8";
+
+.banner {
+    width: 298px;
+    height: 248px;
+    border: 1px solid #cccccc;
+    background: #FFFFFF;
+    overflow: hidden;
+    display: block !important;
+}
+#loader-container {
+    display: none;
+}
+#btn-exit {
+    width: 298px;
+    height: 248px;
+    cursor:pointer;
+    opacity:0;
+    z-index: 6;
+    position: absolute;
+    left: 0px;
+    top: 0px; 
+}
+#replay{
+    width: 23px;
+    height: 23px;
+    top: 10px;
+    left: 260px;
+    background: url('replay.png');
+    opacity: 0;
+    display: none;
+    cursor: pointer;
+       z-index: 7;
+}
+#noscripted {
+    display: none;
+}
+#frame_1 {
+    width: 300px;
+    height: 250px;
+    top: 0px;
+    left: 0px;
+
+}
+/*//////////////////////text//////////////////////////*/
+#txt1 {
+    background: url(txt1.png);
+    width: 254px;
+    height: 54px;
+top: 176px;
+left: 30px;
+    opacity: 0;
+    -webkit-transform: rotate(-43deg);
+    -moz-transform: rotate(-43deg);
+    transform: rotate(-43deg);
+}
+#txt2 {
+    background: url(txt2.png);
+    width: 235px;
+    height: 54px;
+top: 176px;
+left: 39px;
+    opacity: 1;
+   -webkit-transform: rotate(-43deg);
+    -moz-transform: rotate(-43deg);
+    transform: rotate(-43deg);
+}
+#txt3 {
+    background: url(txt3.png);
+    width: 200px;
+    height: 62px;
+top: 173px;
+left: 54px;
+    opacity: 1;
+    -webkit-transform: rotate(-43deg);
+    -moz-transform: rotate(-43deg);
+    transform: rotate(-43deg);
+}
+#txt4 {
+    background: url(txt4.png);
+    width: 232px;
+    height: 59px;
+top: 176px;
+left: 42px;
+    opacity: 1;
+    -webkit-transform: rotate(-43deg);
+    -moz-transform: rotate(-43deg);
+    transform: rotate(-43deg);
+}
+#txt5 {
+    background: url(txt5.png);
+ width: 199px;
+height: 62px;
+top: 173px;
+left: 54px;
+    opacity: 1;
+    -webkit-transform: rotate(-43deg);
+    -moz-transform: rotate(-43deg);
+    transform: rotate(-43deg);
+}
+/*//////////////////////endtext//////////////////////////*/
+
+/*//////////////////////backgrounds//////////////////////////*/
+#bg1 {
+    background: url(bg1.jpg);
+    width: 300px;
+    height: 250px;
+top: 129px;
+left: 55px;
+    opacity: 1;
+    -webkit-transform: rotate(-43deg);
+    -moz-transform: rotate(-43deg);
+    transform: rotate(-43deg);
+}
+#bg2 {
+    background: url(bg2.jpg);
+    width: 300px;
+    height: 250px;
+top: 129px;
+left: 55px;
+    opacity: 1;
+    -webkit-transform: rotate(-43deg);
+    -moz-transform: rotate(-43deg);
+    transform: rotate(-43deg);
+}
+#bg3 {
+    background: url(bg1.jpg);
+    width: 300px;
+    height: 250px;
+top: 129px;
+left: 55px;
+    opacity: 1;
+    -webkit-transform: rotate(-43deg);
+    -moz-transform: rotate(-43deg);
+    transform: rotate(-43deg);
+}
+
+/*//////////////////////endbackgrounds//////////////////////////*/
+
+
+#card {
+    background: url(card.png);
+    width: 148px;
+    height: 93px;
+top: 99px;
+left: 75px;
+    opacity: 0;
+}
+#logo {
+    background: url(logo.png);
+    width: 140px;
+    height: 37px;
+top: 358px;
+left: 149px;
+    opacity: 0;
+        -webkit-transform: rotate(-43deg);
+    -moz-transform: rotate(-43deg);
+    transform: rotate(-43deg);
+}
+#logo2 {
+    background: url(logo2.png);
+    width: 140px;
+    height: 37px;
+top: 358px;
+left: 149px;
+    opacity: 1;
+          -webkit-transform: rotate(-43deg);
+    -moz-transform: rotate(-43deg);
+    transform: rotate(-43deg);
+}
+
+/*///////////////////////////////CTA/////////////////////////////////*/
+
+#CTA {
+    width: 123px;
+    height: 23px;
+    top: 214px;
+    left: 167px;
+}
+#ctaOut {
+   width: 123px;
+    height: 23px;
+top: 264px;
+left: 273px;
+    background: url(cta_out.png);
+    opacity: 0;
+        -webkit-transform: rotate(-43deg);
+    -moz-transform: rotate(-43deg);
+    transform: rotate(-43deg);
+
+}
+#ctaOut2 {
+   width: 123px;
+    height: 23px;
+top: 264px;
+left: 273px;
+    background: url(cta_out2.png);
+        -webkit-transform: rotate(-43deg);
+    -moz-transform: rotate(-43deg);
+    transform: rotate(-43deg);
+    opacity: 1;
+}
+#ctaOut3{
+width: 124px;
+    height: 23px;
+top: 264px;
+left: 273px;
+    background: url(cta_out3.png);
+    opacity: 1;
+      -webkit-transform: rotate(-43deg);
+    -moz-transform: rotate(-43deg);
+    transform: rotate(-43deg);
+}
+#ctaOver {
+width: 124px;
+height: 23px;
+top: 216px;
+left: 167px;
+    background: url(cta_over.png);
+    opacity: 0;
+
+}
+/*///////////////////////////////END CTA/////////////////////////////////*/
+
+/*///////////////////////////////mask/////////////////////////////////
+*/#mask1 {
+    width: 400px;
+height: 500px;
+top: -133px;
+left: -52px;
+    overflow: hidden;    
+    clip: rect(0px, 400px, 500px, 0px);
+    -webkit-transform: rotate(43deg);
+    -moz-transform: rotate(43deg);
+   transform: rotate(43deg);
+}
+#mask2 {
+    width: 400px;
+height: 500px;
+top: -133px;
+left: -52px;
+    overflow: hidden;    
+    clip: rect(0px, 400px, 500px, 0px);
+    -webkit-transform: rotate(43deg);
+    -moz-transform: rotate(43deg);
+   transform: rotate(43deg);
+}
+#mask3 {
+    width: 400px;
+height: 500px;
+top: -133px;
+left: -52px;
+    overflow: hidden;   
+    clip: rect(0px, 400px, 500px, 0px);
+    -webkit-transform: rotate(43deg);
+    -moz-transform: rotate(43deg);
+   transform: rotate(43deg);
+}
+#mask4 {
+    width: 400px;
+height: 500px;
+top: -133px;
+left: -52px;
+    overflow: hidden;   
+    clip: rect(0px, 400px, 500px, 0px);
+    -webkit-transform: rotate(43deg);
+    -moz-transform: rotate(43deg);
+   transform: rotate(43deg);
+}
+#mask5 {
+    width: 400px;
+height: 500px;
+top: -133px;
+left: -52px;
+    overflow: hidden;   
+    clip: rect(0px, 400px, 500px, 0px);
+    -webkit-transform: rotate(43deg);
+    -moz-transform: rotate(43deg);
+   transform: rotate(43deg);
+}
+
