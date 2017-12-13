@@ -1,0 +1,16 @@
+docker run -d -P --name web nginx
+
+
+pi@swarm1:~ $ docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS                   NAMES
+495836c2cb56        nginx               "nginx -g 'daemon of…"   21 minutes ago      Up 21 minutes               0.0.0.0:32771->80/tcp   web
+13ea5df7798b        nginx               "nginx-debug -g 'dae…"   13 hours ago        Created                     80/tcp                  my-nginx
+00b7270d2488        nginx               "nginx -g 'daemon of…"   3 days ago          Exited (0) 22 minutes ago                           mynginx1
+pi@swarm1:~ $ docker rm my-nginx
+my-nginx
+pi@swarm1:~ $ docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS                   NAMES
+495836c2cb56        nginx               "nginx -g 'daemon of…"   21 minutes ago      Up 21 minutes               0.0.0.0:32771->80/tcp   web
+00b7270d2488        nginx               "nginx -g 'daemon of…"   3 days ago          Exited (0) 23 minutes ago                           mynginx1
+pi@swarm1:~ $ 
+
