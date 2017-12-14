@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html id="docs" class="Setup"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="https://kubernetes.io/images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="Installing%20kubeadm%20|%20Kubernetes_files/css_002.css">
+    <link rel="stylesheet" type="text/css" href="Installing%20kubeadm%20|%20Kubernetes_files/css.css">
+    <link rel="stylesheet" type="text/css" href="Installing%20kubeadm%20|%20Kubernetes_files/styles.css"><!-- default styles.css on -->
+    <link rel="stylesheet" type="text/css" href="Installing%20kubeadm%20|%20Kubernetes_files/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="Installing%20kubeadm%20|%20Kubernetes_files/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="Installing%20kubeadm%20|%20Kubernetes_files/callouts.css">
+    <link rel="stylesheet" type="text/css" href="Installing%20kubeadm%20|%20Kubernetes_files/tags.css">
+    
+    
+    <!-- no custom css detected -->
+
+    
+    <meta name="description" content="Installing kubeadm">
+    
+
+    <script async="" src="Installing%20kubeadm%20|%20Kubernetes_files/analytics.js"></script><script id="pd-rating-js" src="Installing%20kubeadm%20|%20Kubernetes_files/rating.js"></script><script src="Installing%20kubeadm%20|%20Kubernetes_files/jquery-2.js"></script>
+    <script src="Installing%20kubeadm%20|%20Kubernetes_files/jquery-ui.js"></script>
+    <script src="Installing%20kubeadm%20|%20Kubernetes_files/script.js"></script>
+    <script src="Installing%20kubeadm%20|%20Kubernetes_files/sweetalert.js"></script>
+    <script src="Installing%20kubeadm%20|%20Kubernetes_files/bootstrap.js"></script>
+    <script src="Installing%20kubeadm%20|%20Kubernetes_files/tags.js"></script>
+    <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>Installing kubeadm | Kubernetes</title>
+<meta property="og:title" content="Installing kubeadm">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Production-Grade Container Orchestration">
+<meta property="og:description" content="Production-Grade Container Orchestration">
+<link rel="canonical" href="https://kubernetes.io/docs/setup/independent/install-kubeadm/">
+<meta property="og:url" content="https://kubernetes.io/docs/setup/independent/install-kubeadm/">
+<meta property="og:site_name" content="Kubernetes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@kubernetesio">
+<script type="application/ld+json">
+{"name":null,"description":"Production-Grade Container Orchestration","url":"https://kubernetes.io/docs/setup/independent/install-kubeadm/","headline":"Installing kubeadm","dateModified":null,"datePublished":null,"sameAs":null,"@type":"WebPage","author":null,"image":null,"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://kubernetes.io/images/favicon.png"}},"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+<body>
+
+<div id="cellophane" onclick="kub.toggleMenu()"></div>
+
+<header>
+    <a href="https://kubernetes.io/" class="logo"></a>
+
+    <div class="nav-buttons" data-auto-burger="primary">
+        <ul class="global-nav">
+            <li><a href="https://kubernetes.io/docs/home/" class="active">Documentation</a></li>
+            <li><a href="http://blog.kubernetes.io/">Blog</a></li>
+            <li><a href="https://kubernetes.io/partners/">Partners</a></li>
+            <li><a href="https://kubernetes.io/community/">Community</a></li>
+            <li><a href="https://kubernetes.io/case-studies/">Case Studies</a></li>
+            <li>
+                <a href="#">
+                    v1.8 <span class="ui-icon ui-icon-carat-1-s"></span>
+                </a>
+                <ul>
+                
+                  <li><a href="https://kubernetes.io/docs/home/">v1.8</a></li>
+                
+                  <li><a href="https://v1-7.docs.kubernetes.io/docs/home/">v1.7</a></li>
+                
+                  <li><a href="https://v1-6.docs.kubernetes.io/docs/home/">v1.6</a></li>
+                
+                  <li><a href="https://v1-5.docs.kubernetes.io/docs/">v1.5</a></li>
+                
+                  <li><a href="https://v1-4.docs.kubernetes.io/docs/">v1.4</a></li>
+                
+                </ul>
+              </li>
+            
+        </ul>
+        <!-- <a href="/docs/home" class="button" id="viewDocs" data-auto-burger-exclude>View Documentation</a> -->
+        <a href="https://kubernetes.io/docs/tutorials/kubernetes-basics/" class="button" id="tryKubernetes" data-auto-burger-exclude="">Try Kubernetes</a>
+        <button id="hamburger" onclick="kub.toggleMenu()" data-auto-burger-exclude=""><div></div></button>
+    </div>
+
+    <nav id="mainNav">
+        <main data-auto-burger="primary">
+        <div class="nav-box">
+            <h3><a href="https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/">Get Started</a></h3>
+            <p>Ready to get your hands dirty? Build a simple Kubernetes cluster that runs "Hello World" for Node.js.</p>
+        </div>
+        <div class="nav-box">
+            <h3><a href="https://kubernetes.io/docs/home/">Documentation</a></h3>
+            <p>Learn how to use Kubernetes with the use of walkthroughs, samples, and reference documentation. You can even <a href="https://kubernetes.io/editdocs/" data-auto-burger-exclude="">help contribute to the docs</a>!</p>
+        </div>
+        <div class="nav-box">
+            <h3><a href="https://kubernetes.io/community/">Community</a></h3>
+            <p>If you need help, you can connect with other Kubernetes 
+users and the Kubernetes authors, attend community events, and watch 
+video presentations from around the web.</p>
+        </div>
+        <div class="nav-box">
+            <h3><a href="http://blog.kubernetes.io/">Blog</a></h3>
+            <p>Read the latest news for Kubernetes and the containers space in general, and get technical how-tos hot off the presses.</p>
+        </div>
+        </main>
+        <main data-auto-burger="primary">
+        <div class="left">
+            <h5 class="github-invite">Interested in hacking on the core Kubernetes code base?</h5>
+            <a href="https://github.com/kubernetes/kubernetes" class="button" data-auto-burger-exclude="">View On Github</a>
+        </div>
+
+        <div class="right">
+            <h5 class="github-invite">Explore the community</h5>
+            <div class="social">
+                <a href="https://twitter.com/kubernetesio" class="twitter"><span>Twitter</span></a>
+                <a href="https://github.com/kubernetes/kubernetes" class="github"><span>Github</span></a>
+                <a href="http://slack.k8s.io/" class="slack"><span>Slack</span></a>
+                <a href="http://stackoverflow.com/questions/tagged/kubernetes" class="stack-overflow"><span>Stack Overflow</span></a>
+                <a href="https://groups.google.com/forum/#!forum/kubernetes-users" class="mailing-list"><span>Mailing List</span></a>
+                <a href="https://calendar.google.com/calendar/embed?src=nt2tcnbtbied3l6gi2h29slvc0%40group.calendar.google.com" class="calendar"><span>Events Calendar</span></a>
+            </div>
+        </div>
+        <div class="clear" style="clear: both"></div>
+        </main>
+    </nav>
+</header>
+
+
+<!--  HERO  -->
+<section id="hero" class="light-text no-sub">
+  <h1>Setup</h1>
+  <h5>Instructions for setting up a Kubernetes cluster.</h5>
+  <div id="vendorStrip" class="light-text">
+    <ul>
+      <li><a href="https://kubernetes.io/docs/home/">HOME</a></li>
+      <li><a href="https://kubernetes.io/docs/setup/" class="YAH">SETUP</a></li>
+      <li><a href="https://kubernetes.io/docs/concepts/">CONCEPTS</a></li>
+      <li><a href="https://kubernetes.io/docs/tasks/">TASKS</a></li>
+      <li><a href="https://kubernetes.io/docs/tutorials/">TUTORIALS</a></li>
+      <li><a href="https://kubernetes.io/docs/reference/">REFERENCE</a></li>
+    </ul>
+    <div id="searchBox">
+      <input id="search" placeholder="Search" onkeydown="if (event.keyCode==13) window.location.replace('/docs/search/?q=' + this.value)" autofocus="autofocus" type="text">
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="encyclopedia">
+  <div id="docsToc">
+        <div class="pi-accordion"><div class="container">
+          
+  
+
+    
+
+    
+      <a class="item" data-title="Setup" href="https://kubernetes.io/docs/setup/"><div class="title">Setup</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Picking the Right Solution" href="https://kubernetes.io/docs/setup/pick-right-solution/"><div class="title">Picking the Right Solution</div></a>
+    
+  
+
+  
+    <div class="item on" data-title="Independent Solutions"><div class="title">Independent Solutions</div><div class="wrapper" style="height: auto;"><div class="content" style="opacity: 1;">
+      <div class="container">
+        
+  
+
+    
+
+    
+      <a class="item" data-title="Running Kubernetes Locally via Minikube" href="https://kubernetes.io/docs/getting-started-guides/minikube/"><div class="title">Running Kubernetes Locally via Minikube</div></a>
+    
+  
+
+  
+    <div class="item on" data-title="Bootstrapping Clusters with kubeadm"><div class="title">Bootstrapping Clusters with kubeadm</div><div class="wrapper" style="height: auto;"><div class="content" style="opacity: 1;">
+      <div class="container">
+        
+  
+
+    
+
+    
+      <a class="item yah" data-title="Installing kubeadm" href="https://kubernetes.io/docs/setup/independent/install-kubeadm/"><div class="title">Installing kubeadm</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Using kubeadm to Create a Cluster" href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/"><div class="title">Using kubeadm to Create a Cluster</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Troubleshooting kubeadm" href="https://kubernetes.io/docs/setup/independent/troubleshooting-kubeadm/"><div class="title">Troubleshooting kubeadm</div></a>
+    
+  
+
+
+      </div>
+    </div></div></div>
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Creating a Custom Cluster from Scratch" href="https://kubernetes.io/docs/getting-started-guides/scratch/"><div class="title">Creating a Custom Cluster from Scratch</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Deprecated Alternatives" href="https://kubernetes.io/docs/getting-started-guides/alternatives/"><div class="title">Deprecated Alternatives</div></a>
+    
+  
+
+
+      </div>
+    </div></div></div>
+  
+
+  
+    <div class="item" data-title="Hosted Solutions"><div class="title">Hosted Solutions</div><div class="wrapper" style="height: 0px;"><div class="content">
+      <div class="container">
+        
+  
+
+    
+
+    
+      <a class="item" data-title="Running Kubernetes on Google Kubernetes Engine" href="https://cloud.google.com/kubernetes-engine/docs/before-you-begin/"><div class="title">Running Kubernetes on Google Kubernetes Engine</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Running Kubernetes on Azure Container Service" href="https://docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough"><div class="title">Running Kubernetes on Azure Container Service</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Running Kubernetes on IBM Cloud Container Service" href="https://console.bluemix.net/docs/containers/container_index.html"><div class="title">Running Kubernetes on IBM Cloud Container Service</div></a>
+    
+  
+
+
+      </div>
+    </div></div></div>
+  
+
+  
+    <div class="item" data-title="Turn-key Cloud Solutions"><div class="title">Turn-key Cloud Solutions</div><div class="wrapper" style="height: 0px;"><div class="content">
+      <div class="container">
+        
+  
+
+    
+
+    
+      <a class="item" data-title="Running Kubernetes on Google Compute Engine" href="https://kubernetes.io/docs/getting-started-guides/gce/"><div class="title">Running Kubernetes on Google Compute Engine</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Running Kubernetes on AWS EC2" href="https://kubernetes.io/docs/getting-started-guides/aws/"><div class="title">Running Kubernetes on AWS EC2</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Running Kubernetes on Azure" href="https://kubernetes.io/docs/getting-started-guides/azure/"><div class="title">Running Kubernetes on Azure</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Running Kubernetes on Alibaba Cloud" href="https://kubernetes.io/docs/getting-started-guides/alibaba-cloud/"><div class="title">Running Kubernetes on Alibaba Cloud</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Running Kubernetes on CenturyLink Cloud" href="https://kubernetes.io/docs/getting-started-guides/clc/"><div class="title">Running Kubernetes on CenturyLink Cloud</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Running Kubernetes on IBM Cloud" href="https://github.com/patrocinio/kubernetes-softlayer"><div class="title">Running Kubernetes on IBM Cloud</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Running Kubernetes on Multiple Clouds with Stackpoint.io" href="https://kubernetes.io/docs/getting-started-guides/stackpoint/"><div class="title">Running Kubernetes on Multiple Clouds with Stackpoint.io</div></a>
+    
+  
+
+
+      </div>
+    </div></div></div>
+  
+
+  
+    <div class="item" data-title="Custom Solutions"><div class="title">Custom Solutions</div><div class="wrapper" style="height: 0px;"><div class="content">
+      <div class="container">
+        
+  
+    <div class="item" data-title="Custom Cloud Solutions"><div class="title">Custom Cloud Solutions</div><div class="wrapper" style="height: 0px;"><div class="content">
+      <div class="container">
+        
+  
+
+    
+
+    
+      <a class="item" data-title="CoreOS on AWS or GCE" href="https://kubernetes.io/docs/getting-started-guides/coreos/"><div class="title">CoreOS on AWS or GCE</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Kubernetes on Ubuntu" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/"><div class="title">Kubernetes on Ubuntu</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Installing Kubernetes on AWS with kops" href="https://kubernetes.io/docs/getting-started-guides/kops/"><div class="title">Installing Kubernetes on AWS with kops</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Installing Kubernetes On-premises/Cloud Providers with Kubespray" href="https://kubernetes.io/docs/getting-started-guides/kubespray/"><div class="title">Installing Kubernetes On-premises/Cloud Providers with Kubespray</div></a>
+    
+  
+
+  
+
+    
+
+    
+  
+
+
+      </div>
+    </div></div></div>
+  
+
+  
+    <div class="item" data-title="On-Premise VMs"><div class="title">On-Premise VMs</div><div class="wrapper" style="height: 0px;"><div class="content">
+      <div class="container">
+        
+  
+
+    
+
+    
+      <a class="item" data-title="CoreOS on AWS or GCE" href="https://kubernetes.io/docs/getting-started-guides/coreos/"><div class="title">CoreOS on AWS or GCE</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Cloudstack" href="https://kubernetes.io/docs/getting-started-guides/cloudstack/"><div class="title">Cloudstack</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="VMware vSphere" href="https://kubernetes.io/docs/getting-started-guides/vsphere/"><div class="title">VMware vSphere</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="VMware Photon Controller" href="https://kubernetes.io/docs/getting-started-guides/photon-controller/"><div class="title">VMware Photon Controller</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Kubernetes on DCOS" href="https://kubernetes.io/docs/getting-started-guides/dcos/"><div class="title">Kubernetes on DCOS</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="CoreOS on libvirt" href="https://kubernetes.io/docs/getting-started-guides/libvirt-coreos/"><div class="title">CoreOS on libvirt</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="oVirt" href="https://kubernetes.io/docs/getting-started-guides/ovirt/"><div class="title">oVirt</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="OpenStack Heat" href="https://kubernetes.io/docs/getting-started-guides/openstack-heat/"><div class="title">OpenStack Heat</div></a>
+    
+  
+
+  
+    <div class="item" data-title="rkt"><div class="title">rkt</div><div class="wrapper" style="height: 0px;"><div class="content">
+      <div class="container">
+        
+  
+
+    
+
+    
+      <a class="item" data-title="Running Kubernetes with rkt" href="https://kubernetes.io/docs/getting-started-guides/rkt/"><div class="title">Running Kubernetes with rkt</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Known Issues when Using rkt" href="https://kubernetes.io/docs/getting-started-guides/rkt/notes/"><div class="title">Known Issues when Using rkt</div></a>
+    
+  
+
+
+      </div>
+    </div></div></div>
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Kubernetes on Mesos" href="https://kubernetes.io/docs/getting-started-guides/mesos/"><div class="title">Kubernetes on Mesos</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Kubernetes on Mesos on Docker" href="https://kubernetes.io/docs/getting-started-guides/mesos-docker/"><div class="title">Kubernetes on Mesos on Docker</div></a>
+    
+  
+
+  
+    <div class="item" data-title="Bare Metal"><div class="title">Bare Metal</div><div class="wrapper" style="height: 0px;"><div class="content">
+      <div class="container">
+        
+  
+
+    
+
+    
+      <a class="item" data-title="Offline" href="https://kubernetes.io/docs/getting-started-guides/coreos/bare_metal_offline/"><div class="title">Offline</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Fedora via Ansible" href="https://kubernetes.io/docs/getting-started-guides/fedora/fedora_ansible_config/"><div class="title">Fedora via Ansible</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Fedora (Single Node)" href="https://kubernetes.io/docs/getting-started-guides/fedora/fedora_manual_config/"><div class="title">Fedora (Single Node)</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Fedora (Multi Node)" href="https://kubernetes.io/docs/getting-started-guides/fedora/flannel_multi_node_cluster/"><div class="title">Fedora (Multi Node)</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="CentOS" href="https://kubernetes.io/docs/getting-started-guides/centos/centos_manual_config/"><div class="title">CentOS</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="CoreOS on AWS or GCE" href="https://kubernetes.io/docs/getting-started-guides/coreos/"><div class="title">CoreOS on AWS or GCE</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Kubernetes on Ubuntu" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/"><div class="title">Kubernetes on Ubuntu</div></a>
+    
+  
+
+  
+    <div class="item" data-title="Ubuntu"><div class="title">Ubuntu</div><div class="wrapper" style="height: 0px;"><div class="content">
+      <div class="container">
+        
+  
+
+    
+
+    
+      <a class="item" data-title="Kubernetes on Ubuntu" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/"><div class="title">Kubernetes on Ubuntu</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Validation - End-to-end Testing" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/validation/"><div class="title">Validation - End-to-end Testing</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Backups" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/backups/"><div class="title">Backups</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Upgrades" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/upgrades/"><div class="title">Upgrades</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Scaling" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/scaling/"><div class="title">Scaling</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Setting up Kubernetes with Juju" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/installation/"><div class="title">Setting up Kubernetes with Juju</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Monitoring" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/monitoring/"><div class="title">Monitoring</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Networking" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/networking/"><div class="title">Networking</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Security Considerations" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/security/"><div class="title">Security Considerations</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Storage" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/storage/"><div class="title">Storage</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Troubleshooting" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/troubleshooting/"><div class="title">Troubleshooting</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Decommissioning" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/decommissioning/"><div class="title">Decommissioning</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Operational Considerations" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/operational-considerations/"><div class="title">Operational Considerations</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Glossary and Terminology" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/glossary/"><div class="title">Glossary and Terminology</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Local Kubernetes development with LXD" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/local/"><div class="title">Local Kubernetes development with LXD</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Logging" href="https://kubernetes.io/docs/getting-started-guides/ubuntu/logging/"><div class="title">Logging</div></a>
+    
+  
+
+
+      </div>
+    </div></div></div>
+  
+
+
+      </div>
+    </div></div></div>
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Windows Server Containers" href="https://kubernetes.io/docs/getting-started-guides/windows/"><div class="title">Windows Server Containers</div></a>
+    
+  
+
+
+      </div>
+    </div></div></div>
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Validate Node Setup" href="https://kubernetes.io/docs/admin/node-conformance/"><div class="title">Validate Node Setup</div></a>
+    
+  
+
+
+      </div>
+    </div></div></div>
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Installing Addons" href="https://kubernetes.io/docs/concepts/cluster-administration/addons/"><div class="title">Installing Addons</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Configuring Kubernetes with Salt" href="https://kubernetes.io/docs/admin/salt/"><div class="title">Configuring Kubernetes with Salt</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Building Large Clusters" href="https://kubernetes.io/docs/admin/cluster-large/"><div class="title">Building Large Clusters</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Running in Multiple Zones" href="https://kubernetes.io/docs/admin/multiple-zones/"><div class="title">Running in Multiple Zones</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Building High-Availability Clusters" href="https://kubernetes.io/docs/admin/high-availability/"><div class="title">Building High-Availability Clusters</div></a>
+    
+  
+
+  
+
+    
+
+    
+      <a class="item" data-title="Downloading or Building Kubernetes" href="https://kubernetes.io/docs/getting-started-guides/binary_release/"><div class="title">Downloading or Building Kubernetes</div></a>
+    
+  
+
+
+        </div></div> <!-- /pi-accordion -->
+    <button class="push-menu-close-button" onclick="kub.toggleToc()"></button>
+  </div> <!-- /docsToc -->
+
+  <div id="docsContent">
+        <p><a href="https://kubernetes.io/editdocs#docs/setup/independent/install-kubeadm.md" id="editPageButton">Edit This Page</a></p>
+
+        
+          <h1>Installing kubeadm</h1>
+        
+
+        
+<p>This page shows how to use install kubeadm.</p>
+
+<ul id="markdown-toc">
+  <li><a href="#before-you-begin" id="markdown-toc-before-you-begin">Before you begin</a></li>
+  <li><a href="#verify-the-mac-address-and-product_uuid-are-unique-for-every-node" id="markdown-toc-verify-the-mac-address-and-product_uuid-are-unique-for-every-node">Verify the MAC address and product_uuid are unique for every node</a></li>
+  <li><a href="#check-network-adapters" id="markdown-toc-check-network-adapters">Check network adapters</a></li>
+  <li><a href="#check-required-ports" id="markdown-toc-check-required-ports">Check required ports</a>    <ul>
+      <li><a href="#master-nodes" id="markdown-toc-master-nodes">Master node(s)</a></li>
+      <li><a href="#worker-nodes" id="markdown-toc-worker-nodes">Worker node(s)</a></li>
+    </ul>
+  </li>
+  <li><a href="#installing-docker" id="markdown-toc-installing-docker">Installing Docker</a></li>
+  <li><a href="#installing-kubeadm-kubelet-and-kubectl" id="markdown-toc-installing-kubeadm-kubelet-and-kubectl">Installing kubeadm, kubelet and kubectl</a></li>
+  <li><a href="#troubleshooting" id="markdown-toc-troubleshooting">Troubleshooting</a></li>
+  <li><a href="#whats-next" id="markdown-toc-whats-next">What’s next</a></li>
+</ul>
+
+<h2 id="before-you-begin">Before you begin</h2>
+
+<ul>
+  <li>One or more machines running Ubuntu 16.04+, Debian 9, CentOS 7, RHEL 7, Fedora 25/26 (best-effort) or HypriotOS v1.0.1+</li>
+  <li>2 GB or more of RAM per machine (any less will leave little room for your apps)</li>
+  <li>2 CPUs or more</li>
+  <li>Full network connectivity between all machines in the cluster (public or private network is fine)</li>
+  <li>Unique hostname, MAC address, and product_uuid for every node</li>
+  <li>Certain ports are open on your machines. See the section below for more details</li>
+  <li>Swap disabled. You must disable swap in order for the kubelet to work properly.</li>
+</ul>
+
+<h2 id="verify-the-mac-address-and-product_uuid-are-unique-for-every-node">Verify the MAC address and product_uuid are unique for every node</h2>
+
+<ul>
+  <li>You can get the MAC address of the network interfaces using the command <code class="highlighter-rouge">ip link</code> or <code class="highlighter-rouge">ifconfig -a</code></li>
+  <li>The product_uuid can be checked by using the command <code class="highlighter-rouge">sudo cat /sys/class/dmi/id/product_uuid</code></li>
+</ul>
+
+<p>It is very likely that hardware devices will have unique addresses, although some virtual machines may have
+identical values. Kubernetes uses these values to uniquely identify the nodes in the cluster.
+If these values are not unique to each node, the installation processes
+<a href="https://github.com/kubernetes/kubeadm/issues/31">can fail</a>.</p>
+
+<h2 id="check-network-adapters">Check network adapters</h2>
+
+<p>If you have more than one network adapter, and your Kubernetes 
+components are not reachable on the default route, we recommend you add 
+IP route(s) so Kubernetes cluster addresses go via the appropriate 
+adapter.</p>
+
+<h2 id="check-required-ports">Check required ports</h2>
+
+<h3 id="master-nodes">Master node(s)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Protocol</th>
+      <th>Direction</th>
+      <th>Port Range</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TCP</td>
+      <td>Inbound</td>
+      <td>6443*</td>
+      <td>Kubernetes API server</td>
+    </tr>
+    <tr>
+      <td>TCP</td>
+      <td>Inbound</td>
+      <td>2379-2380</td>
+      <td>etcd server client API</td>
+    </tr>
+    <tr>
+      <td>TCP</td>
+      <td>Inbound</td>
+      <td>10250</td>
+      <td>Kubelet API</td>
+    </tr>
+    <tr>
+      <td>TCP</td>
+      <td>Inbound</td>
+      <td>10251</td>
+      <td>kube-scheduler</td>
+    </tr>
+    <tr>
+      <td>TCP</td>
+      <td>Inbound</td>
+      <td>10252</td>
+      <td>kube-controller-manager</td>
+    </tr>
+    <tr>
+      <td>TCP</td>
+      <td>Inbound</td>
+      <td>10255</td>
+      <td>Read-only Kubelet API (Heapster)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="worker-nodes">Worker node(s)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Protocol</th>
+      <th>Direction</th>
+      <th>Port Range</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TCP</td>
+      <td>Inbound</td>
+      <td>10250</td>
+      <td>Kubelet API</td>
+    </tr>
+    <tr>
+      <td>TCP</td>
+      <td>Inbound</td>
+      <td>10255</td>
+      <td>Read-only Kubelet API (Heapster)</td>
+    </tr>
+    <tr>
+      <td>TCP</td>
+      <td>Inbound</td>
+      <td>30000-32767</td>
+      <td>Default port range for <a href="https://kubernetes.io/docs/concepts/services-networking/service/">NodePort Services</a>.
+ Typically, these ports would need to be exposed to external 
+load-balancers, or other external consumers of the application itself.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Any port numbers marked with * are overridable, so you will need to ensure any
+custom ports you provide are also open.</p>
+
+<p>Although etcd ports are included in master nodes, you can also host your own
+etcd cluster externally on custom ports.</p>
+
+<p>The pod network plugin you use (see below) may also require certain ports to be
+open. Since this differs with each pod network plugin, please see the
+documentation for the plugins about what port(s) those need.</p>
+
+<h2 id="installing-docker">Installing Docker</h2>
+
+<p>On each of your machines, install Docker.
+Version v1.12 is recommended, but v1.11, v1.13 and 17.03 are known to work as well.
+Versions 17.06+ <em>might work</em>, but have not yet been tested and verified by the Kubernetes node team.</p>
+
+<p>Please proceed with executing the following commands based on your OS as root. You may become the root user by executing <code class="highlighter-rouge">sudo -i</code> after SSH-ing to each host.</p>
+
+<p>You can use the following commands to install Docker on your system:</p>
+
+<p><strong>Note</strong>: Make sure that the cgroup driver used by kubelet is the same as the one used by 
+Docker. To ensure compatability you can either update Docker, like so:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh"> &gt; /etc/docker/daemon.json
+{
+  "exec-opts": ["native.cgroupdriver=systemd"]
+}
+</span><span class="no">EOF
+</span></code></pre></div></div>
+
+<p>and restart Docker. Or ensure the <code class="highlighter-rouge">--cgroup-driver</code> kubelet flag is set to the same value 
+as Docker (e.g. <code class="highlighter-rouge">cgroupfs</code>).</p>
+
+<div id="docker-install" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+  <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
+    <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="docker-install-0" aria-labelledby="ui-id-1" aria-selected="true" aria-expanded="true"><a href="#docker-install-0" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1">Ubuntu, Debian or HypriotOS</a></li>
+    <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="docker-install-1" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="#docker-install-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-2">CentOS, RHEL or Fedora</a></li>
+  </ul>
+  <div id="docker-install-0" aria-labelledby="ui-id-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-hidden="false">
+    <p>Install Docker from Ubuntu’s repositories:</p>
+    <div class="language-bash highlighter-rouge">
+      <div class="highlight">
+        <div class="highlight highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get update
+apt-get install -y docker.io
+</code></pre></div>        </div>
+      </div>
+    </div>
+    <p>or install Docker CE 17.09 from Docker’s repositories for Ubuntu or Debian:</p>
+    <div class="language-bash highlighter-rouge">
+      <div class="highlight">
+        <div class="highlight highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get update
+apt-get install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+   $(lsb_release -cs) \
+   stable"
+apt-get update &amp;&amp; apt-get install -y docker-ce=$(apt-cache madison docker-ce | grep 17.09 | head -1 | awk '{print $3}')
+</code></pre></div>        </div>
+      </div>
+    </div>
+  </div>
+  <div id="docker-install-1" aria-labelledby="ui-id-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;" aria-hidden="true">
+    <p>Install Docker using your operating system’s bundled package:</p>
+    <div class="language-bash highlighter-rouge">
+      <div class="highlight">
+        <div class="highlight highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum install -y docker
+systemctl enable docker &amp;&amp; systemctl start docker
+</code></pre></div>        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>$(function(){$("#docker-install").tabs();});</script>
+
+<p>Refer to the <a href="https://docs.docker.com/engine/installation/">official Docker installation guides</a>
+for more information.</p>
+
+<h2 id="installing-kubeadm-kubelet-and-kubectl">Installing kubeadm, kubelet and kubectl</h2>
+
+<p>You will install these packages on all of your machines:</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">kubeadm</code>: the command to bootstrap the cluster.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">kubelet</code>: the component that runs on all of the machines in your cluster
+  and does things like starting pods and containers.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">kubectl</code>: the command line util to talk to your cluster.</p>
+  </li>
+</ul>
+
+<p>kubeadm <strong>will not</strong> install or manage <code class="highlighter-rouge">kubelet</code> or <code class="highlighter-rouge">kubectl</code> for you, so you will 
+need to ensure they match the version of the Kubernetes control panel you want 
+kubeadm to install for you. If you do not, there is a risk of a version skew occurring that
+can lead to unexpected, buggy behaviour. However, <em>one</em> minor version skew between the 
+kubelet and the control plane is supported, but the kubelet version may never exceed the API
+server version. For example, kubelets running 1.7.0 should be fully compatible with a 1.8.0 API server.</p>
+
+<p>For more information on version skews, please read our 
+<a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#version-skew-policy">version skew policy</a>.</p>
+
+<div id="k8s-install" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+  <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
+    <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="k8s-install-0" aria-labelledby="ui-id-3" aria-selected="true" aria-expanded="true"><a href="#k8s-install-0" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-3">Ubuntu, Debian or HypriotOS</a></li>
+    <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="k8s-install-1" aria-labelledby="ui-id-4" aria-selected="false" aria-expanded="false"><a href="#k8s-install-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-4">CentOS, RHEL or Fedora</a></li>
+  </ul>
+  <div id="k8s-install-0" aria-labelledby="ui-id-3" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-hidden="false">
+    <div class="language-bash highlighter-rouge">
+      <div class="highlight">
+        <div class="highlight highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get update &amp;&amp; apt-get install -y apt-transport-https
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+cat &lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list
+deb http://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+apt-get update
+apt-get install -y kubelet kubeadm kubectl
+</code></pre></div>        </div>
+      </div>
+    </div>
+  </div>
+  <div id="k8s-install-1" aria-labelledby="ui-id-4" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;" aria-hidden="true">
+    <div class="language-bash highlighter-rouge">
+      <div class="highlight">
+        <div class="highlight highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+EOF
+setenforce 0
+yum install -y kubelet kubeadm kubectl
+systemctl enable kubelet &amp;&amp; systemctl start kubelet
+</code></pre></div>        </div>
+      </div>
+    </div>
+    <p><strong>Note:</strong></p>
+    <ul>
+      <li>Disabling SELinux by running <code class="highlighter-rouge">setenforce 0</code>
+ is required to allow containers to access the host filesystem, which is
+ required by pod networks for example. You have to do this until SELinux
+ support is improved in the kubelet.</li>
+      <li>
+        <p>Some users on RHEL/CentOS 7 have reported issues with traffic
+ being routed incorrectly due to iptables being bypassed. You should 
+ensure <code class="highlighter-rouge">net.bridge.bridge-nf-call-iptables</code> is set to 1 in your <code class="highlighter-rouge">sysctl</code> config, e.g.</p>
+        <div class="language-bash highlighter-rouge">
+          <div class="highlight">
+            <div class="highlight highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt;EOF &gt;  /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+sysctl --system
+</code></pre></div>            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<script>$(function(){$("#k8s-install").tabs();});</script>
+
+<p>The kubelet is now restarting every few seconds, as it waits in a crashloop for
+kubeadm to tell it what to do.</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>If you are running into difficulties with kubeadm, please consult our <a href="https://kubernetes.io/docs/setup/independent/troubleshooting-kubeadm/">troubleshooting docs</a>.</p>
+
+<h2 id="whats-next">What’s next</h2>
+
+<ul>
+  <li><a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/">Using kubeadm to Create a
+Cluster</a></li>
+</ul>
+
+
+
+        <p><a href=""><img src="Installing%20kubeadm%20|%20Kubernetes_files/install-kubeadm.gif" alt="Analytics"></a></p>
+        
+	
+        <script type="text/javascript">
+            PDRTJS_settings_8345992 = {
+                "id" : "8345992",
+                "unique_id" : "/docs/setup/independent/install-kubeadm/",
+                "title" : "Installing kubeadm",
+                "permalink" : "http://kubernetes.github.io/docs/setup/independent/install-kubeadm/"
+            };
+            (function(d,c,j){if(!document.getElementById(j)){var pd=d.createElement(c),s;pd.id=j;pd.src=('https:'==document.location.protocol)?'https://polldaddy.com/js/rating/rating.js':'http://i0.poll.fm/js/rating/rating.js';s=document.getElementsByTagName(c)[0];s.parentNode.insertBefore(pd,s);}}(document,'script','pd-rating-js'));
+        </script>
+        <a href="" onclick="window.open('https://github.com/kubernetes/kubernetes.github.io/issues/new?title=Issue%20with%20' +
+        'k8s.io'+window.location.pathname)" class="button issue">Create an Issue</a>
+	
+        
+          <a href="https://kubernetes.io/editdocs#docs/setup/independent/install-kubeadm.md" class="button issue">Edit this Page</a>
+        
+    
+    </div>
+</section>
+
+<footer>
+    <main class="light-text">
+        <nav>
+            <a href="https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/">Get Started</a>
+            <a href="https://kubernetes.io/docs/home/">Documentation</a>
+            <a href="http://blog.kubernetes.io/">Blog</a>
+            <a href="https://kubernetes.io/partners/">Partners</a>
+            <a href="https://kubernetes.io/community/">Community</a>
+            <a href="https://kubernetes.io/case-studies/">Case Studies</a>
+        </nav>
+        <div class="social">
+            <div>
+                <a href="https://twitter.com/kubernetesio" class="twitter"><span>twitter</span></a>
+                <a href="https://github.com/kubernetes/kubernetes" class="github"><span>Github</span></a>
+                <a href="http://slack.k8s.io/" class="slack"><span>Slack</span></a>
+            </div>
+            <div>
+                <a href="http://stackoverflow.com/questions/tagged/kubernetes" class="stack-overflow"><span>Stack Overflow</span></a>
+                <a href="https://groups.google.com/forum/#!forum/kubernetes-users" class="mailing-list"><span>Mailing List</span></a>
+                <a href="https://calendar.google.com/calendar/embed?src=nt2tcnbtbied3l6gi2h29slvc0%40group.calendar.google.com" class="calendar"><span>Events Calendar</span></a>
+            </div>
+            <div>
+                <a href="https://kubernetes.io/docs/setup/pick-right-solution/" class="button">Get Kubernetes</a>
+                <a href="https://github.com/kubernetes/kubernetes" class="button">Contribute</a>
+            </div>
+        </div>
+        <div id="miceType" class="center">
+            © 2017 The Kubernetes Authors | Documentation Distributed under <a href="https://git.k8s.io/website/LICENSE" class="light-text">CC BY 4.0</a>
+        </div>
+        <div id="miceType" class="center">
+            Copyright © 2017 The Linux Foundation®. All rights reserved.
+ The Linux Foundation has registered trademarks and uses trademarks. For
+ a list of trademarks of The Linux Foundation, please see our Trademark 
+Usage page: <a href="https://www.linuxfoundation.org/trademark-usage" class="light-text">https://www.linuxfoundation.org/trademark-usage</a>
+        </div>
+    </main>
+</footer>
+
+<button class="flyout-button" onclick="kub.toggleToc()"></button>
+
+<style>
+.cse .gsc-control-cse, .gsc-control-cse, {
+    padding: 0;
+}
+  .gsc-control-cse table, .gsc-control-cse-en table {
+      margin:0px !important;
+  }
+  .gsc-above-wrapper-area {
+      border-bottom: 0;
+  }
+</style>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-36037335-10', 'auto');
+ga('send', 'pageview');
+
+// hide docs nav area if no nav is present, or if nav only contains a link to the current page
+(function () {
+    window.addEventListener('DOMContentLoaded', init)
+
+        // play nice with our neighbors
+        function init() {
+            window.removeEventListener('DOMContentLoaded', init)
+                hideNav()
+        }
+
+    function hideNav(toc){
+        if (!toc) toc = document.querySelector('#docsToc')
+            var container = toc.querySelector('.container')
+
+                // container is built dynamically, so it may not be present on the first runloop
+                if (container) {
+                    if (container.childElementCount === 0 || toc.querySelectorAll('a.item').length === 1) {
+                        toc.style.display = 'none'
+                            document.getElementById('docsContent').style.width = '100%'
+                    }
+                } else {
+                    requestAnimationFrame(function () {
+                        hideNav(toc)
+                    })
+                }
+    }
+})();
+</script>
+
+<!-- Commenting out AnswerDash for now; we need to work on our list of questions/answers/design first
+    <!-- Start of AnswerDash script <script>var AnswerDash;!function(e,t,n,s,a){if(!t.getElementById(s)){var i,r=t.createElement(n),c=t.getElementsByTagName(n)[0];e[a]||(i=e[a]=function(){i.__oninit.push(arguments)},i.__oninit=[]),r.type="text/javascript",r.async=!0,r.src="https://p1.answerdash.com/answerdash.min.js?siteid=756",r.setAttribute("id",s),c.parentNode.insertBefore(r,c)}}(window,document,"script","answerdash-script","AnswerDash");</script> <!-- End of AnswerDash script -->
+
+
+
+
+<div class="pi-pushmenu" id="primary"><div class="overlay"><div class="sled" style="right: 0px;"><div class="content"><ul><li><a href="https://kubernetes.io/docs/home/" id="">Documentation</a></li><li><a href="http://blog.kubernetes.io/" id="">Blog</a></li><li><a href="https://kubernetes.io/partners/" id="">Partners</a></li><li><a href="https://kubernetes.io/community/" id="">Community</a></li><li><a href="https://kubernetes.io/case-studies/" id="">Case Studies</a></li><li><a href="#" id="">
+                    v1.8 <span class="ui-icon ui-icon-carat-1-s"></span>
+                </a></li><li><a href="https://kubernetes.io/docs/home/" id="">v1.8</a></li><li><a href="https://v1-7.docs.kubernetes.io/docs/home/" id="">v1.7</a></li><li><a href="https://v1-6.docs.kubernetes.io/docs/home/" id="">v1.6</a></li><li><a href="https://v1-5.docs.kubernetes.io/docs/" id="">v1.5</a></li><li><a href="https://v1-4.docs.kubernetes.io/docs/" id="">v1.4</a></li><li><a href="https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/" id="">Get Started</a></li><li><a href="https://kubernetes.io/docs/home/" id="">Documentation</a></li><li><a href="https://kubernetes.io/community/" id="">Community</a></li><li><a href="http://blog.kubernetes.io/" id="">Blog</a></li><li><a href="https://twitter.com/kubernetesio" class="twitter" id=""><span>Twitter</span></a></li><li><a href="https://github.com/kubernetes/kubernetes" class="github" id=""><span>Github</span></a></li><li><a href="http://slack.k8s.io/" class="slack" id=""><span>Slack</span></a></li><li><a href="http://stackoverflow.com/questions/tagged/kubernetes" class="stack-overflow" id=""><span>Stack Overflow</span></a></li><li><a href="https://groups.google.com/forum/#!forum/kubernetes-users" class="mailing-list" id=""><span>Mailing List</span></a></li><li><a href="https://calendar.google.com/calendar/embed?src=nt2tcnbtbied3l6gi2h29slvc0%40group.calendar.google.com" class="calendar" id=""><span>Events Calendar</span></a></li></ul></div><button class="push-menu-close-button"></button></div></div></div></body></html>
