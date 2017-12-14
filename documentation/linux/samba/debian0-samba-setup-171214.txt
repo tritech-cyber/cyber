@@ -1,0 +1,30 @@
+Make sure to install these packages.
+apt-get install samba
+apt-get install gvfs-backends
+apt-get install gvfs-fuse
+apt-get install smbclient
+
+create a user
+useradd -m -d /space/users/al al -s /bin/bash;
+useradd -m dude -s /bin/bash;
+useradd dude -s /bin/bash;
+
+samba password:
+sudo smbpasswd -a <user_name>
+
+place this at the end of the smb.conf file
+in /etc/samba/ Directory
+
+
+the code starts here:
+[cwc30]
+        comment = cwc30
+        path = /home/user/share
+        valid users = cwc
+        browseable = Yes
+        read only = No
+        inherit acls = Yes
+the code ends here:
+
+permissions need to be set
+chown user -R /home/user/share
