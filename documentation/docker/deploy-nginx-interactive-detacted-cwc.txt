@@ -1,0 +1,32 @@
+ 
+ **************************************************
+ $docker pull nginx
+ **************************************************
+ Learning How to Expose the Port
+ 
+ $docker run --name docker-nginx -p 80:80 nginx
+ $docker ps -a
+  **************************************************
+ Learning How to Run in Detached Mode
+ 
+ $docker run --name docker-nginx -p 80:80 -d nginx
+ $docker rm docker-nginx
+  **************************************************
+ Building a Web Page to Serve on Nginx
+ $mkdir -p ~/docker-nginx/html
+$cd ~/docker-nginx/html
+
+index.html
+<html>
+  <head>
+      <title>Docker nginx</title>
+  </head>
+  <body>
+
+      <p>NGINX under Docker</p>
+   
+  </body>
+</html>
+ **************************************************
+Linking the Container to the Local Filesystem
+docker run --name docker-nginx -p 80:80 -d -v ~/docker-nginx/html:/usr/share/nginx/html nginx
