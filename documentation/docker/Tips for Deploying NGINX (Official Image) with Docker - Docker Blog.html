@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths fa-events-icons-ready" prefix="og: http://ogp.me/ns#" style="" lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style><iframe style="display: none;"></iframe><iframe style="display: none;"></iframe><iframe style="display: none;"></iframe><iframe style="display: none;"></iframe><script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/f419820c87"></script><script src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/nr-1071.js"></script><script src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/1655390594740684" async=""></script><script async="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/fbevents.js"></script><script type="text/javascript" async="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/roundtrip.js"></script><script type="text/javascript" async="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/analytics.js"></script><script id="facebook-jssdk-ism" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/sdk.js"></script><script async="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/gtm.js"></script>
+  <meta charset="utf-8"><script async="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/analytics.js"></script><script src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/cbgapi.loaded_0" async=""></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+  <title>Tips for Deploying NGINX (Official Image) with Docker - Docker Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+<!-- This site is optimized with the Yoast SEO plugin v5.4.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="http://dockr.ly/2fejctA">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tips for Deploying NGINX (Official Image) with Docker - Docker Blog">
+<meta property="og:description" content="In the past year alone, the Docker community has created 100,000+ images and over 300+ million images have been pulled from Docker Hub to date. &nbsp;Over 20 million of these pulls came from the 70+ Official Images that Docker develops in conjunction with upstream partners, like Oracle, CentOS, and NGINX. NGINX is used by over 40% of the world’s busiest websites and is an open-source reverse proxy server, load balancer, HTTP cache, and web server. &nbsp;The official image on Docker Hub has been pulled over 3.4 million times and is maintained by the NGINX team. This post from NGINX provides a walkthrough on using the Docker Image to deploy the open-source version of NGINX. Attend the webinar titled “Building Applications with Microservices and Docker” NGINX Solutions Architect Rick Nelson and Docker Engineer Jerome Petazzoni discuss the best approach to developing Continue reading...">
+<meta property="og:url" content="http://dockr.ly/2fejctA">
+<meta property="og:site_name" content="Docker Blog">
+<meta property="article:tag" content="container">
+<meta property="article:tag" content="Logging">
+<meta property="article:tag" content="microservices">
+<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="Official image">
+<meta property="article:section" content="Docker">
+<meta property="article:published_time" content="2015-04-21T11:15:53-08:00">
+<meta property="article:modified_time" content="2016-03-03T13:29:10-08:00">
+<meta property="og:updated_time" content="2016-03-03T13:29:10-08:00">
+<meta property="og:image" content="https://blog.docker.com/media/2015/04/docker.png">
+<meta property="og:image:secure_url" content="https://blog.docker.com/media/2015/04/docker.png">
+<meta property="og:image" content="https://blog.docker.com/media/2015/04/register-now-button.png">
+<meta property="og:image:secure_url" content="https://blog.docker.com/media/2015/04/register-now-button.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="In the past year alone, the Docker community has created 100,000+ images and over 300+ million images have been pulled from Docker Hub to date. &nbsp;Over 20 million of these pulls came from the 70+ Official Images that Docker develops in conjunction with upstream partners, like Oracle, CentOS, and NGINX. NGINX is used by over 40% of the world’s busiest websites and is an open-source reverse proxy server, load balancer, HTTP cache, and web server. &nbsp;The official image on Docker Hub has been pulled over 3.4 million times and is maintained by the NGINX team. This post from NGINX provides a walkthrough on using the Docker Image to deploy the open-source version of NGINX. Attend the webinar titled “Building Applications with Microservices and Docker” NGINX Solutions Architect Rick Nelson and Docker Engineer Jerome Petazzoni discuss the best approach to developing Continue reading...">
+<meta name="twitter:title" content="Tips for Deploying NGINX (Official Image) with Docker - Docker Blog">
+<meta name="twitter:image" content="https://blog.docker.com/media/2015/04/docker.png">
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/blog.docker.com\/","name":"Docker Blog","potentialAction":{"@type":"SearchAction","target":"https:\/\/blog.docker.com\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="https://apis.google.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://use.fontawesome.com/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56794,8205,9794,65039],[55358,56794,8203,9794,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/ajax-load-more.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/styles.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/style-frond_end.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/pack_social_follow.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/font-awesome.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/socicon.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/style-front_end.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/templates.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/animate.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/style.css">
+<style id="us-plugin-styles-inline-css" type="text/css">
+.us_sticky .us_wrapper{background-color:#ffffff;}.us_floating .us_wrapper .us_button{width:45px;-webkit-transition:width 1000ms ease-in-out,background-color 400ms ease-out;-moz-transition:width 1000ms ease-in-out,background-color 400ms ease-out;-o-transition:width 1000ms ease-in-out,background-color 400ms ease-out;transition:width 1000ms ease-in-out,background-color 400ms ease-out;}.us_floating .us_wrapper .us_button:hover{width:90px;-webkit-transition:width 1000ms ease-in-out,background-color 400ms ease-out;-moz-transition:width 1000ms ease-in-out,background-color 400ms ease-out;-o-transition:width 1000ms ease-in-out,background-color 400ms ease-out;transition:width 1000ms ease-in-out,background-color 400ms ease-out;}.us_facebook{background-color:#3b5998;}.us_facebook:hover{background-color:#008000;}.us_twitter{background-color:#00ABF0;}.us_twitter:hover{background-color:#008000;}.us_google{background-color:#D95232;}.us_google:hover{background-color:#008000;}.us_delicious{background-color:#66B2FD;}.us_delicious:hover{background-color:#008000;}.us_stumble{background-color:#E94B24;}.us_stumble:hover{background-color:#008000;}.us_linkedin{background-color:#1C86BC;}.us_linkedin:hover{background-color:#008000;}.us_pinterest{background-color:#AE181F;}.us_pinterest:hover{background-color:#008000;}.us_buffer{background-color:#000000;}.us_buffer:hover{background-color:#008000;}.us_reddit{background-color:#30659B;}.us_reddit:hover{background-color:#008000;}.us_vkontakte{background-color:#537599;}.us_vkontakte:hover{background-color:#008000;}.us_mail{background-color:#666666;}.us_mail:hover{background-color:#008000;}.us_love{background-color:#FF0000;}.us_love:hover{background-color:#008000;}.us_pocket{background-color:#ee4056;}.us_pocket:hover{background-color:#008000;}.us_tumblr{background-color:#529ecc;}.us_tumblr:hover{background-color:#008000;}.us_print{background-color:#60d0d4;}.us_print:hover{background-color:#008000;}.us_flipboard{background-color:#c10000;}.us_flipboard:hover{background-color:#008000;}.us_comments{background-color:#b69823;}.us_comments:hover{background-color:#008000;}.us_feedly{background-color:#414141;}.us_feedly:hover{background-color:#008000;}.us_youtube:hover{background-color:#008000;}.us_youtube{background-color:#cc181e;}.us_vimeo{background-color:#1bb6ec;}.us_vimeo:hover{background-color:#008000;}.us_behance{background-color:#1769ff;}.us_behance:hover{background-color:#008000;}.us_ok{background-color:#f2720c;}.us_ok:hover{background-color:#008000;}.us_weibo{background-color:#e64141;}.us_weibo:hover{background-color:#008000;}.us_managewp{background-color:#098ae0;}.us_managewp:hover{background-color:#008000;}.us_xing{background-color:#026466;}.us_xing:hover{background-color:#008000;}.us_whatsapp{background-color:#34af23;}.us_whatsapp:hover{background-color:#008000;}.us_meneame{background-color:#ff6400;}.us_meneame:hover{background-color:#008000;}.us_digg{background-color:#000;}.us_digg:hover{background-color:#008000;}.us_dribbble{background-color:#f72b7f;}.us_dribbble:hover{background-color:#008000;}.us_envato{background-color:#82b540;}.us_envato:hover{background-color:#008000;}.us_github{background-color:#201e1f;}.us_github:hover{background-color:#008000;}.us_soundcloud{background-color:#ff6f00;}.us_soundcloud:hover{background-color:#008000;}.us_instagram{background-color:#48769c;}.us_instagram:hover{background-color:#008000;}.us_feedpress{background-color:#ffafaf;}.us_feedpress:hover{background-color:#008000;}.us_mailchimp{background-color:#6dc5dc;}.us_mailchimp:hover{background-color:#008000;}.us_flickr{background-color:#0062dd;}.us_flickr:hover{background-color:#008000;}.us_members{background-color:#0ab071;}.us_members:hover{background-color:#008000;}.us_more{background-color:#53B27C;}.us_more:hover{background-color:#008000;}.us_posts{background-color:#924e2a;}.us_posts:hover{background-color:#008000;}.us_facebook a{color:#3b5998;}.us_facebook a:hover{color:#008000;}.us_twitter a{color:#00ABF0;}.us_twitter a:hover{color:#008000;}.us_google a{color:#D95232;}.us_google a:hover{color:#008000;}.us_delicious a{color:#66B2FD;}.us_delicious a:hover{color:#008000;}.us_stumble a{color:#E94B24;}.us_stumble a:hover{color:#008000;}.us_linkedin a{color:#1C86BC;}.us_linkedin a:hover{color:#008000;}.us_pinterest a{color:#AE181F;}.us_pinterest a:hover{color:#008000;}.us_buffer a{color:#000000;}.us_buffer a:hover{color:#008000;}.us_reddit a{color:#CEE3F8;}.us_reddit a:hover{color:#008000;}.us_vkontakte a{color:#537599;}.us_vkontakte a:hover{color:#008000;}.us_mail a{color:#666666;}.us_mail a:hover{color:#008000;}.us_love a,.us_love{color:#FF0000;}.us_love a:hover,.us_love:hover{color:#008000;}.us_pocket a{color:#ee4056;}.us_pocket a:hover{color:#008000;}.us_tumblr a{color:#529ecc;}.us_tumblr a:hover{color:#008000;}.us_print a{color:#60d0d4;}.us_print a:hover{color:#008000;}.us_flipboard a{color:#c10000;}.us_flipboard a:hover{color:#008000;}.us_comments a,.us_comments{color:#b69823;}.us_comments a:hover,.us_comments:hover{color:#008000;}.us_feedly a{color:#414141;}.us_feedly a:hover{color:#008000;}.us_youtube a{color:#cc181e;}.us_youtube a:hover{color:#008000;}.us_vimeo a{color:#1bb6ec;}.us_vimeo a:hover{color:#008000;}.us_behance a{color:#1769ff;}.us_behance a:hover{color:#008000;}.us_ok a{color:#f2720c;}.us_ok a:hover{color:#008000;}.us_weibo a{color:#e64141;}.us_weibo a:hover{color:#008000;}.us_managewp a{color:#098ae0;}.us_managewp a:hover{color:#008000;}.us_xing a{color:#026466;}.us_xing a:hover{color:#008000;}.us_whatsapp a{color:#34af23;}.us_whatsapp a:hover{color:#008000;}.us_meneame a{color:#ff6400;}.us_meneame a:hover{color:#008000;}.us_digg a{color:#000;}.us_digg a:hover{color:#008000;}.us_dribbble a{ color:#f72b7f;}.us_dribbble a:hover{ color:#008000;}.us_envato a{color:#82b540;}.us_envato a:hover{color:#008000;}.us_github a{color:#201e1f;}.us_github a:hover{color:#008000;}.us_soundcloud a{color:#ff6f00;}.us_soundcloud a:hover{color:#008000;}.us_instagram a{color:#48769c;}.us_instagram a:hover{color:#008000;}.us_feedpress{color:#ffafaf;}.us_feedpress:hover{color:#008000;}.us_mailchimp{color:#6dc5dc;}.us_mailchimp:hover{color:#008000;}.us_flickr a{color:#0062dd;}.us_flickr a:hover{color:#008000;}.us_members{color:#0ab071;}.us_members:hover{color:#008000;}.us_more a{color:#53B27C;}.us_more a:hover{color:#008000;}.us_posts{color:#924e2a;}.us_posts:hover{color:#008000;}
+</style>
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/bootstrap.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/font-awesome-css.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/github.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/menu.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/app.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/app1.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/mobile_responsive.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/css.css">
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="/wp-content/plugins/jetpack/modules/carousel/jetpack-carousel-ie8fix.css?ver=20121024">
+<![endif]-->
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/social-logos.css">
+<link rel="stylesheet" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/jetpack.css">
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/jquery_002.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/jquery-migrate.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/bitly-client.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/front_end_header.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/plusone.js" gapi_processed="true"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/commentauthor.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var us_script = {"ajaxurl":"https:\/\/blog.docker.com\/wp-admin\/admin-ajax.php","tweet_via":"","sharrre_url":"https:\/\/blog.docker.com\/wp-admin\/admin-ajax.php","success":"Great work! Your message was sent.","trying":"Trying to send email...","total_shares_text":"Shares","facebook_height":"500","facebook_width":"900","twitter_height":"500","twitter_width":"900","googleplus_height":"500","googleplus_width":"900","delicious_height":"550","delicious_width":"550","stumble_height":"550","stumble_width":"550","linkedin_height":"550","linkedin_width":"550","pinterest_height":"320","pinterest_width":"720","buffer_height":"500","buffer_width":"900","reddit_height":"500","reddit_width":"900","vkontakte_height":"500","vkontakte_width":"900","printfriendly_height":"500","printfriendly_width":"1045","pocket_height":"500","pocket_width":"900","tumblr_height":"500","tumblr_width":"900","flipboard_height":"500","flipboard_width":"900","weibo_height":"500","weibo_width":"900","xing_height":"500","xing_width":"900","ok_height":"500","ok_width":"900","managewp_height":"500","managewp_width":"900","meneame_height":"500","meneame_width":"900","digg_height":"500","digg_width":"900","home_url":"https:\/\/blog.docker.com","B":"B","M":"M","k":"k","nonce":"5b251d059a","already_loved_message":"You have already loved this item.","error_message":"Sorry, there was a problem processing your request.","logged_in":"false","bitly":"true"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/us.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/modernizr-2.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/spin.js"></script><style type="text/css"></style>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/jquery.js"></script>
+<link rel="https://api.w.org/" href="https://blog.docker.com/wp-json/">
+<link rel="alternate" type="application/json+oembed" href="https://blog.docker.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblog.docker.com%2F2015%2F04%2Ftips-for-deploying-nginx-official-image-with-docker%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://blog.docker.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblog.docker.com%2F2015%2F04%2Ftips-for-deploying-nginx-official-image-with-docker%2F&amp;format=xml">
+
+<link rel="dns-prefetch" href="https://v0.wordpress.com/">
+<link rel="dns-prefetch" href="https://i0.wp.com/">
+<link rel="dns-prefetch" href="https://i1.wp.com/">
+<link rel="dns-prefetch" href="https://i2.wp.com/">
+<style type="text/css">img#wpstats{display:none}</style><meta name="twitter:partner" content="tfwp"><style type="text/css" id="syntaxhighlighteranchor"></style>
+<!-- BEGIN GADWP v5.1.1.2 Universal Analytics - https://deconf.com/google-analytics-dashboard-wordpress/ -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6096819-11', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- END GADWP Universal Analytics -->
+
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Tips for Deploying NGINX (Official Image) with Docker"><meta name="twitter:description" content="In the past year alone, the Docker community has created 100,000+ images and over 300+ million images have been pulled from Docker Hub to date. &nbsp;Over 20 million of these pulls came from the 70+ Official Images that Docker develops in conjunction with upstream partners, like Oracle, CentOS, and NGINX. NGINX is used by over 40% of the world’s busiest websites and is an open-source reverse proxy server, load balancer, HTTP cache, and web server. &nbsp;The official image on Docker Hub has been pulled over 3.4 million times and is maintained by the NGINX team. This post from NGINX provides a walkthrough on using the Docker Image to deploy the open-source version of NGINX. Attend the webinar titled “Building Applications with Microservices and Docker” NGINX Solutions Architect Rick Nelson and Docker Engineer Jerome Petazzoni discuss the best approach to developing…"><meta name="twitter:image" content="https://i0.wp.com/blog.docker.com/wp-content/uploads/2015/04/register-now-button.png?fit=900%2C220&amp;ssl=1">
+<meta property="bitly:url" content="http://dockr.ly/2fejctA">
+<meta property="og:url" content="http://dockr.ly/2fejctA">
+			<style type="text/css" id="wp-custom-css">
+				/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+
+.category_navigation_container.affix{
+    max-width: 180px;
+}
+#dockercon_banner_wrap{
+    display: none!important;
+}
+section.darkblue.title_section  {
+    padding: 32px 0;
+}
+header.main-header {
+    height: 64px;
+}			</style>
+		
+  <link rel="alternate" type="application/rss+xml" title="Docker Blog Feed" href="https://blog.docker.com/feed/">
+	
+<link rel="apple-touch-icon" sizes="57x57" href="https://blog.docker.com/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://blog.docker.com/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://blog.docker.com/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://blog.docker.com/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://blog.docker.com/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://blog.docker.com/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://blog.docker.com/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://blog.docker.com/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.docker.com/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://blog.docker.com/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.docker.com/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://blog.docker.com/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.docker.com/favicon/favicon-16x16.png">
+<link rel="manifest" href="https://blog.docker.com/favicon/manifest.json">
+<link rel="mask-icon" href="https://blog.docker.com/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<link href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/8a432be07c.css" media="all" rel="stylesheet"><meta class="foundation-data-attribute-namespace"><meta class="foundation-mq-xxlarge"><meta class="foundation-mq-xlarge-only"><meta class="foundation-mq-xlarge"><meta class="foundation-mq-large-only"><meta class="foundation-mq-large"><meta class="foundation-mq-medium-only"><meta class="foundation-mq-medium"><meta class="foundation-mq-small-only"><meta class="foundation-mq-small"><style></style><meta class="foundation-mq-topbar"><link id="mktoForms2BaseStyle" rel="stylesheet" type="text/css" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/forms2.css"><link id="mktoForms2ThemeStyle" rel="stylesheet" type="text/css" href="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/forms2-theme-inset.css"><style>#mktoStyleLoaded {color:#123456;}</style><script async="true" type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/SC67VPE7UZFTXBS5QTGXWO"></script><script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/sendrolling.js"></script><div style="width: 1px; height: 1px; display: inline; position: absolute;"><img style="border-style:none;" alt="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/out_003.asc" scale="0" width="1" height="1"><img style="border-style:none;" alt="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/out_002.gif" scale="0" width="1" height="1"><img style="border-style:none;" alt="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/out_004.gif" scale="0" width="1" height="1"><img style="border-style:none;" alt="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/out.asc" scale="0" width="1" height="1"><img style="border-style:none;" alt="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/out.html" scale="0" width="1" height="1"><img style="border-style:none;" alt="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/out_002.asc" scale="0" width="1" height="1"></div><div style="width: 1px; height: 1px; display: inline; position: absolute;"><img style="border-style:none;" alt="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/out_007.gif" scale="0" width="1" height="1">
+<img style="border-style:none;" alt="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/out_003.gif" scale="0" width="1" height="1">
+<img style="border-style:none;" alt="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/out_005.gif" scale="0" width="1" height="1">
+<img style="border-style:none;" alt="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/out_006.gif" scale="0" width="1" height="1">
+<img style="border-style:none;" alt="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/out_002.html" scale="0" width="1" height="1">
+<img style="border-style:none;" alt="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/out.gif" scale="0" width="1" height="1">
+</div><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{height:100%;overflow:hidden;position:fixed;width:100%}.fb_shrink_active{opacity:1;transform:scale(1, 1);transition-duration:200ms;transition-timing-function:ease-out}.fb_shrink_active:active{opacity:.5;transform:scale(.75, .75)}</style></head>
+<body class="post-template-default single single-post postid-5180 single-format-standard tips-for-deploying-nginx-official-image-with-docker ng-scope" ng-app="Docker" ng-controller="DockerController">
+<script src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/jquery-1.js" type="text/javascript"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    var img="<img src='//docker-software-inc.scoop.it/gpv?wpt=4632140"
+    + "&location="+ encodeURIComponent(document.location)
+    + "&referer=" + encodeURIComponent(document.referrer)+"'/>";
+    jQuery("body").append(img);
+  });
+</script> 
+<div class="off-canvas-wrap" data-offcanvas="">
+		<div class="inner-wrap">
+  <!--[if lt IE 7]><div class="alert">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+  <header class="main-header">
+<div class="top-right-bg"></div>
+<!-- navigation -->
+	<!-- mobile navigation -->
+	<div class="header change">
+		<div class="fixed_div">
+			<div class="burger-container">
+				<div id="burger">
+					<div class="bar topBar"></div>
+					<div class="bar btmBar"></div>
+				</div>
+			</div>
+ 
+			<div class="icon icon-apple">
+				<a href="https://blog.docker.com/"><img class="brand-full" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/brand-full.svg"></a>
+				<a href="https://blog.docker.com/"><img class="brand-simple" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/brand.svg"></a>
+			</div> 
+		</div> 
+		<div class="scroll_div">
+			<ul class="nav-main"><li class="menu-what-is-docker"><a href="https://www.docker.com/what-docker">What is Docker?</a></li>
+<li class="menu-product"><a href="https://www.docker.com/get-docker">Product</a></li>
+<li class="dropdown menu-get-docker"><a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="https://www.docker.com/get-docker">Get Docker <b class="caret"></b></a>
+<ul class="dropdown-menu">
+	<li class="first leaf heading menu-for-desktops"><a href="#">For Desktops</a></li>
+	<li class="menu-mac"><a href="https://www.docker.com/docker-mac">Mac</a></li>
+	<li class="leaf menu-windows"><a href="https://www.docker.com/docker-windows">Windows</a></li>
+	<li class="leaf heading menu-for-cloud-providers"><a href="#">For Cloud Providers</a></li>
+	<li class="menu-aws"><a href="https://www.docker.com/docker-aws">AWS</a></li>
+	<li class="menu-azure"><a href="https://www.docker.com/docker-microsoft-azure">Azure</a></li>
+	<li class="leaf heading menu-for-servers"><a href="#">For Servers</a></li>
+	<li class="menu-windows-server"><a href="https://www.docker.com/docker-windows-server">Windows Server</a></li>
+	<li class="menu-centos"><a href="https://www.docker.com/docker-centos">CentOS</a></li>
+	<li class="menu-debian"><a href="https://www.docker.com/docker-debian">Debian</a></li>
+	<li class="menu-fedora"><a href="https://www.docker.com/docker-fedora">Fedora</a></li>
+	<li class="menu-oracle-linux"><a href="https://www.docker.com/docker-oracle-linux">Oracle Linux</a></li>
+	<li class="menu-rhel"><a href="https://www.docker.com/docker-rhel">RHEL</a></li>
+	<li class="menu-sles"><a href="https://www.docker.com/docker-sles">SLES</a></li>
+	<li class="menu-ubuntu"><a href="https://www.docker.com/docker-ubuntu">Ubuntu</a></li>
+</ul>
+</li>
+<li class="menu-docs"><a href="https://docs.docker.com/">Docs</a></li>
+<li class="menu-community"><a href="https://www.docker.com/docker-community">Community</a></li>
+</ul>			 <ul class="nav-global"><li class="menu-create-docker-id"><a href="https://cloud.docker.com/">Create Docker ID</a></li>
+<li class="menu-sign-in"><a href="https://cloud.docker.com/login">Sign In</a></li>
+</ul>			</div>
+			<div class="shop icon icon-bag"></div>
+	</div>
+	<!-- mobile navigation end -->
+	<!-- full width navigation -->
+	<div class="container">
+		<div class="row desktop">
+			<div class="col-xs-2">
+				<a href="https://blog.docker.com/"><img class="logo" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/brand-full.svg" scale="0"></a>
+			</div> 
+			<div class="col-xs-10">
+				 <ul class="nav-user"><li class="menu-create-docker-id"><a href="https://cloud.docker.com/">Create Docker ID</a></li>
+<li class="menu-sign-in"><a href="https://cloud.docker.com/login">Sign In</a></li>
+</ul>            <ul class="nav-main"><li class="menu-what-is-docker"><a href="https://www.docker.com/what-docker">What is Docker?</a></li>
+<li class="menu-product"><a href="https://www.docker.com/get-docker">Product</a></li>
+<li class="dropdown menu-get-docker"><a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="https://www.docker.com/get-docker">Get Docker <b class="caret"></b></a>
+<ul class="dropdown-menu">
+	<li class="first leaf heading menu-for-desktops"><a href="#">For Desktops</a></li>
+	<li class="menu-mac"><a href="https://www.docker.com/docker-mac">Mac</a></li>
+	<li class="leaf menu-windows"><a href="https://www.docker.com/docker-windows">Windows</a></li>
+	<li class="leaf heading menu-for-cloud-providers"><a href="#">For Cloud Providers</a></li>
+	<li class="menu-aws"><a href="https://www.docker.com/docker-aws">AWS</a></li>
+	<li class="menu-azure"><a href="https://www.docker.com/docker-microsoft-azure">Azure</a></li>
+	<li class="leaf heading menu-for-servers"><a href="#">For Servers</a></li>
+	<li class="menu-windows-server"><a href="https://www.docker.com/docker-windows-server">Windows Server</a></li>
+	<li class="menu-centos"><a href="https://www.docker.com/docker-centos">CentOS</a></li>
+	<li class="menu-debian"><a href="https://www.docker.com/docker-debian">Debian</a></li>
+	<li class="menu-fedora"><a href="https://www.docker.com/docker-fedora">Fedora</a></li>
+	<li class="menu-oracle-linux"><a href="https://www.docker.com/docker-oracle-linux">Oracle Linux</a></li>
+	<li class="menu-rhel"><a href="https://www.docker.com/docker-rhel">RHEL</a></li>
+	<li class="menu-sles"><a href="https://www.docker.com/docker-sles">SLES</a></li>
+	<li class="menu-ubuntu"><a href="https://www.docker.com/docker-ubuntu">Ubuntu</a></li>
+</ul>
+</li>
+<li class="menu-docs"><a href="https://docs.docker.com/">Docs</a></li>
+<li class="menu-community"><a href="https://www.docker.com/docker-community">Community</a></li>
+</ul>			</div>
+		</div>
+	</div>
+	<!-- full width navigation end -->
+	<div id="dockercon_banner_wrap">
+		<a href="https://europe-2017.dockercon.com/livestream" target="_blank">
+			<img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/EU-DockerCon-CTA.svg" alt="DockerCon Europe 2017" scale="0">
+		</a>
+	</div> 
+</header>
+<div class="dockercon16">
+	<section class="title_section darkblue">
+		<!-- <div class="dockercon16_padding"></div> -->
+  		<div class="container">
+  			<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 text-center">
+							<!-- <h1>Docker Blog</h1> -->
+							<!-- <p>Discussions and forums that give you the insights you need to ship world class experiences.</p> -->
+				</div>
+			</div>
+		</div>
+  </section></div>
+
+
+  <div class="wrap container" role="document">
+
+	  <div class="col-xs-12 col-sm-2 col-md-2 category_navigation_container affix">
+      <!-- add strip for search only -->
+      <div class="search-bar">
+      	<div class="container">
+      		<div class="row">
+      			<form role="search" method="get" class="search-form form-inline ng-pristine ng-valid" action="https://blog.docker.com/">
+	<div class="for_search_no_results_page form-group">
+		<p><button type="submit" class=" search_icon btn btn-default"></button>Search results for <strong></strong></p>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="search-submit btn btn-default">Search</button>
+    </div>
+    <div class="form-group">
+      <input class="search-field form-control" id="st-search-input" name="s" placeholder="" type="search">
+    </div>
+
+</form>
+ 
+</div>
+      			</div>
+      	</div>
+		 
+		<ul class="category-navigation"><li class="menu-all"><a href="https://blog.docker.com/">All</a></li>
+<li class="menu-engineering"><a href="https://blog.docker.com/category/engineering">Engineering</a></li>
+<li class="menu-curated"><a href="https://blog.docker.com/curated/">Curated</a></li>
+<li class="menu-docker-weekly"><a href="https://blog.docker.com/docker-weekly-archives/">Docker Weekly</a></li>
+</ul>	 </div>
+
+  	  <div class="col-xs-12 col-sm-10 col-md-10 floatleft">
+          <div class="post_full">
+  <article class="post-5180 post type-post status-publish format-standard hentry category-community category-docker-hub-2 category-engineering category-events tag-container tag-logging tag-microservices tag-nginx tag-official-image">
+	<header>
+		
+		<div class="details media ">
+			<div class="media-left ">
+				<img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/6742336.jpeg" alt="Mario Ponticello" class="avatar avatar-156 wp-user-avatar wp-user-avatar-156 alignnone photo" scale="0" width="156" height="156">			</div>
+			<div class="media-body ">
+			<h1 class="entry-title">Tips for Deploying NGINX (Official Image) with Docker</h1>
+			
+			<div class="page_header">
+				<span class="author">By <a href="https://blog.docker.com/author/mponticello/" rel="author" class="fn">Mario Ponticello</a></span>
+				<span class=""><time class="published" datetime="2015-04-21T11:15:53+00:00">April 21, 2015</time>
+</span>
+				<span class="social_links">
+										<script>jQuery(document).ready(function(){items_str = "facebook,twitter,google,linkedin,reddit,email";
+			items_arr = items_str.split(",");
+				ism_load_counts(0, 'http://dockr.ly/2fejctA', '#indeed_sm_wrap_3199', items_arr, 1);
+				});var ism_enable_statistics=1;</script><style>#indeed_sm_wrap_3199{}#indeed_sm_wrap_3199 .ism_item{}#indeed_sm_wrap_3199 .ism_item_wrapper{display: inline-block;}</style><div class="ism_wrap ism_template_8  ism-shortcode-display" id="indeed_sm_wrap_3199" style=""><div id="fb_desc-2981" data-ism_description="In the past year alone, the Docker community has created 100,000+ images and over 300+ million images have been pulled from Docker Hub to date. &nbsp;Over 20 million of these pulls came from the 70+ Official Images that Docker develops in conjunction with upstream partners, like Oracle, CentOS, and NGINX.NGINX ..." style="display: none;"></div><a href="javascript:void(0)" class="ism_link" onclick="ism_fake_increment('.post-5180 .twitter_share_count', 'twitter', 'http://dockr.ly/2fejctA');return !window.open('https://twitter.com/intent/tweet?text=Tips%20for%20Deploying%20NGINX%20%28Official%20Image%29%20with%20Docker http://dockr.ly/2fejctA', '', 'width=700,height=313');"><div class="ism_item_wrapper ism-align-horizontal"><div class="ism_item ism_box_twitter"><i class="fa-ism fa-twitter-ism"></i><span class="ism_share_label">Twitter</span><span class="ism_share_counts twitter_share_count">0</span><div class="clear"></div></div></div></a><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://dockr.ly/2fejctA&amp;title=Tips%20for%20Deploying%20NGINX%20%28Official%20Image%29%20with%20Docker&amp;summary=In%20the%20past%20year%20alone,%20the%20Docker%20community%20has%20created%20100,000+%20images%20and%20over%20300+%20million%20images%20have%20been%20pulled%20from%20Docker%20Hub%20to%20date.%20%C2%A0Over%2020%20million%20of%20these%20pulls%20came%20from%20the%2070+%20Official%20Images%20that%20Docker%20develops%20in%20conjunction%20with%20upstream%20partners,%20like%20Oracle,%20CentOS,%20and%20NGINX.NGINX%20..." class="ism_link" onclick="ism_fake_increment('.post-5180 .linkedin_share_count', 'linkedin', 'http://dockr.ly/2fejctA');return !window.open(this.href, '', 'width=700,height=450');"><div class="ism_item_wrapper ism-align-horizontal"><div class="ism_item ism_box_linkedin"><i class="fa-ism fa-linkedin-ism"></i><span class="ism_share_label">Linkedin</span><span class="ism_share_counts linkedin_share_count">0</span><div class="clear"></div></div></div></a><a href="http://www.reddit.com/submit?url=http://dockr.ly/2fejctA&amp;title=Tips%20for%20Deploying%20NGINX%20%28Official%20Image%29%20with%20Docker" class="ism_link" onclick="ism_fake_increment('.post-5180 .reddit_share_count', 'reddit', 'http://dockr.ly/2fejctA');return !window.open(this.href, '', 'width=700,height=313');"><div class="ism_item_wrapper ism-align-horizontal"><div class="ism_item ism_box_reddit"><i class="fa-ism fa-reddit-ism"></i><span class="ism_share_label">Reddit</span><span class="ism_share_counts reddit_share_count">0</span><div class="clear"></div></div></div></a><a href="https://plus.google.com/share?url=http://dockr.ly/2fejctA" class="ism_link" onclick="ism_fake_increment('.post-5180 .google_share_count', 'google', 'http://dockr.ly/2fejctA');return !window.open(this.href, '', 'width=700,height=313');"><div class="ism_item_wrapper ism-align-horizontal"><div class="ism_item ism_box_google"><i class="fa-ism fa-google-ism"></i><span class="ism_share_label">Google+</span><span class="ism_share_counts google_share_count">0</span><div class="clear"></div></div></div></a><a href="javascript:void(0)" class="ism_link" onclick="shareOnFacebook( 'Tips%20for%20Deploying%20NGINX%20%28Official%20Image%29%20with%20Docker', 'http://dockr.ly/2fejctA', 'https://blog.docker.com/wp-content/uploads/2013/06/Docker-logo-01.png', '0', '0', '#fb_desc-2981', '1' );ism_fake_increment('.post-5180 .facebook_share_count', 'facebook', 'http://dockr.ly/2fejctA');"><div class="ism_item_wrapper ism-align-horizontal"><div class="ism_item ism_box_facebook"><i class="fa-ism fa-facebook-ism"></i><span class="ism_share_label">Facebook</span><span class="ism_share_counts facebook_share_count">0</span><div class="clear"></div></div></div></a><a href="http://news.ycombinator.com/submitlink?u=http://dockr.ly/2fejctA&amp;t=Tips%20for%20Deploying%20NGINX%20%28Official%20Image%29%20with%20Docker" class="ism_link" onclick="ism_fake_increment('.post-5180 .hackernews_share_count', 'hackernews', 'http://dockr.ly/2fejctA');return !window.open(this.href, '', 'width=700,height=313');"><div class="ism_item_wrapper ism-align-horizontal"><div class="ism_item ism_box_hackernews"><i class="fa-ism fa-hackernews-ism"></i><span class="ism_share_label">HackerNews</span><div class="clear"></div></div></div></a><a href="javascript:void(0)" class="ism_link" onclick="indeedPopUpEmail('https://blog.docker.com/wp-content/plugins/indeed-social-media/', 'http://dockr.ly/2fejctA');ism_fake_increment('.post-5180 .email_share_count', 'email', 'http://dockr.ly/2fejctA');"><div class="ism_item_wrapper ism-align-horizontal"><div class="ism_item ism_box_email"><i class="fa-ism fa-email-ism"></i><span class="ism_share_label">E-mail</span><span class="ism_share_counts email_share_count">0</span><div class="clear"></div></div></div></a></div>				</span>
+									
+									<span class="tags"><a href="https://blog.docker.com/tag/container/" rel="tag">container</a>, <a href="https://blog.docker.com/tag/logging/" rel="tag">Logging</a>, <a href="https://blog.docker.com/tag/microservices/" rel="tag">microservices</a>, <a href="https://blog.docker.com/tag/nginx/" rel="tag">nginx</a>, <a href="https://blog.docker.com/tag/official-image/" rel="tag">Official image</a></span>
+							</div>
+			<div class="entry-content">
+															<p>In the past year alone, the <a href="https://www.docker.com/community/participate/" target="_blank">Docker community</a> has created 100,000+ images and over 300+ million images have been pulled from <a href="https://hub.docker.com/account/signup/" target="_blank">Docker Hub</a>
+ to date. &nbsp;Over 20 million of these pulls came from the 70+ 
+Official Images that Docker develops in conjunction with upstream 
+partners, like Oracle, CentOS, and NGINX.</p>
+<p>NGINX is used by over 40% of the world’s busiest websites and is an 
+open-source reverse proxy server, load balancer, HTTP cache, and web 
+server. &nbsp;The official image on Docker Hub has been pulled over 3.4 
+million times and is maintained by the NGINX team. This post from NGINX 
+provides a walkthrough on using the Docker Image to deploy the 
+open-source version of <a href="http://nginx.com/" target="_blank">NGINX</a>.</p>
+<p><a href="http://nginx.com/resources/webinars/building-applications-microservices-docker/" target="_blank"><img data-attachment-id="5191" data-permalink="http://dockr.ly/2fejctA/docker/" data-orig-file="https://i2.wp.com/blog.docker.com/wp-content/uploads/2015/04/docker.png?fit=2658%2C1054&amp;ssl=1" data-orig-size="2658,1054" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="docker" data-image-description="" data-medium-file="https://i2.wp.com/blog.docker.com/wp-content/uploads/2015/04/docker.png?fit=300%2C119&amp;ssl=1" data-large-file="https://i2.wp.com/blog.docker.com/wp-content/uploads/2015/04/docker.png?fit=1024%2C406&amp;ssl=1" class=" wp-image-5191 aligncenter" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/docker.png" alt="docker" srcset="https://i2.wp.com/blog.docker.com/wp-content/uploads/2015/04/docker.png?w=2658&amp;ssl=1 2658w, https://i2.wp.com/blog.docker.com/wp-content/uploads/2015/04/docker.png?resize=300%2C119&amp;ssl=1 300w, https://i2.wp.com/blog.docker.com/wp-content/uploads/2015/04/docker.png?resize=1024%2C406&amp;ssl=1 1024w, https://i2.wp.com/blog.docker.com/wp-content/uploads/2015/04/docker.png?w=2280&amp;ssl=1 2280w" sizes="(max-width: 600px) 100vw, 600px" width="600" height="238"></a></p>
+<p><span id="more-5180"></span></p>
+<p><b>Attend the webinar titled “Building Applications with Microservices and Docker”</b></p>
+<p>NGINX Solutions Architect Rick Nelson and Docker Engineer <a href="https://twitter.com/jpetazzo" target="_blank">Jerome Petazzoni</a> discuss the best approach to developing applications with microservices.</p>
+<p><strong>Date: &nbsp;April 22rd</strong></p>
+<p><strong>Time: &nbsp;10:00 am PDT / 1:00 pm EDT</strong></p>
+<p><strong><strong><a href="http://nginx.com/resources/webinars/building-applications-microservices-docker/" target="_blank"><img data-attachment-id="5189" data-permalink="http://dockr.ly/2fejctA/register-now-button/" data-orig-file="https://i0.wp.com/blog.docker.com/wp-content/uploads/2015/04/register-now-button.png?fit=900%2C220&amp;ssl=1" data-orig-size="900,220" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="register-now-button" data-image-description="" data-medium-file="https://i0.wp.com/blog.docker.com/wp-content/uploads/2015/04/register-now-button.png?fit=300%2C73&amp;ssl=1" data-large-file="https://i0.wp.com/blog.docker.com/wp-content/uploads/2015/04/register-now-button.png?fit=900%2C220&amp;ssl=1" class=" wp-image-5189 aligncenter" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/register-now-button.png" alt="register-now-button" srcset="https://i0.wp.com/blog.docker.com/wp-content/uploads/2015/04/register-now-button.png?w=900&amp;ssl=1 900w, https://i0.wp.com/blog.docker.com/wp-content/uploads/2015/04/register-now-button.png?resize=300%2C73&amp;ssl=1 300w" sizes="(max-width: 258px) 100vw, 258px" width="258" height="63"></a></strong></strong></p>
+<p>&nbsp;</p>
+<p><b>Here is a Tutorial on How to use the NGINX Official Docker Image</b></p>
+<p>To create an instance of NGINX in a Docker container, search for and 
+pull the NGINX official image from Docker Hub. &nbsp;Use the following 
+command to launch an instance of NGINX running in a container and using 
+the default configuration.</p>
+<pre> # docker run --name mynginx1 -P -d nginx
+
+fcd1fb01b14557c7c9d991238f2558ae2704d129cf9fb97bb4fadf673a58580d</pre>
+<p>This command creates a container named mynginx1 based on the NGINX 
+image and runs it in detached mode, meaning the container is started and
+ stays running until stopped but does not listen to the command line. We
+ will discuss later how to interact with the container.<strong><strong>&nbsp;</strong></strong></p>
+<p>The NGINX image exposes ports 80 and 443 in the container and the <code>-P</code>
+ option tells Docker to map those ports to ports on the Docker host that
+ are randomly selected from the range between 49153 and 65535. We do 
+this because if we create multiple NGINX containers on the same Docker 
+host, we create a conflict on ports 80 and 443. The port mappings are 
+dynamic and are set each time the container is started or restarted. If 
+you want the port mappings to be static, set them manually with the <code>-p</code> option. The long form of the Container Id will be returned.</p>
+<p>We can run <code>docker ps</code> to verify that the container was created and is running, and to see the port mappings:</p>
+<pre> # docker ps
+
+CONTAINER ID &nbsp;IMAGE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COMMAND &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATED &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATUS
+
+PORTS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NAMES
+
+fcd1fb01b145 &nbsp;nginx:latest &nbsp;"nginx -g 'daemon of &nbsp;16 seconds ago &nbsp;Up 15 seconds
+
+0.0.0.0:49166-&gt;443/tcp, 0.0.0.0:49167-&gt;80/tcp mynginx1</pre>
+<p>We can also verify that NGINX is running by making an HTTP request to
+ port 49167 (reported in the output from the preceding command as the 
+port on the Docker host that is mapped to port 80 in the container); the
+ default NGINX welcome page appears:</p>
+<pre> # curl http://localhost:49167
+
+&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+
+&lt;head&gt;
+
+&lt;title&gt;Welcome to nginx!&lt;/title&gt;
+
+&lt;style&gt;
+
+body {
+
+width: 35em;
+
+margin: 0 auto;
+
+font-family: Tahoma, Verdana, Arial, sans-serif;
+
+}
+
+&lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;
+
+&lt;p&gt;If you see this page, the nginx web server is successfully installed and working. Further configuration is required.&lt;/p&gt;
+
+&lt;p&gt;For online documentation and support please refer to
+
+&lt;a href="http://nginx.org/"&gt;nginx.org&lt;/a&gt;.&lt;br/&gt;
+
+Commercial support is available at
+
+&lt;a href="http://nginx.com/"&gt;nginx.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you for using nginx.&lt;/em&gt;&lt;/p&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+
+</pre>
+<p>&nbsp;</p>
+<p><b>Working with the NGINX Docker Container</b></p>
+<p>Now that we have a working NGINX Docker container, how do we manage 
+the content and the NGINX configuration? &nbsp;And what about logging? 
+&nbsp;It is common to have SSH access to NGINX instances, but Docker 
+containers are generally intended to be for a single purpose (in this 
+case running NGINX) so the NGINX image does not have OpenSSH installed 
+and for normal operations there is no need to get shell access directly 
+to the NGINX container. We will use other methods supported by Docker. 
+For a detailed discussion of alternatives to SSH access, see <a href="https://blog.docker.com/2014/06/why-you-dont-need-to-run-sshd-in-docker">Why you don’t need to run SSHd in your Docker Containers</a>.</p>
+<p>&nbsp;</p>
+<p><b>Managing Content and Configuration Files</b></p>
+<p>There are multiple ways you can manage the NGINX content and configuration files and we will cover a few options:</p>
+<p>&nbsp;</p>
+<p><b>Maintain the Content and Configuration on the Docker Host</b></p>
+<p>When the container is created we can tell Docker to mount a local 
+directory on the Docker host to a directory in the container. The NGINX 
+image uses the default NGINX configuration, so the root directory for 
+the container is/usr/share/nginx/html and the configuration files are in
+ /etc/nginx. If the content on the Docker host is in the local directory
+ /var/www and the configuration files are in /var/nginx/conf, we run the
+ command:</p>
+<pre># docker run --name mynginx2 -v /var/www:/usr/share/nginx/html:ro \
+
+-v /var/nginx/conf:/etc/nginx:ro -P -d nginx</pre>
+<p>Now any change made to the files in the local directories /var/www 
+and /var/nginx/conf on the Docker host are reflected in the directories 
+/usr/share/nginx/html and /etc/nginx in the container. The <code>:ro</code> option causes these directors to be read only inside the container.</p>
+<p>&nbsp;</p>
+<p><b>Copy the Files from the Docker Host</b></p>
+<p>Another option is to have Docker copy the content and configuration 
+files from a local directory on the Docker host when a container is 
+created. Once a container is created, the files are maintained by 
+creating a new container when the files change or by modifying the files
+ in the container. A simple way to copy the files is to create a 
+Dockerfile to generate a new Docker image, based on the NGINX image from
+ Docker Hub. When copying files in the Dockerfile, the path to the local
+ directory is relative to the build context where the Dockerfile is 
+located. For this example, the content is in the content directory and 
+the configuration files are in the conf directory, both in the same 
+directory as theDockerfile. The NGINX image has the default NGINX 
+configuration files, including default.conf and example_ssl.conf 
+in/etc/nginx/conf.d. Since we want to use the configuration files from 
+the host, we include commands in the followingDockerfile to delete the 
+default files:</p>
+<pre>FROM nginx
+
+RUN rm /etc/nginx/conf.d/default.conf
+
+RUN rm /etc/nginx/conf.d/examplessl.conf
+
+COPY content /usr/share/nginx/html
+
+COPY conf /etc/nginx</pre>
+<p>We can then create our own NGINX image by running the following command from the directory where the Dockerfileis located:</p>
+<pre># docker build -t mynginximage1.</pre>
+<p>Note the period (“.”) at the end of the command. This tells Docker 
+that the build context is the current directory. The build context 
+contains the Dockerfile and the directories to be copied. Now we can 
+create a container using the image by running the command:</p>
+<pre># docker run --name mynginx3 -P -d mynginximage1</pre>
+<p>If we want to make changes to the files in the container, we use a helper container as described below.</p>
+<p>&nbsp;</p>
+<h4>Maintain Files in the Container</h4>
+<p>As mentioned previously, we are not able to get SSH access to the 
+NGINX container, so if we want to edit the content or configuration 
+files directly we can use a helper container that has shell access. In 
+order for the helper container to have access to the files, we must 
+create a new image that has the proper volumes specified for the image. 
+Assuming we want to copy the files as in the example above, while also 
+specifying volumes for the content and configuration files, we use the 
+following Dockerfile:</p>
+<pre>FROM nginx
+
+ COPY content /usr/share/nginx/html
+
+ COPY conf /etc/nginx
+
+ VOLUME /usr/share/nginx/html
+
+ VOLUME /etc/nginx</pre>
+<p>We then create the new NGINX image by running the following command (again note the final period):</p>
+<pre># docker build -t mynginximage2 .</pre>
+<p>Now we create an NGINX container using the image by running the command:</p>
+<pre># docker run --name mynginx4 -P -d mynginximage2</pre>
+<p>We then start a helper container with a shell and access the content 
+and configuration directories of the NGINX container we created in the 
+previous example by running the command:</p>
+<pre># docker run -i -t --volumes-from mynginx4 --name mynginx4files debian /bin/bash</pre>
+<pre> root@b1cbbad63dd1:/#</pre>
+<p>This creates an interactive container named mynginx4_files that runs 
+in the foreground with a persistent standard input (-i) and a tty (-t) 
+and mounts all the volumes defined in the container mynginx4 as local 
+directories in the newmynginx4_files container. This container uses the 
+Debian image from Docker Hub, which is the same operating system used by
+ the NGINX image. Since all of the examples shown so far use the NGINX 
+image and therefore Debian, it is more efficient to use Debian for the 
+helper container rather then having Docker load another operating 
+system. After the container is created, it runs the bash shell, which 
+presents a shell prompt for the container that you can use to modify the
+ files as needed. You can also install other tools, such as Puppet or 
+Chef, in the container to manage these files. If you exit the shell by 
+running the <code>exit</code> command, the container terminates. If you want to exit while leaving the container running, use <code>Control-p</code> followed by <code>Control-q</code>. The container can be started and stopped with the following commands:</p>
+<pre># docker start mynginx4files</pre>
+<p>and</p>
+<pre># docker stop mynginx4files</pre>
+<p>Shell access can be regained to a running container with the command:</p>
+<pre># docker attach mynginx4files</pre>
+<p><strong><strong>&nbsp;</strong></strong></p>
+<h3>Managing Logging</h3>
+<h4></h4>
+<h4>Default Logging</h4>
+<p>The NGINX image is configured to send the main NGINX access and error
+ logs to the Docker log collector by default. This is done by linking 
+them to stdout and stderr, which causes all messages from both logs to 
+be stored in the file/var/lib/docker/containers/\&lt;container 
+id\&gt;/\&lt;container id\&gt;-json.log on the Docker Host. 
+\&lt;container id\&gt; is the long-form Container Id returned when you 
+create a container. You can display the long-form Id for a container 
+with the command:</p>
+<pre># docker inspect --format '{{ .Id }}' &lt;container name&gt;</pre>
+<p>You can use both the Docker command line and the Docker Remote API to
+ extract the log messages. From the command line run the command:</p>
+<pre># docker logs &lt;container name&gt;</pre>
+<p>To enable the Docker Remote API, add the following line to the file /etc/default/docker:</p>
+<pre>DOCKEROPTS='-H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock'</pre>
+<p>When Docker is restarted, it listens for HTTP API requests on port 
+4243 (you can specify a different port) and also on a socket. To get all
+ the messages, you can issue the GET request:</p>
+<pre>http://&lt;docker host&gt;:4243/containers/&lt;container name&gt;/logs?stdout=1&amp;stderr=1</pre>
+<p>To include only access log messages in the output, include only <code>stdout=1</code>; to limit the output to error log messages, include only <code>stderr=1</code>. To learn about other available options, see the Docker documentation.</p>
+<p><strong><strong>&nbsp;</strong></strong></p>
+<h4>Customized Logging</h4>
+<p>If you want to implement another method of log collection, or if you 
+want to configure logging differently at various levels in the NGINX 
+configuration (such as servers and locations), you can use a volume for 
+the directory or directories in which to store the log files in the 
+container. You can then use a helper container to access the log files 
+and use whatever logging tools you like. To implement this, create a new
+ image that contains the volume or volumes for the logging files. For 
+example, to configure NGINX to store log files in /var/log/nginx/log, we
+ start with the Dockerfile shown in the earlier example of copying files
+ from the Docker host to the container and simply add a volume 
+declaration for this directory:</p>
+<pre>FROM nginx
+ COPY content /usr/share/nginx/html
+ COPY conf /etc/nginx
+ VOLUME /var/log/nginx/log</pre>
+<p>We can then create an image as described above and using this image 
+create an NGINX container and a helper container that have access to the
+ log directory. This helper container can have any desired logging tools
+ installed.</p>
+<p><strong><strong>&nbsp;</strong></strong></p>
+<h3>Controlling NGINX</h3>
+<p>Since we do not have access to the command line of the NGINX container directly, we cannot use the <code>nginx</code> command to control NGINX. Fortunately NGINX can be controlled by signals and Docker provides <code>kill</code> command for sending signals to a container. For example, to reload the NGINX configuration run the command:</p>
+<pre>docker kill -s HUP &lt;container name&gt;</pre>
+<p>If you want to restart the NGINX process, restart the container by running the command:</p>
+<pre>docker restart &lt;container name&gt;</pre>
+<p><strong><strong>&nbsp;</strong></strong></p>
+<h2>Summary</h2>
+<p>NGINX and Docker are tools that work extremely well together. By 
+using the NGINX open-source image from the Docker Hub repository, you 
+can easily spin up new instances of NGINX in Docker containers. You can 
+also take these images and easily create new Docker images from them to 
+give you even more control of your containers and how you manage them.</p>
+<p>Learn more about NGINX by visiting their <a href="http://www.nginx.com./">website</a> and download the <a href="https://registry.hub.docker.com/u/library/nginx/">official image from Docker Hub</a> today.</p>
+<p>&nbsp;</p>
+<p><b>Learn More about Docker</b></p>
+<ul>
+<li>New to Docker? Try our 10 min <a href="https://docker.com/tryit/">online tutorial</a></li>
+<li>Share images, automate builds, and more with a <a href="http://hub.docker.com/">free Docker Hub account</a></li>
+<li>Read the <a href="http://docs.docker.com/v1.6/release-notes/" target="_blank">Docker 1.6&nbsp;Release Notes</a></li>
+<li>Subscribe to <a href="https://www.docker.com/subscribe_newsletter/">Docker Weekly</a></li>
+<li>Attend upcoming <a href="https://www.docker.com/community/meetups/">Docker Meetups</a></li>
+<li>Attend upcoming <a href="http://www.meetup.com/Docker-Online-Meetup/" target="_blank">Docker Online Meetups</a></li>
+<li>Register for <a href="http://dockercon.com/">DockerCon 2015</a></li>
+<li>Start <a href="https://docs.docker.com/contributing/contributing/">contributing to Docker</a></li>
+</ul>
+<div class="sharedaddy sd-sharing-enabled"></div>
+																<span class="tags"><a href="https://blog.docker.com/tag/container/" rel="tag">container</a>, <a href="https://blog.docker.com/tag/logging/" rel="tag">Logging</a>, <a href="https://blog.docker.com/tag/microservices/" rel="tag">microservices</a>, <a href="https://blog.docker.com/tag/nginx/" rel="tag">nginx</a>, <a href="https://blog.docker.com/tag/official-image/" rel="tag">Official image</a></span>
+								</div>	
+				
+			</div>
+		</div>
+	</header>
+	<hr class="after_sec">
+	<div class="author-box details">
+		<div class="media-left ">
+			<img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/6742336.jpeg" alt="Mario Ponticello" class="avatar avatar-156 wp-user-avatar wp-user-avatar-156 alignnone photo" scale="0" width="156" height="156">		</div>
+		<div class="media-body">
+		<h1 class="entry-title">Tips for Deploying NGINX (Official Image) with Docker</h1>
+		<div class="page_header">
+			<span class="author">By <a href="https://blog.docker.com/author/mponticello/" rel="author" class="fn">Mario Ponticello</a></span>
+			<p></p>
+		</div>
+		</div>
+	</div>
+	<hr class="after_sec">
+	<!-- <a class="button btn-white" href="http://docs.docker.com/mac/started/">Join the Community</a> -->
+    <footer>
+				    </footer>
+      <section id="comments">
+    <h3>12 Responses to “Tips for Deploying NGINX (Official Image) with Docker”</h3>
+
+    <ol class="media-list">
+      
+  <li id="comment-196348" class="comment even thread-even depth-1 media comment-196348">
+    <img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/a4a4471c0b9973cbe631c8b41b7019bb.jpeg" alt="" class="avatar avatar-64wp-user-avatar wp-user-avatar-64 alignnone photo avatar-default" originals="64" scale="0.89552241563797" width="64" height="64"><div class="media-body">
+  <h4 class="media-heading"><a href="https://mailsquad.com/" rel="external nofollow" class="url">Jean-Francois Nadeau</a></h4>
+  <time datetime="2015-04-21T11:39:33+00:00"><a href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/#comment-196348">April 21, 2015</a></time>
+  
+  
+  <p>Our web site code is open on GitHub and provides an example of 
+building a new container from the nginx base image &amp; deployment on 
+CoreOS. If you’re interested, here is the github repo: <a href="https://github.com/mailsquad/website" rel="nofollow">https://github.com/mailsquad/website</a></p>
+  <a rel="nofollow" class="comment-reply-link" href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/?replytocom=196348#respond" onclick='return addComment.moveForm( "comment-196348", "196348", "respond", "5180" )' aria-label="Reply to Jean-Francois Nadeau">Reply</a>  </div></li>
+
+  <li id="comment-231603" class="comment odd alt thread-odd thread-alt depth-1 media comment-231603">
+    <img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/4829eed0600e84882a5d4ee6e4b87246.jpeg" alt="" class="avatar avatar-64wp-user-avatar wp-user-avatar-64 alignnone photo avatar-default" originals="64" scale="0.89552241563797" width="64" height="64"><div class="media-body">
+  <h4 class="media-heading">James Kitto</h4>
+  <time datetime="2015-06-24T14:42:35+00:00"><a href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/#comment-231603">June 24, 2015</a></time>
+  
+  
+  <p>Very useful guide, however I was thrown at first where it says 
+“Note the period (“.”) at the end of the command.” as the command 
+provided is actually missing the period.</p>
+  <a rel="nofollow" class="comment-reply-link" href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/?replytocom=231603#respond" onclick='return addComment.moveForm( "comment-231603", "231603", "respond", "5180" )' aria-label="Reply to James Kitto">Reply</a>      <ul class="comment even thread-even depth-1 media unstyled comment-231603">
+    
+  <li id="comment-319896" class="comment byuser comment-author-adam odd alt depth-2 media comment-319896">
+    <img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/02c512e-1.jpg" alt="Adam Herzog" class="avatar avatar-64 wp-user-avatar wp-user-avatar-64 alignnone photo" scale="0" width="64" height="64"><div class="media-body">
+  <h4 class="media-heading">Adam Herzog</h4>
+  <time datetime="2016-03-03T13:30:37+00:00"><a href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/#comment-319896">March 3, 2016</a></time>
+  
+  
+  <p>Just fixed! Thanks for letting us know</p>
+  <a rel="nofollow" class="comment-reply-link" href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/?replytocom=319896#respond" onclick='return addComment.moveForm( "comment-319896", "319896", "respond", "5180" )' aria-label="Reply to Adam Herzog">Reply</a>      <ul class="comment byuser comment-author-adam even depth-2 media unstyled comment-319896">
+    
+  <li id="comment-401371" class="comment odd alt depth-3 media comment-401371">
+    <img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/1ce3ee6b412e78ef7d5bf4a63970b684.jpeg" alt="" class="avatar avatar-64wp-user-avatar wp-user-avatar-64 alignnone photo avatar-default" originals="64" scale="0.89552241563797" width="64" height="64"><div class="media-body">
+  <h4 class="media-heading">Rob Wyrick</h4>
+  <time datetime="2017-06-18T23:53:21+00:00"><a href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/#comment-401371">June 18, 2017</a></time>
+  
+  
+  <p>But the command is still wrong… there should be a space before the period, no?</p>
+  <a rel="nofollow" class="comment-reply-link" href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/?replytocom=401371#respond" onclick='return addComment.moveForm( "comment-401371", "401371", "respond", "5180" )' aria-label="Reply to Rob Wyrick">Reply</a>      <ul class="comment even depth-3 media unstyled comment-401371">
+    
+  <li id="comment-406114" class="comment odd alt depth-4 media comment-406114">
+    <img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/4e09015bc25b492a13bfa94a2c7df3ab.jpeg" alt="" class="avatar avatar-64wp-user-avatar wp-user-avatar-64 alignnone photo avatar-default" originals="64" scale="0.89552241563797" width="64" height="64"><div class="media-body">
+  <h4 class="media-heading">Eduardo</h4>
+  <time datetime="2017-07-28T13:56:38+00:00"><a href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/#comment-406114">July 28, 2017</a></time>
+  
+  
+  <p>Yes, it should have a space before the period. Indicating the current folder.</p>
+<p>docker build -t mynginximage1 .</p>
+<p>Seems like it's a typo, because you can see the same command after the incorrect one but without the error.</p>
+  <a rel="nofollow" class="comment-reply-link" href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/?replytocom=406114#respond" onclick='return addComment.moveForm( "comment-406114", "406114", "respond", "5180" )' aria-label="Reply to Eduardo">Reply</a>  </div></li>
+</ul></div></li>
+</ul></div></li>
+</ul></div></li>
+
+  <li id="comment-315260" class="comment even thread-odd thread-alt depth-1 media comment-315260">
+    <img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/9427cf9c439d44cf91518ef52c4ca138.jpeg" alt="" class="avatar avatar-64wp-user-avatar wp-user-avatar-64 alignnone photo avatar-default" originals="64" scale="0.89552241563797" width="64" height="64"><div class="media-body">
+  <h4 class="media-heading"><a href="http://www.utahsites.com/category/news/events/" rel="external nofollow" class="url">Utah Sites</a></h4>
+  <time datetime="2016-02-01T00:15:55+00:00"><a href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/#comment-315260">February 1, 2016</a></time>
+  
+  
+  <p>This tutorial is indeed a big help for me personally. Glad to know 
+everything about it now after spending time researching about it. I know
+ a lot better now because of the step by step tutorial you’ve shared. 
+And thanks for giving some input and tips as well for deploying images 
+with docker.</p>
+  <a rel="nofollow" class="comment-reply-link" href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/?replytocom=315260#respond" onclick='return addComment.moveForm( "comment-315260", "315260", "respond", "5180" )' aria-label="Reply to Utah Sites">Reply</a>  </div></li>
+
+  <li id="comment-328876" class="comment odd alt thread-even depth-1 media comment-328876">
+    <img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/e0767699ca580dc2c19d21ff06569c59.jpeg" alt="" class="avatar avatar-64wp-user-avatar wp-user-avatar-64 alignnone photo avatar-default" originals="64" scale="0.89552241563797" width="64" height="64"><div class="media-body">
+  <h4 class="media-heading">Amandeep</h4>
+  <time datetime="2016-03-31T10:53:15+00:00"><a href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/#comment-328876">March 31, 2016</a></time>
+  
+  
+  <p>Hi,<br>
+I have query regarding helper container.<br>
+I have created a nginx container from custom docker image exposing port 
+80 and 443 and few volumes also and one helper container named 
+nginx4files where nginx.conf is mounted automatically.<br>
+Problem statement -: from nginx4files container, i have modified the 
+port of nginx from 80 to 8085 and reload the nginx configuration using 
+nginx -s reload command. I checked the nginx.conf file in nginx 
+container which is getting updated as well but when i am running docker 
+ps the changed port (80 to 8085)is not getting mapped to host dynamic 
+port. Therefore, even container is running, i am not able to access 
+nginx landing page from host system. Please advise, do i need to stop 
+the nginx container to reflect the configuration of i am missing 
+something here.</p>
+<p>Thanks<br>
+Amandeep</p>
+  <a rel="nofollow" class="comment-reply-link" href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/?replytocom=328876#respond" onclick='return addComment.moveForm( "comment-328876", "328876", "respond", "5180" )' aria-label="Reply to Amandeep">Reply</a>  </div></li>
+
+  <li id="comment-384981" class="comment even thread-odd thread-alt depth-1 media comment-384981">
+    <img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/6659ab03a9962f01653a22413a86862d.png" alt="" class="avatar avatar-64wp-user-avatar wp-user-avatar-64 alignnone photo avatar-default" originals="64" scale="0.89552241563797" width="64" height="64"><div class="media-body">
+  <h4 class="media-heading"><a href="https://sysinfo.io/" rel="external nofollow" class="url">Travis Runyard</a></h4>
+  <time datetime="2017-02-21T09:55:46+00:00"><a href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/#comment-384981">February 21, 2017</a></time>
+  
+  
+  <p>What is the general consensus? Do people keep their configs in a 
+central location and update them to update all containers that read them
+ or the other method mentioned?</p>
+  <a rel="nofollow" class="comment-reply-link" href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/?replytocom=384981#respond" onclick='return addComment.moveForm( "comment-384981", "384981", "respond", "5180" )' aria-label="Reply to Travis Runyard">Reply</a>  </div></li>
+
+  <li id="comment-394134" class="comment odd alt thread-even depth-1 media comment-394134">
+    <img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/7aee9e35fc81e10904c52d60e607dd8f.jpeg" alt="" class="avatar avatar-64wp-user-avatar wp-user-avatar-64 alignnone photo avatar-default" originals="64" scale="0.89552241563797" width="64" height="64"><div class="media-body">
+  <h4 class="media-heading"><a href="http://www.seonational.com/" rel="external nofollow" class="url">SEO National</a></h4>
+  <time datetime="2017-04-30T20:42:17+00:00"><a href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/#comment-394134">April 30, 2017</a></time>
+  
+  
+  <p>This tutorial is very a big help. Through this we can then create 
+an image as described in this page and using this image create an NGINX 
+container and a helper container that have access to the log directory.</p>
+  <a rel="nofollow" class="comment-reply-link" href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/?replytocom=394134#respond" onclick='return addComment.moveForm( "comment-394134", "394134", "respond", "5180" )' aria-label="Reply to SEO National">Reply</a>  </div></li>
+
+  <li id="comment-399067" class="comment even thread-odd thread-alt depth-1 media comment-399067">
+    <img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/86a10e1e3a427c3641424bbc1e76c746.jpeg" alt="" class="avatar avatar-64wp-user-avatar wp-user-avatar-64 alignnone photo avatar-default" originals="64" scale="0.89552241563797" width="64" height="64"><div class="media-body">
+  <h4 class="media-heading">jeremy rutman</h4>
+  <time datetime="2017-06-04T01:55:19+00:00"><a href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/#comment-399067">June 4, 2017</a></time>
+  
+  
+  <p>I followed this blog's instructions but wind up with a server that 
+shows only the 'wecome to nginx ' splash page – no changes to /var/www 
+seem to get seen . I used docker run –name mynginx2 -v 
+/data/www:/usr/share/nginx/html:ro -v /var/nginx/conf:/etc/nginx:ro 
+-p8090:80 -d nginx  and also without -d flag to no avail ( my web 
+content is in /data/www)</p>
+  <a rel="nofollow" class="comment-reply-link" href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/?replytocom=399067#respond" onclick='return addComment.moveForm( "comment-399067", "399067", "respond", "5180" )' aria-label="Reply to jeremy rutman">Reply</a>  </div></li>
+
+  <li id="comment-405489" class="comment odd alt thread-even depth-1 media comment-405489">
+    <img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/5eb4f65151d4fa799e5f84ab48a0c5f9.jpeg" alt="" class="avatar avatar-64wp-user-avatar wp-user-avatar-64 alignnone photo avatar-default" originals="64" scale="0.89552241563797" width="64" height="64"><div class="media-body">
+  <h4 class="media-heading"><a href="http://zurien.com/" rel="external nofollow" class="url">Dean Christian Armada</a></h4>
+  <time datetime="2017-07-22T20:34:59+00:00"><a href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/#comment-405489">July 22, 2017</a></time>
+  
+  
+  <p>restarting the container is not advisable when you initialize 
+Docker Swarm because it may remove the nginx service. So if you need an 
+alternative aside docker restart; You can go inside the container and 
+just run nginx -s reload</p>
+  <a rel="nofollow" class="comment-reply-link" href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/?replytocom=405489#respond" onclick='return addComment.moveForm( "comment-405489", "405489", "respond", "5180" )' aria-label="Reply to Dean Christian Armada">Reply</a>  </div></li>
+
+  <li id="comment-408431" class="comment even thread-odd thread-alt depth-1 media comment-408431">
+    <img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/b29b840ba500bdf63900845ee821c2c8.jpeg" alt="" class="avatar avatar-64wp-user-avatar wp-user-avatar-64 alignnone photo avatar-default" originals="64" scale="0.89552241563797" width="64" height="64"><div class="media-body">
+  <h4 class="media-heading">prachi</h4>
+  <time datetime="2017-08-22T02:59:11+00:00"><a href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/#comment-408431">August 22, 2017</a></time>
+  
+  
+  <p>Can we configure nginx to process header Expect</p>
+  <a rel="nofollow" class="comment-reply-link" href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/?replytocom=408431#respond" onclick='return addComment.moveForm( "comment-408431", "408431", "respond", "5180" )' aria-label="Reply to prachi">Reply</a>  </div></li>
+      	  
+	  
+    </ol>
+
+    
+      </section><!-- /#comments -->
+
+
+  <section id="respond">
+    <h3>Leave a Reply</h3>
+    <p class="cancel-comment-reply"><a rel="nofollow" id="cancel-comment-reply-link" href="https://blog.docker.com/2015/04/tips-for-deploying-nginx-official-image-with-docker/#respond" style="display:none;">Click here to cancel reply.</a></p>
+          <form action="https://blog.docker.com/wp-comments-post.php" method="post" id="commentform">
+        		<div class="full">
+			<div class="half">
+			  <div class="form-group">
+				<input class="form-control" name="author" id="author" placeholder="Name (required)" size="22" aria-required="true" type="text">
+			  </div>
+			  <div class="form-group">
+				<input class="form-control" name="email" id="email" placeholder="Email (will not be published) (required)" size="22" aria-required="true" type="email">
+			  </div>
+			  <div class="form-group">
+				<input class="form-control" name="url" id="url" placeholder="Website" size="22" type="url">
+			  </div>
+			</div>
+			
+			<div class="half">
+				<div class="form-group">
+				  <textarea name="comment" id="comment" class="form-control" placeholder="Comment" rows="5" aria-required="true"></textarea>
+				</div>
+			</div>
+        </div>
+		        <p>
+		<input name="submit" class="button btn-orange" id="submit" value="Submit Comment" type="submit">
+		</p>
+        <input name="comment_post_ID" value="5180" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+        <p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="176a1f5c74" type="hidden"></p><p class="comment-subscription-form"><input name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" type="checkbox"> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label></p><p class="comment-subscription-form"><input name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" type="checkbox"> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of new posts by email.</label></p><p style="display: none;"></p>      <input id="ak_js" name="ak_js" value="1513127035019" type="hidden"></form>
+      </section><!-- /#respond -->
+	
+    <div id="perfect-related_by-category" class="related_posts_box related_posts_box2">
+		<h3>Related Posts</h3>
+		<ul class="items widthcol3"><li><a class="firstimg" href="https://blog.docker.com/2016/04/docker-security/"><span class="helper"><img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/47979eee-97c8-4ce3-a6ac-5a43897771c2-1024x594.jpg" alt"a="" look="" back="" at="" one="" year="" of="" docker="" security"="" scale="0"></span></a><h4><a href="https://blog.docker.com/2016/04/docker-security/" rel="bookmark" title="A Look Back at One Year of Docker Security">A Look Back at One Year of Docker Security</a></h4><span class="author">By <a href="https://blog.docker.com/author/diogo/" rel="author" class="fn">Diogo Mónica</a></span><span class="date"><time class="published" datetime="2016-04-20T15:00:00+00:00">April 20, 2016</time>
+</span><span class="tags"><a href="https://blog.docker.com/tag/container-security/" rel="tag">Container Security</a>, <a href="https://blog.docker.com/tag/docker/" rel="tag">docker</a>, <a href="https://blog.docker.com/tag/docker-security/" rel="tag">Docker security</a>, <a href="https://blog.docker.com/tag/operational-security/" rel="tag">operational security</a>, <a href="https://blog.docker.com/tag/security/" rel="tag">security</a></span></li><li><a class="firstimg" href="https://blog.docker.com/2015/08/docker-global-hack-day-3-update-local-editions-prizes/"><span class="helper"><img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/globalhackday3.png" alt"docker="" global="" hack="" day="" #3:="" update="" on="" local="" editions,="" prizes="" and="" more!"="" scale="0"></span></a><h4><a href="https://blog.docker.com/2015/08/docker-global-hack-day-3-update-local-editions-prizes/" rel="bookmark" title="Docker Global Hack Day #3: Update on Local Editions, Prizes and More!">Docker Global Hack Day #3: Update on Local Editions, Prizes and More!</a></h4><span class="author">By <a href="https://blog.docker.com/author/adam/" rel="author" class="fn">Adam Herzog</a></span><span class="date"><time class="published" datetime="2015-08-17T08:24:14+00:00">August 17, 2015</time>
+</span></li><li><a class="firstimg" href="https://blog.docker.com/2015/10/registry-proxy-cache-docker-open-source/"><span class="helper"><img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/ff48dc6b3fdab2301077ad223dfc4245.jpeg" alt="" class="avatar avatar-156 wp-user-avatar wp-user-avatar-156 photo avatar-default" originals="156" src-orig="https://secure.gravatar.com/avatar/ff48dc6b3fdab2301077ad223dfc4245?s=156&amp;d=mm&amp;r=g" scale="0.89552241563797" width="156" height="156"></span></a><h4><a href="https://blog.docker.com/2015/10/registry-proxy-cache-docker-open-source/" rel="bookmark" title="How to Set Up a Registry Proxy Cache with Docker Open Source Registry">How to Set Up a Registry Proxy Cache with Docker Open Source Registry</a></h4><span class="author">By <a href="https://blog.docker.com/author/mbentley/" rel="author" class="fn">Matt Bentley</a></span><span class="date"><time class="published" datetime="2015-10-16T09:03:23+00:00">October 16, 2015</time>
+</span><span class="tags"><a href="https://blog.docker.com/tag/docker-registry/" rel="tag">Docker Registry</a>, <a href="https://blog.docker.com/tag/open-source/" rel="tag">open source</a></span></li></ul></div>
+	<section class="widget text-12 widget_text"><div class="widget-inner">			<div class="textwidget"><div class="getanews " style="background-color: #F3F3F3;"><h3>Get the Latest Docker News by Email</h3><div class="row"><div class="columns small-12 medium-12 large-6 "><p>Docker Weekly is a newsletter with the latest content on Docker and the agenda for the upcoming weeks.</p></div><div class="columns small-12 medium-12 large-6 newsletter"><span>Subscribe to our newsletter</span><script src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/forms2.js"></script><form id="mktoForm_1078" novalidate="novalidate" style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; color: rgb(51, 51, 51); width: 551px;" class="mktoForm mktoHasWidth mktoLayoutLeft"><style type="text/css">.mktoForm
+ .mktoButtonWrap.mktoSkip .mktoButton {
+background-color: #8c9cbf;
+background-image: -webkit-gradient(linear, left top, left bottom, 
+color-stop(0%, #8c9cbf), color-stop(50%, #546a9e), color-stop(50%, 
+#36518f), color-stop(100%, #3d5691));
+background-image: -webkit-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, 
+#36518f 50%, #3d5691 100%);
+background-image: -moz-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, 
+#36518f 50%, #3d5691 100%);
+background-image: -ms-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, 
+#36518f 50%, #3d5691 100%);
+background-image: -o-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, 
+#36518f 50%, #3d5691 100%);
+background-image: linear-gradient(to bottom, #8c9cbf 0%, #546a9e 50%, 
+#36518f 50%, #3d5691 100%);
+border: 1px solid #172d6e;
+border-bottom: 1px solid #0e1d45;
+border-radius: 5px;
+-webkit-box-shadow: inset 0 1px 0 0 #b1b9cb;
+box-shadow: inset 0 1px 0 0 #b1b9cb;
+color: #fff;
+font: bold 16px/1 "helvetica neue", helvetica, arial, sans-serif;
+padding: 7px 0 8px 0;
+text-decoration: none;
+text-align: center;
+text-shadow: 0 -1px 1px #000f4d;
+width: 150px;
+}
+.mktoForm .mktoButtonWrap.mktoSkip .mktoButton:hover {
+background-color: #7f8dad;
+background-image: -webkit-gradient(linear, left top, left bottom, 
+color-stop(0%, #7f8dad), color-stop(50%, #4a5e8c), color-stop(50%, 
+#2f477d), color-stop(100%, #364c80));
+background-image: -webkit-linear-gradient(top, #7f8dad 0%, #4a5e8c 50%, 
+#2f477d 50%, #364c80 100%);
+background-image: -moz-linear-gradient(top, #7f8dad 0%, #4a5e8c 50%, 
+#2f477d 50%, #364c80 100%);
+background-image: -ms-linear-gradient(top, #7f8dad 0%, #4a5e8c 50%, 
+#2f477d 50%, #364c80 100%);
+background-image: -o-linear-gradient(top, #7f8dad 0%, #4a5e8c 50%, 
+#2f477d 50%, #364c80 100%);
+background-image: linear-gradient(to bottom, #7f8dad 0%, #4a5e8c 50%, 
+#2f477d 50%, #364c80 100%);
+cursor: pointer;
+}
+.mktoForm .mktoButtonWrap.mktoSkip .mktoButton:active {
+-webkit-box-shadow: inset 0 0 20px 0 #1d2845, 0 1px 0 white;
+box-shadow: inset 0 0 20px 0 #1d2845, 0 1px 0 white;
+}
+</style><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap"><label for="Email" class="mktoLabel mktoHasWidth" style="width: 150px;"><div class="mktoAsterix">*</div>Email Address:</label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="Email" name="Email" maxlength="255" class="mktoField mktoEmailField mktoHasWidth" style="width: 400px;" placeholder="Subscribe to our newsletter" type="email"><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoButtonRow"><span class="mktoButtonWrap mktoSkip" style="margin-left: 265px;"><button type="submit" class="mktoButton">Subscribe</button></span></div><input name="formid" class="mktoField mktoFieldDescriptor" value="1078" type="hidden"><input name="munchkinId" class="mktoField mktoFieldDescriptor" value="929-FJL-178" type="hidden"></form><script>MktoForms2.loadForm("//app-sj05.marketo.com", "929-FJL-178", 1078, function(form) {
+				  form.onSuccess(function(values, followUpUrl) {
+					location.href = "https://docker.com/thank-you-subscribing-docker-newsletter";
+					return false;
+				  });
+				});
+				MktoForms2.whenReady(function(form){
+				  $("#mktoForm_1078 #Email").attr("placeholder", "Enter your email");
+				});</script></div></div></div></div>
+		</div></section>	  </article>
+</div>
+  	  </div>
+    </div><!-- /.content -->
+  </div><!-- /.wrap -->
+  <i class="footer_mobypadding"> </i>
+  </div>
+  		<section class="newsletter_section">
+	<div class="container">
+		<div class=" newsletter"> 
+			<script src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/forms2.js"></script>
+			<form id="mktoForm_1038" novalidate="novalidate" style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; color: rgb(51, 51, 51); width: 251px;" class="mktoForm mktoHasWidth mktoLayoutLeft"><style type="text/css">.mktoForm .mktoButtonWrap.mktoSimple .mktoButton {
+color:#fff;
+border:1px solid #75ae4c;
+padding:0.4em 1em;
+font-size:1em;
+background-color:#99c47c;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#99c47c), to(#75ae4c));
+background-image: -webkit-linear-gradient(top, #99c47c, #75ae4c);
+background-image: -moz-linear-gradient(top, #99c47c, #75ae4c);
+background-image: linear-gradient(to bottom, #99c47c, #75ae4c);
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:hover {
+border:1px solid #447f19;
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:focus {
+outline:none;
+border:1px solid #447f19;
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:active{
+background-color:#75ae4c;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#75ae4c), to(#99c47c));
+background-image: -webkit-linear-gradient(top, #75ae4c, #99c47c);
+background-image: -moz-linear-gradient(top, #75ae4c, #99c47c);
+background-image: linear-gradient(to bottom, #75ae4c, #99c47c);
+}
+</style><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="Email" class="mktoLabel mktoHasWidth" style="width: 100px;"><div class="mktoAsterix">*</div>Email Address:</label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="Email" name="Email" maxlength="255" class="mktoField mktoEmailField mktoHasWidth mktoRequired" style="width: 150px;" placeholder="Subscribe to our newsletter" type="email"><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFormRow"><input name="list_1019" class="mktoField mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;" value="subscribed" type="hidden"><div class="mktoClear"></div></div><div class="mktoButtonRow"><span class="mktoButtonWrap mktoSimple" style="margin-left: 120px;"><button type="submit" class="mktoButton">Subscribe</button></span></div><input name="formid" class="mktoField mktoFieldDescriptor" value="1038" type="hidden"><input name="munchkinId" class="mktoField mktoFieldDescriptor" value="929-FJL-178" type="hidden"></form>
+			<script>
+				MktoForms2.loadForm("//app-sj05.marketo.com", "929-FJL-178", 1038, function(form) {
+					form.onSuccess(function(values, followUpUrl) {
+						location.href = "/thank-you-subscribing-docker-newsletter";
+						return false;
+					});
+				});
+				MktoForms2.whenReady(function(form){
+				/*	$('#mktoForm_1038 #Email').attr('placeholder', 'Enter your email'); */
+				$('.newsletter').find("#Email").each(function(ev){
+					if(!$(this).val()) { 
+						$(this).attr("placeholder", "Subscribe to our newsletter");
+					}
+				});   
+				$(".newsletter button.mktoButton").text('Subscribe');
+				});
+			</script> 
+		</div>
+	</div>
+</section>
+<footer class="main_footer">
+	<div class="container">
+		<div class="top_footer">
+			<div class="row">
+				<div class="col-xs-12 col-sm-3 col-md-3">
+			  <ul class="footer_links links_1"><li class="first menu-what-is-docker"><a target="_blank" href="https://www.docker.com/what-docker">What is Docker</a><span> </span></li>
+<li class="menu-what-is-a-container"><a target="_blank" href="https://www.docker.com/what-container">What is a Container</a></li>
+<li class="menu-use-cases"><a href="https://www.docker.com/use-cases">Use Cases</a></li>
+<li class="menu-customers"><a target="_blank" href="https://www.docker.com/customers">Customers</a></li>
+<li class="break menu-for-government"><a href="https://www.docker.com/industry-government">For Government</a></li>
+<li class="menu-for-it-pros"><a href="https://www.docker.com/itpro">For IT Pros</a></li>
+<li class="menu-find-a-partner"><a href="https://www.docker.com/find-partner">Find a Partner</a></li>
+<li class="menu-become-a-partner"><a href="https://www.docker.com/partners/partner-program">Become a Partner</a></li>
+<li class="menu-about-docker"><a href="https://www.docker.com/company">About Docker</a></li>
+<li class="menu-management"><a href="https://www.docker.com/company/management">Management</a></li>
+<li class="menu-press-news"><a href="https://www.docker.com/company/news-and-press">Press &amp; News</a></li>
+<li class="menu-careers"><a href="https://www.docker.com/careers">Careers</a></li>
+</ul> 
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+			  <ul class="footer_links links_2"><li class="first menu-product"><a href="https://www.docker.com/get-docker">Product</a><span> </span></li>
+<li class="menu-pricing"><a href="https://www.docker.com/pricing">Pricing</a></li>
+<li class="menu-community-edition"><a href="https://www.docker.com/community-edition">Community Edition</a></li>
+<li class="break menu-enterprise-edition"><a href="https://www.docker.com/enterprise-edition">Enterprise Edition</a></li>
+<li class="menu-docker-cloud"><a href="https://cloud.docker.com/">Docker Cloud</a></li>
+<li class="menu-docker-store"><a href="https://store.docker.com/">Docker Store</a></li>
+</ul> 
+				</div>
+				<!--<div class="col-xs-12 col-sm-3 col-md-3">
+			   
+				</div> -->
+				<div class="col-xs-12 col-sm-3 col-md-3">
+			  <ul class="footer_links links_4"><li class="first menu-documentation"><a href="https://docs.docker.com/">Documentation</a><span> </span></li>
+<li class="menu-blog"><a href="https://blog.docker.com/">Blog</a></li>
+<li class="menu-rss-feed"><a href="https://blog.docker.com/feed/">RSS Feed</a></li>
+<li class="menu-training"><a target="_blank" href="https://training.docker.com/">Training</a></li>
+<li class="menu-knowledge-base"><a target="_blank" href="https://success.docker.com/kbase">Knowledge Base</a></li>
+<li class="menu-resources"><a href="https://www.docker.com/products/resources">Resources</a></li>
+</ul> 
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+			  <ul class="footer_links links_5"><li class="first menu-community"><a href="https://www.docker.com/docker-community">Community</a><span> </span></li>
+<li class="menu-open-source"><a href="https://www.docker.com/technologies/overview">Open Source</a></li>
+<li class="menu-forums"><a target="_blank" href="https://forums.docker.com/">Forums</a></li>
+<li class="menu-docker-captains"><a href="https://www.docker.com/community/docker-captains">Docker Captains</a></li>
+<li class="menu-scholarships"><a href="https://www.docker.com/docker-community/scholarships">Scholarships</a></li>
+<li class="menu-community-news"><a href="https://blog.docker.com/curated/">Community News</a></li>
+</ul> 
+				</div>
+			</div> 
+			<div class="footer-nav">
+				<nav class="footer_sub_nav">
+			  <ul class="menu"><li class="first leaf menu-status"><a href="http://status.docker.com/">Status</a></li>
+<li class="menu-security"><a href="https://docker.com/docker-security">Security</a></li>
+<li class="menu-legal"><a href="https://www.docker.com/legal">Legal</a></li>
+<li class="last leaf menu-contact"><a href="https://www.docker.com/company/contact">Contact</a></li>
+</ul> 			</nav>
+			</div>
+		</div>
+		<div class="bottom_footer">
+			<div class="footer-copyright">
+				<p class="copyright">
+					Copyright © 2017 Docker Inc. All rights reserved.				</p>
+			</div>
+			<div class="footer_social_nav">
+				<ul class="nav-social"><li class="first leaf"><a class="fa fa-twitter" href="http://twitter.com/docker">Twitter</a></li>
+<li class="leaf"><a class="fa fa-youtube" href="http://www.youtube.com/user/dockerrun">Youtube</a></li>
+<li class="leaf"><a class="fa fa-google-plus" href="https://plus.google.com/u/0/communities/108146856671494713993">Google</a></li>
+<li class="leaf"><a class="fa fa-github" href="https://github.com/docker/docker">Github</a></li>
+<li class="leaf"><a class="fa fa-linkedin" href="https://www.linkedin.com/company/docker">Linkedin</a></li>
+<li class="leaf"><a class="fa fa-facebook" href="https://www.facebook.com/docker.run">Facebook</a></li>
+<li class="leaf"><a class="fa fa-reddit-alien" href="http://www.reddit.com/r/docker">Reddit</a></li>
+<li class="last leaf"><a class="fa fa-slideshare" href="http://www.slideshare.net/docker">Slideshare</a></li>
+</ul> 
+			</div>
+		</div>
+	</div>
+</footer>
+
+	<div style="display:none">
+	<div class="grofile-hash-map-1fa988d54c9f9d6161bef98700a94f0c">
+	</div>
+	<div class="grofile-hash-map-a4a4471c0b9973cbe631c8b41b7019bb">
+	</div>
+	<div class="grofile-hash-map-4829eed0600e84882a5d4ee6e4b87246">
+	</div>
+	<div class="grofile-hash-map-df06babb735a59f3c3dc8cf2c15d30f9">
+	</div>
+	<div class="grofile-hash-map-1ce3ee6b412e78ef7d5bf4a63970b684">
+	</div>
+	<div class="grofile-hash-map-4e09015bc25b492a13bfa94a2c7df3ab">
+	</div>
+	<div class="grofile-hash-map-9427cf9c439d44cf91518ef52c4ca138">
+	</div>
+	<div class="grofile-hash-map-e0767699ca580dc2c19d21ff06569c59">
+	</div>
+	<div class="grofile-hash-map-6659ab03a9962f01653a22413a86862d">
+	</div>
+	<div class="grofile-hash-map-7aee9e35fc81e10904c52d60e607dd8f">
+	</div>
+	<div class="grofile-hash-map-86a10e1e3a427c3641424bbc1e76c746">
+	</div>
+	<div class="grofile-hash-map-5eb4f65151d4fa799e5f84ab48a0c5f9">
+	</div>
+	<div class="grofile-hash-map-b29b840ba500bdf63900845ee821c2c8">
+	</div>
+	<div class="grofile-hash-map-ff48dc6b3fdab2301077ad223dfc4245">
+	</div>
+	</div>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/photon.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/devicepx-jetpack.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/comment-reply.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/vendor.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/8a432be07c.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/docker.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/vendor_002.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/affix.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/script.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/foundation.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var jetpackCarouselStrings = 
+{"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"https:\/\/blog.docker.com\/wp-admin\/admin-ajax.php","nonce":"78b3f71ce4","display_exif":"0","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"white","comment":"Comment","post_comment":"Post
+ Comment","write_comment":"Write a 
+Comment...","loading_comments":"Loading 
+Comments...","download_original":"View full size <span 
+class=\"photo-size\">{0}<span 
+class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please
+ be sure to submit some text with your 
+comment.","no_comment_email":"Please provide an email address to 
+comment.","no_comment_author":"Please provide your name to 
+comment.","comment_post_error":"Sorry, but there was an error posting 
+your comment. Please try again later.","comment_approved":"Your comment 
+was approved.","comment_unapproved":"Your comment is in 
+moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter
+ Speed","focal_length":"Focal 
+Length","copyright":"Copyright","comment_registration":"0","require_name_email":"1","login_url":"https:\/\/blog.docker.com\/dk-login\/?redirect_to=http%3A%2F%2Fdockr.ly%2F2fejctA","blog_id":"1","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"local_comments_commenting_as":"<fieldset><label
+ for=\"email\">Email (Required)<\/label> <input type=\"text\" 
+name=\"email\" class=\"jp-carousel-comment-form-field 
+jp-carousel-comment-form-text-field\" 
+id=\"jp-carousel-comment-form-email-field\" 
+\/><\/fieldset><fieldset><label for=\"author\">Name (Required)<\/label> 
+<input type=\"text\" name=\"author\" 
+class=\"jp-carousel-comment-form-field 
+jp-carousel-comment-form-text-field\" 
+id=\"jp-carousel-comment-form-author-field\" 
+\/><\/fieldset><fieldset><label for=\"url\">Website<\/label> <input 
+type=\"text\" name=\"url\" class=\"jp-carousel-comment-form-field 
+jp-carousel-comment-form-text-field\" 
+id=\"jp-carousel-comment-form-url-field\" \/><\/fieldset>"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/jetpack-carousel.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/wp-embed.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var ism_facebook_id = "397819923913030";
+var ism_base_path = "https:\/\/blog.docker.com";
+/* ]]> */
+</script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/front_end_footer.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/form.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/e-201750.js" async="" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:5.3',blog:'83253124',post:'5180',tz:'-8',srv:'blog.docker.com'} ]);
+	_stq.push([ 'clickTrackerInit', '83253124', '5180' ]);
+</script>
+<script>
+(function ($) {
+	var paged = 2;
+	var result = 1;
+	var ajaxurl = "https://blog.docker.com/wp-admin/admin-ajax.php";
+  function get_docker_scoopit(page) {
+	$.ajax({
+		type: "POST",
+		url: ajaxurl,
+		data: { action: 'get_docker_scoopit', paged: page},
+		dataType: 'html',
+		success: function(result){
+			var counter = parseInt($("#pagenumcount").text());
+			counter++;
+			$("#pagenumcount").text(counter);
+			
+			paged = $("#pagenumcount").text();
+			//items = $(result).filter( function () {
+           //     return $(this).is('.portfolio_row');
+           // });
+			$('#scoopit-theme_full #scoopit-wrapper .scoopit-fulltheme-scoops').append(result);
+			
+		}
+	});
+}
+
+$('#load-more-docker_scoopit').on( "click", function(e) {
+		e.preventDefault();
+		$("#load-more-docker_scoopit").addClass( "loading");
+		$("#load-more-docker_scoopit").attr('disabled','disabled');
+		get_docker_scoopit(paged);
+		setTimeout(
+		  function() 
+		  {
+			$("#load-more-docker_scoopit").removeClass( "loading");
+			$("#load-more-docker_scoopit").removeAttr( 'disabled' );
+		  }, 2000);
+		
+});
+$('.alm-load-more-btn').on('click', function(){
+    $('.blog_listing_section article:last-of-type').addClass('last_type_border');
+});
+
+
+/// sidebar scroll fix
+	if ($('.category_navigation_container').length > 0) {
+			$('.category_navigation_container').affix({
+				offset: {
+					top:$(".category_navigation_container").offset().top - 25,
+					bottom: $('footer.main_footer').outerHeight(true)+ $('.newsletter_section').outerHeight(true)
+				}
+			}); 
+		}	
+/// sidebar scroll fix 
+
+
+})(jQuery);
+</script> 
+<script>
+  $('.tm-click-to-tweet a').click(function(event) {
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = this.href,
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+    
+    window.open(url, 'twitter', opts);
+ 
+    return false;
+  });
+  /*
+$('.category_navigation_section .search-form .search-submit').click(function() {
+	$(this).parents('.search-form').addClass('active');
+}); */
+
+$('.category_navigation_section .search-form').click(function() {
+	$(this).addClass('active');
+});
+$('.category_navigation_section .search-form .search-submit').click(function() {
+	$(this).parents('.search-form').addClass('active');
+});
+if (!$('.dockercon16 section').hasClass('title_section')){
+	$('.main-header').addClass('backgroundimage');
+}
+/*	
+	var hide_search = function(e) {
+         element = $(e.target);
+         if(!element.is('.search-form') && element.parents('.search-form').length == 0)
+         {
+            $('.search-form').removeClass('active');
+         }
+	 };
+$("body").on('mousedown', $.proxy( hide_search, this) );
+
+*/
+</script>
+<script>
+ jQuery(document).foundation({
+  equalizer : {
+    equalize_on_stack: true
+  }
+});
+$('.left-off-canvas-menu .off-canvas-list 
+li').children('ul').addClass('left-submenu').prepend('<li 
+class="back"><a 
+href="#">Back</a></li>').parent('li').addClass('has-submenu expanded'); 
+</script>
+	<!-- window sticky -->
+<script>
+	$(window).scroll(function() {    
+	    var scroll = $(window).scrollTop();
+	     //console.log(scroll);
+	    if (scroll >= 50) {
+	        //console.log('a');
+	        $(".header").addClass("change");
+	    } else {
+	        //console.log('a');
+	        $(".header").removeClass("change");
+	    }
+	});
+</script>
+<!-- menu -->
+<script>
+(function(){
+    var burger = document.querySelector('.burger-container'),
+        header = document.querySelector('.header');
+        body = document.querySelector('body');
+    
+    burger.onclick = function() {
+        header.classList.toggle('menu-opened');
+        body.classList.toggle('overflow-hidden');
+    }
+}());
+</script>
+<!-- mobile nav -->
+<script>
+	$(document).ready(function() {
+	    $('.subnav').hide();
+	    $('#element').click(function() {
+	        $('.subnav').slideToggle(100);
+	        return false;
+	    });
+	});
+</script>
+<script>
+	$(document).ready(function() {
+	    $('.subnav2').hide();
+	    $('#element2').click(function() {
+	        $('.subnav2').slideToggle(100);
+	        return false;
+	    });
+	});
+	$("header .header ul.nav-main li.dropdown>a").click(function(a) {
+        a.preventDefault();
+		$(this).parent().siblings().children('ul.active').removeClass("active").slideToggle(300);
+		$(this).siblings('ul').toggleClass('active').stop().slideToggle(300);
+	});
+	
+	
+
+
+</script>
+<!-- end window sticky -->
+  			<a class="exit-off-canvas"></a>
+		
+
+	
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PSVHG8"
+ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PSVHG8');</script>
+<!-- End Google Tag Manager -->
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    var img="<img class='scoopitgpv' src='//docker-software-inc.scoop.it/gpv?wpt=5401090"
+    + "&location="+ encodeURIComponent(document.location)
+    + "&referer=" + encodeURIComponent(document.referrer)+"'/>";
+    jQuery("body").append(img);
+  });
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"f419820c87","applicationID":"51185770","transactionName":"YAdQNkZRD0FSUkVZDFlNZxBdHwhcV1RJHhNfEg==","queueTime":0,"applicationTime":817,"atts":"TEBTQA5LHE8=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+
+<img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/gpv_002.gif" scale="0"><img class="scoopitgpv" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/gpv.gif" scale="0"><img src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/g.gif" alt=":)" id="wpstats" scale="0" width="6" height="5"><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/lY4eZXm_YWu.html" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div><script type="text/javascript" id="" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/track.js"></script>
+<script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/spx.js"></script><img style="display: none;" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/a_002.gif" scale="0" border="0" width="1" height="1"><img style="display: none;" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/a.gif" scale="0" border="0" width="1" height="1"><img style="display: none;" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/generic.asc" scale="0" border="0" width="1" height="1"><script type="text/javascript" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/st.js"></script><script type="text/javascript">!
+ function(s, h, p, i, x) { p = s.createElement('iframe'); 
+p.style.display = 'none'; i = s.getElementsByTagName('script')[0]; 
+i.parentNode.insertBefore(p, i); x = p.contentWindow.document; x.open();
+ x.write(h); x.close();}(document, '<'+'html><'+'body><'+'script 
+type=\'text/javascript\'>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version=\'2.0\';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,\'script\',\'https://connect.facebook.net/en_US/fbevents.js\');'
+ +'fbq(\'init\', \'440301959499868\');' +'fbq(\'track\', 
+\'ViewContent\', {' +' content_ids: [\''+'${shps}'.replace(/,/g , 
+'\',\'')+'\'],' +' content_type: \'product\',' +' currency: \'USD\'' 
++'});' +'<'+'/script><'+'/body><'+'/html>');</script><script type="text/javascript">!function(s,h,p,i,x){p=s.createElement('iframe');p.style.display='none';i=s.getElementsByTagName('script')[0];i.parentNode.insertBefore(p,i);x=p.contentWindow.document;try{var
+ trim=function t(str){return 
+str.replace(/^\s\s*/,'').replace(/\s\s*$/,'')},cookieName='_shcp_',id='${shcp}',getCookieValue=function(arr){var
+ bool=!1;for(var _i=0;_i<arr.length;_i++){var 
+cv=arr[_i][1];if(trim(arr[_i][0])===cookieName&&trim(cv).length){bool=cv}}
+ return 
+bool},shouldSetCookie=function(){return(id&&id!=='${'+'shcp'+'}')?!0:!1},cookies=(''+document.cookie).split(';'),cookieGroups=(function(arr,c){for(var
+ 
+_i=0;_i<cookies.length;_i++){c=cookies[_i].split('=');arr.push(c)};return
+ 
+arr}([],[])),cookieValue=getCookieValue(cookieGroups),fireCookie=shouldSetCookie();if((cookieValue&&cookieValue!==id&&fireCookie)||(!cookieValue&&fireCookie)){x.open();x.write(h);x.close()};if(fireCookie){document.cookie=cookieName+'='+trim(id)+';max-age=2592000;path=/;domain='+document.domain+';'}}catch(e){}}(document,'<'+'html><'+'body><'+'script
+ 
+type=\'text/javascript\'>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version=\'2.0\';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,\'script\',\'https://connect.facebook.net/en_US/fbevents.js\');'+'fbq(\'init\',
+ \'440301959499868\');'+'fbq(\'track\', \'AddToCart\', {'+' content_ids:
+ [\''+'${shcp}'.replace(/,/g,'\',\'')+'\'],'+' content_type: 
+\'product\','+' currency: 
+\'USD\''+'});'+'<'+'/script><'+'/body><'+'/html>');</script><script type="text/javascript">!function(s,
+ h, p, i, x) { p = s.createElement('iframe'); p.style.display = 'none'; i
+ = s.getElementsByTagName('script')[0]; i.parentNode.insertBefore(p, i);
+ x = p.contentWindow.document; x.open(); x.write(h); 
+x.close();}(document, '<'+'html><'+'body><'+'script 
+type=\'text/javascript\'>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version=\'2.0\';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,\'script\',\'https://connect.facebook.net/en_US/fbevents.js\');'+'fbq(\'init\',
+ \'895841477194745\');'+'fbq(\'track\', 
+\'ViewContent\');'+'fbq(\'track\', 
+\'PageView\');'+'<'+'/script><'+'/body><'+'/html>');</script><script type="text/javascript">!function(s,h,p,i,x){p=s.createElement('iframe');p.style.display='none';i=s.getElementsByTagName('script')[0];i.parentNode.insertBefore(p,i);x=p.contentWindow.document;try{var
+ trim=function t(str){return 
+str.replace(/^\s\s*/,'').replace(/\s\s*$/,'')},cookieName='_shcp_pro_',id='${shcp}',getCookieValue=function(arr){var
+ bool=!1;for(var _i=0;_i<arr.length;_i++){var 
+cv=arr[_i][1];if(trim(arr[_i][0])===cookieName&&trim(cv).length){bool=cv}}
+ return 
+bool},shouldSetCookie=function(){return(id&&id!=='${'+'shcp'+'}')?!0:!1},cookies=(''+document.cookie).split(';'),cookieGroups=(function(arr,c){for(var
+ 
+_i=0;_i<cookies.length;_i++){c=cookies[_i].split('=');arr.push(c)};return
+ 
+arr}([],[])),cookieValue=getCookieValue(cookieGroups),fireCookie=shouldSetCookie();if((cookieValue&&cookieValue!==id&&fireCookie)||(!cookieValue&&fireCookie)){x.open();x.write(h);x.close()};if(fireCookie){document.cookie=cookieName+'='+trim(id)+';max-age=2592000;path=/;domain='+document.domain+';'}}catch(e){}}(document,'<'+'html><'+'body><'+'script
+ 
+type=\'text/javascript\'>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version=\'2.0\';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,\'script\',\'https://connect.facebook.net/en_US/fbevents.js\');'+'fbq(\'init\',
+ \'895841477194745\');'+'fbq(\'track\', \'AddToCart\', {'+' content_ids:
+ [\''+'${shcp}'.replace(/,/g,'\',\'')+'\'],'+' content_type: 
+\'product\','+' currency: 
+\'USD\''+'});'+'<'+'/script><'+'/body><'+'/html>');</script><script type="text/javascript" id="">(function(){var
+ 
+g="4.0.0",h="12352",k="",d,a,c;try{d=""!==top.document.referer?encodeURIComponent(top.document.referrer.substring(0,2048)):""}catch(f){d=null!==document.referrer?document.referrer.toString().substring(0,2048):""}try{a=window&&window.top&&document.location&&window.top.location===document.location?document.location:window&&window.top&&window.top.location&&""!==window.top.location?window.top.location:document.location}catch(f){a=document.location}try{c=""!==parent.location.href?encodeURIComponent(parent.location.href.toString().substring(0,
+2048)):""}catch(f){try{c=null!==a?encodeURIComponent(a.toString().substring(0,2048)):""}catch(l){c=""}}var
+ e;a=document.createElement("script");var 
+b=document.getElementsByTagName("script"),b=Number(b.length)-1,b=document.getElementsByTagName("script")[b];"undefined"===typeof
+ 
+e&&(e=Math.floor(1E17*Math.random()));a.type="text/javascript";a.src=("https:"===document.location.protocol?"https://":"http://")+("dx.steelhousemedia.com/spx?dxver\x3d"+g+"\x26shaid\x3d"+h+"\x26tdr\x3d"+d+"\x26plh\x3d"+c+"\x26cb\x3d"+
+e+k);b.parentNode.insertBefore(a,b)})();</script><div id="mktoStyleLoaded" style="display: none; border-top-color: rgb(18, 52, 86);"></div><div id="mktoStyleLoaded" style="display: none; border-top-color: rgb(18, 52, 86);"></div><form novalidate="novalidate" style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; color: rgb(51, 51, 51); visibility: hidden; position: absolute; top: -500px; left: -1000px; width: 2131px;" class="mktoForm mktoHasWidth mktoLayoutLeft"></form><form novalidate="novalidate" style="font-family: Helvetica, Arial, sans-serif; font-size: 13px; color: rgb(51, 51, 51); visibility: hidden; position: absolute; top: -500px; left: -1000px; width: 2131px;" class="mktoForm mktoHasWidth mktoLayoutLeft"></form><iframe name="mktoFormsXDIframe0.8447201684066241" id="MktoForms2XDIframe" style="display: none;" src="Tips%20for%20Deploying%20NGINX%20(Official%20Image)%20with%20Docker%20-%20Docker%20Blog_files/XDFrame.html"></iframe></body></html>

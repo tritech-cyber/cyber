@@ -1,0 +1,76 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"></head><body><pre>
+DRAFT - 171211 - This project will expand.se
+***********************************************************************
+* KVM - debian 9 - xfce4 project checklist                            *
+***********************************************************************
+* Client software on the KVM (Install the following):                 *
+***********************************************************************
+[  ] geany geany-plugins
+[  ] ftp
+[  ] firefox57 (/opt/firefox/firefox)
+[  ] net-tools
+[  ] locate
+[  ] git
+[  ] nodejs 9 (Use package manager):
+	curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+	sudo apt-get install -y nodejs
+	
+Setup
+[  ] Set up git for your user.
+[  ] Set python to python 3 in .bash_aliases
+[  ] Set .bash_profile to match /root/.bashrc and uncomment atributes
+	 see below 
+[  ] boot to terminal (systemctl set-default multi-user.target)
+[  ] Set nginx root to /home/user/http
+[  ] Set up samba on the KVM and connect from the physcial machine.
+***********************************************************************
+* Services:                                                           * 
+***********************************************************************
+[  ] nginx
+[  ] samba
+[  ] vsftpd
+[  ] nodesimple server
+
+Setup and configure.
+- nginx
+- samba
+. . . documentation/linux/samba/
+- vsftpd
+	. . . documentation/linux/vsftpd/
+- nodejs (simple server)
+***********************************************************************
+*                                                                     * 
+***********************************************************************
+</pre>
+
+<pre>
+  GNU nano 2.7.4                                                                        File: .bash_aliases                                                                                   
+
+alias python=python3
+alias update='sudo apt update && sudo apt upgrade && apt moo && cowsay updates are done && cat /etc/debian_version && uname -r'
+
+#cwc
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# some more ls aliases
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+alias lr='ls -R'
+</pre>
+
+
+</body></html>
