@@ -12,6 +12,8 @@ DRAFT - 171211 - This project will expand.se
 [  ] net-tools
 [  ] locate
 [  ] git
+[  ] sudo
+[  ] cowsay
 [  ] nodejs 9 (Use package manager):
 	curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 	sudo apt-get install -y nodejs
@@ -19,8 +21,7 @@ DRAFT - 171211 - This project will expand.se
 Setup
 [  ] Set up git for your user.
 [  ] Set python to python 3 in .bash_aliases
-[  ] Set .bash_profile to match /root/.bashrc and uncomment atributes
-	 see below 
+[  ] Set .bash_profile see below 
 [  ] boot to terminal (systemctl set-default multi-user.target)
 [  ] Set nginx root to /home/user/http
 [  ] Set up samba on the KVM and connect from the physcial machine.
@@ -45,12 +46,11 @@ Setup and configure.
 </pre>
 
 <pre>
-  GNU nano 2.7.4                                                                        File: .bash_aliases                                                                                   
+File: ~/.bash_aliases                                                                                   
 
 alias python=python3
 alias update='sudo apt update && sudo apt upgrade && apt moo && cowsay updates are done && cat /etc/debian_version && uname -r'
 
-#cwc
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
