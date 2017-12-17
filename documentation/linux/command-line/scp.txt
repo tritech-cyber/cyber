@@ -1,0 +1,2 @@
+scp cwc@192.168.1.7:/home/cwc/getthisfile.tar.gz /home/cwc/
+
