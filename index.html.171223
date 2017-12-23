@@ -11,6 +11,10 @@ body {margin:0;}
     font-family:Arial, Helvetica, sans-serif;
 }
 
+svg:hover {
+     opacity: 0.5;
+}
+
 .row::after {
     content: "";
     clear: both;
@@ -28,7 +32,21 @@ html {
     color: #ffffff;
     padding: 15px;
 }
-
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.menu li {
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color: #33b5e5;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.menu li:hover {
+    background-color: #0099cc;
+}
 .aside {
     background-color: #33b5e5;
     padding: 15px;
@@ -42,7 +60,33 @@ footer {
     font-weight: bold;
 }
 
+/* topnav code */
+.remark-topnav{}
 
+.topnav {
+  overflow: hidden;
+  background-color: #073642;
+       font-family:Arial, Helvetica, sans-serif;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav .icon {
+  display: none;
+}
 
 
 /* For desktop: */
@@ -74,6 +118,26 @@ footer {
     width: 150px;
     border: 5px solid  #6981c7;
 }
+
+.bttn.bak {
+    background-color: #fff;
+    border: solid;
+    color:  #292a88;
+    padding: 1px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 0px 0px;
+    cursor: pointer;
+    height: 20px;
+    width: 200px;
+    border: 1px solid  #fff;
+   font-weight: normal;
+   font-size: 12px;
+     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
 
 
 .bttn {
@@ -275,45 +339,25 @@ https://octodex.github.com/
 	</div>
 <footer>
 	<center>
-	<div style="background-color:#292a88;color:white;padding:1px;">
-		<div style="background-color:#425c9f;color:white;padding:1px;">
-			<div style="background-color:#6981c7;color:white;padding:1px;">
-				<div style="background-color:#8eb1e1;color:white;padding:1px;">
-					<div style="background-color:#c2dcff;color:#f00;padding:1px;">
-							<div style="background-color:#fff;color:#f00;padding:1px;">292a88 425c9f	6981c7	8eb1e1 c2dcff
+	<div style="background-color:#292a88;color:white;padding:5px;">
+		<div style="background-color:#425c9f;color:white;padding:5px;">
+			<div style="background-color:#6981c7;color:white;padding:5px;">
+				<div style="background-color:#8eb1e1;color:white;padding:5px;">
+					<div style="background-color:#c2dcff;color:#f00;padding:5px;">
+							<div style="background-color:#fff;color:#f00;padding:5px;">292a88 425c9f	6981c7	8eb1e1 c2dcff
 </div></div></div></div></div></div>	
-<hr />
-<center>
-<a href ="https://sites.google.com/a/tritechsc.org/cyber/" target = "_blank">gs cyber </a>
-<a href = "https://sites.google.com/a/tritechsc.org/cyber-security-linux/ target = "_blank">gs cyber (old) </a>
-<a href = "https://sites.google.com/a/tritechsc.org/computerscience/"  target = "_blank"> computer science</a> 
-
-    
-<div style="background-color:#292a88; color:white;padding:1px;">#292a88;</div>
-<div style="background-color:#425c9f; color:white;padding:1px;">#425c9f;</div>
-<div style="background-color:#6981c7; color:white;padding:1px;">#6981c7;</div>
-<div style="background-color:#8eb1e1; color:white;padding:1px;">#8eb1e1;</div>
-<div style="background-color:#c2dcff; color:white;padding:1px;">#c2dcff;</div>
-
-<div style="background-color:#002b36; color:white;padding:1px;">#002b36;</div>
-<div style="background-color:#073642; color:white;padding:1px;">#073642;</div>
-<div style="background-color:#586e75; color:white;padding:1px;">#586e75;</div>
-<div style="background-color:#657b83; color:white;padding:1x;">#657b83;</div>
-<div style="background-color:#839496; color:white;padding:1px;">#839496;</div>
-<div style="background-color:#93a1a1; color:white;padding:1px;">#93a1a1;</div>
-<div style="background-color:#eee8d5; color:white;padding:1px;">#eee8d5;</div>
-<div style="background-color:#fdf6e3; color:white;padding:1px;">#fdf6e3;</div>
-<div style="background-color:#b58900; color:white;padding:1px;">#b58900;</div>
-<div style="background-color:#cb4b16; color:white;padding:1px;">#cb4b16;</div>
-<div style="background-color:#dc322f; color:white;padding:1px;">#dc322f;</div>
-<div style="background-color:#d33682; color:white;padding:1px;">#d33682;</div>
-<div style="background-color:#6c71c4; color:white;padding:1px;">#6c71c4;</div>
-<div style="background-color:#268bd2; color:white;padding:1px;">#268bd2;</div>
-<div style="background-color:#2aa198; color:white;padding:1px;">#2aa198;</div>
-<div style="background-color:#859900; color:white;padding:1px;">#859900;</div>
-</center>
 </center>
 </footer>
 
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
 </body>
 </html>

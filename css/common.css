@@ -262,18 +262,21 @@ h6 {
 /* Links
    ========================================================================== */
 a {
-  color: #fff;
+  color: #eee8d5;
   transition: all .3s; 
   font-weight: bold; 
   }
   a:hover {
-    color: #c2dcff; }
+    color: #93a1a1; }
   a:visited {
-    color: #c2dcff; }
+    color: #eee8d5; }
     a:visited:hover {
-      color: #c2dcff; }
+      color: #93a1a1; }
   a:active {
-    color: #c2dcff; }
+    color: #fdf6e3; }
+
+
+
 
 /* Figures & other elements
    ========================================================================== */
@@ -416,7 +419,7 @@ body > footer {
   margin: 0; }
 
 .main {
-  background-color: #292a88;
+  background-color: #073642;
   border-bottom: 1px solid #000; }
 
 .main .nav {
