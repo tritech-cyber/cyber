@@ -1,65 +1,47 @@
 <html>
 <head>
-<title>tritechsc.org/downloads</title>
-<script type='text/javascript' src='jwplayer/jwplayer.js'></script>
+<title>security</title>
 
 <style>
 body {margin: 0; padding: 0;
-background-color: #ffffff;
-color:#8d1af8;
-font-family:"Arial","sans-serif";color:#700070;font-size:12px;}
-pre{margin: 0; padding: 0;font-family:"Arial","sans-serif";color:#71b9cf;font-size:18px;}
-
-
-a.menu {
-font-family:"Arial","sans-serif";
-font-size:18px;
-font-size:1em;
-color: #ffffff;
-background-color: #8d1af8;
-text-decoration:none;
-border-color: #000000;
-border-style:solid;
-border-width:1px 0px 1px 0px; 
-
+background-color: #000;
+color:#fdf6e3;
+font-family: system-ui, sans-serif;
+}
+pre{margin: 0; padding: 0;
+font-family: system-ui, sans-serif;
+	color:#71b9cf;font-size:18px;
 }
 
-a.menu:hover {
-font-family: arial, san-serif;
-font-size:18px;
-font-size:1em;
-color: #8d1af8;
-background-color: #fff;
-text-decoration:none;
-border-color: #000000;
-border-style:solid;
-border-width:1px 1px 1px 1px; 
+a{
+font-family: system-ui, sans-serif;
+	color:#fdf6e3;
+	text-decoration:none;
+	font-size:18px;	
+}
+
+a:hover{
+font-family: system-ui, sans-serif;
+	color:#93a1a1;
+	text-decoration:none;
+	font-size:18px;	
 }
 
 #list{
+padding: 20px;
+}
+
+#bottom{
 text-align: left;
 font-size:18px;
 color: #ff0000;
 position:absolute;
-top: 15px;
+top: 90%;
 left :50px;
 width: 1000px;
 height: 800px;
-z-index:0;
-}
-#video-location{
-text-align: left;
-font-size:18px;
-color: #8d1af8;
-position:absolute;
-top: 150px;
-left :10px;
-width: 680px;
-height: 500px;
-z-index:0;
-}
-
-
+z-index:0;	
+	
 }
 
 </style>
@@ -77,30 +59,41 @@ z-index:0;
     {
         if ($file != "." && $file != ".."&& $file != "index.php")
         {
-            $thelist .= '<li><a href="'.$file.'" target = "_blank">'.$file.'</a>';
+            $thelist .= '<li><a href="'.$file.'" target = "_blank">'.$file.'</a></li>';
         }
     }
     closedir($handle);
     }
 ?>
 
-
-
-
-<div id = "list">
-<hr />
-<a href = "http://opensource.org/"> Open Source Software</a>
-<hr />
-All files linked are OpenSource or 100% free.
+<body>
+<header><span style="color:#fff; background-color:#268bd2";>php directory listing</span></header>
+<div id="list">
+Security
 <hr />
 <p>Files:</p>
 <ul>
-<p><?php echo $thelist?></p>
+<?php echo $thelist?>
 </ul>
-<hr />
-To download a file "Right Click" then choose to save the selected file. (Windows)<br />
-Using a Mac with a single button mouse "Control+Click" then choose to download the files.
+
 <hr />
 </div>
+<footer>
+
+
+<?php
+ $colors = array("292a88" ,"425c9f","6981c7","8eb1e1","c2dcff","002b36","073642","586e75","657b83","839496","93a1a1","eee8d5","fdf6e3","b58900","cb4b16","dc322f","d33682","6c71c4","268bd2","2aa198","859900");
+for ($n = 0; $n < 21; $n++){
+	//echo "$colors[$n]&nbsp;";
+	$text = "fff";
+	if ($n == 4 || $n == 11 || $n == 12)$text = "000";
+	echo "&nbsp;<span style=\"color:#$text; background-color:#$colors[$n]\";>$colors[$n]</span>&nbsp;";
+	
+}
+
+?>
+
+</footer>
+
 </body>
 </head>
