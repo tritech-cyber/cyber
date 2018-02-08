@@ -79,20 +79,19 @@ Security
 <hr />
 </div>
 <footer>
-
+<center>
 
 <?php
- $colors = array("292a88" ,"425c9f","6981c7","8eb1e1","c2dcff","002b36","073642","586e75","657b83","839496","93a1a1","eee8d5","fdf6e3","b58900","cb4b16","dc322f","d33682","6c71c4","268bd2","2aa198","859900");
+$colors = array("292a88" ,"425c9f","6981c7","8eb1e1","c2dcff","002b36","073642","586e75","657b83","839496","93a1a1","eee8d5","fdf6e3","b58900","cb4b16","dc322f","d33682","6c71c4","268bd2","2aa198","859900");
 for ($n = 0; $n < 21; $n++){
-	//echo "$colors[$n]&nbsp;";
 	$text = "fff";
 	if ($n == 4 || $n == 11 || $n == 12)$text = "000";
-	echo "&nbsp;<span style=\"color:#$text; background-color:#$colors[$n]\";>$colors[$n]</span>&nbsp;";
-	
+	echo "&nbsp;&nbsp;<span style=\"color:#$text; background-color:#$colors[$n]\";>&nbsp;&nbsp;$colors[$n]&nbsp;&nbsp;</span>&nbsp;&nbsp;";
+	if ($n % 5 == 0 && $n != 0) echo "<br />";
 }
 
 ?>
-
+</center>
 </footer>
 
 </body>
