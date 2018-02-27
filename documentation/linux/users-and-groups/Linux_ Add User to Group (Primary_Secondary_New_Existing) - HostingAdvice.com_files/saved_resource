@@ -1,0 +1,1583 @@
+
+	
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head><link rel="stylesheet" type="text/css" href="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/cache/minify/86606.default.include.64459a.css" media="all" />
+<script type="text/javascript" src="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/cache/minify/86606.default.include.9f6913.js"></script>
+
+		<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Linux: Add User to Group (Primary/Secondary/New/Existing) - HostingAdvice.com</title>
+
+		<link rel="shortcut icon" href="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/themes/hostingadvice/images/favicon/favicon.ico" />
+	<link rel="apple-touch-icon" href="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/themes/hostingadvice/images/apple-touch-icons/touch-icon-iphone.png">
+	<link rel="apple-touch-icon" size="76x76" href="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/themes/hostingadvice/images/apple-touch-icons/touch-icon-ipad.png">
+	<link rel="apple-touch-icon" size="120x120" href="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/themes/hostingadvice/images/apple-touch-icons/touch-icon-iphone-retina.png">
+	<link rel="apple-touch-icon" size="152x152" href="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/themes/hostingadvice/images/apple-touch-icons/touch-icon-ipad-retina.png">
+	
+		<!--[if lt IE 9]>
+	<script src='http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/themes/hostingadvice/js/html5shiv/html5shiv.js'></script>
+	<![endif]-->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-50488102-1', 'hostingadvice.com');
+
+		ga('require', 'displayfeatures');
+
+	  ga('send', 'pageview');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "name": "HostingAdvice.com",
+  "url": "http://www.hostingadvice.com",
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/themes/hostingadvice/images/logos/ha-logo-2x.png",
+    "height": "38",
+    "width": "308"
+  },
+  "sameAs": [
+      "https://www.facebook.com/HostingAdviceCom",
+      "https://twitter.com/Hosting_Advice",
+      "https://plus.google.com/+Hostingadvice/"
+  ],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "http://www.hostingadvice.com?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+		<script type="text/javascript">var ajaxurl = "http://www.hostingadvice.com/wp-admin/admin-ajax.php";</script>
+
+			<script type="text/javascript">
+		rainmakerNoRefer = false; // true when on a jump page, false otherwise
+		site_specific = {
+				site_designator: "ha", // two character site designator, different for each site
+				offerid: 0, // the offer id for the clicked offer, often echo'd using PHP
+				offername: '', // the offer name for the clicked offer, often echo'd using PHP
+		};
+
+		(function() {
+				var rm = document.createElement('script'); rm.type = 'text/javascript'; rm.async = true; rm.defer = true;
+				rm.src = 'http://rainmaker.digitalbrandsinc.netdna-cdn.com/javascripts/rainmaker/rm.js';
+				var s = document.getElementsByTagName( 'script' )[0]; s.parentNode.insertBefore( rm, s );
+		})();
+	</script>
+
+
+
+		
+<!-- This site is optimized with the Yoast SEO plugin v4.7.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="http://www.hostingadvice.com/how-to/linux-add-user-to-group/" />
+<link rel="publisher" href="https://plus.google.com/u/0/108764117153745324541/"/>
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Linux: Add User to Group (Primary/Secondary/New/Existing) - HostingAdvice.com" />
+<meta property="og:description" content="Let&#8217;s see how we can add new and existing users to primary and secondary groups in Linux. The standard Linux permission model makes use of users, groups, and file permissions (i.e., read, write, execute, and a sticky bit). Adding a User to a Group in Linux If you just want to add a user to &hellip;" />
+<meta property="og:url" content="http://www.hostingadvice.com/how-to/linux-add-user-to-group/" />
+<meta property="og:site_name" content="HostingAdvice.com" />
+<meta property="article:publisher" content="https://www.facebook.com/HostingAdviceCom" />
+<meta property="article:section" content="How-To" />
+<meta property="article:published_time" content="2016-04-27T11:14:09+00:00" />
+<meta property="article:modified_time" content="2016-04-27T11:27:43+00:00" />
+<meta property="og:updated_time" content="2016-04-27T11:27:43+00:00" />
+<meta property="og:image" content="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/04/linux-add-user-to-group.jpg" />
+<meta property="og:image:width" content="484" />
+<meta property="og:image:height" content="230" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Let&#8217;s see how we can add new and existing users to primary and secondary groups in Linux. The standard Linux permission model makes use of users, groups, and file permissions (i.e., read, write, execute, and a sticky bit). Adding a User to a Group in Linux If you just want to add a user to [&hellip;]" />
+<meta name="twitter:title" content="Linux: Add User to Group (Primary/Secondary/New/Existing) - HostingAdvice.com" />
+<meta name="twitter:site" content="@hosting_advice" />
+<meta name="twitter:image" content="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/04/linux-add-user-to-group.jpg" />
+<meta name="twitter:creator" content="@hosting_advice" />
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+
+
+
+
+
+<link rel='stylesheet' id='google-fonts-css'  href='http://fonts.googleapis.com/css?family=Francois+One&#038;ver=4.7.8' type='text/css' media='all' />
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"http:\/\/www.hostingadvice.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+
+<link rel="amphtml" href="http://www.hostingadvice.com/how-to/linux-add-user-to-group/amp/" />
+			<link rel='author' href='https://plus.google.com/116999736376269334510/?rel=publisher'>
+</head>
+<body class="post-template-default single single-post postid-11378 single-format-standard">
+	<header>
+		
+	
+	<div class='navbar navbar-static-top' role='navigation'>
+		<div class="navbar-inner">
+			<div class='container'>
+				<div class='row'>
+					<div class='span8'>
+						<a  href='http://www.hostingadvice.com' class="header-logo brand">
+							<img src='http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/themes/hostingadvice/images/logos/ha-logo-2x.png' alt='Hosting Advice' title='Hosting Advice' width='308' height='38'>
+						</a>
+					</div><!-- end .span8 -->
+					<div class='span16'>
+						<div class="search-form-container pull-right">
+							<form role="search" method="get" class="search-form" action="http://www.hostingadvice.com/">
+	<button type='submit' class='search-submit'><i class='search-icon'></i></button>
+	<input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Search for:" />
+</form>
+						</div><!-- end .search-form-container -->
+						<div class="pull-right menu-container nav-menu">
+							<div class='nav-menu-item nav-menu-item-basics'>
+	<a href="#" title="Basics">Basics <span class="caret"></span></a>
+	<div class="header-dropdown-menu dropdown-menu-basics">
+	<div class='dropdown-header'>
+		<i class='dropdown-icon dropdown-basics'></i>
+		<span>Hosting Basics</span>
+	</div>
+
+	<div class='dropdown-section'>
+		<a href='http://www.hostingadvice.com/the-basics/'><div class='dropdown-image-basics'></div></a>
+		<div class='dropdown-description-image'>
+			<div class='dropdown-avatar-ryan'></div>
+			<p>New to web hosting? Not sure where to start? Our basics guide to web hosting takes readers step-by-step from intro level to advanced in mere minutes.</p>
+		</div>
+	</div>
+
+	<div class='dropdown-header'>
+		<i class='dropdown-icon dropdown-sections'></i>
+		<span>Sections</span>
+	</div>
+
+	<div class='dropdown-section dropdown-basics-navigation'>
+		<div class='dropdown-half-sections'>
+			<ul>
+				<li><a href='http://www.hostingadvice.com/the-basics/#hosting'>1. Intro to Hosting</a></li>
+				<li><a href='http://www.hostingadvice.com/the-basics/#whats-first-step'>2. Types of Hosting</a></li>
+				<li><a href='http://www.hostingadvice.com/the-basics/#domain-strategies'>3. Choosing a Domain</a></li>
+			</ul>
+		</div>
+		<div class='dropdown-half-sections'>
+			<ul>
+				<li><a href='http://www.hostingadvice.com/the-basics/#review-process'>4. Choosing a Host</a></li>
+				<li><a href='http://www.hostingadvice.com/the-basics/#nameserver'>5. Nameserver &amp; DNS</a></li>
+				<li><a href='http://www.hostingadvice.com/the-basics/#live-vs-windows-web-hosting'>6. Software Options</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class='dropdown-section-footer'>
+		<a class='dropdown-footer-link' href='http://www.hostingadvice.com/the-basics/'>Go to Hosting Basics <span class='dropdown-raquo'>&raquo;</span></a>
+	</div>
+		
+</div>
+</div>
+<div class='nav-menu-item nav-menu-item-howto'>
+	<a href="#" title="How-To">How-To <span class="caret"></span></a>
+	<div class="header-dropdown-menu dropdown-menu-howto">
+	<div class='dropdown-header'>
+		<i class='dropdown-icon dropdown-howto'></i>
+		<span>Hosting How-To's</span>
+	</div>
+
+	<div class='dropdown-section'>
+		<a href='http://www.hostingadvice.com/how-to/'><div class='dropdown-image-howto'></div></a>
+		<div class='dropdown-description-image'>
+			<div class='dropdown-avatar-laura'></div>
+			<p>From the simple to the comlex, our ever-growing database of how-to guides have you covered on a wide range of hosting and programming topics.</p>
+		</div>
+	</div>
+
+	<div class='dropdown-section article-list'>
+		<div class='dropdown-subheader'>Latest How-To's</div>
+		<ul>
+							<li><a href='http://www.hostingadvice.com/how-to/bluehost-cloud/'><span class='dropdown-arrow-right'></span>How Our Experts Rate Bluehost Cloud Hosting for Features and Price &raquo;</a></li>
+							<li><a href='http://www.hostingadvice.com/how-to/how-much-should-i-pay-for-web-hosting/'><span class='dropdown-arrow-right'></span>How Much Should I Pay for Web Hosting? (2017's Host Pricing Guide) &raquo;</a></li>
+				
+					</ul>
+	</div>
+
+	<div class='dropdown-section-footer'>
+		<a class='dropdown-footer-link' href='http://www.hostingadvice.com/how-to/'>Go to Hosting How-To's <span class='dropdown-raquo'>&raquo;</span></a>
+	</div>
+</div>
+</div>
+<div class='nav-menu-item nav-menu-item-blog'>
+	<a href="#" title="Blog">Blog <span class="caret"></span></a>
+	<div class="header-dropdown-menu dropdown-menu-blog">
+	<div class='dropdown-header'>
+		<i class='dropdown-icon dropdown-blog'></i>
+		<span>The Hosting Blog</span>
+	</div>
+
+	<div class='dropdown-section'>
+		<a href='http://www.hostingadvice.com/blog/'><div class='dropdown-image-blog'></div></a>
+		<div class='dropdown-description-image'>
+			<div class='dropdown-avatar-ali'></div>
+			<p>Visit our creatively-named blog, where tech experts from around the Web share their experiences, insider tips, industry news, and more about web hosting.</p>
+		</div>
+	</div>
+
+	<div class='dropdown-section article-list'>
+		<div class='dropdown-subheader'>Latest Posts</div>
+		<ul>
+							<li><a href='http://www.hostingadvice.com/blog/vodien-delivers-secure-and-speedy-hosting-to-customers-worldwide/'><span class='dropdown-arrow-right'></span>Vodien: Delivering Secure & Speedy Hosting to Customers Worldwide &raquo;</a></li>
+							<li><a href='http://www.hostingadvice.com/blog/the-harvard-berkman-klein-center-studies-the-potential-of-the-web/'><span class='dropdown-arrow-right'></span>The Harvard Berkman Klein Center & Realizing the Web’s Potential &raquo;</a></li>
+				
+					</ul>
+	</div>
+
+	<div class='dropdown-section-footer'>
+		<a class='dropdown-footer-link' href='http://www.hostingadvice.com/blog/'>Go to Hosting Blog <span class='dropdown-raquo'>&raquo;</span></a>
+	</div>
+</div>
+</div>
+<div class='nav-menu-item nav-menu-item-reviews'>
+	<a href="#" title="Reviews">Reviews <span class="caret"></span></a>
+	<div class="header-dropdown-menu dropdown-menu-reviews">
+			<div class='dropdown-header'>
+			<i class='dropdown-icon dropdown-best-overall'></i>
+			<span>Best Overall</span>
+		</div>
+
+		<div class='dropdown-section'>
+			<div class='dropdown-half-sections'>
+				<ul>
+											<li><a href='http://www.hostingadvice.com/reviews/'>Best Web Hosting 2017</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/cheap/'>Cheap Web Hosting</a></li>
+									</ul>
+			</div>
+			<div class='dropdown-half-sections'>
+				<ul>
+											<li><a href='http://www.hostingadvice.com/versus/'>Host vs. Host Reviews</a></li>
+											<li><a href='http://www.hostingadvice.com/coupons/'>Hosting Deals &amp; Coupons</a></li>
+									</ul>
+			</div>
+		</div>
+			<div class='dropdown-header'>
+			<i class='dropdown-icon dropdown-by-feature'></i>
+			<span>By Feature</span>
+		</div>
+
+		<div class='dropdown-section'>
+			<div class='dropdown-half-sections'>
+				<ul>
+											<li><a href='http://www.hostingadvice.com/reviews/blog/'>Blog Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/cpanel/'>cPanel Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/domain/'>Domain Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/email/'>Email Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/ftp/'>FTP Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/managed-wordpress/'>Managed WordPress Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/shared/'>Shared Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/ssd-vps/'>SSD VPS Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/website-builder/'>Website Builder</a></li>
+									</ul>
+			</div>
+			<div class='dropdown-half-sections'>
+				<ul>
+											<li><a href='http://www.hostingadvice.com/reviews/cloud/'>Cloud Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/dedicated/'>Dedicated Server Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/ecommerce/'>eCommerce Website Builder</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/forum/'>Forum Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/managed/'>Managed Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/reseller-hosting/'>Reseller Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/ssd/'>SSD Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/vps/'>VPS Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/wordpress-website-builder/'>WordPress Website Builder</a></li>
+									</ul>
+			</div>
+		</div>
+			<div class='dropdown-header'>
+			<i class='dropdown-icon dropdown-by-framework'></i>
+			<span>By Framework</span>
+		</div>
+
+		<div class='dropdown-section'>
+			<div class='dropdown-half-sections'>
+				<ul>
+											<li><a href='http://www.hostingadvice.com/reviews/drupal/'>Drupal Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/joomla/'>Joomla Hosting</a></li>
+									</ul>
+			</div>
+			<div class='dropdown-half-sections'>
+				<ul>
+											<li><a href='http://www.hostingadvice.com/reviews/magento/'>Magento Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/wordpress/'>WordPress Hosting</a></li>
+									</ul>
+			</div>
+		</div>
+			<div class='dropdown-header'>
+			<i class='dropdown-icon dropdown-by-os'></i>
+			<span>By Operating System</span>
+		</div>
+
+		<div class='dropdown-section'>
+			<div class='dropdown-half-sections'>
+				<ul>
+											<li><a href='http://www.hostingadvice.com/reviews/linux/'>Linux Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/windows/'>Windows Hosting</a></li>
+									</ul>
+			</div>
+			<div class='dropdown-half-sections'>
+				<ul>
+											<li><a href='http://www.hostingadvice.com/reviews/linux-vps/'>Linux VPS Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/windows-vps/'>Windows VPS Hosting</a></li>
+									</ul>
+			</div>
+		</div>
+			<div class='dropdown-header'>
+			<i class='dropdown-icon dropdown-by-language'></i>
+			<span>By Language</span>
+		</div>
+
+		<div class='dropdown-section'>
+			<div class='dropdown-half-sections'>
+				<ul>
+											<li><a href='http://www.hostingadvice.com/reviews/asp-net/'>ASP.NET Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/mysql/'>MySQL Hosting</a></li>
+									</ul>
+			</div>
+			<div class='dropdown-half-sections'>
+				<ul>
+											<li><a href='http://www.hostingadvice.com/reviews/java/'>Java Hosting</a></li>
+											<li><a href='http://www.hostingadvice.com/reviews/php/'>PHP Hosting</a></li>
+									</ul>
+			</div>
+		</div>
+	</div>
+</div>
+						</div><!-- end .menu-container -->
+					</div><!-- end .span16 -->
+				</div><!-- end .row -->
+			</div><!-- end .container -->
+		</div><!-- end .navbar-inner -->
+	</div><!-- end .navbar -->
+	</header>
+
+<div class='container'>
+	<div class='row'>
+		<div class='span18'>
+							
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "TechArticle",
+  "mainEntityOfPage":{
+    "@type":"WebPage",
+    "@id":"http://www.hostingadvice.com/how-to/linux-add-user-to-group/"
+  },
+  "headline": "Linux: Add User to Group (Primary/Secondary/New/Existing)",
+  "image": {
+    "@type": "ImageObject",    
+    "url": "http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/04/linux-add-user-to-group.jpg",
+    "height": "295",
+    "width": "570"
+  },
+  "datePublished": "2016-04-27T11:14:09+00:00",
+  "dateModified": "2016-04-27T11:27:43+00:00",
+  "author": {
+    "@type": "Person",
+	"name": "Roberto Sanchez",
+	"description":"Roberto Sanchez got his start with web hosting when he was still in high school, with a Perl script to conjugate verbs on a shared host. Roberto has been involved with web development ever since, experimenting with many web languages and hosting types. Roberto is on the web development team at Digital Brands Inc.,  where he applies his knowledge of PHP and WordPress to improve performance for the firm's various web properties. Roberto also leverages NodeJS to develop exciting products at Digital Brands Inc. and is eager to share his experience with HostingAdvice.com users."
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HostingAdvice.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/themes/hostingadvice/images/logos/ha-logo-2x.png",
+      "height": "38",
+      "width": "308"
+    }
+  }
+}
+</script>
+<div class='row'>
+	<div class='span18'>
+		<div id='breadcrumbs' class='pull-right'>
+			                <a href="http://www.hostingadvice.com">home</a>
+				<span>&nbsp;></span>
+                <a href="http://www.hostingadvice.com/how-to/">How-To</a>
+		</div><!-- end #breadcrumbs -->
+	</div><!-- end .span18 -->
+</div><!-- end .row -->
+
+
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [{
+		"@type": "ListItem",
+		"position": 1,
+		"item": {
+			"@id": "http://www.hostingadvice.com",
+			"name": "Home"
+		}
+	}
+							,{
+			"@type": "ListItem",
+			"position": 2,
+			"item": {
+				"@id": "http://www.hostingadvice.com/http://www.hostingadvice.com/how-to/",
+				"name": "How-To"    
+			}
+		}
+		]
+}
+</script>
+
+				<h1>Linux: Add User to Group (Primary/Secondary/New/Existing)</h1>
+				<div class="article-content how-to">
+		
+					<div class="border-how-to"></div>
+<div class="article-header">
+	<div class="row">
+		<div class="span18">
+			<div class="row">
+				<div class="span12 pull-left article-image">
+					<img width="484" height="230" src="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/04/linux-add-user-to-group.jpg" class="attachment-article-header size-article-header wp-post-image" alt="how to add user to group in Linux" title="how to add user to group in Linux" width="484" height="230" srcset="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/04/linux-add-user-to-group.jpg 484w, http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/04/linux-add-user-to-group-72x34.jpg 72w, http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/04/linux-add-user-to-group-116x55.jpg 116w, http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/04/linux-add-user-to-group-92x44.jpg 92w, http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/04/linux-add-user-to-group-406x193.jpg 406w, http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/04/linux-add-user-to-group-285x135.jpg 285w, http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/04/linux-add-user-to-group-358x170.jpg 358w" sizes="(max-width: 484px) 100vw, 484px" />				</div><!-- end .span12 -->	
+				<div class="span6 pull-right article-meta">
+					<div class="row cat-heading">
+						<i class="post-icon post-how-to"></i><!-- end .post-icon -->
+						<h2>how-to</h2>
+											</div><!-- end .cat-heading -->
+					<div class="row author-meta">
+						<img alt='Roberto Sanchez' src='http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/01/Roberto-Sanchez_avatar_1453141356-90x90.jpg' class='avatar avatar-90 photo' height='90' width='90' />						<div class='author-text'>
+							<span class="author">By: Roberto Sanchez</span>
+							<span class="date">Posted: April 27, 2016</span>
+						</div><!-- end .author-text -->
+					</div><!-- end .author-meta -->
+					<div class='row description-social-wrapper'>
+						<div class="cat-description">
+							<span>Our experts take readers step-by-step through a variety of hosting and programming tasks in our popular series of "How-To" guides.</span>
+						</div><!-- end .cat-description -->
+						<div class="single-social-top">
+							
+<div class="social-container social-small fadein hide">
+		<div class='social-button social-twitter-tweet social-small '><a href='https://twitter.com/intent' class='twitter-share-button' data-count='' data-url='http://www.hostingadvice.com/how-to/linux-add-user-to-group/' data-text='Linux: Add User to Group (Primary/Secondary/New/Existing)' ></a></div><!-- end .section-class -->	<div class='social-button social-fb-like '><div class='fb-like' data-href='http://www.hostingadvice.com/how-to/linux-add-user-to-group/' data-layout='button_count' data-width='400' data-font='trebuchet ms' data-colorscheme='light' data-action='like'></div></div><!-- end .social-button -->	<div class='social-button social-google-plus '><div class='g-plusone' data-href='http://www.hostingadvice.com/how-to/linux-add-user-to-group/' data-size='medium' data-annotation='bubble' data-width='450' data-align='left'></div></div><!-- end .section-class --></div><!-- end .social-container -->
+						</div><!-- end .single-social-top -->
+					</div><!-- end .escription-social-wrapper -->
+				</div><!-- end .span6 -->	
+			</div><!-- end .row -->	
+		</div><!-- end .span18 -->	
+	</div><!-- end .row -->	
+</div><!-- end .article-header -->
+
+					<div class='row'>
+	<div class='span18'>
+		<div class='content'>
+			<p>Let’s see how we can add new and existing users to primary and secondary groups in Linux. The standard Linux permission model makes use of users, groups, and file permissions (i.e., read, write, execute, and a <a href="https://en.wikipedia.org/wiki/Sticky_bit" target="_blank">sticky bit</a>).</p>
+<div class="h2-header">
+<h2>Adding a User to a Group in Linux</h2>
+<div class="ret-sprite watermark"></div>
+</div>
+<p>If you just want to add a user to a group use the following command:</p>
+
+<div id="crayon-5a33d01a7ad73582087064" class="crayon-syntax crayon-theme-github crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style=" margin-top: 12px; margin-bottom: 12px; margin-left: 10px; margin-right: 10px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style=" max-height: 340px;">
+				<table class="crayon-table"><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5a33d01a7ad73582087064-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a33d01a7ad73582087064-1">
+<span class="crayon-e">sudo </span><span class="crayon-e">adduser </span><span class="crayon-e">username </span><span class="crayon-v">grouptoadd</span>
+</div></div></td>
+					</tr></table>
+</div>
+		</div>
+<p>This will add your user: username, to the grouptoadd group. More often than not, this is the best practice for when you want to add a user to a group. Technically, this is considered a secondary group. The primary group defaults to a group that is the same as the username in Linux. In this example, the primary group for username would most likely be called “username” as well.</p>
+<div class="h2-header">
+<h2>The Nitty-Gritty Details and a Tutorial</h2>
+<div class="ret-sprite watermark"></div>
+</div>
+<p>There are two kinds of groups:</p>
+<ol>
+<li>
+<strong>Primary Group</strong>: This is the group applied to you when you log in; in most user cases it has the same name as your login name. The primary group is used by default when creating new files (or directories), modifying files, or executing commands.</li>
+<li>
+<strong>Secondary Groups</strong> (AKA Supplementary Groups): These are groups you are a member of beyond your primary group. As an example, this means that if a directory or file belongs to the www-data group (as used by the web server process in this case), then all www-data group members can read or modify these files directly (assuming the permissions also allow for this).</li>
+</ol>
+<p>A list of all currently available groups can be found in the /etc/group file.</p>
+<p>Note that every group can also have administrators, members, and a password. See explanations of the <a href="#gpasswd-command"><em>gpasswd</em></a> and <a href="#sg-command"><em>sg</em></a> commands below.</p>
+<h3>1. Create a New User: <em>useradd</em> or <em>adduser</em>
+</h3>
+<p>Linux users can be added via the <em>useradd</em> or <em>adduser</em> commands. Note that <em>useradd</em> is the native binary associated with Linux systems, whereas <em>useradd</em> is a Perl script that uses said binary in its backend. Both commands share functionality, but <a href="http://askubuntu.com/questions/345974/what-is-the-difference-between-adduser-and-useradd" target="_blank">some say <em>adduser</em> is more user-friendly</a>, so we’re going to start there in our demo. Using the <em>adduser</em> command, let’s create a new user: foobar. Later we’ll change the group permissions for this new user.</p>
+
+<div id="crayon-5a33d01a7ad82285431329" class="crayon-syntax crayon-theme-github crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style=" margin-top: 12px; margin-bottom: 12px; margin-left: 10px; margin-right: 10px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style=" max-height: 340px;">
+				<table class="crayon-table"><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5a33d01a7ad82285431329-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a33d01a7ad82285431329-1">
+<span class="crayon-e">sudo </span><span class="crayon-e">adduser </span><span class="crayon-v">foobar</span>
+</div></div></td>
+					</tr></table>
+</div>
+		</div>
+<p>We will be asked to enter our (sudo-allowed) user password before the user account is created:</p>
+
+<div id="crayon-5a33d01a7ad88803124456" class="crayon-syntax crayon-theme-github crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style=" margin-top: 12px; margin-bottom: 12px; margin-left: 10px; margin-right: 10px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style=" max-height: 340px;">
+				<table class="crayon-table"><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+<div class="crayon-num" data-line="crayon-5a33d01a7ad88803124456-1">1</div>
+<div class="crayon-num crayon-striped-num" data-line="crayon-5a33d01a7ad88803124456-2">2</div>
+<div class="crayon-num" data-line="crayon-5a33d01a7ad88803124456-3">3</div>
+<div class="crayon-num crayon-striped-num" data-line="crayon-5a33d01a7ad88803124456-4">4</div>
+<div class="crayon-num" data-line="crayon-5a33d01a7ad88803124456-5">5</div>
+<div class="crayon-num crayon-striped-num" data-line="crayon-5a33d01a7ad88803124456-6">6</div>
+</div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+<div class="crayon-line" id="crayon-5a33d01a7ad88803124456-1">
+<span class="crayon-sy">[</span><span class="crayon-v">sudo</span><span class="crayon-sy">]</span><span class="crayon-h"> </span><span class="crayon-e">password </span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-v">user</span><span class="crayon-o">:</span>
+</div>
+<div class="crayon-line crayon-striped-line" id="crayon-5a33d01a7ad88803124456-2">
+<span class="crayon-e">Adding </span><span class="crayon-e">user </span><span class="crayon-i">foobar</span><span class="crayon-s">' ...</span>
+</div>
+<div class="crayon-line" id="crayon-5a33d01a7ad88803124456-3">
+<span class="crayon-s">Adding new groupfoobar'</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-cn">1001</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span>
+</div>
+<div class="crayon-line crayon-striped-line" id="crayon-5a33d01a7ad88803124456-4">
+<span class="crayon-e">Adding </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">user </span><span class="crayon-i">foobar</span><span class="crayon-s">' (1001) with groupfoobar'</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span>
+</div>
+<div class="crayon-line" id="crayon-5a33d01a7ad88803124456-5">
+<span class="crayon-e">Creating </span><span class="crayon-e">home </span><span class="crayon-i">directory</span><span class="crayon-h"> </span><span class="crayon-sy">`</span><span class="crayon-o">/</span><span class="crayon-v">home</span><span class="crayon-o">/</span><span class="crayon-i">foobar</span>'<span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span>
+</div>
+<div class="crayon-line crayon-striped-line" id="crayon-5a33d01a7ad88803124456-6">
+<span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span>
+</div>
+</div></td>
+					</tr></table>
+</div>
+		</div>
+<p>We see that the user, foobar, was assigned the primary group, foobar, by default.</p>
+<h3>2. Get User ID and Groups Information: <em>id</em> and <em>groups</em>
+</h3>
+<p>To show all the user information and group memberships, we can use the <em>id</em> command:</p>
+
+<div id="crayon-5a33d01a7ad8d776174196" class="crayon-syntax crayon-theme-github crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style=" margin-top: 12px; margin-bottom: 12px; margin-left: 10px; margin-right: 10px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style=" max-height: 340px;">
+				<table class="crayon-table"><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+<div class="crayon-num" data-line="crayon-5a33d01a7ad8d776174196-1">1</div>
+<div class="crayon-num crayon-striped-num" data-line="crayon-5a33d01a7ad8d776174196-2">2</div>
+</div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+<div class="crayon-line" id="crayon-5a33d01a7ad8d776174196-1">
+<span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-e">id </span><span class="crayon-e">foobar</span>
+</div>
+<div class="crayon-line crayon-striped-line" id="crayon-5a33d01a7ad8d776174196-2">
+<span class="crayon-v">uid</span><span class="crayon-o">=</span><span class="crayon-cn">1001</span><span class="crayon-sy">(</span><span class="crayon-v">foobar</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-v">gid</span><span class="crayon-o">=</span><span class="crayon-cn">1001</span><span class="crayon-sy">(</span><span class="crayon-v">foobar</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-v">groups</span><span class="crayon-o">=</span><span class="crayon-cn">1001</span><span class="crayon-sy">(</span><span class="crayon-v">foobar</span><span class="crayon-sy">)</span>
+</div>
+</div></td>
+					</tr></table>
+</div>
+		</div>
+<p></p>
+
+<div id="crayon-5a33d01a7ad92886930069" class="crayon-syntax crayon-theme-github crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style=" margin-top: 12px; margin-bottom: 12px; margin-left: 10px; margin-right: 10px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style=" max-height: 340px;">
+				<table class="crayon-table"><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+<div class="crayon-num" data-line="crayon-5a33d01a7ad92886930069-1">1</div>
+<div class="crayon-num crayon-striped-num" data-line="crayon-5a33d01a7ad92886930069-2">2</div>
+</div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+<div class="crayon-line" id="crayon-5a33d01a7ad92886930069-1">
+<span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-e">id </span><span class="crayon-e">foobar</span>
+</div>
+<div class="crayon-line crayon-striped-line" id="crayon-5a33d01a7ad92886930069-2">
+<span class="crayon-v">uid</span><span class="crayon-o">=</span><span class="crayon-cn">1001</span><span class="crayon-sy">(</span><span class="crayon-v">foobar</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-v">gid</span><span class="crayon-o">=</span><span class="crayon-cn">1001</span><span class="crayon-sy">(</span><span class="crayon-v">foobar</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-v">groups</span><span class="crayon-o">=</span><span class="crayon-cn">1001</span><span class="crayon-sy">(</span><span class="crayon-v">foobar</span><span class="crayon-sy">)</span>
+</div>
+</div></td>
+					</tr></table>
+</div>
+		</div>
+<p>Here the gid, or group ID, is the primary user group and groups is the secondary group.</p>
+<p>We could also get all the users’ groups with the <em>groups</em> command:</p>
+
+<div id="crayon-5a33d01a7ad98523741291" class="crayon-syntax crayon-theme-github crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style=" margin-top: 12px; margin-bottom: 12px; margin-left: 10px; margin-right: 10px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style=" max-height: 340px;">
+				<table class="crayon-table"><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+<div class="crayon-num" data-line="crayon-5a33d01a7ad98523741291-1">1</div>
+<div class="crayon-num crayon-striped-num" data-line="crayon-5a33d01a7ad98523741291-2">2</div>
+</div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+<div class="crayon-line" id="crayon-5a33d01a7ad98523741291-1">
+<span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-e">groups </span><span class="crayon-e">foobar</span>
+</div>
+<div class="crayon-line crayon-striped-line" id="crayon-5a33d01a7ad98523741291-2">
+<span class="crayon-v">foobar</span><span class="crayon-h"> </span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">foobar</span>
+</div>
+</div></td>
+					</tr></table>
+</div>
+		</div>
+<p></p>
+
+<div id="crayon-5a33d01a7ad9d623774030" class="crayon-syntax crayon-theme-github crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style=" margin-top: 12px; margin-bottom: 12px; margin-left: 10px; margin-right: 10px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style=" max-height: 340px;">
+				<table class="crayon-table"><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+<div class="crayon-num" data-line="crayon-5a33d01a7ad9d623774030-1">1</div>
+<div class="crayon-num crayon-striped-num" data-line="crayon-5a33d01a7ad9d623774030-2">2</div>
+</div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+<div class="crayon-line" id="crayon-5a33d01a7ad9d623774030-1">
+<span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-e">groups </span><span class="crayon-e">foobar</span>
+</div>
+<div class="crayon-line crayon-striped-line" id="crayon-5a33d01a7ad9d623774030-2">
+<span class="crayon-v">foobar</span><span class="crayon-h"> </span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">foobar</span>
+</div>
+</div></td>
+					</tr></table>
+</div>
+		</div>
+<p></p>
+<h3>3. Change the Primary Group of a User: <em>usermod -g</em>
+</h3>
+<p>In some cases it can make sense to change the primary group of a user.</p>
+<p>We can do this with the <em>usermod</em> command:</p>
+
+<div id="crayon-5a33d01a7ada2590870501" class="crayon-syntax crayon-theme-github crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style=" margin-top: 12px; margin-bottom: 12px; margin-left: 10px; margin-right: 10px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style=" max-height: 340px;">
+				<table class="crayon-table"><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5a33d01a7ada2590870501-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a33d01a7ada2590870501-1">
+<span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-e">sudo </span><span class="crayon-v">usermod</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">g</span><span class="crayon-h"> </span><span class="crayon-v">www</span><span class="crayon-o">-</span><span class="crayon-e">data </span><span class="crayon-v">foobar</span>
+</div></div></td>
+					</tr></table>
+</div>
+		</div>
+<p>The lowercase <em>-g option</em> refers to a primary group.</p>
+<p>Let’s verify that the change was made:</p>
+
+<div id="crayon-5a33d01a7ada7312818175" class="crayon-syntax crayon-theme-github crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style=" margin-top: 12px; margin-bottom: 12px; margin-left: 10px; margin-right: 10px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style=" max-height: 340px;">
+				<table class="crayon-table"><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+<div class="crayon-num" data-line="crayon-5a33d01a7ada7312818175-1">1</div>
+<div class="crayon-num crayon-striped-num" data-line="crayon-5a33d01a7ada7312818175-2">2</div>
+</div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+<div class="crayon-line" id="crayon-5a33d01a7ada7312818175-1">
+<span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-e">id </span><span class="crayon-e">foobar</span>
+</div>
+<div class="crayon-line crayon-striped-line" id="crayon-5a33d01a7ada7312818175-2">
+<span class="crayon-v">uid</span><span class="crayon-o">=</span><span class="crayon-cn">1001</span><span class="crayon-sy">(</span><span class="crayon-v">foobar</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-v">gid</span><span class="crayon-o">=</span><span class="crayon-cn">33</span><span class="crayon-sy">(</span><span class="crayon-v">www</span><span class="crayon-o">-</span><span class="crayon-v">data</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-v">groups</span><span class="crayon-o">=</span><span class="crayon-cn">33</span><span class="crayon-sy">(</span><span class="crayon-v">www</span><span class="crayon-o">-</span><span class="crayon-v">data</span><span class="crayon-sy">)</span>
+</div>
+</div></td>
+					</tr></table>
+</div>
+		</div>
+<p>Now foobar has the www-data primary group context. So whenever a new file is created by this user, it will be assigned the www-data group by default.</p>
+<p>Let’s undo this change before we continue:</p>
+
+<div id="crayon-5a33d01a7adac513247270" class="crayon-syntax crayon-theme-github crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style=" margin-top: 12px; margin-bottom: 12px; margin-left: 10px; margin-right: 10px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style=" max-height: 340px;">
+				<table class="crayon-table"><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5a33d01a7adac513247270-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a33d01a7adac513247270-1">
+<span class="crayon-e">sudo </span><span class="crayon-v">usermod</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">g</span><span class="crayon-h"> </span><span class="crayon-e">foobar </span><span class="crayon-v">foobar</span>
+</div></div></td>
+					</tr></table>
+</div>
+		</div>
+<p></p>
+<h3>4. Add or Change Users in Secondary Groups: <em>adduser</em> and <em>usermod -G</em>
+</h3>
+<p>Now let’s add our foobar user to www-data as a secondary group. The easiest way to do this is via the <em>adduser </em>command:</p>
+
+<div id="crayon-5a33d01a7adb1587415503" class="crayon-syntax crayon-theme-github crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style=" margin-top: 12px; margin-bottom: 12px; margin-left: 10px; margin-right: 10px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style=" max-height: 340px;">
+				<table class="crayon-table"><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5a33d01a7adb1587415503-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a33d01a7adb1587415503-1">
+<span class="crayon-e">sudo </span><span class="crayon-e">adduser </span><span class="crayon-e">foobar </span><span class="crayon-v">www</span><span class="crayon-o">-</span><span class="crayon-v">data</span>
+</div></div></td>
+					</tr></table>
+</div>
+		</div>
+<p>We can see the secondary group of this user was updated:</p>
+
+<div id="crayon-5a33d01a7adb6100778894" class="crayon-syntax crayon-theme-github crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style=" margin-top: 12px; margin-bottom: 12px; margin-left: 10px; margin-right: 10px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style=" max-height: 340px;">
+				<table class="crayon-table"><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+<div class="crayon-num" data-line="crayon-5a33d01a7adb6100778894-1">1</div>
+<div class="crayon-num crayon-striped-num" data-line="crayon-5a33d01a7adb6100778894-2">2</div>
+</div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+<div class="crayon-line" id="crayon-5a33d01a7adb6100778894-1">
+<span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-e">id </span><span class="crayon-e">foobar</span>
+</div>
+<div class="crayon-line crayon-striped-line" id="crayon-5a33d01a7adb6100778894-2">
+<span class="crayon-v">uid</span><span class="crayon-o">=</span><span class="crayon-cn">1001</span><span class="crayon-sy">(</span><span class="crayon-v">foobar</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-v">gid</span><span class="crayon-o">=</span><span class="crayon-cn">1001</span><span class="crayon-sy">(</span><span class="crayon-v">foobar</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-v">groups</span><span class="crayon-o">=</span><span class="crayon-cn">1001</span><span class="crayon-sy">(</span><span class="crayon-v">foobar</span><span class="crayon-sy">)</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">33</span><span class="crayon-sy">(</span><span class="crayon-v">www</span><span class="crayon-o">-</span><span class="crayon-v">data</span><span class="crayon-sy">)</span>
+</div>
+</div></td>
+					</tr></table>
+</div>
+		</div>
+<p>There is another way to achieve the same result as above using the <em>usermod</em> command:</p>
+
+<div id="crayon-5a33d01a7adbb648945307" class="crayon-syntax crayon-theme-github crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style=" margin-top: 12px; margin-bottom: 12px; margin-left: 10px; margin-right: 10px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style=" max-height: 340px;">
+				<table class="crayon-table"><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5a33d01a7adbb648945307-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a33d01a7adbb648945307-1">
+<span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-e">sudo </span><span class="crayon-v">usermod</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">G</span><span class="crayon-h"> </span><span class="crayon-v">www</span><span class="crayon-o">-</span><span class="crayon-e">data </span><span class="crayon-v">foobar</span>
+</div></div></td>
+					</tr></table>
+</div>
+		</div>
+<p>The uppercase <em>-G option</em> refers to a secondary or supplementary group. Now foobar will have access to the www-data group files, but new files created by that user will not have the www-data group label by default.</p>
+<p>It’s also possible to add a user to several secondary groups at once using the <em>usermod</em> command:</p>
+
+<div id="crayon-5a33d01a7adc0203153430" class="crayon-syntax crayon-theme-github crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style=" margin-top: 12px; margin-bottom: 12px; margin-left: 10px; margin-right: 10px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style=" max-height: 340px;">
+				<table class="crayon-table"><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5a33d01a7adc0203153430-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a33d01a7adc0203153430-1">
+<span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-v">usermod</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-v">a</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">G</span><span class="crayon-h"> </span><span class="crayon-v">group1</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">group2</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-e">group3 </span><span class="crayon-v">foobar</span>
+</div></div></td>
+					</tr></table>
+</div>
+		</div>
+<p>The optional <em>-a option</em> makes sure the groups are added to the existing secondary groups of the user (if these exist). If this option is omitted, the user will be removed from any groups not listed after the “-G.”</p>
+<h3>5. Create or Delete a Group in Linux: <em>groupadd</em> and <em>groupdel</em>
+</h3>
+<p>Using the <em>groupadd</em> command, we can create a new group: group1.</p>
+
+<div id="crayon-5a33d01a7adc6736498100" class="crayon-syntax crayon-theme-github crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style=" margin-top: 12px; margin-bottom: 12px; margin-left: 10px; margin-right: 10px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style=" max-height: 340px;">
+				<table class="crayon-table"><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+<div class="crayon-num" data-line="crayon-5a33d01a7adc6736498100-1">1</div>
+<div class="crayon-num crayon-striped-num" data-line="crayon-5a33d01a7adc6736498100-2">2</div>
+</div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+<div class="crayon-line" id="crayon-5a33d01a7adc6736498100-1">
+<span class="crayon-e">sudo </span><span class="crayon-e">groupadd </span><span class="crayon-e">group1</span>
+</div>
+<div class="crayon-line crayon-striped-line" id="crayon-5a33d01a7adc6736498100-2">
+<span class="crayon-e">sudo </span><span class="crayon-e">adduser </span><span class="crayon-e">foobar </span><span class="crayon-v">group1</span>
+</div>
+</div></td>
+					</tr></table>
+</div>
+		</div>
+<p>We can then remove group1 from the Linux system utilizing the <em>groupdel</em> command:</p>
+
+<div id="crayon-5a33d01a7adcb509075700" class="crayon-syntax crayon-theme-github crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style=" margin-top: 12px; margin-bottom: 12px; margin-left: 10px; margin-right: 10px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style=" max-height: 340px;">
+				<table class="crayon-table"><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5a33d01a7adcb509075700-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a33d01a7adcb509075700-1">
+<span class="crayon-e">sudo </span><span class="crayon-e">groupdel </span><span class="crayon-v">group1</span>
+</div></div></td>
+					</tr></table>
+</div>
+		</div>
+<p>This will also remove the memberships of any user related to this group.</p>
+<div class="h2-header">
+<h2>User Administration in Linux (Other Commands and Articles to Try)</h2>
+<div class="ret-sprite watermark"></div>
+</div>
+<p>Let’s wrap up this article by referring to some of the other group commands in Linux:</p>
+<ul>
+<li>
+<em><strong><a title="newgrp command" href="http://man7.org/linux/man-pages/man1/newgrp.1p.html" target="_blank">newgrp</a></strong></em>: log into a new group</li>
+<li id="sg-command">
+<em><strong><a title="sg command" href="http://man7.org/linux/man-pages/man1/sg.1.html" target="_blank">sg</a></strong></em>: execute a command as a different group ID</li>
+<li>
+<em><strong><a title="groupmod command" href="http://man7.org/linux/man-pages/man8/groupmod.8.html" target="_blank">groupmod</a></strong></em>: modify a group definition (e.g., the group ID, group name, or password)</li>
+<li id="gpasswd-command">
+<a href="http://man7.org/linux/man-pages/man1/gpasswd.1.html" target="_blank"><em><strong>gpasswd</strong></em></a>: administer /etc/group and /etc/gshadow files (every group can have administrators, members, and a password)</li>
+<li>
+<a href="http://www.hostingadvice.com/how-to/change-file-ownershipgroups-linux/" target="_blank"><em><strong>chown</strong></em> or <strong><em>chgrp</em></strong></a>: change individual or group ownership of a file or directory</li>
+</ul>
+<p>Now you should be able to confidently configure users, groups, and their administrative info in Linux. Feel free to check out <a href="http://www.hostingadvice.com/how-to/change-file-ownershipgroups-linux/" target="_blank">our article on changing file ownerships in Linux</a> for more insights.</p>
+					</div><!-- end .content -->
+	</div><!-- end .span18 -->
+</div><!-- end .row -->
+
+					<div class='article-comments'>
+						<div class='row'>
+	<div class='span18'>
+		<div class='comments'>
+			<div class="comments-header">
+				<img alt='Roberto Sanchez' src='http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/01/Roberto-Sanchez_avatar_1453141356-64x64.jpg' class='avatar avatar-64 photo' height='64' width='64' /> 
+				<h3 id='comments-start'>Questions or Comments? Ask Roberto!</h3>
+			</div><!-- end .comments-header -->
+				
+			<p>Ask a question and Roberto <strong>will respond</strong> to you. We strive to provide the best advice on the net and we are here to help you in any way we can.</p>
+		
+<div id="disqus_thread">
+            <div id="dsq-content">
+
+
+            <ul id="dsq-comments">
+                    <li class="comment even thread-even depth-1" id="dsq-comment-4671">
+        <div id="dsq-comment-header-4671" class="dsq-comment-header">
+            <cite id="dsq-cite-4671">
+                <span id="dsq-author-user-4671">Andrew Rothman</span>
+            </cite>
+        </div>
+        <div id="dsq-comment-body-4671" class="dsq-comment-body">
+            <div id="dsq-comment-message-4671" class="dsq-comment-message"><p>Typo here?</p>
+<p>Note that useradd is the native binary associated with Linux systems, whereas useradd is a Perl script that uses said binary in its backend.</p>
+</div>
+        </div>
+
+    </li><!-- #comment-## -->
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-8728">
+        <div id="dsq-comment-header-8728" class="dsq-comment-header">
+            <cite id="dsq-cite-8728">
+                <span id="dsq-author-user-8728">CommonSense in MA</span>
+            </cite>
+        </div>
+        <div id="dsq-comment-body-8728" class="dsq-comment-body">
+            <div id="dsq-comment-message-8728" class="dsq-comment-message"><p>I am new to Linux administration.  We have most of our stuff under a user &#8216;jon&#8217;.  I would like to allow another user &#8216;evgeny&#8217; rwx permission to one of jon&#8217;s subfolders, /CollectDataService</p>
+<p>What is wrong with this statement?<br />
+sudo chmod -R evgeny u+rwx /home/jon/CollectDataService</p>
+</div>
+        </div>
+
+    </li><!-- #comment-## -->
+    <li class="comment even thread-even depth-1" id="dsq-comment-8840">
+        <div id="dsq-comment-header-8840" class="dsq-comment-header">
+            <cite id="dsq-cite-8840">
+                <a id="dsq-author-user-8840" href="http://about.me/d.k" target="_blank" rel="nofollow">DK</a>
+            </cite>
+        </div>
+        <div id="dsq-comment-body-8840" class="dsq-comment-body">
+            <div id="dsq-comment-message-8840" class="dsq-comment-message"><p>Ading to a group like this doesn&#8217;t work on CentOS:<br />
+&gt;sudo adduser foobar www-data</p>
+</div>
+        </div>
+
+    </li><!-- #comment-## -->
+            </ul>
+
+
+        </div>
+
+    </div>
+
+		</div><!-- comments -->
+	</div><!-- span18 -->
+</div><!-- row -->
+					</div>
+
+					<div class="article-footer">
+						
+						
+<h4>Was this helpful? Tell Us Thanks.</h4>
+<section class='article-social'>
+	<div class="social-container social-large">
+		<div class="social-button-container social-facebook">
+			<span class="social-text">Like this article on Facebook</span>
+			<div class='social-button social-fb-like '><div class='fb-like' data-href='http://www.hostingadvice.com/how-to/linux-add-user-to-group/' data-layout='box_count' data-width='400' data-font='trebuchet ms' data-colorscheme='light' data-action='like'></div></div><!-- end .social-button -->		</div><!-- end .social-button-container -->
+		<div class="social-button-container social-twitter">
+			<span class="social-text">Tweet this article on Twitter</span>
+			<div class='social-button social-twitter-tweet social-small '><a href='https://twitter.com/intent' class='twitter-share-button' data-count='vertical' data-url='http://www.hostingadvice.com/how-to/linux-add-user-to-group/' data-text='Linux: Add User to Group (Primary/Secondary/New/Existing)' ></a></div><!-- end .section-class -->		</div><!-- end .social-button-container -->
+		<div class="social-button-container social-google">
+			<span class="social-text">Share this article on Google+</span>
+			<div class='social-button social-google-plus '><div class='g-plusone' data-href='http://www.hostingadvice.com/how-to/linux-add-user-to-group/' data-size='tall' data-annotation='bubble' data-width='450' data-align='left'></div></div><!-- end .section-class -->		</div><!-- end .social-button-container -->
+	</div><!-- end .social-container -->
+</section><!-- end .article-social -->
+						
+						
+						 
+
+<h4>About the Author</h4>
+<section class='author'>
+	<div class="author-footer-meta">
+		<div class="author-avatar">
+			<img alt='Roberto Sanchez' src='http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/01/Roberto-Sanchez_avatar_1453141356.jpg' class='avatar avatar-190 photo' height='190' width='190' />		</div><!-- end .author-avatar -->
+		<div class="author-name">
+			<span>Roberto Sanchez</span>
+		</div><!-- end .author-name -->
+		<div class="author-google">
+			<div class='social-button social-google-follow'><div class='social-button g-follow' data-href='https://plus.google.com/116999736376269334510/?rel=publisher' data-rel='author' data-height='20' data-annotation='none'></div></div><!-- end .social-button -->		</div><!-- end .author-google -->
+	</div><!-- end .author-footer-meta -->
+	<div class="author-info">
+		<p><strong>Roberto Sanchez</strong> got his start with web hosting when he was still in high school, with a Perl script to conjugate verbs on a shared host. Roberto has been involved with web development ever since, experimenting with many web languages and hosting types. Roberto is on the web development team at Digital Brands Inc.,  where he applies his knowledge of PHP and WordPress to improve performance for the firm's various web properties. Roberto also leverages NodeJS to develop exciting products at Digital Brands Inc. and is eager to share his experience with HostingAdvice.com users.</p>
+	</div><!-- end .author-info -->
+</section><!-- end .author -->
+					</div><!-- end .article-footer -->
+
+				</div><!-- end .article-content -->
+			
+						<section class='related-posts'>
+				<div class='yarpp-related'>
+	
+	<h3>Other How-To's You May Enjoy</h3>
+	<div class="row">
+					<div class="span9">
+				<div class="related-post">
+					<div class='post-thumb'>
+						<a href="http://www.hostingadvice.com/how-to/create-backups-cpanel/">
+							<img width="162" height="122" src="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2014/02/backup-162x122.jpg" class="attachment-related-post-size size-related-post-size wp-post-image" alt="How to Create Backups in cPanel" title="How to Create Backups in cPanel" width="162" height="122" srcset="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2014/02/backup-162x122.jpg 162w, http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2014/02/backup-210x158.jpg 210w" sizes="(max-width: 162px) 100vw, 162px" />						</a>
+					</div><!-- end .post-thumb -->
+					<div class="post-data">
+						<h4><a href="http://www.hostingadvice.com/how-to/create-backups-cpanel/">How to Create Backups in cPanel</a></h4>
+						<div class="author-meta">
+							Ryan Frankel &bull; 07/08/2014						</div><!-- end .author-meta -->
+					</div><!-- end .post-data -->
+				</div><!-- end .related-post -->
+			</div><!-- end .span9 -->	
+					<div class="span9">
+				<div class="related-post">
+					<div class='post-thumb'>
+						<a href="http://www.hostingadvice.com/how-to/untar-file-linuxubuntu/">
+							<img width="162" height="122" src="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2014/02/labrea_tarbubble-162x122.jpg" class="attachment-related-post-size size-related-post-size wp-post-image" alt="Untar a File in Linux/Ubuntu" title="Untar a File in Linux/Ubuntu" width="162" height="122" srcset="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2014/02/labrea_tarbubble-162x122.jpg 162w, http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2014/02/labrea_tarbubble-210x158.jpg 210w" sizes="(max-width: 162px) 100vw, 162px" />						</a>
+					</div><!-- end .post-thumb -->
+					<div class="post-data">
+						<h4><a href="http://www.hostingadvice.com/how-to/untar-file-linuxubuntu/">Untar a File in Linux/Ubuntu</a></h4>
+						<div class="author-meta">
+							Ryan Frankel &bull; 07/01/2014						</div><!-- end .author-meta -->
+					</div><!-- end .post-data -->
+				</div><!-- end .related-post -->
+			</div><!-- end .span9 -->	
+					<div class="span9">
+				<div class="related-post">
+					<div class='post-thumb'>
+						<a href="http://www.hostingadvice.com/how-to/install-gearman-ubuntu-12-04/">
+							<img width="162" height="122" src="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2014/09/install-gearman-162x122.jpg" class="attachment-related-post-size size-related-post-size wp-post-image" alt="How to Install Gearman on Ubuntu 12.04" title="How to Install Gearman on Ubuntu 12.04" width="162" height="122" srcset="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2014/09/install-gearman-162x122.jpg 162w, http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2014/09/install-gearman-210x158.jpg 210w" sizes="(max-width: 162px) 100vw, 162px" />						</a>
+					</div><!-- end .post-thumb -->
+					<div class="post-data">
+						<h4><a href="http://www.hostingadvice.com/how-to/install-gearman-ubuntu-12-04/">Install Gearman on Ubuntu 12.04 in 5 Simple Steps</a></h4>
+						<div class="author-meta">
+							Ryan Frankel &bull; 09/26/2014						</div><!-- end .author-meta -->
+					</div><!-- end .post-data -->
+				</div><!-- end .related-post -->
+			</div><!-- end .span9 -->	
+					<div class="span9">
+				<div class="related-post">
+					<div class='post-thumb'>
+						<a href="http://www.hostingadvice.com/how-to/javascript-int-string/">
+							<img width="162" height="122" src="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2014/12/javascript-to-string-162x122.jpg" class="attachment-related-post-size size-related-post-size wp-post-image" alt="JavaScript: int to string" title="JavaScript: int to string" width="162" height="122" srcset="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2014/12/javascript-to-string-162x122.jpg 162w, http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2014/12/javascript-to-string-210x158.jpg 210w" sizes="(max-width: 162px) 100vw, 162px" />						</a>
+					</div><!-- end .post-thumb -->
+					<div class="post-data">
+						<h4><a href="http://www.hostingadvice.com/how-to/javascript-int-string/">JavaScript: int to string</a></h4>
+						<div class="author-meta">
+							Ryan Frankel &bull; 12/21/2014						</div><!-- end .author-meta -->
+					</div><!-- end .post-data -->
+				</div><!-- end .related-post -->
+			</div><!-- end .span9 -->	
+			</div><!-- end .row -->
+</div>
+			</section>
+					</div><!-- end .span18 -->
+
+
+		<div class='span6'>
+			
+	
+<section id="sidebar-main">
+	<aside id="sidebar-follow" class="sidebar">
+	<div class="aside-header">
+		<i class="sidebar-follow"></i>
+		<h6>Follow the Experts</h6>
+	</div><!-- end .aside-header -->
+	
+	<div class="row">
+		<div class="span6">
+			<div class="aside-body">
+				<div class="social-links">
+					<a href="https://www.facebook.com/HostingAdviceCom" target="_blank">
+						<span class="social-link sidebar-facebook">
+							<div class="social-count facebook-count"><span>1,626</span></div><!-- end .social-count -->
+						</span>
+					</a>
+					<a href="https://twitter.com/Hosting_Advice" target="_blank">
+						<span class="social-link sidebar-twitter">
+							<div class="social-count twitter-count"><span>835</span></div><!-- end .social-count -->
+						</span>
+					</a>
+					<a href="https://plus.google.com/+Hostingadvice/" target="_blank">
+						<span class="social-link sidebar-google">
+							<div class="social-count google-count"><span>267</span></div><!-- end .social-count -->
+						</span>
+					</a>
+				</div><!-- end .social-links -->
+							</div><!-- end .aside-body -->
+		</div><!-- end .span6 -->	
+	</div><!-- end .row -->	
+</aside>
+	
+
+
+<aside id="sidebar-video" class="sidebar">
+	<div class="aside-header">
+		<i class="sidebar-brand"></i>
+		<h6>We Know Hosting</h6>
+	</div><!-- end .aside-header -->
+	
+	<div class="row">
+		<div class="span6">
+			<div class="aside-body">
+				<div class="hosting-video">
+					<iframe width="210" height="118" src="https://www.youtube.com/embed/afgNeN690S0?feature=oembed&showinfo=0&autohide=1" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>				</div><!-- end .hosting-video -->
+			</div><!-- end .aside-body -->
+		</div><!-- end .span6 -->	
+	</div><!-- end .row -->	
+
+	<div class="row">
+		<div class="span6">
+			<div class="aside-body">
+				<div class="counter">
+					<span class="counter-number counter-bg dollar-sign"><p>$</p></span>
+																	<span class="counter-number counter-bg "><p>4</p></span>
+																	<span class="counter-number counter-bg "><p>8</p></span>
+																	<span class="counter-number counter-bg comma"><p>,</p></span>
+																	<span class="counter-number counter-bg "><p>2</p></span>
+																	<span class="counter-number counter-bg "><p>8</p></span>
+																	<span class="counter-number counter-bg "><p>3</p></span>
+									</div><!-- end .spent-->
+				<div class="spent-text">
+					<p>spent annually on <a href='http://www.hostingadvice.com/about/'>web hosting services!</a></p>
+				</div><!-- end .spent-text -->
+			</div><!-- end .aside-body -->
+		</div><!-- end .span6 -->	
+	</div><!-- end .row -->	
+</aside>
+	<aside id='blog'>
+	<div class="aside-header">
+		<i class="sidebar-blog"></i><h6> From the Blog</h6>
+	</div><!-- end .aside-header -->
+
+	
+	<div class='row'>
+		<div class='span6'>
+			<div class="aside-body">
+				<table>
+																																			<tr>
+							<td class='thumbnail-container'>
+								<a href='http://www.hostingadvice.com/blog/vodien-delivers-secure-and-speedy-hosting-to-customers-worldwide/'>
+									<img alt='Sean Garrity' src='http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/08/Sean-Garrity_avatar_1471544123-90x90.jpg' class='avatar avatar-90 photo' height='90' width='90' />								</a>
+							</td><!-- end .thumbnail-container -->
+							<td class='content-container'>
+								<a href='http://www.hostingadvice.com/blog/vodien-delivers-secure-and-speedy-hosting-to-customers-worldwide/' class='title'>
+									Vodien: Delivering Secure & Speedy Hosting to Customers Worldwide								</a>
+								<p class='tagline'>Sean Garrity, 12/14/17</p>
+							</td><!-- end .content-container -->
+						</tr>
+																																															<tr>
+							<td class='thumbnail-container'>
+								<a href='http://www.hostingadvice.com/blog/hostmetro-delivers-top-tier-hosting-with-transparent-pricing-and-expert-support/'>
+									<img alt='April Fitzgerald' src='http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2017/09/April-Fitzgerald_avatar_1504298465-90x90.png' class='avatar avatar-90 photo' height='90' width='90' />								</a>
+							</td><!-- end .thumbnail-container -->
+							<td class='content-container'>
+								<a href='http://www.hostingadvice.com/blog/hostmetro-delivers-top-tier-hosting-with-transparent-pricing-and-expert-support/' class='title'>
+									HostMetro: Top-Tier Hosting With Transparent Pricing & Expert Support								</a>
+								<p class='tagline'>April Fitzgerald, 12/14/17</p>
+							</td><!-- end .content-container -->
+						</tr>
+																																			<tr>
+							<td class='thumbnail-container'>
+								<a href='http://www.hostingadvice.com/blog/wpmu-dev-provides-everything-for-wordpress-management/'>
+									<img alt='Laura Stamey' src='http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/05/Laura-Bernheim_avatar_1464037729-90x90.jpg' class='avatar avatar-90 photo' height='90' width='90' />								</a>
+							</td><!-- end .thumbnail-container -->
+							<td class='content-container'>
+								<a href='http://www.hostingadvice.com/blog/wpmu-dev-provides-everything-for-wordpress-management/' class='title'>
+									How WPMU DEV Helps Users With WordPress Security and Optimization								</a>
+								<p class='tagline'>Laura Stamey, 12/14/17</p>
+							</td><!-- end .content-container -->
+						</tr>
+						
+									</table>
+				<div class="see-more">
+					<a href="http://www.hostingadvice.com/blog/">more blog posts</a> &#187;
+				</div><!-- end .see-more -->
+			</div><!-- end .aside-body -->
+		</div><!-- end .span6 -->
+	</div><!-- end .row -->
+</aside>
+	
+<aside id='reviews'>
+	<div class="aside-header">
+		<i class="sidebar-reviews"></i><h6> Hosting Reviews</h6>
+	</div><!-- end .aside-header -->
+
+	<div class="row">
+		<div class="span6">
+			<div class="aside-body">
+				<ul>
+															<li>
+														<i class="overall-sidebar"></i> <a href='http://www.hostingadvice.com/reviews/'>Best Web Hosting 2017</a>
+						</li>
+																				<li>
+														<i class="cheap-sidebar"></i> <a href='http://www.hostingadvice.com/reviews/cheap/'>Cheap Web Hosting</a>
+						</li>
+																				<li>
+														<i class="dedicated-sidebar"></i> <a href='http://www.hostingadvice.com/reviews/dedicated/'>Dedicated Server Hosting</a>
+						</li>
+																				<li>
+														<i class="vps-sidebar"></i> <a href='http://www.hostingadvice.com/reviews/vps/'>VPS Hosting</a>
+						</li>
+																				<li>
+														<i class="wordpress-sidebar"></i> <a href='http://www.hostingadvice.com/reviews/wordpress/'>WordPress Hosting</a>
+						</li>
+																				<li>
+														<i class="website-builder-sidebar"></i> <a href='http://www.hostingadvice.com/reviews/website-builder/'>Website Builder</a>
+						</li>
+													</ul>
+			</div><!-- end .aside-body -->
+		</div><!-- end .span6 -->	
+	</div><!-- end .row -->	
+</aside>
+	<aside id='how-to'>
+	<div class="aside-header">
+		<i class="sidebar-howto"></i><h6> Hosting How To's</h6>
+	</div><!-- end .aside-header -->
+
+	
+	<div class='row'>
+		<div class='span6'>
+			<div class="aside-body">
+				<table>
+																																			<tr>
+							<td class='thumbnail-container'>
+								<span class="howto-placeholder"></span>
+							</td><!-- end .thumbnail-container -->
+							<td class='content-container'>
+								<a href='http://www.hostingadvice.com/how-to/bluehost-cloud/' class='title'>
+									How Our Experts Rate Bluehost Cloud Hosting for Features and Price								</a>
+								<p class='tagline'>Laura Stamey, 12/12/17</p>
+							</td><!-- end .content-container -->
+						</tr>
+																																			<tr>
+							<td class='thumbnail-container'>
+								<span class="howto-placeholder"></span>
+							</td><!-- end .thumbnail-container -->
+							<td class='content-container'>
+								<a href='http://www.hostingadvice.com/how-to/how-much-should-i-pay-for-web-hosting/' class='title'>
+									How Much Should I Pay for Web Hosting? (2017's Host Pricing Guide)								</a>
+								<p class='tagline'>Alexandra Leslie, 12/8/17</p>
+							</td><!-- end .content-container -->
+						</tr>
+																																																																																															<tr>
+							<td class='thumbnail-container'>
+								<span class="howto-placeholder"></span>
+							</td><!-- end .thumbnail-container -->
+							<td class='content-container'>
+								<a href='http://www.hostingadvice.com/how-to/one-com-wordpress-review/' class='title'>
+									What Our Experts Say About One.com’s WordPress Hosting Plans								</a>
+								<p class='tagline'>Sean Garrity, 11/13/17</p>
+							</td><!-- end .content-container -->
+						</tr>
+						
+									</table>
+				<div class="see-more">
+					<a href="http://www.hostingadvice.com/how-to/">more how to's</a> &#187;
+				</div><!-- end .see-more -->
+			</div><!-- end .aside-body -->
+		</div><!-- end .span6 -->
+	</div><!-- end .row -->
+</aside>
+	
+</section>
+		</div><!-- end .span6 -->
+	</div><!-- end .row -->
+</div><!-- end .container -->
+
+	
+	
+<footer>
+	<div class='container'>
+		<div class='row'>
+			<div class='span24'>
+				<div class='row'>
+					<div class='span8'>
+	<div class="footer-logo">
+		<a itemprop='url' href='http://www.hostingadvice.com' class="CR-Logo"><img itemprop='logo' src="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/themes/hostingadvice/images/logos/ha-logo-footer-2x.png" alt="HostingAdvice.com" title="HostingAdvice.com" /></a>
+	</div><!-- end .footer-logo -->
+	<div class="footer-mission">
+		<p>Our mission: to inform and educate our visitors about the world of Web Hosting.</p>
+	</div><!-- end .footer-mission -->
+	<div class="footer-menu">
+		<ul id="menu-footer" class="nav"><li id="menu-item-216" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-216"><span class="divider"> | </span><a href="http://www.hostingadvice.com/">Home</a></li>
+<li id="menu-item-217" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-217"><span class="divider"> | </span><a href="http://www.hostingadvice.com/about/">About</a></li>
+<li id="menu-item-218" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-218"><span class="divider"> | </span><a href="http://www.hostingadvice.com/contact/">Contact</a></li>
+<li id="menu-item-257" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-257"><span class="divider"> | </span><a href="http://www.hostingadvice.com/privacy/">Privacy</a></li>
+<li id="menu-item-221" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-221"><span class="divider"> | </span><a href="http://www.hostingadvice.com/terms/">Terms</a></li>
+<li id="menu-item-220" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-220"><span class="divider"> | </span><a href="http://www.hostingadvice.com/sitemap/">Sitemap</a></li>
+</ul>	</div><!-- end .footer-menu -->
+	<div class="footer-info">
+		<p>&copy; 2017 <span itemprop='name'>HostingAdvice.com</span> | <span itemprop='parentOrganization'>Digital Brands</span> | All Rights Reserved</p>		
+	</div><!-- end .footer-info -->
+</div><!-- end .span8 -->
+					<div class='span6'>
+	<div class="footer-experts">
+		<div class="footer-header">
+			Contributing Experts
+		</div><!-- end .footer-header -->
+
+										<div class="expert order-1">
+				<img alt='Alexandra Leslie' src='http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/01/Alexandra-Leslie_avatar_1452794058-80x80.jpg' class='avatar avatar-80 photo' height='80' width='80' />			</div><!-- end .expert -->
+											<div class="expert order-2">
+				<img alt='Ryan Frankel' src='http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/01/Ryan-Frankel_avatar_1453141380-80x80.jpg' class='avatar avatar-80 photo' height='80' width='80' />			</div><!-- end .expert -->
+											<div class="expert order-3">
+				<img alt='PJ Fancher' src='http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/01/PJ-Fancher_avatar_1453141406-80x80.jpg' class='avatar avatar-80 photo' height='80' width='80' />			</div><!-- end .expert -->
+											<div class="expert order-4">
+				<img alt='Laura Stamey' src='http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/05/Laura-Bernheim_avatar_1464037729-80x80.jpg' class='avatar avatar-80 photo' height='80' width='80' />			</div><!-- end .expert -->
+											<div class="expert order-5">
+				<img alt='Toby Sembower' src='http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/01/Toby-Sembower_avatar_1453141303-80x80.jpg' class='avatar avatar-80 photo' height='80' width='80' />			</div><!-- end .expert -->
+											<div class="expert order-6">
+				<img alt='Roberto Sanchez' src='http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/uploads/2016/01/Roberto-Sanchez_avatar_1453141356-80x80.jpg' class='avatar avatar-80 photo' height='80' width='80' />			</div><!-- end .expert -->
+					
+	</div><!-- end .footer-experts -->
+</div><!-- end .span6 -->
+					
+<div class='span6'>
+	<div class="footer-header">
+		Latest Advice
+	</div><!-- end .footer-header -->
+	<div class="select-boxes">
+
+						<div class='select-box'>
+			<span class='select-box-top'>
+			<a><span> &mdash; Sections &mdash; <span class='caret-container'><b class='caret'></b></span<</span></a>
+			</span><!-- select-box -top -->
+
+			<span class='select-box-list'>
+				<ul>
+																	<li><a href='http://www.hostingadvice.com/how-to/'>How-To's of Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/blog/'>The Hosting Blog</a></li>
+																<li><a href='http://www.hostingadvice.com/the-basics/'>The Basics of Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/versus/'>Host vs. Host Reviews</a></li>
+																<li><a href='http://www.hostingadvice.com/coupons/'>Hosting Deals & Coupons</a></li>
+								</ul>
+			</span><!-- select-box-list -->
+		</div><!-- select-box -->
+						<div class='select-box'>
+			<span class='select-box-top'>
+			<a><span> &mdash; Best Hosting &mdash; <span class='caret-container'><b class='caret'></b></span<</span></a>
+			</span><!-- select-box -top -->
+
+			<span class='select-box-list'>
+				<ul>
+																	<li><a href='http://www.hostingadvice.com/reviews/asp-net/'>ASP.NET Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/'>Best Web Hosting 2017</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/blog/'>Blog Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/cheap/'>Cheap Web Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/cloud/'>Cloud Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/cpanel/'>cPanel Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/dedicated/'>Dedicated Server Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/domain/'>Domain Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/drupal/'>Drupal Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/ecommerce/'>eCommerce Website Builder</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/email/'>Email Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/forum/'>Forum Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/ftp/'>FTP Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/java/'>Java Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/joomla/'>Joomla Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/linux/'>Linux Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/linux-vps/'>Linux VPS Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/magento/'>Magento Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/managed/'>Managed Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/managed-wordpress/'>Managed WordPress Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/mysql/'>MySQL Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/php/'>PHP Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/reseller-hosting/'>Reseller Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/shared/'>Shared Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/ssd/'>SSD Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/ssd-vps/'>SSD VPS Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/vps/'>VPS Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/website-builder/'>Website Builder</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/windows/'>Windows Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/windows-vps/'>Windows VPS Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/wordpress/'>WordPress Hosting</a></li>
+																<li><a href='http://www.hostingadvice.com/reviews/wordpress-website-builder/'>WordPress Website Builder</a></li>
+								</ul>
+			</span><!-- select-box-list -->
+		</div><!-- select-box -->
+		
+				<div class='select-box' id='host-reviews'>
+				<span class='select-box-top'> 
+					<a>
+						<span>
+							&mdash;  Host Reviews &mdash;
+							<span class="caret-container"><b class="caret"></b></span>
+						</span>
+					</a>
+				</span>
+				<span class='select-box-list'>
+					<ul>
+											<li>
+							<a href="http://www.hostingadvice.com/review/1and1/">- 1&#038;1 Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/a2-hosting/">- A2 Hosting Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/accuwebhosting/">- AccuWebHosting Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/bluehost/">- Bluehost Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/boldgrid/">- BoldGrid Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/dreamhost/">- DreamHost Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/fatcow/">- FatCow Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/godaddy/">- GoDaddy Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/greengeeks/">- GreenGeeks Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/hivelocity/">- Hivelocity Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/hostgator/">- HostGator Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/hostinger/">- Hostinger Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/hostpapa/">- HostPapa Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/inmotion/">- InMotion Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/interserver/">- InterServer Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/ipage/">- iPage Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/justhost/">- JustHost Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/liquid-web/">- Liquid Web Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/media-temple/">- Media Temple Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/motocms/">- MotoCMS Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/network-solutions/">- Network Solutions Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/one-com/">- One.com Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/resellerclub/">- ResellerClub Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/shopify/">- Shopify Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/siteground/">- SiteGround Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/volusion/">- Volusion Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/web-hosting-hub/">- Web Hosting Hub Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/web-com/">- Web.com Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/weebly/">- Weebly Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/wix/">- Wix Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/wordpress/">- WordPress Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/wpengine/">- WP Engine Review</a>
+						</li>
+											<li>
+							<a href="http://www.hostingadvice.com/review/yahoo/">- Yahoo! Web Hosting Review</a>
+						</li>
+															</ul>
+				</span><!-- end .select-box-list -->
+			</div><!-- end .select-box -->
+			</div><!-- end .select-boxes -->
+</div><!-- end .span6 -->
+					<div class='span4'>
+	<div class="footer-follow">
+		<div class="footer-header">
+			Follow Us
+		</div><!-- end .footer-header -->
+		<div class='social-icons'>
+			<link itemprop='url' href='http://www.hostingadvice.com/'>
+			<a itemprop='sameAs' href='https://www.facebook.com/HostingAdviceCom' target='_blank' >
+				<div class='footer-facebook'></div>
+			</a>
+			<a itemprop='sameAs' href='https://twitter.com/Hosting_Advice' target='_blank' >
+				<div class='footer-twitter'></div>
+			</a>
+			<a itemprop='sameAs' href='https://plus.google.com/+Hostingadvice/' target='_blank' rel='publisher'>
+				<div class='footer-google'></div>
+			</a>
+		</div><!-- end .social-icons -->
+	</div><!-- end .footer-follow -->
+</div><!-- end .span4 -->
+				</div><!-- end .row -->
+			</div><!-- end .span24 -->
+		</div><!-- end .row -->
+		<div class='row'>
+			<div class='span24'>
+				<div class='footer-advertiser-disclosure'>
+	<p><p><strong>Disclaimer</strong>: Great efforts are made to maintain reliable data on all offers presented. However, this data is provided without warranty. Users should always check the offer provider&#8217;s official website for current terms and details. Our site receives compensation from many of the offers listed on the site. Along with key review factors, this compensation may impact how and where products appear across the site (including, for example, the order in which they appear). Our site does not include the entire universe of available offers. Editorial opinions expressed on the site are strictly our own and are not provided, endorsed, or approved by advertisers.</p>
+</p>
+</div><!-- end .footer-advertiser-disclosure -->
+			</div><!-- end .span24 -->
+		</div><!-- end .row -->
+	</div> <!-- end .container -->
+</footer>
+
+
+	<script type="text/javascript">(function(){function async_load(){window.twttr = (function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0],t = window.twttr || {};if (d.getElementById(id)) return t;js = d.createElement(s);js.id = id;js.src = "https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, "script", "twitter-wjs"));} if (window.attachEvent) window.attachEvent("onload", async_load); else window.addEventListener("load", async_load, false);})();</script><script type="text/javascript">(function(){function async_load(){(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));} if (window.attachEvent) window.attachEvent("onload", async_load); else window.addEventListener("load", async_load, false);})();</script><script type="text/javascript">(function(){function async_load(){(function() {var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);})();} if (window.attachEvent) window.attachEvent("onload", async_load); else window.addEventListener("load", async_load, false);})();</script><script type="text/javascript">(function(){function async_load(){(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));} if (window.attachEvent) window.attachEvent("onload", async_load); else window.addEventListener("load", async_load, false);})();</script><script type="text/javascript">(function(){function async_load(){window.twttr = (function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0],t = window.twttr || {};if (d.getElementById(id)) return t;js = d.createElement(s);js.id = id;js.src = "https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, "script", "twitter-wjs"));} if (window.attachEvent) window.attachEvent("onload", async_load); else window.addEventListener("load", async_load, false);})();</script><script type="text/javascript">(function(){function async_load(){(function() {var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);})();} if (window.attachEvent) window.attachEvent("onload", async_load); else window.addEventListener("load", async_load, false);})();</script><script type="text/javascript">(function(){function async_load(){(function() {var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);})();} if (window.attachEvent) window.attachEvent("onload", async_load); else window.addEventListener("load", async_load, false);})();</script>
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}},"cached":"1"};
+/* ]]> */
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"platform":"wordpress@4.7.8","language":""},"disqusIdentifier":"11378 http:\/\/www.hostingadvice.com\/?p=11378","disqusShortname":"hostingadvice","disqusTitle":"Linux: Add User to Group (Primary\/Secondary\/New\/Existing)","disqusUrl":"http:\/\/www.hostingadvice.com\/how-to\/linux-add-user-to-group\/","options":{"manualSync":false},"postId":"11378"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/plugins/disqus-comment-system/media/js/disqus.js?ver=4.7.8'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"hostingadvice"};
+/* ]]> */
+</script>
+
+
+	<script type="text/javascript" src="http://hostingadvice.digitalbrandsinc.netdna-cdn.com/wp-content/cache/minify/86606.default.include-footer.7adaf1.js"></script>
+</body>
+</html>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Object Caching 1588/1721 objects using disk
+Content Delivery Network via hostingadvice.digitalbrandsinc.netdna-cdn.com
+Minified using disk
+Database Caching 10/29 queries in 0.012 seconds using disk
+
+ Served from: www.hostingadvice.com @ 2017-12-15 09:37:30 by W3 Total Cache -->
