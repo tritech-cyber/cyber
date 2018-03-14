@@ -1,0 +1,88 @@
+<pre>
+Source: https://wiki.debian.org/Self-Signed_Certificate
+<a href = "https://wiki.debian.org/Self-Signed_Certificate">Debian Self-Signed_Certificate </a>
+<hr />
+Become su
+Do this one line at a time.
+apt-get install apache2 openssl
+mkdir -p /etc/ssl/localcerts
+openssl req -new -x509 -days 365 -nodes -out /etc/ssl/localcerts/apache.pem -keyout /etc/ssl/localcerts/apache.key
+chmod 600 /etc/ssl/localcerts/apache* 
+a2enmod ssl
+
+Remove files in:
+/etc/apache2/sites-enabled/
+
+rm -fR /etc/apache2/sites-enabled/*
+
+Then move to /etc/apache2/sites-available/
+cd /etc/apache2/sites-available/
+and type
+a2ensite localhost.conf 
+a2ensite localhost-ssl.conf 
+
+
+
+Use these scripts in 
+/etc/apache2/sites-available/
+<textarea rows="15" cols="100">
+#localhost.conf
+        #ServerAdmin webmaster@localhost
+        DocumentRoot /home/cwc/http
+        <Directory "/home/cwc/http">
+                Options Indexes FollowSymLinks
+                 IndexOptions FancyIndexing VersionSort NameWidth=*
+                AllowOverride All
+                Require all granted
+        </Directory>
+
+        ErrorLog /home/cwc/http/logs/error.log
+        LogFormat "%h %l %u %t \"%r\" %>s %b" common
+        CustomLog /home/cwc/http/logs/access_log common
+</textarea>
+<hr />
+
+<textarea rows="40" cols="100">
+#localhost-ssl.conf
+<IfModule mod_ssl.c>
+	<VirtualHost _default_:443>
+		ServerAdmin webmaster@localhost
+		# Document /var/www/html
+		DocumentRoot /home/cwc/https
+		<Directory "/home/cwc/https">
+                     Options Indexes FollowSymLinks
+                     IndexOptions FancyIndexing VersionSort NameWidth=*
+                     AllowOverride All
+                     Require all granted
+                </Directory>
+		 ErrorLog /home/cwc/http/logs/error.log
+                 LogFormat "%h %l %u %t \"%r\" %>s %b" common
+                 CustomLog /home/cwc/https/logs/access_log common
+
+		SSLEngine on
+		#cwc
+		SSLCertificateFile /etc/ssl/localcerts/apache.pem
+                SSLCertificateKeyFile /etc/ssl/localcerts/apache.key
+
+		SSLCertificateFile	/etc/ssl/certs/ssl-cert-snakeoil.pem
+		SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+
+		<FilesMatch "\.(cgi|shtml|phtml|php)$">
+				SSLOptions +StdEnvVars
+		</FilesMatch>
+		<Directory /usr/lib/cgi-bin>
+				SSLOptions +StdEnvVars
+		</Directory>
+
+
+	</VirtualHost>
+</IfModule>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+
+</textarea>
+
+</pre>
+
+
+
