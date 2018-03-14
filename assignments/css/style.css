@@ -18,6 +18,14 @@ green     #859900
 */
 
 
+.aside {
+    background-color:#fdf6e3 ;
+    padding: 15px;
+    color:  #002b36;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
 
 
 pre {

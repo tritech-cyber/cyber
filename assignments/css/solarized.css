@@ -45,7 +45,9 @@ font-size: 2em;
 }
 
 .header {
-
+   background-color: #839496  ; /* For browsers that do not support gradients */
+    margin:0px;
+    padding: 5px;
 }
 
 a{
@@ -68,14 +70,7 @@ text-decoration: none;
 .menu li:hover {
     background-color: #002b36;
 }
-.aside {
-    background-color: #33b5e5;
-    padding: 15px;
-    color: #ffffff;
-    text-align: center;
-    font-size: 14px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
+
 .footer {
     background-color: #2aa198;
     color: #ffffff;
