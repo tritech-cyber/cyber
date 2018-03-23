@@ -1,0 +1,10 @@
+mkdir /opt/java-jdk
+cd /home/cwc/Downloads/oracle/
+
+
+tar -C /opt/java-jdk -zxf jdk-9-linux-x64.tar.gz
+
+update-alternatives --install /usr/bin/java java /opt/java-jdk/jdk-9.0.1/bin/java 1
+update-alternatives --install /usr/bin/javac javac /opt/java-jdk/jdk-9.0.1/bin/javac 1
+java -version
+update-alternatives --config java
