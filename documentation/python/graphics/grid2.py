@@ -12,6 +12,7 @@ def checkered(canvas, line_distance):
 master = Tk()
 canvas_width =  400
 canvas_height = 400 
+master.config(bg='black')
 w = Canvas(master, width=canvas_width,height=canvas_height)
 w.pack()
 
