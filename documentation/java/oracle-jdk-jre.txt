@@ -1,10 +1,21 @@
-mkdir /opt/java-jdk
-cd /home/cwc/Downloads/oracle/
+Download jdk-10_linux-x64_bin.tar.gz 
+and the jre-10_linux-x64_bin.tar.gz 
+in a directory called ~/Downloads/oracle/
+cd ~/Downloads/oracle/
 
 
-tar -C /opt/java-jdk -zxf jdk-9-linux-x64.tar.gz
+mkdir /opt/java
 
-update-alternatives --install /usr/bin/java java /opt/java-jdk/jdk-9.0.1/bin/java 1
-update-alternatives --install /usr/bin/javac javac /opt/java-jdk/jdk-9.0.1/bin/javac 1
-java -version
+
+tar -C /opt/java-zxf jdk-10-linux-x64.tar.gz
+
+update-alternatives --install /usr/bin/java java /opt/java/jdk-10/bin/java 1
+update-alternatives --install /usr/bin/javac javac /opt/java/jdk-10/bin/javac 1
+
 update-alternatives --config java
+
+Notes:
+tar -C
+
+-C directory
+    This is a positional argument which sets the working directory for the following files. When extracting, files will be extracted into the specified directory; when creating, the specified files will be matched from the directory.
