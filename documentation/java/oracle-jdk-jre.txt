@@ -1,3 +1,11 @@
+Locate the current jdk (java development kit) and
+			jre (java runtime environment)
+			 from oracle.com
+http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html
+
+
 Download jdk-10_linux-x64_bin.tar.gz 
 and the jre-10_linux-x64_bin.tar.gz 
 in a directory called ~/Downloads/oracle/
@@ -7,7 +15,7 @@ cd ~/Downloads/oracle/
 mkdir /opt/java
 
 
-tar -C /opt/java-zxf jdk-10-linux-x64.tar.gz
+tar -C /opt/java -zxf jdk-10-linux-x64.tar.gz
 
 update-alternatives --install /usr/bin/java java /opt/java/jdk-10/bin/java 1
 update-alternatives --install /usr/bin/javac javac /opt/java/jdk-10/bin/javac 1
