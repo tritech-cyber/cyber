@@ -1,0 +1,3 @@
+for i in {0..254} ;do (ping 192.168.1.$i -c 1 -w 5  >/dev/null && echo "192.168.1.$i" &) ;done
+
+for ip in $(seq 1 254); do arp -n 192.168.1.$ip | grep Address; [ $? -eq 0 ] && echo "192.168.1.$ip UP" || : ;) done
