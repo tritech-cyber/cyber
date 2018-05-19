@@ -1,0 +1,25 @@
+A public key is only used to encrypt messages not decrypt. A public key 
+is published so that anyone can send a particular receiver a secure 
+message.
+
+A private key can be used to decrypt messages encrypted with a matching 
+public key. As the term suggests, private keys are intended to be 
+secret.
+
+Asymmetric Encryption
+Asymmetric encryption is a technique that allows anyone to send 
+encrypted messages to a receiver. It is based on cryptographic 
+algorithms for generating matching pairs of public/private keys such 
+that the private key can't be guessed from the public key.
+The public key is then published using techniques such as digital 
+certificates. The private key is configured in encryption enabled 
+software and kept secret.
+
+Symmetric Encryption
+Symmetric encryption is based solely on private keys. For example, 
+symmetric encryption may be used to encrypt data in storage. It is also 
+used in communications by sharing private keys between endpoints.
+In many cases, asymmetric encryption is used to initialize a session and 
+exchange private keys. Then communication is encrypted with symmetric 
+encryption. This is done because symmetric encryption is faster than 
+asymmetric encryption.
