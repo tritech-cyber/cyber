@@ -1,0 +1,29 @@
+
+var ftGUID_3090609="372124EDDDC094";
+var ftConfID_3090609="8558688";
+var ftParams_3090609="ftx=&fty=&ftadz=&ftscw=&ft_custom=&ft_section=Current_General&ftOBA=1&ft_agentEnv=0&ft_referrer=https%3A%2F%2Fgoogleads.g.doubleclick.net%2Fpagead%2Fads%3Fclient%3Dca-pub-2601749019656699%26output%3Dhtml%26h%3D90%26slotname%3D5590002574%26adk%3D508351155%26adf%3D3345186484%26w%3D780%26fwrn%3D4%26fwrnh%3D100%26lmt%3D1527228135%26loeid%3D332260007%26pucrd%3DCgwIABAAGAMgACgAOAESAhgHeAM%26rafmt%3D1%26guci%3D2.2.0.0.2.2.0%26format%3D780x90%26url%3Dhttps%253A%252F%252Fwww.tecmint.com%252F12-tcpdump-commands-a-network-sniffer-tool%252F%26flash%3D0%26fwr%3D0%26rh%3D0%26rw%3D780%26resp_fmts%3D3%26wgl%3D1%26adsid%3DNT%26dt%3D1527256550885%26bpp%3D9%26bdt%3D2659%26fdt%3D244%26idt%3D247%26shv%3Dr20180521%26cbv%3Dr20180524%26saldr%3Daa%26abxe%3D1%26prev_fmts%3D728x90%252C300x250%26prev_slotnames%3D1986283779%26correlator%3D8564468948043%26frm%3D20%26ga_vid%3D1431463222.1527256549%26ga_sid%3D1527256551%26ga_hid%3D1803869090%26ga_fc%3D0%26pv%3D1%26iag%3D0%26icsg%3D167843%26dssz%3D23%26mdo%3D0%26mso%3D0%26u_tz%3D-420%26u_his%3D3%26u_java%3D0%26u_h%3D1080%26u_w%3D1920%26u_ah%3D1018%26u_aw%3D1920&ft_keyword=Current_General&cachebuster=448236.86602491385";
+var ftKeyword_3090609="current_general,current_general";
+var ftCustom_3090609="";
+var ftSection_3090609="Current_General";
+var ftSegment_3090609="qei,qej";
+var ftSegmentList_3090609=[{s:'qei'},{s:'qej'}];
+var ftRuleMatch_3090609="00010000";
+var ftTimestamp_3090609="1527338060";
+var ftGeoC2_3090609="us";
+var ftGeoState_3090609="wa";
+var ftGeoCity_3090609="kennewick";
+var ftISP_3090609="charter communications";
+var ftSpeed_3090609="cable";
+var ftDMA_3090609="810";
+var ftLong_3090609="-119.133";
+var ftLat_3090609="46.1947";
+var ftPostal_3090609="99336";
+var ftTimeZone_3090609="-700";
+var ftMobileCarrier_3090609="";
+var ftImp3090609 = {};
+ftImp3090609.privacy = "x";
+ftImp3090609.guidAge = "77";
+ftImp3090609.impID = "3798AC95D05920";
+
+document.write('<scr'+'ipt src="https://cdn.flashtalking.com/xre/309/3090609/2180930/js/j-3090609-2180930.js" id="ftscript_m3090609" name="ftscript_m3090609"></scr'+'ipt>');
+                    

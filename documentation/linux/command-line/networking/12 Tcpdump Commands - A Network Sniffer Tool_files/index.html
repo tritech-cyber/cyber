@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://cdn.flashtalking.com/88930/2183369/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <style></style><meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    #container {
+      position: relative;
+      box-sizing: border-box;
+      width: 728px;
+      height: 90px;
+      overflow: hidden;
+        border: 1px solid #d7d7d7;
+                background: -moz-linear-gradient(113deg, rgba(39,170,225,1) 0%, rgba(39,170,225,1) 12%, rgba(255,255,255,1) 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(88%, rgba(39,170,225,1)), color-stop(100%, rgba(39,170,225,1))); /* safari4+,chrome */
+    background: -webkit-linear-gradient(113deg, rgba(39,170,225,1) 0%, rgba(39,170,225,1) 12%, rgba(255,255,255,1) 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(113deg, rgba(39,170,225,1) 0%, rgba(39,170,225,1) 12%, rgba(255,255,255,1) 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(113deg, rgba(39,170,225,1) 0%, rgba(39,170,225,1) 12%, rgba(255,255,255,1) 100%); /* ie10+ */
+    background: linear-gradient(337deg, rgba(39,170,225,1) 0%, rgba(39,170,225,1) 12%, rgba(255,255,255,1) 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#27aae1',GradientType=0 ); /* ie6-9 */ 
+        
+        /*http://angrytools.com/gradient/?8_27aae1,100_ffffff&0_100,100_100&l_131*/
+    }
+  </style>
+</head>
+<body>
+<div id="container">
+  <ft-richload name="dynamicRichLoad" id="dynamicRichLoad"></ft-richload>
+</div>
+<script src="./html5API.js"></script>
+<script>
+  function pow() {
+    console.log("POW");
+  }
+  var container = myFT.$("#container");
+  myFT.on("richload", function() {
+    if (myFT.richLoadsLoaded === true) {
+      myFT.richLoads.dynamicRichLoad.frame.contentWindow.intializeRichload();
+    }
+  });
+</script>
+
+
+</body></html>

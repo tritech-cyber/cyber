@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/ -->
+<html class="js" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="https://cdn.api.twitter.com/1/urls/count.json?url=https%3A%2F%2Fwww.tecmint.com%2F12-tcpdump-commands-a-network-sniffer-tool%2F&amp;callback=jQuery112404130325714739316_1527256550003&amp;_=1527256550004"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="alexaVerifyID" content="qqxQUyWSeUfqZOencfEoRM9vrVk">
+<meta name="msvalidate.01" content="E8C9208AD2F47ED874ED18E35FC370CE">
+<meta name="google-translate-customization" content="c567e5d7624a883b-609bf053fa02c58b-g01de0b1961de0feb-f">
+<meta property="article:publisher" content="https://facebook.com/tecmint">
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<link rel="pingback" href="https://www.tecmint.com/xmlrpc.php">
+<title>12 Tcpdump Commands - A Network Sniffer Tool</title>
+<script src="./12 Tcpdump Commands - A Network Sniffer Tool_files/osd.js"></script><script src="./12 Tcpdump Commands - A Network Sniffer Tool_files/ca-pub-2601749019656699.js"></script><script async="" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/analytics.js"></script><script type="">document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
+
+<link rel="author" href="https://plus.google.com/u/0/107665449243972690526">
+<meta name="description" content="This is our another ongoing series of packet sniffer tool called tcpdump. Here, we are going to show you how to install tcpdump and cover some useful commands.">
+<meta name="keywords" content="tcpdump,tcpdump command,linux tcpdump,tcpdump command examples">
+<link rel="canonical" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/">
+
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Tecmint: Linux Howtos, Tutorials &amp; Guides » Feed" href="https://feeds.feedburner.com/tecmint">
+<link rel="alternate" type="application/rss+xml" title="Tecmint: Linux Howtos, Tutorials &amp; Guides » Comments Feed" href="https://www.tecmint.com/comments/feed/">
+<link href="./12 Tcpdump Commands - A Network Sniffer Tool_files/css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="Tecmint: Linux Howtos, Tutorials &amp; Guides » 12 Tcpdump Commands – A Network Sniffer Tool Comments Feed" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/feed/">
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="./12 Tcpdump Commands - A Network Sniffer Tool_files/dfw58.css" media="all">
+<script src="./12 Tcpdump Commands - A Network Sniffer Tool_files/dfw58.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var ajaxurl = "https:\/\/www.tecmint.com\/wp-admin\/admin-ajax.php";
+var QBP_PUBLIC_GLOBALS = {"QBP_PUBLIC_NONCE":"0c0a4f594c","USER_TYPE":"public","VISIBILITY_DATA":{"is_page":false,"is_post":true,"is_homepage":false,"is_archive":false,"is_custom_post_type":false,"id":841}};
+/* ]]> */
+</script>
+<script src="./12 Tcpdump Commands - A Network Sniffer Tool_files/dfw58(1).js" type="text/javascript"></script>
+
+<link rel="https://api.w.org/" href="https://www.tecmint.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.tecmint.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.tecmint.com/wp-includes/wlwmanifest.xml">
+<link rel="prev" title="How to Open, Extract and Create RAR Files in Linux" href="https://www.tecmint.com/how-to-open-extract-and-create-rar-files-in-linux/">
+<link rel="next" title="Setup Samba Server Using tdbsam Backend on RHEL/CentOS 6.3/5.8 and Fedora 17-12" href="https://www.tecmint.com/setup-samba-server-using-tdbsam-backend-on-rhel-centos-6-3-5-8-and-fedora-17-12/">
+<meta name="generator" content="WordPress 4.9.6">
+<link rel="shortlink" href="https://www.tecmint.com/?p=841">
+<link rel="alternate" type="application/json+oembed" href="https://www.tecmint.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.tecmint.com%2F12-tcpdump-commands-a-network-sniffer-tool%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.tecmint.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.tecmint.com%2F12-tcpdump-commands-a-network-sniffer-tool%2F&amp;format=xml">
+
+<meta property="og:image" content="https://www.tecmint.com/wp-content/uploads/2012/08/Tcpdump-Commands.png">
+
+
+<link rel="shortcut icon" href="https://www.tecmint.com/wp-content/themes/tecmint/images/favicon.ico">
+<!--[if lt IE 9]>
+<script src="https://www.tecmint.com/wp-content/themes/tecmint/js/ie/html5.js"></script>
+<script src="https://www.tecmint.com/wp-content/themes/tecmint/js/ie/selectivizr.js"></script>
+<![endif]-->
+<link rel="amphtml" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/amp/"><link rel="icon" href="https://www.tecmint.com/wp-content/uploads/2015/01/tecmint_square_logo.png" sizes="32x32">
+<link rel="icon" href="https://www.tecmint.com/wp-content/uploads/2015/01/tecmint_square_logo.png" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://www.tecmint.com/wp-content/uploads/2015/01/tecmint_square_logo.png">
+<meta name="msapplication-TileImage" content="https://www.tecmint.com/wp-content/uploads/2015/01/tecmint_square_logo.png">
+<style type="text/css">
+/* Dynamic CSS: For no styles in head, copy and put the css below in your custom.css or child theme's style.css, disable dynamic styles */
+body { font-family: "Roboto Condensed", Arial, sans-serif; }
+.boxed #wrapper, .container-inner { max-width: 1280px; }
+.sidebar .widget { padding-left: 20px; padding-right: 20px; padding-top: 20px; }
+.search-expand,
+#nav-topbar.nav-container { background-color: #23588c; }
+@media only screen and (min-width: 720px) {
+#nav-topbar .nav ul { background-color: #23588c; }
+}			
+#header { background-color: #075b88; }
+@media only screen and (min-width: 720px) {
+#nav-header .nav ul { background-color: #075b88; }
+}			
+#nav-header.nav-container { background-color: #2f6dab; }
+@media only screen and (min-width: 720px) {
+#nav-header .nav ul { background-color: #2f6dab; }
+}			
+#footer-bottom { background-color: #2f6dab; }
+.site-title a img { max-height: 90px; }
+img { -webkit-border-radius: 2px; border-radius: 2px; }
+</style>
+<link rel="author" href="https://plus.google.com/107665449243972690526/posts">
+<script async="" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/adsbygoogle.js" type=""></script>
+<script type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "WebSite",
+"url": "https://www.tecmint.com/",
+"potentialAction": {
+"@type": "SearchAction",
+"target": "https://www.tecmint.com/?s={search_term}",
+"query-input": "required name=search_term"
+}
+}
+</script>
+<script type="text/javascript">
+this.randomtip=function(){var e=jQuery("#tips li").length,t=Math.floor(Math.random()*e)+1;jQuery("#tips li:nth-child("+t+")").show()},jQuery(document).ready(function($){randomtip()});</script>
+<script data-cfasync="false" type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-33207530-1', 'auto');
+ga('send', 'pageview');
+</script>
+<link rel="preload" href="./12 Tcpdump Commands - A Network Sniffer Tool_files/integrator.js" as="script"><script type="text/javascript" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/integrator.js"></script></head>
+<link id="qbp-fonts" href="./12 Tcpdump Commands - A Network Sniffer Tool_files/css(1)" rel="stylesheet" type="text/css"><div id="quickiebarpro-show-button" class="show-button-sticky-enabled show-button-placement-top" style="color: rgb(255, 255, 255); background: rgb(219, 68, 85); z-index: 100; display: none;"><div class="show-button" style="color:#FFFFFF;background:#DB4455;"><i class="fa fa-chevron-down"></i><i class="fa fa-chevron-up"></i></div></div><div id="quickiebarpro" class="qbp-5608da2674a31 qbp-1 qbp qbp-bar_height-skinny qbp-sticky-enabled qbp-placement-top qbp-attribution-hidden qbp-alignment-centered qbp-button_style-rounded qbp-close_button_visibility-onhover qbp-bar_type-basic " style="background: rgb(219, 68, 85); z-index: 100; display: block;"><div class="hover-background-overlay"></div><div class="wrap"><div class="qbp-wrap"><span id="qbp-bar-text" class="bar-text" style="color:#FFFFFF;font-family:Roboto Slab;font-weight:700;">Linux Foundation’s LFCS and LFCE Certification Preparation Guide ($39)</span><span id="qbp-bar-button" class="bar-button" style="color:#FFFFFF;background:#BF3B44;border-color:#FFFFFF;font-family:Montserrat;font-weight:400;">Get This Book &nbsp;<i class="fa fa-book"></i>&nbsp;</span><div id="qbp-bar-html" class="bar-html"></div><form id="qbp-subscribe-form" class="subscribe-form" onsubmit="return false;"><input id="qbp-subscribe-input" type="email" placeholder="Email" autocomplete="off"><div id="qbp-subscribe-button" style="color:#FFFFFF;background:#BF3B44;border-color:#FFFFFF;"><i class="fa fa-long-arrow-right"></i></div></form></div></div><div class="qbp-close-button"><i class="fa fa-times-circle-o"></i></div><a href="https://www.tecmint.com/linux-foundation-lfcs-lfce-certification-exam-book/" target="_blank" class="link-overlay" style=""></a><div class="qbp-close-bar"><i class="fa fa-chevron-up"></i></div></div><body data-rsssl="1" class="post-template-default single single-post postid-841 single-format-standard col-2cl full-width topbar-enabled chrome s1-collapse s2-collapse" style="padding-top: 40px;">
+<div id="wrapper">
+<header id="header">
+<nav class="nav-container group" id="nav-topbar">
+<div class="nav-toggle"><i class="fa fa-bars"></i></div>
+<div class="nav-text"></div>
+<div class="nav-wrap container"><ul id="menu-home" class="nav container-inner group"><li id="menu-item-334" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-334"><a href="https://www.tecmint.com/">Home</a></li>
+<li id="menu-item-10774" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10774"><a target="_blank" href="https://www.tecmint.com/who-we-are/">About</a></li>
+<li id="menu-item-3912" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3912"><a title="Free Linux eBooks" target="_blank" href="http://tecmint.tradepub.com/category/information-technology-servers-and-linux-server-os/806/">Free eBooks</a></li>
+<li id="menu-item-17151" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17151"><a title="Discover and save on the best gear, gadgets, and software" target="_blank" href="https://deals.tecmint.com/">Deals</a></li>
+<li id="menu-item-18575" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18575"><a title="Support Us" href="https://www.tecmint.com/donate-to-tecmint/">Donate</a></li>
+<li id="menu-item-10775" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10775"><a target="_blank" href="https://www.tecmint.com/submit-articles/">Join TecMint</a></li>
+<li id="menu-item-11736" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11736"><a target="_blank" href="https://www.tecmint.com/linux-online-training-courses/">Linux Online Courses</a></li>
+<li id="menu-item-11907" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11907"><a title="Subscribe to Daily Updates" target="_blank" href="https://www.tecmint.com/subscribe-to-blog/">Subscribe</a></li>
+<li id="menu-item-13338" class="hosting menu-item menu-item-type-custom menu-item-object-custom menu-item-13338"><a title="Best Web Hosting Companies" target="_blank" href="https://www.tecmint.com/best-web-hosting-for-linux/">Linux Hosting</a></li>
+<li id="menu-item-24734" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-24734"><a title="Linux Commands – A Beginners Cheat Sheet" target="_blank" href="https://www.tecmint.com/linux-commands-cheat-sheet/">A-Z Linux Commands</a></li>
+</ul></div>
+<div class="container">
+<div class="container-inner">
+<div class="toggle-search"><i class="fa fa-search"></i></div>
+<div class="search-expand">
+<div class="search-expand-inner">
+<form action="https://www.tecmint.com/search/" id="cse-search-box">
+<div>
+<input type="hidden" name="cx" value="partner-pub-2601749019656699:2173448976">
+<input type="hidden" name="cof" value="FORID:10">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" class="search" name="q" size="20" placeholder="Custom Search" style="background: url(&quot;https://www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png&quot;) left center no-repeat rgb(255, 255, 255); text-indent: 48px;">
+<input type="submit" name="sa" value="Search">
+</div>
+<input name="siteurl" type="hidden" value="www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/"><input name="ref" type="hidden" value="www.google.com/"><input name="ss" type="hidden" value=""></form>
+<script type="text/javascript" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/brand"></script>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<div class="container group">
+<div class="container-inner">
+<div class="group pad">
+<p class="site-title"><a href="https://www.tecmint.com/" rel="home"><img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/logo.png" alt="Tecmint: Linux Howtos, Tutorials &amp; Guides"></a></p>
+<div id="header-ads">
+<div id="text-17" class="widget widget_text"> <div class="textwidget">
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-2601749019656699" data-ad-slot="8210224606" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:728px;height:90px;" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/saved_resource.html"></iframe></ins></ins></ins>
+<script type="">
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div> </div>
+</div>
+<nav class="nav-container group" id="nav-header">
+<div class="nav-toggle"><i class="fa fa-bars"></i></div>
+<div class="nav-text"></div>
+<div class="nav-wrap container"><ul id="menu-header" class="nav container-inner group"><li id="menu-item-20410" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20410"><a target="_blank" href="https://www.fossmint.com/">Linux News</a></li>
+<li id="menu-item-10770" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10770"><a href="https://www.tecmint.com/best-linux-distributions/">Linux Distro’s</a></li>
+<li id="menu-item-10771" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-10771"><a href="https://www.tecmint.com/category/interview-questions/">Interview Questions</a></li>
+<li id="menu-item-20869" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-20869"><a href="https://www.tecmint.com/#">Programming</a>
+<ul class="sub-menu" style="display: none;">
+<li id="menu-item-10772" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-10772"><a title="Learn Linux Shell Scripting" href="https://www.tecmint.com/category/bash-shell/">Shell Scripting</a></li>
+<li id="menu-item-20870" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20870"><a href="https://www.tecmint.com/category/python/">Learn Python</a></li>
+<li id="menu-item-20871" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20871"><a href="https://www.tecmint.com/category/awk-command/">Learn Awk</a></li>
+</ul>
+</li>
+<li id="menu-item-10773" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-10773"><a href="https://www.tecmint.com/category/linux-commands/">Linux Commands</a></li>
+<li id="menu-item-14795" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14795"><a href="https://www.tecmint.com/tag/linux-tricks/">Linux Tricks</a></li>
+<li id="menu-item-19684" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19684"><a href="https://www.tecmint.com/category/top-tools/">Best Linux Tools</a></li>
+<li id="menu-item-10443" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-10443"><a target="_blank" href="https://www.tecmint.com/#">Certifications</a>
+<ul class="sub-menu" style="display: none;">
+<li id="menu-item-14880" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14880"><a href="https://www.tecmint.com/how-to-setup-and-configure-static-network-routing-in-rhel/">RHCE Exam</a></li>
+<li id="menu-item-11906" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11906"><a target="_blank" href="https://www.tecmint.com/rhcsa-exam-reviewing-essential-commands-system-documentation/">RHCSA Exam</a></li>
+<li id="menu-item-10444" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10444"><a target="_blank" href="https://www.tecmint.com/installing-network-services-and-configuring-services-at-system-boot/">LFCE Exam</a></li>
+<li id="menu-item-14793" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14793"><a href="https://www.tecmint.com/sed-command-to-create-edit-and-manipulate-files-in-linux/">LFCS Exam</a></li>
+</ul>
+</li>
+<li id="menu-item-12399" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-12399"><a href="https://www.tecmint.com/#">Guides</a>
+<ul class="sub-menu" style="display: none;">
+<li id="menu-item-18564" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18564"><a target="_blank" href="https://www.tecmint.com/install-docker-and-learn-containers-in-centos-rhel-7-6/">Docker Series</a></li>
+<li id="menu-item-17150" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17150"><a href="https://www.tecmint.com/setup-postfix-mail-server-and-dovecot-with-mariadb-in-centos/">Postfix Mail</a></li>
+<li id="menu-item-15041" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15041"><a href="https://www.tecmint.com/citrix-xenserver-installation-and-network-configuration-in-linux/">XenServer Series</a></li>
+<li id="menu-item-14794" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14794"><a href="https://www.tecmint.com/install-redhat-virtualization-rhev/">RHEV Series</a></li>
+<li id="menu-item-14805" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14805"><a href="https://www.tecmint.com/what-is-clustering-and-advantages-disadvantages-of-clustering-in-linux/">Clustering Series</a></li>
+<li id="menu-item-12400" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12400"><a href="https://www.tecmint.com/create-lvm-storage-in-linux/">LVM Series</a></li>
+<li id="menu-item-12402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12402"><a href="https://www.tecmint.com/understanding-raid-setup-in-linux/">RAID Series</a></li>
+<li id="menu-item-12403" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12403"><a href="https://www.tecmint.com/install-and-configure-kvm-in-linux/">KVM Series</a></li>
+<li id="menu-item-12401" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12401"><a href="https://www.tecmint.com/create-centralized-secure-storage-using-iscsi-targetin-linux/">iSCSI Series</a></li>
+<li id="menu-item-12406" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12406"><a href="https://www.tecmint.com/install-zentyal-as-primary-domain-controller-and-integrate-windows-system/">Zentyal Series</a></li>
+<li id="menu-item-16084" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16084"><a href="https://www.tecmint.com/install-and-configure-ansible-automation-tool-in-linux/">Ansible Series</a></li>
+<li id="menu-item-16395" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16395"><a href="https://www.tecmint.com/install-and-configure-django-web-framework-in-centos-debian-ubuntu/">Django Series</a></li>
+<li id="menu-item-14603" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14603"><a href="https://www.tecmint.com/create-gui-applications-in-linux/">Create GUI Apps</a></li>
+</ul>
+</li>
+<li id="menu-item-14796" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14796"><a href="https://www.tecmint.com/command-line-tools-to-monitor-linux-performance/">Monitoring Tools</a>
+<ul class="sub-menu" style="display: none;">
+<li id="menu-item-14797" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14797"><a href="https://www.tecmint.com/install-nagios-in-linux/">Nagios</a></li>
+<li id="menu-item-14798" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14798"><a href="https://www.tecmint.com/install-and-configure-zabbix-monitoring-on-debian-centos-rhel/">Zabbix</a></li>
+<li id="menu-item-14799" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14799"><a href="https://www.tecmint.com/install-cacti-network-monitoring-on-rhel-centos-6-3-5-8-and-fedora-17-12/">Cacti</a></li>
+<li id="menu-item-14800" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14800"><a href="https://www.tecmint.com/install-observium-in-centos/">Observium</a></li>
+<li id="menu-item-14801" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14801"><a href="https://www.tecmint.com/monitorix-a-lightweight-system-and-network-monitoring-tool-for-linux/">Monitorix</a></li>
+<li id="menu-item-14802" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14802"><a href="https://www.tecmint.com/install-collectd-and-collectd-web-to-monitor-server-resources-in-linux/">Collectd</a></li>
+<li id="menu-item-14803" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14803"><a href="https://www.tecmint.com/linux-performance-monitoring-with-collectl-tool/">Collectl</a></li>
+<li id="menu-item-14804" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14804"><a href="https://www.tecmint.com/mysql-performance-monitoring/">MySQL Monitoring</a></li>
+</ul>
+</li>
+</ul></div>
+</nav>
+</div>
+</div>
+</header>
+<div class="container" id="page">
+<div class="container-inner">
+<div class="main">
+<div class="main-inner group">
+<section class="content">
+<div class="page-title pad group">
+<ul class="meta-single group">
+<li class="category"><a href="https://www.tecmint.com/category/linux-distros/centos/" rel="category tag">CentOS</a> <span>/</span> <a href="https://www.tecmint.com/category/linux-distros/fedora/" rel="category tag">Fedora</a> <span>/</span> <a href="https://www.tecmint.com/category/linux-commands/" rel="category tag">Linux Commands</a> <span>/</span> <a href="https://www.tecmint.com/category/linux-distros/" rel="category tag">Linux Distros</a> <span>/</span> <a href="https://www.tecmint.com/category/linux-distros/redhat/" rel="category tag">RedHat</a></li>
+<li class="comments"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/#comments"><i class="fa fa-comments-o"></i>23</a></li>
+</ul>
+</div>
+<div class="pad group">
+<article class="post-841 post type-post status-publish format-standard has-post-thumbnail hentry category-centos category-fedora category-linux-commands category-linux-distros category-redhat">
+<div class="post-inner group">
+<h1 class="post-title">12 Tcpdump Commands – A Network Sniffer Tool</h1>
+<p class="post-byline">by <a href="https://www.tecmint.com/author/navin/" title="Posts by Narad Shrestha" rel="author">Narad Shrestha</a> | Published: August 20, 2012 | 
+Last Updated: September 13, 2012 </p>
+<div class="clear"></div>
+
+<div class="add-box">
+<ins class="adsbygoogle" style="display:inline-block;width:468px;height:15px" data-ad-client="ca-pub-2601749019656699" data-ad-slot="1986283779" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:468px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:468px;background-color:transparent;"><iframe width="468" height="15" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:468px;height:15px;" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/saved_resource(2).html"></iframe></ins></ins></ins>
+<script type="">
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div class="clear"></div>
+<div id="exam_announcement">
+<i style="color:#28557a; font-size:20px;" class="fa fa-book"></i>
+<b>Download Your Free eBooks NOW</b> - <a target="_blank" style="text-decoration:underline;" href="https://www.tecmint.com/10-useful-free-linux-ebooks-for-newbies-and-administrators/">10 Free Linux eBooks for Administrators</a> | <a style="text-decoration:underline;" target="_blank" href="https://www.tecmint.com/free-linux-shell-scripting-books/">4 Free Shell Scripting eBooks</a>
+</div>
+<div class="clear"></div>
+<div class="ads-inner-mobile">
+<center>
+
+<ins class="adsbygoogle" style="display: inline-block; width: 300px; height: 250px;" data-ad-client="ca-pub-2601749019656699" data-ad-slot="9946480174" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_2_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;width:300px;height:250px;" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/saved_resource(3).html"></iframe></ins></ins></ins>
+<script type="">
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</center>
+</div>
+<div class="clear"></div>
+<div class="entry share">
+<div class="entry-inner">
+<p>In our previous article, we have seen <a href="https://www.tecmint.com/20-netstat-commands-for-linux-network-management/" target="_blank">20 Netstat Commands</a> to monitor or mange Linux network. This is our another ongoing series of packet sniffer tool called <strong>tcpdump</strong>. Here, we are going to show you how to install <strong>tcpdump</strong> and then we discuss and cover some useful commands with their practical examples.</p>
+<div id="attachment_842" style="width: 310px" class="wp-caption aligncenter"><a href="https://www.tecmint.com/wp-content/uploads/2012/08/Tcpdump-Commands.png"><img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/Tcpdump-Commands-300x194.png" class="size-medium wp-image-842" alt="Linux tcpdump command examples" width="300" height="194" srcset="https://www.tecmint.com/wp-content/uploads/2012/08/Tcpdump-Commands-300x194.png 300w, https://www.tecmint.com/wp-content/uploads/2012/08/Tcpdump-Commands.png 425w" sizes="(max-width: 300px) 100vw, 300px" data-lazy-loaded="true" style="display: inline;"><noscript>&lt;img class="size-medium wp-image-842" src="https://www.tecmint.com/wp-content/uploads/2012/08/Tcpdump-Commands-300x194.png" alt="Linux tcpdump command examples" width="300" height="194" srcset="https://www.tecmint.com/wp-content/uploads/2012/08/Tcpdump-Commands-300x194.png 300w, https://www.tecmint.com/wp-content/uploads/2012/08/Tcpdump-Commands.png 425w" sizes="(max-width: 300px) 100vw, 300px" /&gt;</noscript></a><p class="wp-caption-text">Linux tcpdump command examples</p></div>
+<p><strong>tcpdump</strong> is a most powerful and widely used command-line packets sniffer or package analyzer tool which is used to capture or filter <strong>TCP/IP</strong> packets that received or transferred over a network on a specific interface. It is available under most of the <strong>Linux/Unix</strong> based operating systems. tcpdump also gives us a option to save captured packets in a file for future analysis. It saves the file in a <strong>pcap</strong> format, that can be viewed by tcpdump command or a open source GUI based tool called <a href="https://www.tecmint.com/wireshark-network-protocol-analyzer-tool-for-rhelcentosfedora/" target="_blank">Wireshark (Network Protocol Analyzier)</a> that reads tcpdump <strong>pcap</strong> format files.<br>
+<span id="more-841"></span></p>
+<h4>How to Install tcpdump in Linux</h4>
+<p>Many of Linux distributions already shipped with <strong>tcpdump</strong> tool, if in case you don’t have it on systems, you can install it using following Yum command.</p>
+<pre><strong># yum install tcpdump</strong></pre>
+<p>Once <strong>tcpdump</strong> tool is installed on systems, you can continue to browse following commands with their examples.</p>
+<h4>1. Capture Packets from Specific Interface</h4>
+<center style="padding-bottom: 20px;padding-top: 10px;"><ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-2601749019656699" data-ad-slot="5590002574" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_3_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:780px;background-color:transparent;"><ins id="aswift_3_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:780px;background-color:transparent;"><iframe width="780" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;width:780px;height:90px;" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/saved_resource(4).html"></iframe></ins></ins></ins><script type="application/ld+json">(adsbygoogle = window.adsbygoogle || []).push({});</script></center><p>The command screen will scroll up until you interrupt and when we execute <strong>tcpdump</strong> command it will captures from all the interfaces, however with <strong>-i</strong> switch only capture from desire interface.</p>
+<pre><strong># tcpdump -i eth0</strong>
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
+11:33:31.976358 IP 172.16.25.126.ssh &gt; 172.16.25.125.apwi-rxspooler: Flags [P.], seq 3500440357:3500440553, ack 3652628334, win 18760, length 196
+11:33:31.976603 IP 172.16.25.125.apwi-rxspooler &gt; 172.16.25.126.ssh: Flags [.], ack 196, win 64487, length 0
+11:33:31.977243 ARP, Request who-has tecmint.com tell 172.16.25.126, length 28
+11:33:31.977359 ARP, Reply tecmint.com is-at 00:14:5e:67:26:1d (oui Unknown), length 46
+11:33:31.977367 IP 172.16.25.126.54807 &gt; tecmint.com: 4240+ PTR? 125.25.16.172.in-addr.arpa. (44)
+11:33:31.977599 IP tecmint.com &gt; 172.16.25.126.54807: 4240 NXDomain 0/1/0 (121)
+11:33:31.977742 IP 172.16.25.126.44519 &gt; tecmint.com: 40988+ PTR? 126.25.16.172.in-addr.arpa. (44)
+11:33:32.028747 IP 172.16.20.33.netbios-ns &gt; 172.16.31.255.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+11:33:32.112045 IP 172.16.21.153.netbios-ns &gt; 172.16.31.255.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+11:33:32.115606 IP 172.16.21.144.netbios-ns &gt; 172.16.31.255.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+11:33:32.156576 ARP, Request who-has 172.16.16.37 tell old-oraclehp1.midcorp.mid-day.com, length 46
+11:33:32.348738 IP tecmint.com &gt; 172.16.25.126.44519: 40988 NXDomain 0/1/0 (121)</pre>
+<h4>2. Capture Only N Number of Packets</h4>
+<p>When you run <strong>tcpdump</strong> command it will capture all the packets for specified interface, until you <strong>Hit</strong> cancel button. But using <strong>-c</strong> option, you can capture specified number of packets. The below example will only capture <strong>6</strong> packets.</p>
+<pre><strong># tcpdump -c 5 -i eth0</strong>
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
+11:40:20.281355 IP 172.16.25.126.ssh &gt; 172.16.25.125.apwi-rxspooler: Flags [P.], seq 3500447285:3500447481, ack 3652629474, win 18760, length 196
+11:40:20.281586 IP 172.16.25.125.apwi-rxspooler &gt; 172.16.25.126.ssh: Flags [.], ack 196, win 65235, length 0
+11:40:20.282244 ARP, Request who-has tecmint.com tell 172.16.25.126, length 28
+11:40:20.282360 ARP, Reply tecmint.com is-at 00:14:5e:67:26:1d (oui Unknown), length 46
+11:40:20.282369 IP 172.16.25.126.53216 &gt; tecmint.com.domain: 49504+ PTR? 125.25.16.172.in-addr.arpa. (44)
+11:40:20.332494 IP tecmint.com.netbios-ssn &gt; 172.16.26.17.nimaux: Flags [P.], seq 3058424861:3058424914, ack 693912021, win 64190, length 53 NBT Session Packet: Session Message
+<strong>6 packets captured</strong>
+23 packets received by filter
+0 packets dropped by kernel</pre>
+<h4>3. Print Captured Packets in ASCII</h4>
+<p>The below <strong>tcpdump</strong> command with option <strong>-A</strong> displays the package in <strong>ASCII</strong> format. It is a character-encoding scheme format.</p>
+<pre><strong># tcpdump -A -i eth0</strong>
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
+09:31:31.347508 IP 192.168.0.2.ssh &gt; 192.168.0.1.nokia-ann-ch1: Flags [P.], seq 3329372346:3329372542, ack 4193416789, win 17688, length 196
+M.r0...vUP.E.X.......~.%..&gt;N..oFk.........KQ..)Eq.d.,....r^l......m\.oyE....-....g~m..Xy.6..1.....c.O.@...o_..J....i.*.....2f.mQH...Q.c...6....9.v.gb........;..4.).UiCY]..9..x.)..Z.XF....'|..E......M..u.5.......ul
+09:31:31.347760 IP 192.168.0.1.nokia-ann-ch1 &gt; 192.168.0.2.ssh: Flags [.], ack 196, win 64351, length 0
+M....vU.r1~P.._..........
+^C09:31:31.349560 IP 192.168.0.2.46393 &gt; b.resolvers.Level3.net.domain: 11148+ PTR? 1.0.168.192.in-addr.arpa. (42)
+E..F..@.@............9.5.2.f+............1.0.168.192.in-addr.arpa.....
+3 packets captured
+11 packets received by filter
+0 packets dropped by kernel</pre>
+<h4>4. Display Available Interfaces</h4>
+<p>To list number of available interfaces on the system, run the following command with <strong>-D</strong> option.</p>
+<pre><strong># tcpdump -D</strong>
+1.eth0
+2.eth1
+3.usbmon1 (USB bus number 1)
+4.usbmon2 (USB bus number 2)
+5.usbmon3 (USB bus number 3)
+6.usbmon4 (USB bus number 4)
+7.usbmon5 (USB bus number 5)
+8.any (Pseudo-device that captures on all interfaces)
+9.lo</pre>
+<h4>5. Display Captured Packets in HEX and ASCII</h4>
+<p>The following command with option <strong>-XX</strong> capture the data of each packet, including its link level header in <strong>HEX</strong> and <strong>ASCII</strong> format.</p>
+<pre><strong># tcpdump -XX -i eth0</strong>
+11:51:18.974360 IP 172.16.25.126.ssh &gt; 172.16.25.125.apwi-rxspooler: Flags [P.], seq 3509235537:3509235733, ack 3652638190, win 18760, length 196
+0x0000:  b8ac 6f2e 57b3 0001 6c99 1468 0800 4510  ..o.W...l..h..E.
+0x0010:  00ec 8783 4000 4006 275d ac10 197e ac10  ....@.@.']...~..
+0x0020:  197d 0016 1129 d12a af51 d9b6 d5ee 5018  .}...).*.Q....P.
+0x0030:  4948 8bfa 0000 0e12 ea4d 22d1 67c0 f123  IH.......M".g..#
+0x0040:  9013 8f68 aa70 29f3 2efc c512 5660 4fe8  ...h.p).....V`O.
+0x0050:  590a d631 f939 dd06 e36a 69ed cac2 95b6  Y..1.9...ji.....
+0x0060:  f8ba b42a 344b 8e56 a5c4 b3a2 ed82 c3a1  ...*4K.V........
+0x0070:  80c8 7980 11ac 9bd7 5b01 18d5 8180 4536  ..y.....[.....E6
+0x0080:  30fd 4f6d 4190 f66f 2e24 e877 ed23 8eb0  0.OmA..o.$.w.#..
+0x0090:  5a1d f3ec 4be4 e0fb 8553 7c85 17d9 866f  Z...K....S|....o
+0x00a0:  c279 0d9c 8f9d 445b 7b01 81eb 1b63 7f12  .y....D[{....c..
+0x00b0:  71b3 1357 52c7 cf00 95c6 c9f6 63b1 ca51  q..WR.......c..Q
+0x00c0:  0ac6 456e 0620 38e6 10cb 6139 fb2a a756  ..En..8...a9.*.V
+0x00d0:  37d6 c5f3 f5f3 d8e8 3316 d14f d7ab fd93  7.......3..O....
+0x00e0:  1137 61c1 6a5c b4d1 ddda 380a f782 d983  .7a.j\....8.....
+0x00f0:  62ff a5a9 bb39 4f80 668a                 b....9O.f.
+11:51:18.974759 IP 172.16.25.126.60952 &gt; mddc-01.midcorp.mid-day.com.domain: 14620+ PTR? 125.25.16.172.in-addr.arpa. (44)
+0x0000:  0014 5e67 261d 0001 6c99 1468 0800 4500  ..^g&amp;...l..h..E.
+0x0010:  0048 5a83 4000 4011 5e25 ac10 197e ac10  .HZ.@.@.^%...~..
+0x0020:  105e ee18 0035 0034 8242 391c 0100 0001  .^...5.4.B9.....
+0x0030:  0000 0000 0000 0331 3235 0232 3502 3136  .......125.25.16
+0x0040:  0331 3732 0769 6e2d 6164 6472 0461 7270  .172.in-addr.arp
+0x0050:  6100 000c 0001                           a.....</pre>
+<h4>6. Capture and Save Packets in a File</h4>
+<p>As we said, that <strong>tcpdump</strong> has a feature to capture and save the file in a <strong>.pcap</strong> format, to do this just execute command with <strong>-w</strong> option.</p>
+<pre><strong># tcpdump -w 0001.pcap -i eth0</strong>
+tcpdump: listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
+4 packets captured
+4 packets received by filter
+0 packets dropped by kernel</pre>
+<h4>7. Read Captured Packets File</h4>
+<p>To read and analyze captured packet <strong>0001.pcap</strong> file use the command with <strong>-r</strong> option, as shown below.</p>
+<pre><strong># tcpdump -r 0001.pcap</strong>
+reading from file 0001.pcap, link-type EN10MB (Ethernet)
+09:59:34.839117 IP 192.168.0.2.ssh &gt; 192.168.0.1.nokia-ann-ch1: Flags [P.], seq 3353041614:3353041746, ack 4193563273, win 18760, length 132
+09:59:34.963022 IP 192.168.0.1.nokia-ann-ch1 &gt; 192.168.0.2.ssh: Flags [.], ack 132, win 65351, length 0
+09:59:36.935309 IP 192.168.0.1.netbios-dgm &gt; 192.168.0.255.netbios-dgm: NBT UDP PACKET(138)
+09:59:37.528731 IP 192.168.0.1.nokia-ann-ch1 &gt; 192.168.0.2.ssh: Flags [P.], seq 1:53, ack 132, win 65351, length 5</pre>
+<h4>8. Capture IP address Packets</h4>
+<p>To capture packets for a specific interface, run the following command with option <strong>-n</strong>.</p>
+<pre><strong># tcpdump -n -i eth0</strong>
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
+12:07:03.952358 IP 172.16.25.126.ssh &gt; 172.16.25.125.apwi-rxspooler: Flags [P.], seq 3509512873:3509513069, ack 3652639034, win 18760, length 196
+12:07:03.952602 IP 172.16.25.125.apwi-rxspooler &gt; 172.16.25.126.ssh: Flags [.], ack 196, win 64171, length 0
+12:07:03.953311 IP 172.16.25.126.ssh &gt; 172.16.25.125.apwi-rxspooler: Flags [P.], seq 196:504, ack 1, win 18760, length 308
+12:07:03.954288 IP 172.16.25.126.ssh &gt; 172.16.25.125.apwi-rxspooler: Flags [P.], seq 504:668, ack 1, win 18760, length 164
+12:07:03.954502 IP 172.16.25.125.apwi-rxspooler &gt; 172.16.25.126.ssh: Flags [.], ack 668, win 65535, length 0
+12:07:03.955298 IP 172.16.25.126.ssh &gt; 172.16.25.125.apwi-rxspooler: Flags [P.], seq 668:944, ack 1, win 18760, length 276
+12:07:03.955425 IP 172.16.23.16.netbios-ns &gt; 172.16.31.255.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+12:07:03.956299 IP 172.16.25.126.ssh &gt; 172.16.25.125.apwi-rxspooler: Flags [P.], seq 944:1236, ack 1, win 18760, length 292
+12:07:03.956535 IP 172.16.25.125.apwi-rxspooler &gt; 172.16.25.126.ssh: Flags [.], ack 1236, win 64967, length 0</pre>
+<h4>9. Capture only TCP Packets.</h4>
+<p>To capture packets based on <strong>TCP</strong> port, run the following command with option <strong>tcp</strong>.</p>
+<pre><strong># tcpdump -i eth0 tcp</strong>
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
+12:10:36.216358 IP 172.16.25.126.ssh &gt; 172.16.25.125.apwi-rxspooler: Flags [P.], seq 3509646029:3509646225, ack 3652640142, win 18760, length 196
+12:10:36.216592 IP 172.16.25.125.apwi-rxspooler &gt; 172.16.25.126.ssh: Flags [.], ack 196, win 64687, length 0
+12:10:36.219069 IP 172.16.25.126.ssh &gt; 172.16.25.125.apwi-rxspooler: Flags [P.], seq 196:504, ack 1, win 18760, length 308
+12:10:36.220039 IP 172.16.25.126.ssh &gt; 172.16.25.125.apwi-rxspooler: Flags [P.], seq 504:668, ack 1, win 18760, length 164
+12:10:36.220260 IP 172.16.25.125.apwi-rxspooler &gt; 172.16.25.126.ssh: Flags [.], ack 668, win 64215, length 0
+12:10:36.222045 IP 172.16.25.126.ssh &gt; 172.16.25.125.apwi-rxspooler: Flags [P.], seq 668:944, ack 1, win 18760, length 276
+12:10:36.223036 IP 172.16.25.126.ssh &gt; 172.16.25.125.apwi-rxspooler: Flags [P.], seq 944:1108, ack 1, win 18760, length 164
+12:10:36.223252 IP 172.16.25.125.apwi-rxspooler &gt; 172.16.25.126.ssh: Flags [.], ack 1108, win 65535, length 0
+^C12:10:36.223461 IP mid-pay.midcorp.mid-day.com.netbios-ssn &gt; 172.16.22.183.recipe: Flags [.], seq 283256512:283256513, ack 550465221, win 65531, length 1[|SMB]</pre>
+<h4>10. Capture Packet from Specific Port</h4>
+<p>Let’s say you want to capture packets for specific port 22, execute the below command by specifying port number <strong>22</strong> as shown below.</p>
+<pre><strong># tcpdump -i eth0 port 22</strong>
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
+10:37:49.056927 IP 192.168.0.2.ssh &gt; 192.168.0.1.nokia-ann-ch1: Flags [P.], seq 3364204694:3364204890, ack 4193655445, win 20904, length 196
+10:37:49.196436 IP 192.168.0.2.ssh &gt; 192.168.0.1.nokia-ann-ch1: Flags [P.], seq 4294967244:196, ack 1, win 20904, length 248
+10:37:49.196615 IP 192.168.0.1.nokia-ann-ch1 &gt; 192.168.0.2.ssh: Flags [.], ack 196, win 64491, length 0
+10:37:49.379298 IP 192.168.0.2.ssh &gt; 192.168.0.1.nokia-ann-ch1: Flags [P.], seq 196:616, ack 1, win 20904, length 420
+10:37:49.381080 IP 192.168.0.2.ssh &gt; 192.168.0.1.nokia-ann-ch1: Flags [P.], seq 616:780, ack 1, win 20904, length 164
+10:37:49.381322 IP 192.168.0.1.nokia-ann-ch1 &gt; 192.168.0.2.ssh: Flags [.], ack 780, win 65535, length 0</pre>
+<h4>11. Capture Packets from source IP</h4>
+<p>To capture packets from source <strong>IP</strong>, say you want to capture packets for <strong>192.168.0.2</strong>, use the command as follows.</p>
+<pre><strong># tcpdump -i eth0 src 192.168.0.2</strong>
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
+10:49:15.746474 IP 192.168.0.2.ssh &gt; 192.168.0.1.nokia-ann-ch1: Flags [P.], seq 3364578842:3364579038, ack 4193668445, win 20904, length 196
+10:49:15.748554 IP 192.168.0.2.56200 &gt; b.resolvers.Level3.net.domain: 11289+ PTR? 1.0.168.192.in-addr.arpa. (42)
+10:49:15.912165 IP 192.168.0.2.56234 &gt; b.resolvers.Level3.net.domain: 53106+ PTR? 2.0.168.192.in-addr.arpa. (42)
+10:49:16.074720 IP 192.168.0.2.33961 &gt; b.resolvers.Level3.net.domain: 38447+ PTR? 2.2.2.4.in-addr.arpa. (38)</pre>
+<h4>12. Capture Packets from destination IP</h4>
+<p>To capture packets from destination <strong>IP</strong>, say you want to capture packets for <strong>50.116.66.139</strong>, use the command as follows.</p>
+<pre><strong># tcpdump -i eth0 dst 50.116.66.139</strong>
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
+10:55:01.798591 IP 192.168.0.2.59896 &gt; 50.116.66.139.http: Flags [.], ack 2480401451, win 318, options [nop,nop,TS val 7955710 ecr 804759402], length 0
+10:55:05.527476 IP 192.168.0.2.59894 &gt; 50.116.66.139.http: Flags [F.], seq 2521556029, ack 2164168606, win 245, options [nop,nop,TS val 7959439 ecr 804759284], length 0
+10:55:05.626027 IP 192.168.0.2.59894 &gt; 50.116.66.139.http: Flags [.], ack 2, win 245, options [nop,nop,TS val 7959537 ecr 804759787], length 0</pre>
+<p>This article may help you to explore <strong>tcpdump</strong> command in depth and also to capture and analysis packets in future. There are number of options available, you can use the options as per your requirement. Please share if you find this article useful through our comment box.</p>
+</div>
+<div class="sharrre-container" style="position: relative; top: -40.0143px; left: 0px;">
+<span>Share</span>
+<div id="twitter" data-url="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/" data-text="12 Tcpdump Commands – A Network Sniffer Tool" data-title="Tweet" class="sharrre"><a class="box" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/#"><div class="count" href="#">+</div><div class="share"><i class="fa fa-twitter"></i></div></a></div>
+<div id="facebook" data-url="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/" data-text="12 Tcpdump Commands – A Network Sniffer Tool" data-title="Like" class="sharrre"><a class="box" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/#"><div class="count" href="#">0</div><div class="share"><i class="fa fa-facebook-square"></i></div></a></div>
+<div id="googleplus" data-url="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/" data-text="12 Tcpdump Commands – A Network Sniffer Tool" data-title="+1" class="sharrre"><a class="box" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/#"><div class="count" href="#">0</div><div class="share"><i class="fa fa-google-plus-square"></i></div></a></div>
+<div id="linkedin" data-url="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/" data-text="12 Tcpdump Commands – A Network Sniffer Tool" data-title="Share It" class="sharrre"><a class="box" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/#" rel="nofollow"><div class="count" href="#">0</div><div class="share"><i class="fa fa-linkedin"></i></div></a></div>
+<div style="font-weight: 600; padding-top: 10px; width: 55px;"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/#comments"><img alt="Ask Anything" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/help.png"></a></div>
+</div>
+<script type="text/javascript">
+// Sharrre
+jQuery(document).ready(function(){
+jQuery('#twitter').sharrre({
+share: {
+twitter: true
+},
+template: '<a class="box" href="#"><div class="count" href="#">{total}</div><div class="share"><i class="fa fa-twitter"></i></div></a>',
+enableHover: false,
+enableTracking: true,
+buttons: { twitter: {via: 'tecmint'}},
+click: function(api, options){
+api.simulateClick();
+api.openPopup('twitter');
+}
+});
+jQuery('#facebook').sharrre({
+share: {
+facebook: true
+},
+template: '<a class="box" href="#"><div class="count" href="#">{total}</div><div class="share"><i class="fa fa-facebook-square"></i></div></a>',
+enableHover: false,
+enableTracking: true,
+click: function(api, options){
+api.simulateClick();
+api.openPopup('facebook');
+}
+});
+jQuery('#googleplus').sharrre({
+share: {
+googlePlus: true
+},
+template: '<a class="box" href="#"><div class="count" href="#">{total}</div><div class="share"><i class="fa fa-google-plus-square"></i></div></a>',
+enableHover: false,
+enableTracking: true,
+urlCurl: 'https://www.tecmint.com/wp-content/themes/tecmint/js/sharrre.php',
+click: function(api, options){
+api.simulateClick();
+api.openPopup('googlePlus');
+}
+});
+jQuery('#linkedin').sharrre({
+share: {
+linkedin: true
+},
+template: '<a class="box" href="#" rel="nofollow"><div class="count" href="#">{total}</div><div class="share"><i class="fa fa-linkedin"></i></div></a>',
+enableHover: false,
+enableTracking: true,
+buttons: {
+linkedin: {
+description: '12 Tcpdump Commands &#8211; A Network Sniffer Tool',media: 'https://www.tecmint.com/wp-content/uploads/2012/08/Tcpdump-Commands.png'				}
+},
+click: function(api, options){
+api.simulateClick();
+api.openPopup('linkedin');
+}
+});
+// Scrollable sharrre bar, contributed by Erik Frye. Awesome!
+var shareContainer = jQuery(".sharrre-container"),
+header = jQuery('#header'),
+postEntry = jQuery('.entry'),
+$window = jQuery(window),
+distanceFromTop = 20,
+startSharePosition = shareContainer.offset(),
+contentBottom = postEntry.offset().top + postEntry.outerHeight(),
+topOfTemplate = header.offset().top;
+getTopSpacing();
+shareScroll = function(){
+if($window.width() > 719){	
+var scrollTop = $window.scrollTop() + topOfTemplate,
+stopLocation = contentBottom - (shareContainer.outerHeight() + topSpacing);
+if(scrollTop > stopLocation){
+shareContainer.offset({top: contentBottom - shareContainer.outerHeight(),left: startSharePosition.left});
+}
+else if(scrollTop >= postEntry.offset().top-topSpacing){
+shareContainer.offset({top: scrollTop + topSpacing, left: startSharePosition.left});
+}else if(scrollTop < startSharePosition.top+(topSpacing-1)){
+shareContainer.offset({top: startSharePosition.top,left:startSharePosition.left});
+}
+}
+},
+shareMove = function(){
+startSharePosition = shareContainer.offset();
+contentBottom = postEntry.offset().top + postEntry.outerHeight();
+topOfTemplate = header.offset().top;
+getTopSpacing();
+};
+/* As new images load the page content body gets longer. The bottom of the content area needs to be adjusted in case images are still loading. */
+setTimeout(function() {
+contentBottom = postEntry.offset().top + postEntry.outerHeight();
+}, 2000);
+if (window.addEventListener) {
+window.addEventListener('scroll', shareScroll, false);
+window.addEventListener('resize', shareMove, false);
+} else if (window.attachEvent) {
+window.attachEvent('onscroll', shareScroll);
+window.attachEvent('onresize', shareMove);
+}
+function getTopSpacing(){
+if($window.width() > 1024)
+topSpacing = distanceFromTop + jQuery('.nav-wrap').outerHeight();
+else
+topSpacing = distanceFromTop;
+}
+});
+</script>
+<div class="clear"></div>
+</div>
+</div>
+</article>
+<div class="clear"></div>
+<div class="clear"></div>
+<div class="ads-inner-mobile">
+<center style="padding-top:30px;">
+
+<ins class="adsbygoogle" style="display: inline-block; width: 300px; height: 250px;" data-ad-client="ca-pub-2601749019656699" data-ad-slot="7807254572" data-adsbygoogle-status="done"><ins id="aswift_4_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_4_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_4" name="aswift_4" style="left:0;position:absolute;top:0;width:300px;height:250px;" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/saved_resource(5).html"></iframe></ins></ins></ins>
+<script type="">
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</center>
+</div>
+<div class="clear"></div>
+<div class="after-post-box">
+<h2>If You Appreciate What We Do Here On TecMint, You Should Consider:</h2>
+<ol>
+<li>Stay Connected to: <strong><a target="_blank" rel="nofollow" href="https://bit.ly/1TP6lcM" title="Follow TecMint on Twitter">Twitter</a></strong> | <strong><a target="_blank" rel="nofollow" href="https://bit.ly/1rDYrdj" title="Like Us on Facebook">Facebook</a></strong> | <strong><a target="_blank" rel="nofollow" href="https://bit.ly/24J6lna" title="Join Us On Google+">Google Plus</a></strong></li>
+<li>Subscribe to our email updates: <strong><a target="_blank" rel="nofollow" href="https://bit.ly/2dhBpWQ" title="Subscribe to TecMint Email Updates">Sign Up Now</a></strong></li>
+<li>Get your own <strong><a target="_blank" rel="nofollow" title="WordPress Hosting" href="https://www.bluehost.com/track/tecmint/">self-hosted blog with a Free Domain</a></strong> at (<strong>$3.45/month</strong>).</li>
+<li>Become a Supporter - <strong><a target="_blank" href="https://www.tecmint.com/donate-to-tecmint/">Make a contribution via PayPal</a></strong></li>
+<li>Support us by <strong><a href="https://www.tecmint.com/linux-books-in-pdf-format/" target="_blank">purchasing our premium books</a></strong> in PDF format.</li>
+<li>Support us by taking our <strong><a rel="nofollow" target="_blank" href="https://deals.tecmint.com/search?utf8=%E2%9C%93&amp;query=linux">online Linux courses</a></strong></li>
+</ol>
+<p style="text-align: center;"><strong style=" color:#fe3300;font-size:20px;">We are thankful for your never ending support.</strong></p>
+</div>
+<div class="clear"></div>
+<div class="author-bio">
+<div class="bio-avatar"><img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/36c7c25164c3455f2f711b01e395de0d" alt="" srcset="https://secure.gravatar.com/avatar/36c7c25164c3455f2f711b01e395de0d?s=256&amp;d=blank&amp;r=g 2x" class="avatar avatar-128 photo" height="128" width="128" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/36c7c25164c3455f2f711b01e395de0d?s=128&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/36c7c25164c3455f2f711b01e395de0d?s=256&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-128 photo' height='128' width='128' /&gt;</noscript></div>
+<p style="float:right; font-weight:600;"><a target="_blank" class="author-link" href="https://www.tecmint.com/author/navin/" rel="author">View all Posts</a></p>
+<p class="bio-name">Narad Shrestha</p>
+<p class="bio-desc">He has over 10 years of rich IT experience which includes various Linux Distros, FOSS and Networking. Narad always believes sharing IT knowledge with others and adopts new technology with ease.</p>
+<p><span style="font-size:20px;font-weight:400;color:#a2042e">Your name can also be listed here. Got a tip? <a style="text-decoration:underline;" target="_blank" href="https://www.tecmint.com/submit-articles/">Submit it here</a> to become an <b>TecMint</b> author.</span></p>
+<div class="clear"></div>
+</div>
+<div class="hr"></div>
+<div class="grid one-fourth">
+<a href="https://www.tecmint.com/red-hat-rhcsa-rhce-exam-certification-book/" target="_blank"><img alt="RedHat RHCE and RHCSA Certification Book" width="200" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/RedHat-RHCSA-RHCE-Exam-Study-Ebook.png" style="margin-right:10px;"></a>
+</div>
+<div class="grid one-fourth">
+<a href="https://www.tecmint.com/linux-foundation-lfcs-lfce-certification-exam-book/" target="_blank"><img alt="Linux Foundation LFCS and LFCE Certification Preparation Guide" width="200" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/Linux-Foundation-LFCS-LFCE-Certification-Ebook.png"></a>
+</div>
+<div class="grid one-fourth">
+<a href="https://deals.tecmint.com/sales/complete-linux-crash-course-includes-topics-on-red-hat-unix-kali-python-and-opensuse?utm_source=tecmint.com&amp;utm_medium=referral&amp;utm_campaign=complete-linux-crash-course-includes-topics-on-red-hat-unix-kali-python-and-opensu" rel="nofollow" target="_blank"><img width="200" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/Linux-System-Administrator-Course.png" style="margin-right:10px;"></a>
+</div>
+<div class="grid one-fourth last">
+<a href="https://deals.tecmint.com/sales/become-an-ethical-hacker-bonus-bundle?utm_source=tecmint.com&amp;utm_medium=referral&amp;utm_campaign=become-an-ethical-hacker-bonus-bundle_090216" rel="nofollow" target="_blank"><img width="200" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/Become-an-Ethical-Hacker.png"></a>
+</div>
+<div class="clear"></div>
+<div class="hr"></div>
+<ul class="post-nav group">
+<li class="next"><a href="https://www.tecmint.com/setup-samba-server-using-tdbsam-backend-on-rhel-centos-6-3-5-8-and-fedora-17-12/" rel="next"><i class="fa fa-chevron-right"></i><strong>Next story</strong> <span>Setup Samba Server Using tdbsam Backend on RHEL/CentOS 6.3/5.8 and Fedora 17-12</span></a></li>
+<li class="previous"><a href="https://www.tecmint.com/how-to-open-extract-and-create-rar-files-in-linux/" rel="prev"><i class="fa fa-chevron-left"></i><strong>Previous story</strong> <span>How to Open, Extract and Create RAR Files in Linux</span></a></li>
+</ul>
+<h4 class="heading">
+<i class="fa fa-hand-o-right"></i>You may also like...</h4>
+<ul class="related-posts group">
+<li class="related post-hover">
+<article class="post-11448 post type-post status-publish format-standard has-post-thumbnail hentry category-fedora tag-fedora-21">
+<div class="post-thumbnail">
+<a href="https://www.tecmint.com/install-fedora-21-dual-boot-with-windows-8/" title="Installing Fedora 21 Dual Boot with Windows 8">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/Fedora-21-Dual-Boot-Windows-8-520x245.jpg" width="520" height="245" class="attachment-thumb-medium size-thumb-medium wp-post-image" alt="Fedora 21 Dual Boot Windows 8" srcset="https://www.tecmint.com/wp-content/uploads/2015/02/Fedora-21-Dual-Boot-Windows-8-520x245.jpg 520w, https://www.tecmint.com/wp-content/uploads/2015/02/Fedora-21-Dual-Boot-Windows-8-620x293.jpg 620w, https://www.tecmint.com/wp-content/uploads/2015/02/Fedora-21-Dual-Boot-Windows-8-720x340.jpg 720w, https://www.tecmint.com/wp-content/uploads/2015/02/Fedora-21-Dual-Boot-Windows-8.jpg 716w" sizes="(max-width: 520px) 100vw, 520px" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img width="520" height="245" src="https://www.tecmint.com/wp-content/uploads/2015/02/Fedora-21-Dual-Boot-Windows-8-520x245.jpg" class="attachment-thumb-medium size-thumb-medium wp-post-image" alt="Fedora 21 Dual Boot Windows 8" srcset="https://www.tecmint.com/wp-content/uploads/2015/02/Fedora-21-Dual-Boot-Windows-8-520x245.jpg 520w, https://www.tecmint.com/wp-content/uploads/2015/02/Fedora-21-Dual-Boot-Windows-8-620x293.jpg 620w, https://www.tecmint.com/wp-content/uploads/2015/02/Fedora-21-Dual-Boot-Windows-8-720x340.jpg 720w, https://www.tecmint.com/wp-content/uploads/2015/02/Fedora-21-Dual-Boot-Windows-8.jpg 716w" sizes="(max-width: 520px) 100vw, 520px" /&gt;</noscript> </a>
+<a class="post-comments" href="https://www.tecmint.com/install-fedora-21-dual-boot-with-windows-8/#comments"><span><i class="fa fa-comments-o"></i>6</span></a>
+</div>
+<div class="related-inner">
+<h4 class="post-title">
+<a href="https://www.tecmint.com/install-fedora-21-dual-boot-with-windows-8/" rel="bookmark" title="Installing Fedora 21 Dual Boot with Windows 8">Installing Fedora 21 Dual Boot with Windows 8</a>
+</h4>
+<div class="post-meta group">
+<p class="post-date">23 Feb, 2015</p>
+</div>
+</div>
+</article>
+</li>
+<li class="related post-hover">
+<article class="post-28911 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-linux-funny-commands tag-linux-tricks">
+<div class="post-thumbnail">
+<a href="https://www.tecmint.com/ternimal-show-animated-lifeform-in-linux-terminal/" title="Ternimal – Show Animated Lifeform in Your Linux Terminal">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/Ternimal-Show-Animated-Lifeform-in-Terminal.png" width="720" height="340" class="attachment-thumb-medium size-thumb-medium wp-post-image" alt="Ternimal – Show Animated Lifeform in Linux Terminal" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img width="720" height="340" src="https://www.tecmint.com/wp-content/uploads/2018/03/Ternimal-Show-Animated-Lifeform-in-Terminal.png" class="attachment-thumb-medium size-thumb-medium wp-post-image" alt="Ternimal – Show Animated Lifeform in Linux Terminal" /&gt;</noscript> </a>
+<a class="post-comments" href="https://www.tecmint.com/ternimal-show-animated-lifeform-in-linux-terminal/#comments"><span><i class="fa fa-comments-o"></i>4</span></a>
+</div>
+<div class="related-inner">
+<h4 class="post-title">
+<a href="https://www.tecmint.com/ternimal-show-animated-lifeform-in-linux-terminal/" rel="bookmark" title="Ternimal – Show Animated Lifeform in Your Linux Terminal">Ternimal – Show Animated Lifeform in Your Linux Terminal</a>
+</h4>
+<div class="post-meta group">
+<p class="post-date">26 Mar, 2018</p>
+</div>
+</div>
+</article>
+</li>
+<li class="related post-hover">
+<article class="post-26615 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-commandline-tools">
+<div class="post-thumbnail">
+<a href="https://www.tecmint.com/exa-a-replacement-for-ls-command-linux/" title="Exa – A Modern Replacement for “ls Command” Written in Rust">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/Linux-ls-Command-Replacement.png" width="720" height="340" class="attachment-thumb-medium size-thumb-medium wp-post-image" alt="Exa - Linux ls Command Replacement" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img width="720" height="340" src="https://www.tecmint.com/wp-content/uploads/2017/08/Linux-ls-Command-Replacement.png" class="attachment-thumb-medium size-thumb-medium wp-post-image" alt="Exa - Linux ls Command Replacement" /&gt;</noscript> </a>
+<a class="post-comments" href="https://www.tecmint.com/exa-a-replacement-for-ls-command-linux/#comments"><span><i class="fa fa-comments-o"></i>2</span></a>
+</div>
+<div class="related-inner">
+<h4 class="post-title">
+<a href="https://www.tecmint.com/exa-a-replacement-for-ls-command-linux/" rel="bookmark" title="Exa – A Modern Replacement for “ls Command” Written in Rust">Exa – A Modern Replacement for “ls Command” Written in Rust</a>
+</h4>
+<div class="post-meta group">
+<p class="post-date">7 Aug, 2017</p>
+</div>
+</div>
+</article>
+</li>
+</ul>
+<section id="comments" class="themeform">
+<h3 class="heading">23 Responses</h3>
+<ul class="comment-tabs group">
+<li class="active"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/#commentlist-container"><i class="fa fa-comments-o"></i>Comments<span>12</span></a></li>
+<li><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/#pinglist-container"><i class="fa fa-share"></i>Pingbacks<span>0</span></a></li>
+</ul>
+<div id="commentlist-container" class="comment-tab">
+<ol class="commentlist">
+<li class="comment even thread-even depth-1" id="comment-975997">
+<div id="div-comment-975997" class="comment-body">
+<div class="comment-author vcard">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/754c5285c69982085f908bc84909db70" alt="" srcset="https://secure.gravatar.com/avatar/754c5285c69982085f908bc84909db70?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/754c5285c69982085f908bc84909db70?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/754c5285c69982085f908bc84909db70?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> <cite class="fn">Bad Prad</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/comment-page-2/#comment-975997">
+March 15, 2018 at 12:33 am</a> </div>
+<p>This may be unrelated to tcpdump, but I am trying to find who which workstation on a LAN is using too much traffic. </p>
+<p>All traffic is routed through a wireless LAN, which is turn is a cellular modem. The modem control panel cannot provide this information.</p>
+<p>Workstation on the LAN run various operating systems – Linux, Windows, Android and IOS.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/?replytocom=975997#respond" onclick="return addComment.moveForm( &quot;div-comment-975997&quot;, &quot;975997&quot;, &quot;respond&quot;, &quot;841&quot; )" aria-label="Reply to Bad Prad">Reply</a></div>
+</div>
+</li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-896088">
+<div id="div-comment-896088" class="comment-body">
+<div class="comment-author vcard">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/a05bc0cbaeff9b7d7567f7c1c1b9b219" alt="" srcset="https://secure.gravatar.com/avatar/a05bc0cbaeff9b7d7567f7c1c1b9b219?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/a05bc0cbaeff9b7d7567f7c1c1b9b219?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/a05bc0cbaeff9b7d7567f7c1c1b9b219?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> <cite class="fn">Josh</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/comment-page-2/#comment-896088">
+June 20, 2017 at 8:32 pm</a> </div>
+<p>Excellent article. Do you have any article on network interface source code or configuration of network interface card?</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/?replytocom=896088#respond" onclick="return addComment.moveForm( &quot;div-comment-896088&quot;, &quot;896088&quot;, &quot;respond&quot;, &quot;841&quot; )" aria-label="Reply to Josh">Reply</a></div>
+</div>
+</li>
+<li class="comment even thread-even depth-1 parent" id="comment-818989">
+<div id="div-comment-818989" class="comment-body">
+<div class="comment-author vcard">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/410237cb0f3aacfa20cec04d88629996" alt="" srcset="https://secure.gravatar.com/avatar/410237cb0f3aacfa20cec04d88629996?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/410237cb0f3aacfa20cec04d88629996?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/410237cb0f3aacfa20cec04d88629996?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> <cite class="fn">Admin</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/comment-page-2/#comment-818989">
+September 18, 2016 at 9:37 pm</a> </div>
+<p>Having a hard time here, hopefully you can help. This server in question (Centos 6.8) has bandwidth sky rocketing to about 100MBps. It’s running cPanel control panel and none of the accounts are using much bandwidth. I cannot figure out how to trace where the spike is coming from. I tried this tcpdump but confused. I need to trace the source of the bandwidth spike and really could use some help. IPTRAF is a bit confusing too to me.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/?replytocom=818989#respond" onclick="return addComment.moveForm( &quot;div-comment-818989&quot;, &quot;818989&quot;, &quot;respond&quot;, &quot;841&quot; )" aria-label="Reply to Admin">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment byuser comment-author-admin odd alt depth-2" id="comment-819199">
+<div id="div-comment-819199" class="comment-body">
+<div class="comment-author vcard">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/7badddbc53297b2e8ed7011cf45df0c0" alt="" srcset="https://secure.gravatar.com/avatar/7badddbc53297b2e8ed7011cf45df0c0?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/7badddbc53297b2e8ed7011cf45df0c0?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/7badddbc53297b2e8ed7011cf45df0c0?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> <cite class="fn">Ravi Saive</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/comment-page-2/#comment-819199">
+September 19, 2016 at 11:18 am</a> </div>
+<p>@Admin,</p>
+<p>I think you should use these two tools to find out the network bandwidth source..</p>
+<p><a href="https://www.tecmint.com/install-iftop-bandwidth-monitoring-tool-in-rhel-centos-fedora/" rel="nofollow">https://www.tecmint.com/install-iftop-bandwidth-monitoring-tool-in-rhel-centos-fedora/</a><br>
+<a href="https://www.tecmint.com/install-vnstat-and-vnstati-to-monitor-linux-network-traffic/" rel="nofollow">https://www.tecmint.com/install-vnstat-and-vnstati-to-monitor-linux-network-traffic/</a></p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/?replytocom=819199#respond" onclick="return addComment.moveForm( &quot;div-comment-819199&quot;, &quot;819199&quot;, &quot;respond&quot;, &quot;841&quot; )" aria-label="Reply to Ravi Saive">Reply</a></div>
+</div>
+</li>
+</ul>
+</li>
+<li class="comment even thread-odd thread-alt depth-1" id="comment-682491">
+<div id="div-comment-682491" class="comment-body">
+<div class="comment-author vcard">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/43e55b7149749f90526731f006e7027f" alt="" srcset="https://secure.gravatar.com/avatar/43e55b7149749f90526731f006e7027f?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/43e55b7149749f90526731f006e7027f?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/43e55b7149749f90526731f006e7027f?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> <cite class="fn">Gene</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/comment-page-2/#comment-682491">
+October 9, 2015 at 1:45 pm</a> </div>
+<p>This has been very informative and helpful. Had to use some of the commands for some deep debugging…. thanks</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/?replytocom=682491#respond" onclick="return addComment.moveForm( &quot;div-comment-682491&quot;, &quot;682491&quot;, &quot;respond&quot;, &quot;841&quot; )" aria-label="Reply to Gene">Reply</a></div>
+</div>
+</li>
+<li class="comment odd alt thread-even depth-1 parent" id="comment-672287">
+<div id="div-comment-672287" class="comment-body">
+<div class="comment-author vcard">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/0d8f75df16dec57d906edfca37181f9b" alt="" srcset="https://secure.gravatar.com/avatar/0d8f75df16dec57d906edfca37181f9b?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/0d8f75df16dec57d906edfca37181f9b?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/0d8f75df16dec57d906edfca37181f9b?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> <cite class="fn">abhi</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/comment-page-2/#comment-672287">
+September 23, 2015 at 9:16 pm</a> </div>
+<p>How can I take the tcpdump of a destination port.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/?replytocom=672287#respond" onclick="return addComment.moveForm( &quot;div-comment-672287&quot;, &quot;672287&quot;, &quot;respond&quot;, &quot;841&quot; )" aria-label="Reply to abhi">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment byuser comment-author-admin even depth-2" id="comment-672697">
+<div id="div-comment-672697" class="comment-body">
+<div class="comment-author vcard">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/7badddbc53297b2e8ed7011cf45df0c0" alt="" srcset="https://secure.gravatar.com/avatar/7badddbc53297b2e8ed7011cf45df0c0?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/7badddbc53297b2e8ed7011cf45df0c0?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/7badddbc53297b2e8ed7011cf45df0c0?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> <cite class="fn">Ravi Saive</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/comment-page-2/#comment-672697">
+September 24, 2015 at 11:54 am</a> </div>
+<p>@Abhi,<br>
+Here is the following command that will help you out.</p>
+<pre># tcpdump -i eth0 port 22
+</pre>
+<p>Don’t forget to replace the port 22 with your desired port.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/?replytocom=672697#respond" onclick="return addComment.moveForm( &quot;div-comment-672697&quot;, &quot;672697&quot;, &quot;respond&quot;, &quot;841&quot; )" aria-label="Reply to Ravi Saive">Reply</a></div>
+</div>
+</li>
+</ul>
+</li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-669983">
+<div id="div-comment-669983" class="comment-body">
+<div class="comment-author vcard">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/0453112cd95438d3b564af52f242b0b0" alt="" srcset="https://secure.gravatar.com/avatar/0453112cd95438d3b564af52f242b0b0?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/0453112cd95438d3b564af52f242b0b0?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/0453112cd95438d3b564af52f242b0b0?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> <cite class="fn">Nilesh</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/comment-page-2/#comment-669983">
+September 20, 2015 at 3:20 pm</a> </div>
+<p>Very Good artical</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/?replytocom=669983#respond" onclick="return addComment.moveForm( &quot;div-comment-669983&quot;, &quot;669983&quot;, &quot;respond&quot;, &quot;841&quot; )" aria-label="Reply to Nilesh">Reply</a></div>
+</div>
+</li>
+<li class="comment even thread-even depth-1" id="comment-542055">
+<div id="div-comment-542055" class="comment-body">
+<div class="comment-author vcard">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/069c2399132946b060df783e1396399d" alt="" srcset="https://secure.gravatar.com/avatar/069c2399132946b060df783e1396399d?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/069c2399132946b060df783e1396399d?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/069c2399132946b060df783e1396399d?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> <cite class="fn">sara kiran</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/comment-page-2/#comment-542055">
+April 14, 2015 at 10:05 am</a> </div>
+<p>Hope you must be fine by grace of God. I am facing a problem in my thesis which is about to change the link data rate depending upon the buffer occupancy i-e if the buffer space is filled above threshold then increase the link data rate and if the buffer is occupied below threshold then reduce the link data rate. Now the problem exists in determining the buffer space occupied. For this I am using” ifconfig” and “netstat”.<br>
+For ifconfig the output for switch AS-1 eth1 is as follows (by using netstat I was getting the same output):<br>
+AS-1-eth1 Link encap:Ethernet HWaddr 7a:81:df:f1:29:74<br>
+inet6 addr: fe80::7881:dfff:fef1:2974/64 Scope: Link<br>
+UP BROADCAST RUNNING MULTICAST MTU: 1500 Metric: 1<br>
+RX packets: 88 errors: 0 dropped: 0 overruns: 0 frame: 0<br>
+TX packets: 57 errors: 0 dropped: 0 overruns: 0 carrier: 0<br>
+Collisions: 0 txqueuelen: 1000<br>
+RX bytes: 12266 (12.2 KB) TX bytes: 9052 (9.0 KB)<br>
+Now I am thinking, packets in queue= RX packets-TX packets=88-57=31packets (31 packets are in the buffer). Am I thinking in the right direction?<br>
+For “ifconfig” kindly check the following link<br>
+<a href="http://www.computerhope.com/unix/uifconfi.htm" rel="nofollow">http://www.computerhope.com/unix/uifconfi.htm</a>, Kindly just go through the overview, I know your time is really precious and sorry to bother you, kindly reply me as soon as possible. Thanks in advance.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/?replytocom=542055#respond" onclick="return addComment.moveForm( &quot;div-comment-542055&quot;, &quot;542055&quot;, &quot;respond&quot;, &quot;841&quot; )" aria-label="Reply to sara kiran">Reply</a></div>
+</div>
+</li>
+<li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-378010">
+<div id="div-comment-378010" class="comment-body">
+<div class="comment-author vcard">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/991d1747e443f1f35b48762dd24e5246" alt="" srcset="https://secure.gravatar.com/avatar/991d1747e443f1f35b48762dd24e5246?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/991d1747e443f1f35b48762dd24e5246?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/991d1747e443f1f35b48762dd24e5246?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> <cite class="fn">Pankhuri Jaiswal</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/comment-page-2/#comment-378010">
+November 20, 2014 at 3:29 pm</a> </div>
+<p>hello!! </p>
+<p>M in a deep trouble…i need to do this tcp steganography in linux environment…can you please tell me the required steps and commands…i need it urgent…please help</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/?replytocom=378010#respond" onclick="return addComment.moveForm( &quot;div-comment-378010&quot;, &quot;378010&quot;, &quot;respond&quot;, &quot;841&quot; )" aria-label="Reply to Pankhuri Jaiswal">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="comment-700241">
+<div id="div-comment-700241" class="comment-body">
+<div class="comment-author vcard">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/2697874546ad2b77fdffdfe0d908f90e" alt="" srcset="https://secure.gravatar.com/avatar/2697874546ad2b77fdffdfe0d908f90e?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/2697874546ad2b77fdffdfe0d908f90e?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/2697874546ad2b77fdffdfe0d908f90e?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> <cite class="fn">Mohinder</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/comment-page-2/#comment-700241">
+November 3, 2015 at 6:35 am</a> </div>
+<p>Pankhuri,<br>
+Please let us know how the steganography went. What commands did you find useful and what was the end result. Thank you and very good day to you.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/?replytocom=700241#respond" onclick="return addComment.moveForm( &quot;div-comment-700241&quot;, &quot;700241&quot;, &quot;respond&quot;, &quot;841&quot; )" aria-label="Reply to Mohinder">Reply</a></div>
+</div>
+</li>
+</ul>
+</li>
+<li class="comment odd alt thread-even depth-1" id="comment-332020">
+<div id="div-comment-332020" class="comment-body">
+<div class="comment-author vcard">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/4ccf9c29abdb01f200937f447c987361" alt="" srcset="https://secure.gravatar.com/avatar/4ccf9c29abdb01f200937f447c987361?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/4ccf9c29abdb01f200937f447c987361?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/4ccf9c29abdb01f200937f447c987361?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> <cite class="fn">techie</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/comment-page-2/#comment-332020">
+October 13, 2014 at 9:25 pm</a> </div>
+<p>Thanx, very informative</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/?replytocom=332020#respond" onclick="return addComment.moveForm( &quot;div-comment-332020&quot;, &quot;332020&quot;, &quot;respond&quot;, &quot;841&quot; )" aria-label="Reply to techie">Reply</a></div>
+</div>
+</li>
+</ol>
+<nav class="comments-nav group">
+<div class="nav-previous"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/comment-page-1/#comments">« Older Comments</a></div>
+<div class="nav-next"></div>
+</nav>
+</div>
+<div id="respond" class="comment-respond">
+<h3 id="reply-title" class="comment-reply-title">Got something to say? Join the discussion. <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/#respond" style="display:none;">Cancel reply</a></small></h3> <form action="https://www.tecmint.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200"></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"><label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="comment-form-subscriptions"><label for="subscribe-reloaded"><input style="width:30px" type="checkbox" name="subscribe-reloaded" id="subscribe-reloaded" value="yes"> Notify me of followup comments via e-mail. You can also <a href="https://www.tecmint.com/comment-subscriptions/?srp=841&amp;srk=dfad03934223c77dc11fd848a92dc080&amp;sra=s&amp;srsrc=f">subscribe</a> without commenting.</label></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="841" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="c2e4d7e63e"></p><p style="display: none;"></p> <input type="hidden" id="ak_js" name="ak_js" value="1527256556599"></form>
+</div>
+</section>
+</div>
+</section>
+<div class="sidebar s1">
+<a class="sidebar-toggle" title="Expand Sidebar"><i class="fa icon-sidebar-toggle"></i></a>
+<div class="sidebar-content">
+<div class="sidebar-top group">
+<span style="color:#002873; font-weight:600; font-size:20px;">I <i class="fa fa-heart col-love-l"></i> TecMint :</span>
+<ul class="social-links"><li><a rel="nofollow" class="social-tooltip" title="twitter" href="https://twitter.com/tecmint" target="Array"><i class="fa fa-twitter" style="color: #33ccff;"></i></a></li><li><a rel="nofollow" class="social-tooltip" title="facebook" href="https://www.facebook.com/TecMint" target="Array"><i class="fa fa-facebook" style="color: #3b5998;"></i></a></li><li><a rel="nofollow" class="social-tooltip" title="Google+" href="https://plus.google.com/101049688653487009744" target="Array"><i class="fa fa-google-plus" style="color: #db4a39;"></i></a></li><li><a rel="nofollow" class="social-tooltip" title="Feedly" href="https://feedly.com/i/subscription/feed/https://www.tecmint.com/feed/" target="Array"><i class="fa fa-rss" style="color: #87c040;"></i></a></li><li><a rel="nofollow" class="social-tooltip" title="Youtube" href="https://www.youtube.com/channel/UCkiRkzdLvoGBtW_YArytJlQ" target="Array"><i class="fa fa fa-youtube-square" style="color: #c4302b;"></i></a></li></ul> </div>
+<div id="text-23" class="widget widget_text"> <div class="textwidget"> <div style="background:#db4455;" class="message">
+<center><a href="https://www.tecmint.com/free-online-linux-learning-guide-for-beginners/" target="_blank"><span style="font-weight:bold;font-size:18px;"><i class="fa fa-linux"></i> BEGINNER'S GUIDE FOR LINUX <i class="fa fa-linux"></i></span> <span style="font-weight:bold;font-size:16px;">Start learning Linux in minutes</span> <i class="fa fa-arrow-right"></i></a>
+</center>
+</div></div>
+</div><div id="text-21" class="widget widget_text"> <div class="textwidget"><center>
+
+<ins class="adsbygoogle" style="display: inline-block; width: 300px; height: 250px;" data-ad-client="ca-pub-2601749019656699" data-ad-slot="7270921771" data-adsbygoogle-status="done"><ins id="aswift_5_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_5_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_5" name="aswift_5" style="left:0;position:absolute;top:0;width:300px;height:250px;" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/saved_resource(6).html"></iframe></ins></ins></ins>
+<script type="">
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</center></div>
+</div><div id="text-25" class="widget widget_text"> <div class="textwidget"><div class="message"><center><a href="https://www.tecmint.com/vi-editor-usage/" target="_blank"><span style="font-weight:bold;font-size:17px;"><i class="fa fa-linux"></i> Vi/Vim Editor BEGINNER'S GUIDE <i class="fa fa-linux"></i></span> <span style="font-weight:bold;font-size:16px;">Learn vi/vim as a Full Text Editor</span> <i class="fa fa-file-text"></i>
+</a></center></div></div>
+</div><div id="text-24" class="widget widget_text"> <div class="textwidget">
+<ins class="adsbygoogle" style="display: inline-block; width: 300px; height: 250px;" data-ad-client="ca-pub-2601749019656699" data-ad-slot="9364460975" data-adsbygoogle-status="done"><ins id="aswift_6_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_6_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_6" name="aswift_6" style="left:0;position:absolute;top:0;width:300px;height:250px;" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/saved_resource(7).html"></iframe></ins></ins></ins>
+<script type="">
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+</div><div id="text-26" class="widget widget_text"> <div class="textwidget"><div class="message" style="background-color: #ab0619;"><center><span style="font-weight:bold;font-size:17px;"><i class="fa fa-linux"></i> Linux Foundation Certification <i class="fa fa-linux"></i></span> <span style="font-weight:bold;font-size:16px;">Exam Study Guide to <a style="text-decoration:underline;" target="_blank" href="https://www.tecmint.com/linux-foundation-lfcs-lfce-certification-exam-book/">LFCS and LFCE</a></span></center></div></div>
+</div><div id="text-3" class="widget widget_text"> <div class="textwidget"><div class="ads-sidebar-desktop">
+<center>
+
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-2601749019656699" data-ad-slot="9098920170"></ins>
+<script type="">
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</center>
+</div></div>
+</div><div id="alxtabs-2" class="widget widget_alx_tabs">
+<ul class="alx-tabs-nav group tab-count-2"><li class="alx-tab tab-popular active"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/#tab-popular" title="Popular Posts"><i class="fa fa-star"></i><span>Popular Posts</span></a></li><li class="alx-tab tab-comments"><a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/#tab-comments" title="Recent Comments"><i class="fa fa-comments-o"></i><span>Recent Comments</span></a></li></ul>
+<div class="alx-tabs-container">
+<ul id="tab-popular" class="alx-tab group " style="display: block;">
+<li>
+<div class="tab-item-inner group">
+<p class="tab-item-title"><a href="https://www.tecmint.com/how-to-add-linux-host-to-nagios-monitoring-server/" rel="bookmark" title="How to Add Linux Host to Nagios Monitoring Server Using NRPE Plugin">How to Add Linux Host to Nagios Monitoring Server Using NRPE Plugin</a></p>
+</div>
+</li>
+<li>
+<div class="tab-item-inner group">
+<p class="tab-item-title"><a href="https://www.tecmint.com/install-nagios-in-linux/" rel="bookmark" title="How to Install Nagios 4.3.4 on RHEL, CentOS and Fedora">How to Install Nagios 4.3.4 on RHEL, CentOS and Fedora</a></p>
+</div>
+</li>
+<li>
+<div class="tab-item-inner group">
+<p class="tab-item-title"><a href="https://www.tecmint.com/install-cacti-network-monitoring-on-rhel-centos-6-3-5-8-and-fedora-17-12/" rel="bookmark" title="Install Cacti (Network Monitoring) on RHEL/CentOS 7.x/6.x/5.x and Fedora 24-12">Install Cacti (Network Monitoring) on RHEL/CentOS 7.x/6.x/5.x and Fedora 24-12</a></p>
+</div>
+</li>
+<li>
+<div class="tab-item-inner group">
+<p class="tab-item-title"><a href="https://www.tecmint.com/install-google-chrome-on-redhat-centos-fedora-linux/" rel="bookmark" title="Google Chrome 65 Released – Install on RHEL/CentOS 7 and Fedora 27-20">Google Chrome 65 Released – Install on RHEL/CentOS 7 and Fedora 27-20</a></p>
+</div>
+</li>
+<li>
+<div class="tab-item-inner group">
+<p class="tab-item-title"><a href="https://www.tecmint.com/install-ubuntu-16-04-alongside-with-windows-10-or-8-in-dual-boot/" rel="bookmark" title="How to Install Ubuntu 16.10/16.04 Alongside With Windows 10 or 8 in Dual-Boot">How to Install Ubuntu 16.10/16.04 Alongside With Windows 10 or 8 in Dual-Boot</a></p>
+</div>
+</li>
+<li>
+<div class="tab-item-inner group">
+<p class="tab-item-title"><a href="https://www.tecmint.com/red-hat-rhcsa-rhce-exam-certification-book/" rel="bookmark" title="Tecmint’s Guide to Red Hat RHCSA / RHCE Certification Preparation Study Guide">Tecmint’s Guide to Red Hat RHCSA / RHCE Certification Preparation Study Guide</a></p>
+</div>
+</li>
+</ul>
+<ul id="tab-comments" class="alx-tab group avatars-enabled" style="display: none;">
+<li>
+<div class="tab-item-avatar">
+<a href="https://www.tecmint.com/setup-samba-file-sharing-for-linux-windows-clients/comment-page-2/#comment-994088">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/bf118831566920d01250a3909cd0fa5a" alt="" srcset="https://secure.gravatar.com/avatar/bf118831566920d01250a3909cd0fa5a?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/bf118831566920d01250a3909cd0fa5a?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/bf118831566920d01250a3909cd0fa5a?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> </a>
+</div>
+<div class="tab-item-inner group">
+<div class="tab-item-name">Santanu says:</div>
+<div class="tab-item-comment"><a href="https://www.tecmint.com/setup-samba-file-sharing-for-linux-windows-clients/comment-page-2/#comment-994088">Could you help me to configure ready only samba but some...</a></div>
+</div>
+</li>
+<li>
+<div class="tab-item-avatar">
+<a href="https://www.tecmint.com/how-to-setup-failover-and-load-balancing-in-pfsense/comment-page-3/#comment-994067">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/fdb27c33f37f6be84e90cf7e5004e362" alt="" srcset="https://secure.gravatar.com/avatar/fdb27c33f37f6be84e90cf7e5004e362?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/fdb27c33f37f6be84e90cf7e5004e362?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/fdb27c33f37f6be84e90cf7e5004e362?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> </a>
+</div>
+<div class="tab-item-inner group">
+<div class="tab-item-name">MJ says:</div>
+<div class="tab-item-comment"><a href="https://www.tecmint.com/how-to-setup-failover-and-load-balancing-in-pfsense/comment-page-3/#comment-994067">Hello ! please i have a question how i can test...</a></div>
+</div>
+</li>
+<li>
+<div class="tab-item-avatar">
+<a href="https://www.tecmint.com/tilix-gtk3-tiling-terminal-emulator-for-linux/comment-page-1/#comment-994045">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/01b7c3a521c22bd509525a4e8f0320bd" alt="" srcset="https://secure.gravatar.com/avatar/01b7c3a521c22bd509525a4e8f0320bd?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/01b7c3a521c22bd509525a4e8f0320bd?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/01b7c3a521c22bd509525a4e8f0320bd?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> </a>
+</div>
+<div class="tab-item-inner group">
+<div class="tab-item-name">Robin says:</div>
+<div class="tab-item-comment"><a href="https://www.tecmint.com/tilix-gtk3-tiling-terminal-emulator-for-linux/comment-page-1/#comment-994045">For Fedora 26+, tilix is in the default repository. It can...</a></div>
+</div>
+</li>
+<li>
+<div class="tab-item-avatar">
+<a href="https://www.tecmint.com/linux-mint-17-3-cinnamon-installation-review-and-customization/comment-page-1/#comment-993990">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/9d1b64c0f8303f0cdce99e88d524b906" alt="" srcset="https://secure.gravatar.com/avatar/9d1b64c0f8303f0cdce99e88d524b906?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/9d1b64c0f8303f0cdce99e88d524b906?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/9d1b64c0f8303f0cdce99e88d524b906?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> </a>
+</div>
+<div class="tab-item-inner group">
+<div class="tab-item-name">Dick Newman says:</div>
+<div class="tab-item-comment"><a href="https://www.tecmint.com/linux-mint-17-3-cinnamon-installation-review-and-customization/comment-page-1/#comment-993990">I've got 17.3 (Ubuntu). What do I have to do? what...</a></div>
+</div>
+</li>
+<li>
+<div class="tab-item-avatar">
+<a href="https://www.tecmint.com/install-zoneminder-video-surveillance-software-on-debian-9/comment-page-1/#comment-993976">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/205bac04e61634129a9f258167f232eb" alt="" srcset="https://secure.gravatar.com/avatar/205bac04e61634129a9f258167f232eb?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/205bac04e61634129a9f258167f232eb?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/205bac04e61634129a9f258167f232eb?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> </a>
+</div>
+<div class="tab-item-inner group">
+<div class="tab-item-name">Norbert says:</div>
+<div class="tab-item-comment"><a href="https://www.tecmint.com/install-zoneminder-video-surveillance-software-on-debian-9/comment-page-1/#comment-993976">Thanks for the tutorial, however... Sorry to say, setting up...</a></div>
+</div>
+</li>
+<li>
+<div class="tab-item-avatar">
+<a href="https://www.tecmint.com/htop-vs-top-in-linux/comment-page-1/#comment-993923">
+<img src="./12 Tcpdump Commands - A Network Sniffer Tool_files/26679646422a7269165cfb7270d93c6c" alt="" srcset="https://secure.gravatar.com/avatar/26679646422a7269165cfb7270d93c6c?s=192&amp;d=blank&amp;r=g 2x" class="avatar avatar-96 photo" height="96" width="96" data-lazy-loaded="true" style="display: block;"><noscript>&lt;img alt='' src='https://secure.gravatar.com/avatar/26679646422a7269165cfb7270d93c6c?s=96&amp;#038;d=blank&amp;#038;r=g' srcset='https://secure.gravatar.com/avatar/26679646422a7269165cfb7270d93c6c?s=192&amp;#038;d=blank&amp;#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /&gt;</noscript> </a>
+</div>
+<div class="tab-item-inner group">
+<div class="tab-item-name">Kees says:</div>
+<div class="tab-item-comment"><a href="https://www.tecmint.com/htop-vs-top-in-linux/comment-page-1/#comment-993923">Your article is not correct, your arguments here make it even...</a></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div id="text-27" class="widget widget_text"> <div class="textwidget"><center>
+<a target="_blank" href="https://www.tecmint.com/red-hat-rhcsa-rhce-exam-certification-book/"><img alt="RedHat RHCSA and RHCE Certification Exam Study Ebook" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/RedHat-RHCSA-RHCE-Exam.png"></a>
+</center></div>
+</div><div id="text-28" class="widget widget_text"> <div class="textwidget"><div class="message" style="background-color: #0d7c39;"><center><p style="font-weight:bold;font-size:18px;">Linux System Administrator Bundle with 7-Courses (96% off)</p>
+<p style="background-color: #03441d;margin:6px 35px;padding:10px;"><a rel="nofollow" target="_blank" href="https://deals.tecmint.com/sales/complete-linux-crash-course-includes-topics-on-red-hat-unix-kali-python-and-opensuse?utm_source=tecmint.com&amp;utm_medium=referral&amp;utm_campaign=complete-linux-crash-course-includes-topics-on-red-hat-unix-kali-python-and-opensu&amp;_ga=1.95416024.550662903.1451974395" style="font-size:25px;font-weight:bold;">Add to Cart - $69</a></p>
+<p style="font-size:14px;font-weight:bold;"><i aria-hidden="true" class="fa fa-clock-o"></i> Ending In: 3 days
+</p></center></div>
+<div style="background-color: #f4403b;" class="message"><center><p style="font-weight:bold;font-size:18px;">Computer Hacker Professional Certification Course (96% Off)</p>
+<p style="background-color: #9d1815;margin:6px 35px;padding:10px;"><a style="font-size:25px;font-weight:bold;" href="https://deals.tecmint.com/sales/computer-hacker-professional-certification-package-2" target="_blank" rel="nofollow">Add to Cart - $59</a></p>
+<p style="font-size:14px;font-weight:bold;"><i class="fa fa-clock-o" aria-hidden="true"></i> Ending In: 4 days
+</p></center></div></div>
+</div><div id="text-4" class="widget widget_text"><h3>Linux eBooks</h3> <div class="textwidget"><ol class="custom-counter">
+<li><a onclick="ga(&#39;send&#39;,&#39;event&#39;,&#39;Learn Linux in One Week&#39;,&#39;TecMint&#39;)" href="https://www.tecmint.com/learn-linux-in-one-week/" target="_blank">Introducing Learn Linux In One Week and Go from Zero to Hero</a></li>
+<li><a onclick="ga(&#39;send&#39;,&#39;event&#39;,&#39;RedHat RHCE/RHCSA Guide&#39;,&#39;TecMint&#39;)" href="https://www.tecmint.com/red-hat-rhcsa-rhce-exam-certification-book/" target="_blank">RedHat RHCE/RHCSA Certification Preparation Guide</a></li>
+<li><a onclick="ga(&#39;send&#39;,&#39;event&#39;,&#39;Linux Foundation LFCS/LFCE Guide&#39;,&#39;TecMint&#39;)" href="https://www.tecmint.com/linux-foundation-lfcs-lfce-certification-exam-book/" target="_blank">Linux Foundations LFCS/LFCE Certification Guide</a></li>
+<li><a onclick="ga(&#39;send&#39;,&#39;event&#39;,&#39;Postfix Mail Server Setup&#39;,&#39;TecMint&#39;)" href="https://www.tecmint.com/postfix-mail-server-setup-linux-book/" target="_blank">Postfix Mail Server Setup Guide for Linux</a></li>
+<li><a onclick="ga(&#39;send&#39;,&#39;event&#39;,&#39;Ansible Setup Guide&#39;,&#39;TecMint&#39;)" href="https://www.tecmint.com/ansible-book-guide-for-linux/" target="_blank">Ansible Setup Guide for Linux</a></li>
+<li><a onclick="ga(&#39;send&#39;,&#39;event&#39;,&#39;Django Setup Guide&#39;,&#39;TecMint&#39;)" href="https://www.tecmint.com/django-web-framework-book/" target="_blank">Django Setup Guide for Linux</a></li>
+<li><a onclick="ga(&#39;send&#39;,&#39;event&#39;,&#39;Awk Guide for Beginners&#39;,&#39;TecMint&#39;)" href="https://www.tecmint.com/linux-awk-command-book-for-beginners/" target="_blank">Awk Getting Started Guide for Beginners</a></li>
+<li><a onclick="ga(&#39;send&#39;,&#39;event&#39;,&#39;Citrix XenServer Setup Guide&#39;,&#39;TecMint&#39;)" href="https://www.tecmint.com/citrix-xenserver-book-for-linux/" target="_blank">Citrix XenServer Setup Guide for Linux</a></li>
+</ol></div>
+</div><div id="text-29" class="widget widget_text"> <div class="textwidget"><div style="background-color: rgb(25, 67, 87); color: rgb(255, 255, 255); border-radius: 5px; text-align: center; padding: 10px;">
+<div class="follow-subscribe-social">
+<ul>
+<li><a href="https://twitter.com/tecmint" target="_blank"><i class="fa fa-twitter"></i></a></li>
+<li><a href="https://www.facebook.com/TecMint" target="_blank"><i class="fa fa-facebook"></i></a></li>
+<li><a href="https://plus.google.com/101049688653487009744" target="_blank"><i class="fa fa-google"></i></a></li>
+<li><a href="https://www.youtube.com/channel/UCkiRkzdLvoGBtW_YArytJlQ" target="_blank"><i class="fa fa-youtube"></i></a></li>
+<li><a href="https://www.linkedin.com/company/tecmint" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+</ul>
+</div>
+<p style="font-weight: bold; font-size: 20px; margin-bottom: 10px; margin-top: 10px;">Never Miss Any Linux Tutorials, Guides, Tips and Free eBooks</p>
+<p>Join Our Community Of <strong style="color:#fff;font-weight:bold;">150,000+ Linux Lovers</strong> and get a weekly newsletter in your inbox</p>
+<p style="background-color: rgb(0, 0, 0); border-radius: 5px; padding: 6px;"><a style="font-size:20px;font-weight:bold;color:#fff;" href="http://subscribe.tecmint.com/newsletter" target="_blank" rel="nofollow">YES! SIGN ME UP</a></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer id="footer">
+<section class="container" id="footer-ads">
+<div class="container-inner">
+<div id="text-30" class="widget widget_text"> <div class="textwidget"><p><a href="https://www.tecmint.com/free-wordpress-installation-setup/" target="_blank"><img alt="Free WordPress Blog Setup" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/Free-WordPress-Setup-Service.png"></a></p>
+</div>
+</div> </div>
+</section>
+<section class="container" id="footer-widgets">
+<div class="container-inner">
+<div class="pad group">
+<div class="footer-widget-1 grid one-third ">
+<div id="alxposts-3" class="widget widget_alx_posts">
+<h3>Linux Monitoring Tools</h3>
+<ul class="alx-posts group ">
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/install-htop-linux-process-monitoring-for-rhel-centos-fedora/" rel="bookmark" title="Install Htop 2.0 – Linux Process Monitoring for RHEL, CentOS &amp; Fedora">Install Htop 2.0 – Linux Process Monitoring for RHEL, CentOS &amp; Fedora</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/sysdig-system-monitoring-and-troubleshooting-tool-for-linux/" rel="bookmark" title="Sysdig –  A Powerful System Monitoring and Troubleshooting Tool for Linux">Sysdig – A Powerful System Monitoring and Troubleshooting Tool for Linux</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/mysql-performance-monitoring/" rel="bookmark" title="4 Useful Commandline Tools to Monitor MySQL Performance in Linux">4 Useful Commandline Tools to Monitor MySQL Performance in Linux</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/install-munin-network-monitoring-in-rhel-centos-fedora/" rel="bookmark" title="Install Munin (Network Monitoring) in RHEL, CentOS and Fedora">Install Munin (Network Monitoring) in RHEL, CentOS and Fedora</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/install-vnstat-and-vnstati-to-monitor-linux-network-traffic/" rel="bookmark" title="How to Install vnStat and vnStati to Monitor Network Traffic in RHEL/CentOS 7">How to Install vnStat and vnStati to Monitor Network Traffic in RHEL/CentOS 7</a></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="footer-widget-2 grid one-third ">
+<div id="alxposts-4" class="widget widget_alx_posts">
+<h3>Linux Interview Questions</h3>
+<ul class="alx-posts group ">
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/interview-questions-on-shell-scripting/" rel="bookmark" title="10 Useful ‘Interview Questions and Answers’ on Linux Shell Scripting">10 Useful ‘Interview Questions and Answers’ on Linux Shell Scripting</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/networking-interview-questions/" rel="bookmark" title="10 Basic Interview Questions and Answers on Linux Networking – Part 1">10 Basic Interview Questions and Answers on Linux Networking – Part 1</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/linux-interview-questions-and-answers-for-linux-beginners/" rel="bookmark" title="10 Linux Interview Questions and Answers for Linux Beginners – Part 3">10 Linux Interview Questions and Answers for Linux Beginners – Part 3</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/practical-interview-questions-on-linux-shell-scripting/" rel="bookmark" title="Practical Interview Questions and Answers on Linux Shell Scripting">Practical Interview Questions and Answers on Linux Shell Scripting</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/basic-linux-interview-questions-and-answers-part-ii/" rel="bookmark" title="Basic Linux Interview Questions and Answers – Part II">Basic Linux Interview Questions and Answers – Part II</a></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="footer-widget-3 grid one-third last">
+<div id="alxposts-5" class="widget widget_alx_posts">
+<h3>Open Source Tools</h3>
+<ul class="alx-posts group ">
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/free-music-creation-or-audio-editing-softwares-for-linux/" rel="bookmark" title="8 Best Open Source Music Making Softwares for Linux">8 Best Open Source Music Making Softwares for Linux</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/online-cron-job-generator-and-tester-for-linux/" rel="bookmark" title="6 Online Tools for Generating and Testing Cron Jobs for Linux">6 Online Tools for Generating and Testing Cron Jobs for Linux</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/linux-partition-managers/" rel="bookmark" title="Top 6 Partition Managers  (CLI + GUI) for Linux">Top 6 Partition Managers (CLI + GUI) for Linux</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/best-linux-init-systems/" rel="bookmark" title="5 Best Modern Linux ‘init’ Systems  (1992-2015)">5 Best Modern Linux ‘init’ Systems (1992-2015)</a></p>
+</div>
+</li>
+<li>
+<div class="post-item-inner group">
+<p class="post-item-title"><a href="https://www.tecmint.com/top-best-lightweight-linux-file-managers/" rel="bookmark" title="13 Best File Managers for Linux Systems">13 Best File Managers for Linux Systems</a></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<nav class="nav-container group" id="nav-footer">
+<div class="nav-toggle"><i class="fa fa-bars"></i></div>
+<div class="nav-text"></div>
+<div class="nav-wrap"><ul id="menu-footer" class="nav container group"><li id="menu-item-18572" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18572"><a href="https://www.tecmint.com/donate-to-tecmint/">Donate to TecMint</a></li>
+<li id="menu-item-10437" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10437"><a href="https://www.tecmint.com/contact-us/">Contact Us</a></li>
+<li id="menu-item-10442" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10442"><a href="https://www.tecmint.com/advertise/">Advertise on TecMint</a></li>
+<li id="menu-item-10441" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10441"><a href="https://www.tecmint.com/services/">Linux Services</a></li>
+<li id="menu-item-10435" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10435"><a href="https://www.tecmint.com/copyright-policy/">Copyright Policy</a></li>
+<li id="menu-item-10436" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10436"><a href="https://www.tecmint.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-13339" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13339"><a href="https://www.tecmint.com/career/">Career</a></li>
+<li id="menu-item-24288" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-24288"><a href="https://www.tecmint.com/sponsored-post-guidelines-tecmint/">Sponsored Post</a></li>
+</ul></div>
+</nav>
+<section class="container" id="footer-bottom">
+<div class="container-inner">
+<a id="back-to-top" href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/#"><i class="fa fa-angle-up"></i></a>
+<div class="pad group">
+<div class="grid one-half">
+<div id="copyright">
+<p>Tecmint: Linux Howtos, Tutorials &amp; Guides © 2018. All Rights Reserved.</p>
+<p>The material in this site cannot be republished either online or offline, without our permission.</p>
+</div>
+</div>
+<div class="grid one-half last">
+<ul class="social-links"><li><a rel="nofollow" class="social-tooltip" title="twitter" href="https://twitter.com/tecmint" target="Array"><i class="fa fa-twitter" style="color: #33ccff;"></i></a></li><li><a rel="nofollow" class="social-tooltip" title="facebook" href="https://www.facebook.com/TecMint" target="Array"><i class="fa fa-facebook" style="color: #3b5998;"></i></a></li><li><a rel="nofollow" class="social-tooltip" title="Google+" href="https://plus.google.com/101049688653487009744" target="Array"><i class="fa fa-google-plus" style="color: #db4a39;"></i></a></li><li><a rel="nofollow" class="social-tooltip" title="Feedly" href="https://feedly.com/i/subscription/feed/https://www.tecmint.com/feed/" target="Array"><i class="fa fa-rss" style="color: #87c040;"></i></a></li><li><a rel="nofollow" class="social-tooltip" title="Youtube" href="https://www.youtube.com/channel/UCkiRkzdLvoGBtW_YArytJlQ" target="Array"><i class="fa fa fa-youtube-square" style="color: #c4302b;"></i></a></li></ul> </div>
+</div>
+</div>
+</section>
+</footer>
+</div>
+<script type="text/javascript" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/light.js"></script>
+<script type="text/javascript" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/scripts.js"></script>
+<script type="text/javascript" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/jquery.sharrre.min.js"></script>
+<script type="text/javascript" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/comment-reply.min.js"></script>
+<script type="text/javascript" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/jquery.sonar.min.js"></script>
+<script type="text/javascript" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/lazy-load.js"></script>
+<script async="async" type="text/javascript" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/form.js"></script>
+<!--[if lt IE 9]>
+<script src="https://www.tecmint.com/wp-content/themes/tecmint/js/ie/respond.js"></script>
+<![endif]-->
+<div class="fixedBar">
+<div class="boxfloat">
+<ul id="tips">
+<li><a href="https://www.tecmint.com/51-useful-lesser-known-commands-for-linux-users/">51 Useful Lesser Known Commands for Linux Users</a></li>
+<li><a href="https://www.tecmint.com/linux-server-hardening-security-tips/">25 Hardening Security Tips for Linux Servers</a></li>
+<li><a href="https://www.tecmint.com/60-commands-of-linux-a-guide-from-newbies-to-system-administrator/">60 Commands of Linux : A Guide from Newbies to System Administrator</a></li>
+<li><a href="https://www.tecmint.com/command-line-tools-to-monitor-linux-performance/">20 Command Line Tools to Monitor Linux Performance</a></li>
+<li><a href="https://www.tecmint.com/18-tar-command-examples-in-linux/">18 Tar Command Examples in Linux</a></li>
+<li><a href="https://www.tecmint.com/20-linux-yum-yellowdog-updater-modified-commands-for-package-mangement/">20 Linux YUM (Yellowdog Updater, Modified) Commands</a></li>
+<li><a href="https://www.tecmint.com/useful-basic-commands-of-apt-get-and-apt-cache-for-package-management/">25 Useful Basic Commands of APT-GET and APT-CACHE</a></li>
+<li><a href="https://www.tecmint.com/20-funny-commands-of-linux-or-linux-is-fun-in-terminal/">20 Funny Commands of Linux or Linux is Fun in Terminal</a></li>
+<li><a href="https://www.tecmint.com/red-hat-rhcsa-rhce-exam-certification-book/">Ebook: Introducing the RHCSA and RHCE Exam Preparation Guide</a></li>
+<li><a href="https://www.tecmint.com/sed-command-to-create-edit-and-manipulate-files-in-linux/">Preparation for the LFCS (Linux Foundation Certified SysAdmin) Exam</a></li>
+<li><a href="https://www.tecmint.com/installing-network-services-and-configuring-services-at-system-boot/">Preparation for the LFCE (Linux Foundation Certified Engineer) Exam</a></li>
+<li style="display: list-item;"><a href="https://www.tecmint.com/10-useful-free-linux-ebooks-for-newbies-and-administrators/">10 Useful Free Linux eBooks for Newbies and Administrators</a></li>
+<li><a href="https://www.tecmint.com/free-linux-shell-scripting-books/">4 Free Shell Scripting eBooks for Newbies and Administrators</a></li>
+</ul>
+</div>
+</div>
+
+<iframe id="google_osd_static_frame_5369680606040" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./12 Tcpdump Commands - A Network Sniffer Tool_files/saved_resource(8).html"></iframe></body></html>

@@ -1,0 +1,29 @@
+
+var ftGUID_3090609="372124EDDDC094";
+var ftConfID_3090609="8581908";
+var ftParams_3090609="ftx=&fty=&ftadz=&ftscw=&ft_custom=&ft_section=Current_General&ftOBA=1&ft_ifb=1&ft_domain=www.tecmint.com&ft_agentEnv=0&ft_referrer=https%3A%2F%2Fwww.tecmint.com%2F12-tcpdump-commands-a-network-sniffer-tool%2F&ft_keyword=Current_General&cachebuster=502395.02966830396";
+var ftKeyword_3090609="current_general";
+var ftCustom_3090609="";
+var ftSection_3090609="Current_General";
+var ftSegment_3090609="qei,qej";
+var ftSegmentList_3090609=[{s:'qei'},{s:'qej'}];
+var ftRuleMatch_3090609="00010000";
+var ftTimestamp_3090609="1527338057";
+var ftGeoC2_3090609="us";
+var ftGeoState_3090609="wa";
+var ftGeoCity_3090609="kennewick";
+var ftISP_3090609="charter communications";
+var ftSpeed_3090609="cable";
+var ftDMA_3090609="810";
+var ftLong_3090609="-119.133";
+var ftLat_3090609="46.1947";
+var ftPostal_3090609="99336";
+var ftTimeZone_3090609="-700";
+var ftMobileCarrier_3090609="";
+var ftImp3090609 = {};
+ftImp3090609.privacy = "x";
+ftImp3090609.guidAge = "77";
+ftImp3090609.impID = "37982CEDC3EF88";
+
+document.write('<scr'+'ipt src="https://cdn.flashtalking.com/xre/309/3090609/2183369/js/j-3090609-2183369.js" id="ftscript_m3090609" name="ftscript_m3090609"></scr'+'ipt>');
+                    
