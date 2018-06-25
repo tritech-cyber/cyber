@@ -1,0 +1,9 @@
+pendo.guides=[];
+pendo.normalizedUrl="http://access.redhat.com/solutions/65822";
+pendo.lastGuideStepSeen={"isMultiStep":false,"state":""};
+pendo.guideWidget={"enabled":false,"hidePoweredBy":true};
+pendo.throttling={};
+pendo.autoOrdering=["3_uiuPtROC2Pf5kCuxMyL6E_bs0","zSopzQrNwRXMXQsGpirH91mh0Zk","YYmlALCXOyCuAvSuP3i_m0DWqdw","Rt8VtEacg5EQ7eHXfU4eLxggp5I","fluTDxEcDwWQu6XCNK4LT8nDNZw","o9AXKY9gEzH7YEZ--lZufnfGr7k","UuqxmQ2RSZVSIJkVP8kK2V8a1rU","Abr41NooxFvXITRN3l6dT-zM9aw","D7tS44A2wdCuVIvV-_sL6B4yGDA"];
+pendo.olark=false;
+pendo.globalJsUrl="";
+pendo.segmentFlags=[];
