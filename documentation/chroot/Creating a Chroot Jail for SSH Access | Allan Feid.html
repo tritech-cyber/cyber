@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#" class="js" lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="shortlink" href="https://allanfeid.com/node/39">
+<link rel="shortcut icon" href="https://allanfeid.com/misc/favicon.ico" type="image/vnd.microsoft.icon">
+<meta name="Generator" content="Drupal 7 (http://drupal.org)">
+<link rel="canonical" href="https://allanfeid.com/content/creating-chroot-jail-ssh-access">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="MobileOptimized" content="width">
+<meta name="HandheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Creating a Chroot Jail for SSH Access | Allan Feid</title>
+<link type="text/css" rel="stylesheet" href="Creating%20a%20Chroot%20Jail%20for%20SSH%20Access%20|%20Allan%20Feid_files/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all">
+<link type="text/css" rel="stylesheet" href="Creating%20a%20Chroot%20Jail%20for%20SSH%20Access%20|%20Allan%20Feid_files/css_FbVuXi5StxksdLrh8ToPko4bWJdA70kRGPm7M00BWVM.css" media="all">
+<link type="text/css" rel="stylesheet" href="Creating%20a%20Chroot%20Jail%20for%20SSH%20Access%20|%20Allan%20Feid_files/css_q756Fp6ynoxl8dWw_KjBxYqceSCFFadwRM82wWvn1ZE.css" media="all">
+<link type="text/css" rel="stylesheet" href="Creating%20a%20Chroot%20Jail%20for%20SSH%20Access%20|%20Allan%20Feid_files/css_Agf63ZfV8Nv32mK2rT2H_nIXoBy7rRSHAUI7Xp_ASjc.css" media="screen">
+<link type="text/css" rel="stylesheet" href="Creating%20a%20Chroot%20Jail%20for%20SSH%20Access%20|%20Allan%20Feid_files/css_FIsBqmAPsI_UcaKMMqHUrJzjxt6u4jFr8WXoiziLFBA.css" media="all">
+<link type="text/css" rel="stylesheet" href="Creating%20a%20Chroot%20Jail%20for%20SSH%20Access%20|%20Allan%20Feid_files/css_KgKXTPYQnhA9mloNo6BvNhXq67ZtorCus6DvrrIQdL4.css" media="only screen">
+<link type="text/css" rel="stylesheet" href="Creating%20a%20Chroot%20Jail%20for%20SSH%20Access%20|%20Allan%20Feid_files/css_I7P3MOocPW-c7ATgvxcE2FKBedqUI0wE63bjBGWcWwQ.css" media="screen">
+<link type="text/css" rel="stylesheet" href="Creating%20a%20Chroot%20Jail%20for%20SSH%20Access%20|%20Allan%20Feid_files/css_wlAByv9uDmItiP623-5vlXsebe7Ot8dCJA2MYdYmb38.css" media="all">
+<link type="text/css" rel="stylesheet" href="Creating%20a%20Chroot%20Jail%20for%20SSH%20Access%20|%20Allan%20Feid_files/css_j7HpbbA_kxd0VGlE-aQjZPvymXzitrHwKg9w17Bf0FE.css" media="only screen">
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="https://allanfeid.com/sites/default/files/css/css_nN5CK6Hwdm4HbWpsOfXjK4pt3UDkRFCzsY03ZZHZTek.css" media="screen" />
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="Creating%20a%20Chroot%20Jail%20for%20SSH%20Access%20|%20Allan%20Feid_files/css_fpSBBpP9AZx4Hflr7bcZXTa-Hwcp7MivOo7KRf8OkU8.css" media="all">
+<script type="text/javascript" async="" src="Creating%20a%20Chroot%20Jail%20for%20SSH%20Access%20|%20Allan%20Feid_files/ga.js"></script><script src="Creating%20a%20Chroot%20Jail%20for%20SSH%20Access%20|%20Allan%20Feid_files/js_vDrW3Ry_4gtSYaLsh77lWhWjIC6ml2QNkcfvfP5CVFs.js"></script>
+<script src="Creating%20a%20Chroot%20Jail%20for%20SSH%20Access%20|%20Allan%20Feid_files/js_eVcaMdO07Gy6-gmpLrmwv4I4gQTALaI7mUKITlR4Wz0.js"></script>
+<script src="Creating%20a%20Chroot%20Jail%20for%20SSH%20Access%20|%20Allan%20Feid_files/js_Fg2VmDNe4F0E_XTdL_Tr-AWXy90Clmg0aksCVqQuob0.js"></script>
+<script>var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-6369245-1"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();</script>
+<script src="Creating%20a%20Chroot%20Jail%20for%20SSH%20Access%20|%20Allan%20Feid_files/js_OmTzEw2YkeSGlpopn2YDusFX8T2KRyiakU3dUjMQ7ck.js"></script>
+<script>jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"pixture_reloaded","theme_token":"floqk-8wILeCP2BDNSQ1vXqaDrkOt4YK8Yvjrvp5pHQ","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/libraries\/google-code-prettify\/src\/prettify.js":1,"sites\/all\/modules\/prettify\/prettify.loader.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1,"sites\/all\/themes\/adaptivetheme.shitshow\/at_core\/scripts\/outside-events.js":1,"sites\/all\/themes\/adaptivetheme.shitshow\/at_core\/scripts\/menu-toggle.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/poll\/poll.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/tagadelic\/tagadelic.css":1,"sites\/all\/themes\/adaptivetheme.shitshow\/at_core\/css\/at.settings.style.headings.css":1,"sites\/all\/themes\/adaptivetheme.shitshow\/at_core\/css\/at.settings.style.image.css":1,"sites\/all\/themes\/adaptivetheme.shitshow\/at_core\/css\/at.settings.style.login.css":1,"sites\/all\/themes\/adaptivetheme.shitshow\/at_core\/css\/at.layout.css":1,"sites\/all\/themes\/pixture_reloaded\/color\/colors.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.settings.style.css":1,"public:\/\/adaptivetheme\/pixture_reloaded_files\/pixture_reloaded.responsive.layout.css":1,"public:\/\/adaptivetheme\/pixture_reloaded_files\/pixture_reloaded.fonts.css":1,"public:\/\/adaptivetheme\/pixture_reloaded_files\/pixture_reloaded.menutoggle.css":1,"public:\/\/adaptivetheme\/pixture_reloaded_files\/pixture_reloaded.responsive.styles.css":1,"public:\/\/adaptivetheme\/pixture_reloaded_files\/pixture_reloaded.lt-ie9.layout.css":1,"sites\/all\/modules\/prettify\/styles\/googlecode.css":1}},"prettify":{"linenums":false,"match":".node-content","nocode":"no-code","custom":[],"markup":{"code":true,"pre":true,"precode":false}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip"},"adaptivetheme":{"pixture_reloaded":{"layout_settings":{"bigscreen":"two-sidebars-right","tablet_landscape":"two-sidebars-right-stack","tablet_portrait":"one-col-vert","smalltouch_landscape":"one-col-vert","smalltouch_portrait":"one-col-stack"},"media_query_settings":{"bigscreen":"only screen and (min-width:1025px)","tablet_landscape":"only screen and (min-width:769px) and (max-width:1024px)","tablet_portrait":"only screen and (min-width:481px) and (max-width:768px)","smalltouch_landscape":"only screen and (min-width:321px) and (max-width:480px)","smalltouch_portrait":"only screen and (max-width:320px)"},"menu_toggle_settings":{"menu_toggle_tablet_portrait":"true","menu_toggle_tablet_landscape":"false"}}}});</script>
+<!--[if lt IE 9]>
+<script src="https://allanfeid.com/sites/all/themes/adaptivetheme.shitshow/at_core/scripts/html5.js?p75leu"></script>
+<![endif]-->
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-39 node-type-page atr-7.x-3.x atv-7.x-3.0 color-scheme-custom pixture-reloaded bs-n bb-n mb-n mbp-l rc-4">
+  <div id="skip-link" class="nocontent">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div class="texture-overlay">
+  <div id="page" class="container page snc-n snw-n sna-l sns-n ssc-n ssw-n ssa-l sss-n btc-n btw-b bta-l bts-n ntc-n ntw-b nta-l nts-n ctc-n ctw-b cta-l cts-n ptc-n ptw-b pta-l pts-n at-mt">
+
+    <header id="header" class="clearfix" role="banner">
+      <div class="header-inner clearfix">
+
+                  <!-- start: Branding -->
+          <div id="branding" class="branding-elements clearfix">
+
+                          <div id="logo">
+                <a href="https://allanfeid.com/"><img class="site-logo" typeof="foaf:Image" src="Creating%20a%20Chroot%20Jail%20for%20SSH%20Access%20|%20Allan%20Feid_files/fingerprint_0.png" alt="Allan Feid"></a>              </div>
+            
+                          <!-- start: Site name and Slogan hgroup -->
+              <div id="name-and-slogan" class="h-group">
+
+                                  <h1 id="site-name"><a href="https://allanfeid.com/" title="Home page">Allan Feid</a></h1>
+                
+                                  <h2 id="site-slogan">Secure the world</h2>
+                
+              </div><!-- /end #name-and-slogan -->
+            
+          </div><!-- /end #branding -->
+        
+        
+      </div>
+
+    </header> <!-- /header -->
+
+    
+    <!-- Messages and Help -->
+        
+    <!-- Breadcrumbs -->
+    
+    
+    <!-- Three column 3x33 Gpanel -->
+    
+    <div id="columns">
+      <div class="columns-inner clearfix">
+
+        <div id="content-column">
+          <div class="content-inner">
+
+            
+            <section id="main-content" role="main">
+
+                                            <header id="main-content-header" class="clearfix">
+
+                                      <h1 id="page-title">Creating a Chroot Jail for SSH Access</h1>
+                  
+                  
+                </header>
+                            
+                              <div id="content">
+                  <div id="block-system-main" class="block block-system no-title">  
+  
+  <article id="node-39" class="node node-page article ia-n clearfix" about="/content/creating-chroot-jail-ssh-access" typeof="sioc:Item foaf:Document" role="article">
+  
+  
+  
+  <div class="node-content">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><strong>Update 5/30/2018</strong>: <blockquote><a href="https://twitter.com/CodingFree">@CodingFree</a> points out that the <code class="prettyprint"><span class="pln">l2chroot</span></code> script used in this blog post fails to handle <code class="prettyprint"><span class="pun">/</span><span class="pln">lib64</span></code>, and <a href="https://twitter.com/el_shoo">@el_shoo</a> confirms everything in this post still works as long as you create <code class="prettyprint"><span class="pun">/</span><span class="pln">lib64</span></code>. I have updated the post to reflect this, great to see it still working almost 10 years later.</blockquote>
+
+I wanted to setup a way to allow SSH access to my machine but limit 
+their abilities heavily. To do that I figured a chroot jail was the best
+ way. In this example I'm using ArchLinux and OpenSSH 5.1p1. It should 
+be a very similar process on any *nix operating system.
+
+<h2>Setup your test user</h2>
+The way I'm setting this up, is that all my chrooted users will be added
+ to the sshusers group. So we must setup the group, then add the user.
+
+<pre class="prettyprint"><span class="pln">$ groupadd sshusers
+$ adduser </span><span class="pun">-</span><span class="pln">g sshusers user</span></pre>
+
+<h2>Setup the jail directories</h2>
+The next step is to setup all the directories needed. This needs to 
+emulate the / directory to a bare minimum. That is we need a dev, etc, 
+lib, usr, and bin directory as well as usr/bin/. The base directory has 
+to be owned by root.
+
+<pre class="prettyprint"><span class="pln">$ mkdir </span><span class="pun">-</span><span class="pln">p </span><span class="pun">/</span><span class="kwd">var</span><span class="pun">/</span><span class="pln">jail</span><span class="pun">/{</span><span class="pln">dev</span><span class="pun">,</span><span class="pln">etc</span><span class="pun">,</span><span class="pln">lib</span><span class="pun">,</span><span class="pln">lib64</span><span class="pun">,</span><span class="pln">usr</span><span class="pun">,</span><span class="pln">bin</span><span class="pun">}</span><span class="pln">
+$ mkdir </span><span class="pun">-</span><span class="pln">p </span><span class="pun">/</span><span class="kwd">var</span><span class="pun">/</span><span class="pln">jail</span><span class="pun">/</span><span class="pln">usr</span><span class="pun">/</span><span class="pln">bin
+$ chown root</span><span class="pun">.</span><span class="pln">root </span><span class="pun">/</span><span class="kwd">var</span><span class="pun">/</span><span class="pln">jail</span></pre>
+
+You also need the /dev/null file:
+
+<pre class="prettyprint"><span class="pln">$ mknod </span><span class="pun">-</span><span class="pln">m </span><span class="lit">666</span><span class="pln"> </span><span class="pun">/</span><span class="kwd">var</span><span class="pun">/</span><span class="pln">jail</span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="kwd">null</span><span class="pln"> c </span><span class="lit">1</span><span class="pln"> </span><span class="lit">3</span></pre>
+
+You need to fill up the etc directory with a few minimum files:
+
+<pre class="prettyprint"><span class="pln">$ cd </span><span class="pun">/</span><span class="kwd">var</span><span class="pun">/</span><span class="pln">jail</span><span class="pun">/</span><span class="pln">etc
+$ cp </span><span class="pun">/</span><span class="pln">etc</span><span class="pun">/</span><span class="pln">ld</span><span class="pun">.</span><span class="pln">so</span><span class="pun">.</span><span class="pln">cache </span><span class="pun">.</span><span class="pln">
+$ cp </span><span class="pun">/</span><span class="pln">etc</span><span class="pun">/</span><span class="pln">ld</span><span class="pun">.</span><span class="pln">so</span><span class="pun">.</span><span class="pln">conf </span><span class="pun">.</span><span class="pln">
+$ cp </span><span class="pun">/</span><span class="pln">etc</span><span class="pun">/</span><span class="pln">nsswitch</span><span class="pun">.</span><span class="pln">conf </span><span class="pun">.</span><span class="pln">
+$ cp </span><span class="pun">/</span><span class="pln">etc</span><span class="pun">/</span><span class="pln">hosts </span><span class="pun">.</span></pre>
+
+Once this is done you need to figure out what commands you want 
+accessible by your limited users. In this example I only want the users 
+to be able to get into bash and use the ls command. So you must copy the
+ binaries to the jail.
+
+<pre class="prettyprint"><span class="pln">$ cd </span><span class="pun">/</span><span class="kwd">var</span><span class="pun">/</span><span class="pln">jail</span><span class="pun">/</span><span class="pln">usr</span><span class="pun">/</span><span class="pln">bin
+$ cp </span><span class="pun">/</span><span class="pln">usr</span><span class="pun">/</span><span class="pln">bin</span><span class="pun">/</span><span class="pln">ls </span><span class="pun">.</span><span class="pln">
+$ cp </span><span class="pun">/</span><span class="pln">usr</span><span class="pun">/</span><span class="pln">bin</span><span class="pun">/</span><span class="pln">bash </span><span class="pun">.</span></pre>
+
+Now that you've got all the binaries in place, you need to add the 
+proper shared libraries. To find out what libraries are need you can run
+ ldd /path/to/bin. The output looks similar to this:
+
+<pre class="prettyprint"><span class="pln">$ ldd </span><span class="pun">/</span><span class="pln">bin</span><span class="pun">/</span><span class="pln">ls
+         linux</span><span class="pun">-</span><span class="pln">gate</span><span class="pun">.</span><span class="pln">so</span><span class="pun">.</span><span class="lit">1</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln">    </span><span class="pun">(</span><span class="lit">0xb7f2b000</span><span class="pun">)</span><span class="pln">
+         librt</span><span class="pun">.</span><span class="pln">so</span><span class="pun">.</span><span class="lit">1</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">lib</span><span class="pun">/</span><span class="pln">librt</span><span class="pun">.</span><span class="pln">so</span><span class="pun">.</span><span class="lit">1</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0xb7f1d000</span><span class="pun">)</span><span class="pln">
+         libacl</span><span class="pun">.</span><span class="pln">so</span><span class="pun">.</span><span class="lit">1</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">lib</span><span class="pun">/</span><span class="pln">libacl</span><span class="pun">.</span><span class="pln">so</span><span class="pun">.</span><span class="lit">1</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0xb7f16000</span><span class="pun">)</span><span class="pln">
+         libc</span><span class="pun">.</span><span class="pln">so</span><span class="pun">.</span><span class="lit">6</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">lib</span><span class="pun">/</span><span class="pln">libc</span><span class="pun">.</span><span class="pln">so</span><span class="pun">.</span><span class="lit">6</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0xb7dcf000</span><span class="pun">)</span><span class="pln">
+         libpthread</span><span class="pun">.</span><span class="pln">so</span><span class="pun">.</span><span class="lit">0</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">lib</span><span class="pun">/</span><span class="pln">libpthread</span><span class="pun">.</span><span class="pln">so</span><span class="pun">.</span><span class="lit">0</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0xb7db7000</span><span class="pun">)</span><span class="pln">
+         </span><span class="pun">/</span><span class="pln">lib</span><span class="pun">/</span><span class="pln">ld</span><span class="pun">-</span><span class="pln">linux</span><span class="pun">.</span><span class="pln">so</span><span class="pun">.</span><span class="lit">2</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0xb7f2c000</span><span class="pun">)</span><span class="pln">
+         libattr</span><span class="pun">.</span><span class="pln">so</span><span class="pun">.</span><span class="lit">1</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">lib</span><span class="pun">/</span><span class="pln">libattr</span><span class="pun">.</span><span class="pln">so</span><span class="pun">.</span><span class="lit">1</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0xb7db2000</span><span class="pun">)</span></pre>
+
+Then you have to manually copy each file to the lib directory in your 
+jail. That is a pain. Especially if there is a lot of shared libraries 
+for a binary you want. I came across a useful script called <a href="http://www.cyberciti.biz/files/lighttpd/l2chroot.txt" title="A bash script from nixCraft">l2chroot</a> which automatically finds the libraries and copies them to your chroot jail.
+
+<pre class="prettyprint"><span class="pln">cd </span><span class="pun">/</span><span class="pln">sbin
+wget </span><span class="pun">-</span><span class="pln">O l2chroot http</span><span class="pun">:</span><span class="com">//www.cyberciti.biz/files/lighttpd/l2chroot.txt</span><span class="pln">
+chmod </span><span class="pun">+</span><span class="pln">x l2chroot</span></pre>
+
+Edit the l2chroot file and change <cite>BASE=”/webroot” to BASE=”/var/jail”</cite>.
+ This tells l2chroot where your jail is located so it copies everything 
+to the right place. Now go ahead and run the command on the binaries you
+ want.
+
+<pre class="prettyprint"><span class="pln">l2chroot ls
+l2chroot bash</span></pre>
+
+<h2>Configure SSHd to Chroot your users</h2>
+
+All that is left is to set a few things in your sshd configuration file.
+ You need to make sure you have at least OpenSSH 4.8p1, because before 
+that they didn't have this nice ChrootDirectory() function. Previously 
+there was a few extra steps you had to take to get it working, but 
+really you should have a newer version anyway. To configure 
+ChrootDirectory add the following to /etc/ssh/sshd_config:
+
+<pre class="prettyprint"><span class="typ">Match</span><span class="pln"> </span><span class="kwd">group</span><span class="pln"> sshusers
+          </span><span class="typ">ChrootDirectory</span><span class="pln"> </span><span class="pun">/</span><span class="kwd">var</span><span class="pun">/</span><span class="pln">jail</span><span class="pun">/</span><span class="pln">
+          X11Forwarding </span><span class="kwd">no</span><span class="pln">
+          </span><span class="typ">AllowTcpForwarding</span><span class="pln"> </span><span class="kwd">no</span></pre>
+
+Note that this also disables X11Forwarding and does not allow port 
+forwarding. If you want to setup a box to allow secure tunneling for 
+your friends, you may want to change this. 
+
+<h2>Optional Steps</h2>
+When you login to your test user, you'll notice a prompt as such:
+
+<pre class="prettyprint"><span class="pln">bash</span><span class="pun">-</span><span class="lit">3</span><span class="pun">-</span><span class="lit">2</span><span class="pln">$</span></pre>
+
+That is not a very useful bash prompt. So if you want something a little
+ better I recommend simply copying the contents of /etc/skel to 
+/var/jail/home/user. This gives you a .bashrc file which sets the PS1 
+variable to a much nicer looking prompt. Here's what mine looks like:
+
+<pre class="prettyprint"><span class="pln">phrygian</span><span class="pun">:~&gt;</span><span class="pln"> echo $PS1
+\h</span><span class="pun">:</span><span class="pln">\w</span><span class="pun">&gt;</span><span class="pln">
+phrygian</span><span class="pun">:~&gt;</span></pre></div></div></div><section class="field field-name-taxonomy-vocabulary-1 field-type-taxonomy-term-reference field-label-above view-mode-full"><h2 class="field-label">Tags:&nbsp;</h2><ul class="field-items"><li class="field-item even"><a href="https://allanfeid.com/category/tags/linux" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Linux</a></li><li class="field-item odd"><a href="https://allanfeid.com/projects" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">project</a></li><li class="field-item even"><a href="https://allanfeid.com/category/tags/ssh" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">ssh</a></li><li class="field-item odd"><a href="https://allanfeid.com/category/tags/chroot" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">chroot</a></li><li class="field-item even"><a href="https://allanfeid.com/category/tags/jail" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">jail</a></li></ul></section>  </div>
+
+  
+  
+  <span property="dc:title" content="Creating a Chroot Jail for SSH Access" class="rdf-meta element-hidden"></span></article>
+
+  </div>                </div>
+              
+              <!-- Feed icons (RSS, Atom icons etc -->
+              
+            </section> <!-- /main-content -->
+
+            
+          </div>
+        </div> <!-- /content-column -->
+
+                
+      </div>
+    </div> <!-- /columns -->
+
+    
+    <!-- four-4x25 Gpanel -->
+    
+          <footer id="footer" role="contentinfo">
+        <div id="footer-inner" class="clearfix">
+          <div class="region region-footer"><div class="region-inner clearfix"><div id="block-block-1" class="block block-block no-title"><div class="block-inner clearfix">  
+  
+  <div class="block-content content"><a href="https://allanfeid.com/" title="Blog">Blog</a> | <a href="https://allanfeid.com/projects" title="My Projects">Projects</a>  | <a href="https://allanfeid.com/about" title="About Me">About</a> | © Copyright 2006-2018 Allan Feid III</div>
+  </div></div><div id="block-system-powered-by" class="block block-system no-title" role="complementary"><div class="block-inner clearfix">  
+  
+  <div class="block-content content"><span>Powered by <a href="https://www.drupal.org/">Drupal</a></span></div>
+  </div></div></div></div>          <p class="attribute-creator"></p>
+        </div>
+      </footer>
+    
+  </div> <!-- /page -->
+</div> <!-- /texture overlay -->
+  
+
+</body></html>
