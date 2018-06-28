@@ -1,0 +1,67 @@
+
+PART II: chroot environment
+
+adduser buzz
+
+
+// Now for the actual chroot.
+// Add links to devices
+3.
+mkdir -p /home/buzz/dev/;		
+cd /home/buzz/dev/;
+mknod -m 666 null c 1 3;
+mknod -m 666 tty c 5 0;
+mknod -m 666 zero c 1 5;
+mknod -m 666 random c 1 8;
+  
+4.
+
+chown root:root /home/buzz;
+chmod 0755 /home/buzz;
+ls -ld /home/buzz;
+
+
+5.
+mkdir -p /home/buzz/bin;
+cp -v /bin/bash /home/buzz/bin/;
+cp -v /bin/cat /home/buzz/bin/;
+cp -v /bin/ls /home/buzz/bin/;
+
+6.
+mkdir -p /home/buzz/lib/x86_64-linux-gnu /home/buzz/lib/x86_64-linux-gnu/;
+cp /lib/x86_64-linux-gnu/(libc.so.6,libdl.so.2,libncursesw.so.5,libpcre.so.3,libpthread.so.0,libselinux.so.1,libtinfo.so.5,libz.so.1) /home/johnny/lib/x86_64-linux-gnu/
+cp /lib/x86_64-linux-gnu/libc.so.6 /home/buzz/lib/x86_64-linux-gnu/;
+cp /lib/x86_64-linux-gnu/libdl.so.2 /home/buzz/lib/x86_64-linux-gnu/;
+cp /lib/x86_64-linux-gnu/libncursesw.so.5 /home/buzz/lib/x86_64-linux-gnu/;
+cp /lib/x86_64-linux-gnu/libpcre.so.3 /home/buzz/lib/x86_64-linux-gnu/;
+cp /lib/x86_64-linux-gnu/libpthread.so.0 /home/buzz/lib/x86_64-linux-gnu/;
+cp /lib/x86_64-linux-gnu/libselinux.so.1 /home/buzz/lib/x86_64-linux-gnu/;
+cp /lib/x86_64-linux-gnu/libtinfo.so.5 /home/buzz/lib/x86_64-linux-gnu/;
+cp /lib/x86_64-linux-gnu/libz.so.1 /home/buzz/lib/x86_64-linux-gnu/;
+
+
+
+7.
+mkdir -p /home/buzz/lib64
+cp /lib64/ld-linux-x86-64.so.2 /home/buzz/lib64/
+
+
+
+PART III: Configuring SSH for chroot
+1.
+groupadd sshusers
+adduser buzz sshusers 
+cd /etc/ssh/
+cp sshd_config sshd_config.bak
+
+# nano /etc/ssh/sshd_config
+add this to the bottom:
+  #--START--
+   Match group sshusers
+          ChrootDirectory /home/buzz
+          X11Forwarding no
+          AllowTcpForwarding no
+  #--END--
+  c. save and exit
+2. 
+  a. # systemctl restart sshd
