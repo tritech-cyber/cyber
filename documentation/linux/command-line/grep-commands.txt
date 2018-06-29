@@ -1,3 +1,7 @@
+grep -o '65536.txt' file | wc -l	
+
+
+
 grep -rnw '/home/cwc/http/wooten/' -e '#fdcc52'
 
  -r, --recursive
