@@ -1,0 +1,358 @@
+/***********************
+ * Global styles
+ **********************/
+* {
+	margin: 0; 
+	padding: 0;
+	line-height: 100%;
+	outline: none; 
+	border: none;
+	vertical-align: baseline;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+.ad-size{ 
+	width: 728px;
+	height: 90px;
+}
+
+img{
+	height: auto;
+	width: auto;
+}
+
+.hidden{ 
+	opacity: 0;
+}
+
+sup{
+	font-size: small;
+    vertical-align: top;
+}
+
+body{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial,Helvetica,"Nimbus Sans L","Liberation Sans",FreeSans,sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+}
+
+div#container{
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	cursor: pointer;
+	border: 1px solid #000;
+	background-color: #fff;
+    opacity: 0;
+}
+
+div#container > div{
+	position: absolute;
+    display: block;
+	top: -1px;
+	left: -1px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100% 100%;
+}
+
+/***********************
+ * Ad styles
+ **********************/
+
+/*  layer frames  */
+div#logo  { z-index: 229; }
+
+div#frame1{ z-index: 4;font-size:.95em; }
+div#frame2{ z-index: 8; }
+div#frame5 {
+    z-index: 10;
+    display:none;
+    overflow: hidden;
+}
+div#frame6{ 
+    overflow: hidden;
+}
+
+/*  cta hover toggle  */
+div#container .hover,
+div#container:hover .cta{
+	opacity: 0;
+}
+div#container .cta,
+div#container:hover .hover{
+	opacity: 1;
+}
+
+/*  text frame  */
+div.text-wrapper{
+    position: relative;
+    top: 48%;
+    left: 116px;
+	font-size: 3.1em;
+    transform: translateY(-50%);
+}
+div.text-wrapper > span > span{
+	position: relative;
+    padding-left: 14px;
+    display: inline-block;
+}
+div.text-wrapper > span > span:nth-child(odd){
+	top: 80px;
+}
+div.text-wrapper > span > span:nth-child(even){
+	top: -80px;
+}
+
+
+
+/*  carousel item  */
+div.item{
+    position: absolute;
+    display: block;
+    width: 728px;
+    padding-right: 0px;
+    padding-left: 111px;
+    height: 150px;
+    overflow: hidden;
+    left: 0px;
+    top: 0;
+}
+
+
+div.item > .clicker {
+    position: absolute;
+    left: -300px;
+    top: 0px;
+    width: 728px;
+    height: 90px;
+    display: block;
+    z-index: 100000;
+
+}
+
+/*  frame 6  */
+div#frame6 > div.text-wrapper {
+    top: 0;
+    left: 0px;
+    font-size: 34px;
+    transform: none;
+    width: 300px;
+    height: auto;
+    line-height: 27px;
+    display: block;
+    z-index: 1;
+    text-align: left;
+}
+div#frame6 > div.text-wrapper > span > span{
+	left: 100px;
+	right: 150%;
+}
+div#frame6 > img.image {
+    position: absolute;
+    top: 55%;
+    right: 150%;
+    transform: translate(50%,-50%);
+    max-height: 105px;
+    display: none;
+}
+
+div#frame6 > img.cta{
+	
+}
+div#frame6 > img.cta,
+div#frame6 > img.hover{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+div#frame6 > p.legal {
+    position: absolute;
+    bottom: 4px;
+    left: 6px;
+    font-size: 9px;
+    color: #003a63;
+    font-weight: normal;
+    font-size: 7px;
+}
+div#frame6 > p.legal > sup{
+	font-size: 7px;
+}
+
+#carousel {
+    display: block;
+    position: absolute;
+    left:0;
+    top:0;
+}
+#carousel_bg{
+    position: absolute;
+    display: block;
+    left:0;
+    top:0;
+    z-index: 10;
+}
+.slide {
+    padding-left: 111px;
+    position: absolute;
+    display: block;
+    width: 728px;
+    height: 150px;
+    overflow: hidden;
+    left: -728px;
+    top: 0px;
+}
+.footer_hold{
+    position: absolute;
+    top: 55px;
+    left: 339px;
+    display: flex;
+    width: 242px;
+    padding-top: 1px;
+    height: 75px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: center;
+}
+.prod_price_hold {
+    
+    padding:0;
+    font-size: 20px;
+}
+
+p.price {
+    padding-top: 1px;
+    display: block;
+    align-self: center;
+    justify-self: center;
+    font-size: 1.925em;
+    color: #fff;
+    text-align: left;
+}
+
+.prod_img_holder {
+    position: relative;
+    display: flex;
+    width: 300px;
+    height: 188px;
+    justify-content: center;
+    align-content: center;
+
+}
+
+
+img.prod_img {
+    display: block;
+    align-self: center;
+    justify-content: center;
+    max-height: 170px;
+    max-width: 170px;
+    width: auto;
+}
+.prod_name_hold {
+    /*padding: 0px 10px 0px 10px;*/
+    font-size: 13px;
+}
+p.name{
+    padding-left: 1px;
+    padding-right: 1px;
+    font-weight: normal;
+    display: block;
+    align-self: center;
+    justify-content: center;
+}
+
+.prod_img{display: block; align-self:center;  }
+
+
+#arrow_left {
+    position: absolute;
+    display: none;
+    left: 398px;
+    top: 25px;
+    padding: 10px 0px 10px 70px;
+    z-index: 499;
+    opacity: 0;
+}
+
+#arrow_right {
+    position: absolute;
+    display: none;
+    right: 103px;
+    top: 25px;
+    z-index: 499;
+    opacity: 0;
+    padding: 10px 70px 10px 0px;
+}
+div#pinwheel_hold  { z-index: 2; }
+
+div.pinwheel_hold{
+    position: absolute;
+    display: block;
+
+    width: 1310px;
+    height: 1310px;
+}
+#pinwheel_wrapper{
+
+    display: block;
+    width: 1310px;
+    height: 1310px;
+    align-content: center;
+    justify-content: center;
+
+}
+#pin_svg{
+    width: 1310px;
+    height: 1310px;
+}
+#pinwheel_parts_holder{
+    position: absolute;
+    display: block;
+    left:0;
+    top:0;
+}
+#pinwheel_bg{
+    position: absolute;
+    display: block;
+    left:0;
+    top:0;
+}
+#clickerHolder{
+    position: absolute;
+    display: block;
+    width: 60px;
+    left:0;
+    top:0;
+}
+#clicker_grx{
+    position: absolute;
+    display: block;
+    width: 60px;
+    height: auto;
+    left:-20px;
+    top:-25px;
+}
+#feedFail{
+    width: 300px;
+    height: 250px;
+    top:0;
+    left:0;
+    display:block;
+    position: absolute;;
+}
+div#container > #ctaBox {
+    position: absolute;
+    top: 33px;
+    left: 646px;
+    width: 68px;
+    height: 22px;
+    z-index: 600;
+}

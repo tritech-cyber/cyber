@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style></style><meta charset="UTF-8">
+    <style>
+        #ad{position: absolute; display: block; width: 728px;  height: 90px; overflow: hidden; }
+        #richload1{position: absolute; display: block;}
+    </style>
+</head>
+<body>
+   <div id="ad">
+       <ft-richload name="richload1" id="richload1"><iframe style="width: 100%; height: 100%;" scrolling="no" margin="0" allowtransparency="true" allowfullscreen="" webkitallowfullscreen="" name="richload1" frameborder="0"></iframe></ft-richload>
+   </div>
+
+   <!-- scripts -->
+   <script src="index_data/html5API.js"></script>
+
+   <script>
+
+       var rlLoaded = false;
+       var checker;
+       myFT.on("instantads", function() {
+           checker = setInterval(checkRL, 5);
+       });
+       myFT.on("richload", function() {
+           if(window.console){
+               rlLoaded = true;
+               console.log("richload has loaded");
+           }
+       });
+       checkRL = function(){
+           if(rlLoaded){
+               clearInterval(checker);
+               console.log("call init");
+               myFT.richLoads["richload1"].frame.contentWindow.Ad.init();
+           }
+       }
+   </script>
+
+</body></html>

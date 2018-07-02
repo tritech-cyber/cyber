@@ -1,0 +1,30 @@
+
+var ftGUID_3131945="3778E8BD74593D";
+var ftConfID_3131945="8060132";
+var ftParams_3131945="ftx=&fty=&ftadz=&ftscw=&ft_custom=1781800_21028509_219160051&ft_section=computing&ftOBA=1&ft_ifb=1&ft_domain=7labs.io&ft_agentEnv=0&ft_referrer=https%3A%2F%2F7labs.io%2Ftips-tricks%2Fel-capitan-direct-download.html&ft_keyword=computing&cachebuster=984617.607305915";
+var ftKeyword_3131945="computing";
+var ftCustom_3131945="1781800_21028509_219160051";
+var ftSection_3131945="computing";
+var ftSegment_3131945="";
+var ftSegmentList_3131945=[];
+var ftRuleMatch_3131945="00010000";
+var ftTimestamp_3131945="1526765326";
+var ftGeoC2_3131945="us";
+var ftGeoState_3131945="wa";
+var ftGeoCity_3131945="kennewick";
+var ftISP_3131945="charter communications";
+var ftSpeed_3131945="cable";
+var ftDMA_3131945="810";
+var ftLong_3131945="-119.133";
+var ftLat_3131945="46.1947";
+var ftPostal_3131945="99336";
+var ftTimeZone_3131945="-700";
+var ftMobileCarrier_3131945="";
+var ftImp3131945 = {};
+ftImp3131945.privacy = "x";
+ftImp3131945.guidAge = "13";
+ftImp3131945.impID = "3791D6CE311AFB";
+
+
+document.write('<scr'+'ipt src="https://cdn.flashtalking.com/xre/313/3131945/2134356/js/j-3131945-2134356.js" id="ftscript_m3131945" name="ftscript_m3131945"></scr'+'ipt>');
+                    
