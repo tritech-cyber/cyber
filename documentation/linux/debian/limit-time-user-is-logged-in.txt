@@ -1,0 +1,6 @@
+https://debian-administration.org/article/227/Restricting_server_access_by_time
+
+https://community.spiceworks.com/how_to/1268-controlling-logins-by-time-in-linux-ubuntu
+
+https://www.linuxquestions.org/questions/linux-software-2/restrict-computer-time-for-kids-4175507561/
+
