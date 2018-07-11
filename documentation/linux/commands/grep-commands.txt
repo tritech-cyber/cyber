@@ -1,6 +1,6 @@
 grep -o '65536.txt' file | wc -l	
-
-
+grep -rn '\<flag{' /home/user/
+grep -rn '\bflag{' /home/user/
 
 grep -rnw '/home/cwc/http/wooten/' -e '#fdcc52'
 

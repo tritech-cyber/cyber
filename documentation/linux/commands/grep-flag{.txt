@@ -1,0 +1,2 @@
+grep -rn '\<flag{' /home/user/
+grep -rn '\bflag{' /home/user/ 
