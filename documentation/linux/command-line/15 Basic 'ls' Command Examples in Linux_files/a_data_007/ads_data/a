@@ -1,0 +1,30 @@
+
+var ftGUID_2978944="38046840B18138";
+var ftConfID_2978944="9761582";
+var ftParams_2978944="ftx=&fty=&ftadz=&ftscw=&ft_custom=&ftOBA=1&ft_ifb=1&ft_domain=www.tecmint.com&ft_agentEnv=0&ft_referrer=https%3A%2F%2Fwww.tecmint.com%2F15-basic-ls-command-examples-in-linux%2F&cachebuster=555861.1181289895";
+var ftKeyword_2978944="";
+var ftCustom_2978944="";
+var ftSection_2978944="";
+var ftSegment_2978944="ore,r5f,ra7,qsaNaN,qsa,qei,tyv,qej";
+var ftSegmentList_2978944=[{m:'c5163_lastviewed_14day',s:'ore',t:38060000},{s:'r5f'},{s:'ra7'},{m:'c9279_calc',s:'qsaNaN'},{s:'qsa'},{s:'qei'},{s:'tyv'},{s:'qej'}];
+var ftRuleMatch_2978944="0";
+var ftTimestamp_2978944="1531139992";
+var ftGeoC2_2978944="us";
+var ftGeoState_2978944="wa";
+var ftGeoCity_2978944="kennewick";
+var ftISP_2978944="charter communications";
+var ftSpeed_2978944="cable";
+var ftDMA_2978944="810";
+var ftLong_2978944="-119.133";
+var ftLat_2978944="46.1947";
+var ftPostal_2978944="99336";
+var ftTimeZone_2978944="-700";
+var ftMobileCarrier_2978944="";
+var ftImp2978944 = {};
+ftImp2978944.privacy = "x";
+ftImp2978944.guidAge = "38";
+ftImp2978944.impID = "38421B3AFAB3B8";
+
+
+document.write('<scr'+'ipt src="https://cdn.flashtalking.com/xre/297/2978944/2044944/js/j-2978944-2044944.js" id="ftscript_m2978944" name="ftscript_m2978944"></scr'+'ipt>');
+                    
