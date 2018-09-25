@@ -1,2 +1,3 @@
 apt-cache search linux-headers-$(uname -r)
-apg-get install linux-headers-$(uname -r)
+apt-get install linux-headers-$(uname -r)
+apt install linux-headers-$(uname -r)
