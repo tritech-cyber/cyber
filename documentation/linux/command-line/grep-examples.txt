@@ -1,0 +1,36 @@
+https://unix.stackexchange.com/questions/445636/how-to-grep-the-braces?noredirect=1#comment807903_445636
+
+I am trying to grep a Linux system (Deb) for flags in a capture the flag competition. The following does not return any results and we know there are hundreds for flag{ } instances of text in a directory.
+
+grep -rnw 'Downloads/' -e  'flag{' | more
+Why? How can we search for flag{? While below works fine.
+
+grep -rnw 'Downloads/' -e  'flag' | more
+
+With grep -w, you are asking grep to only return matches that are immediately preceded by or followed by a newline (at the very start or end of a line) or a non-word character (a word character is a letter, digit or underscore).
+
+This means that the text this is flag{a} will not be matched by grep -w 'flag{', since the character following the { in the text is a word character.
+
+Similarly, this is theflag{ would not be matched by grep -w 'flag{'.
+
+You may dispose of the -w option and instead use an explicit zero-width word boundary pattern, for example at the beginning, so that you may match flag{a} but not theflag{. With GNU grep, this may be done using
+
+grep -rn '\<flag{' Downloads
+or
+
+grep -rn '\bflag{' Downloads
+The \< pattern matches a word boundary at the start of a word (and \> matches at the end), while \b matches at both start and end.  \< and \> were originally inherited from the ex and vi editors and are more portable than \b.
+
+GNU grep does not support [[:<:]] and [[:>:]] (which work the same way as \< and \>) to match at the beginning or end of words, but BSD grep does. BSD grep does not support \b.
+
+Grep with -e (denoting an expression will follow) uses Basic Regex by default. From man grep, under "Basic vs Extended Regular Expressions" (online manual):
+
+Traditional  egrep did not support the  { meta-character, and some egrep implementations support \{ instead, so portable scripts should avoid { in grep -E patterns and should use [{] to match a literal {.
+
+GNU grep -E attempts to support traditional usage by assuming that { is not special if it would be the start of an invalid interval specification. For example, the command  grep -E '{1' searches for the two-character string {1 instead of reporting a syntax error in the regular expression. POSIX allows this behavior as an extension, but portable scripts should avoid it.
+
+So the most portable option would be:
+
+grep -rnw -e 'flag[{]' 'Downloads/'  | more
+
+
