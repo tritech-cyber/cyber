@@ -1,0 +1,5 @@
+https://docs.python.org/3/library/tk.html
+https://likegeeks.com/python-gui-examples-tkinter-tutorial/
+
+gui information:
+https://docs.python-guide.org/scenarios/gui/
