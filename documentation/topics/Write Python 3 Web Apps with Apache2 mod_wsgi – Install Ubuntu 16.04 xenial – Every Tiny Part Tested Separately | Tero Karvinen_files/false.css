@@ -1,0 +1,222 @@
+/*-------------- ThemeId 1461326  --------------*/ {
+}
+.ro-background {
+	background-image : none;
+	image : none;
+	background-color : #502461;
+}
+.ro-mobile-header {
+	background-image : ;
+	image : ;
+}
+.ro-form {
+	background-color : #c05298;
+	border-top-width : 1px;
+	border-left-width : 1px;
+	border-bottom-width : 1px;
+	border-right-width : 1px;
+	border-top-style : solid;
+	border-left-style : solid;
+	border-bottom-style : solid;
+	border-right-style : solid;
+	border-top-color : #fff;
+	border-left-color : #fff;
+	border-bottom-color : #fff;
+	border-right-color : #fff;
+	border-top-left-radius : 0px;
+	border-top-right-radius : 0px;
+	border-bottom-left-radius : 0px;
+	border-bottom-right-radius : 0px;
+}
+.ro-event-title {
+	color : #ffffff;
+	font-family : Arial;
+	font-style : initial;
+	font-weight : initial;
+	font-size : 18px;
+}
+.ro-global-header {
+	content : url(/CustImages/300000/307223//kc_cnc_na_regonline_copy_2_copy_1.jpg);
+	image : /CustImages/300000/307223//kc_cnc_na_regonline_copy_2_copy_1.jpg;
+	background-color : #FFFFFF;
+	font-style : initial;
+	font-weight : initial;
+}
+.ro-header {
+	background-color : #ffffff;
+	color : #000000;
+	font-family : Arial;
+	font-size : 12px;
+	font-style : initial;
+	font-weight : initial;
+}
+.ro-section-title {
+	color : #ffffff;
+	font-family : Arial;
+	font-size : 18px;
+	font-style : initial;
+	font-weight : initial;
+}
+.ro-navbar {
+	background-color : #f8f8f8;
+	font-family : Arial;
+	font-size : 14px;
+	font-style : initial;
+	font-weight : initial;
+}
+.ro-section {
+	background-color : #e7e2e9;
+	color : #333333;
+	font-family : Arial;
+	font-size : 14px;
+	font-style : initial;
+	font-weight : initial;
+	border-top-width : 0px;
+	border-left-width : 0px;
+	border-bottom-width : 0px;
+	border-right-width : 0px;
+	border-top-style : none;
+	border-left-style : none;
+	border-bottom-style : none;
+	border-right-style : none;
+	border-top-color : #ffffff;
+	border-left-color : #ffffff;
+	border-bottom-color : #ffffff;
+	border-right-color : #ffffff;
+	border-top-left-radius : 0px;
+	border-top-right-radius : 0px;
+	border-bottom-left-radius : 0px;
+	border-bottom-right-radius : 0px;
+}
+.ro-footer {
+	background-color : #ffffff;
+	color : #333333;
+	font-family : Arial;
+	font-size : 11px;
+	font-style : initial;
+	font-weight : initial;
+}
+.ro-global-footer {
+	content : ;
+	image : ;
+	background-color : #ffffff;
+}
+.ro-link {
+	color : #6a548a;
+}
+.ro-email-header {
+	background-image : ;
+	image : /CustImages/300000/307223//kc_cnc_na_regonline_copy_2.png;
+	content : url(/CustImages/300000/307223//kc_cnc_na_regonline_copy_2.png);
+}
+.btn-default {
+	color : #333;
+	background-color : #fff;
+	border-color : #ccc;
+}
+.btn-primary {
+	color : #fff;
+	background-color : #337ab7;
+	border-color : #2e6da4;
+}
+.btn-success {
+	color : #fff;
+	background-color : #5cb85c;
+	border-color : #4cae4c;
+}
+.btn-info {
+	color : #fff;
+	background-color : #5bc0de;
+	border-color : #46b8da;
+}
+.btn-warning {
+	color : #fff;
+	background-color : #f0ad4e;
+	border-color : #eea236;
+}
+.btn-danger {
+	color : #fff;
+	background-color : #d9534f;
+	border-color : #d43f3a;
+}
+.navbar-default .navbar-nav > li > a {
+	color : #777;
+}
+.navbar-default .navbar-nav > .active > a {
+	color : #555;
+	background-color : #e7e7e7;
+}
+.ro-section-label {
+	color : #333333;
+	font-family : Arial;
+	font-style : initial;
+	font-weight : bold;
+	font-size : 14px;
+}
+.lodgingList {
+	font-family : Arial;
+	font-size : 14px;
+	font-style : initial;
+	font-weight : initial;
+}
+
+.ro-form {
+	border-top-left-radius:0px; 
+	border-top-right-radius:0px;  
+	border-bottom-left-radius:0px; 
+	border-bottom-right-radius:0px; 
+	border-style:solid;
+	border-width:1px;
+	border-color:#AEAEAE;
+}.ro-global-header {
+	border-top-left-radius:0px; 
+	border-top-right-radius:0px;  
+}.ro-global-footer {
+	border-bottom-left-radius:0px; 
+	border-bottom-right-radius:0px;
+}
+	a.ro-form{#0000FF;}
+	a.ro-header{#0000FF;}
+	a.ro-footer{#0000FF;}
+li.MobileEventGuide 
+{ 
+display:none; 
+}
+
+
+/***********************
+# Buttons
+************************/
+.btn-primary
+{ font-weight:bold; }
+.btn-default
+{ font-weight:bold !important; }
+
+
+/***********************
+# Confirmation
+************************/
+.actionsList
+{ font-weight: bold; }
+
+/***********************
+# Form
+************************/
+.ro-form
+{ width: 80%;
+ margin-left: 10%;
+ margin-right: 10%; }
+
+/***********************
+# Global footer
+************************/
+body div.container-fluid div:nth-child(3) div div div span:nth-child(2) {
+width: auto;
+float: none;
+padding-left: 0;
+padding-right: 0; }
+
+.ro-footer
+{ width: 80%;
+margin-left: 10%;
+margin-right: 10%; }

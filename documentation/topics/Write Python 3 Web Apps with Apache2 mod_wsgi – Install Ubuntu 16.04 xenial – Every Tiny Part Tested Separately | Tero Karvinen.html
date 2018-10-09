@@ -1,0 +1,2820 @@
+<!DOCTYPE html>
+<html class=" halfFooter" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/inpage_linkid.js" id="undefined"></script><script src="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/nr-1071.js"></script><script async="" src="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/analytics.js"></script><script src="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/utag.js" type="text/javascript" async=""></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info = {"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"2c37b31223","applicationID":"5485942","transactionName":"MgcBbEpTDBVSAkFcXwtNImtoHQMBVg9RVB4EERNA","queueTime":0,"applicationTime":300,"agent":"","atts":""}</script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><meta property="og:image" content=""><meta http-equiv="content-language" content="en"><title>
+	KubeCon + CloudNativeCon North America 2018  - RegOnline
+</title><link rel="profile" href="https://microformats.org/profile/hcalendar"><link rel="stylesheet" href="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/font-awesome.css">
+    <!--
+    <link type="text/css" href="https://rol.lanyonassets.com/Blank.css?v=636717351968759881" media="screen" rel="stylesheet" /><link type="text/css" href="https://rol.lanyonassets.com/StyleCombiner.axd?s=Blank&amp;eventid=2246960&amp;v=634327113350000000_1" media="screen" rel="stylesheet" /><link type="text/css" href="https://rol.lanyonassets.com/Blank.css?v=636717351968759881" media="print" rel="stylesheet" /><link type="text/css" href="https://rol.lanyonassets.com/Blank-IE.css?v=636717351968759881" media="all" rel="stylesheet" />
+    !-->
+    
+        <link href="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/toastr.css" rel="stylesheet">
+        <link href="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/modaal.css" rel="stylesheet">
+        <link href="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/base.css" rel="stylesheet"><script type="text/javascript" src="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/Registration.js"></script>
+        <script src="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/modaal.js"></script>
+        <script src="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/absurd.js"></script>
+        
+        <link href="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/breakpoints_002.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        @media (max-width: 640px) {
+            .ro-form {
+                margin: auto !important;
+                width: 100% !important;
+            }
+        }
+    </style>
+    <style id="ctl00_customThemeStyle">/*-------------- ThemeId 1461326  --------------*/ {
+}
+.ro-background {
+	background-image : none;
+	image : none;
+	background-color : #502461;
+}
+.ro-mobile-header {
+	background-image : ;
+	image : ;
+}
+.ro-form {
+	background-color : #c05298;
+	border-top-width : 1px;
+	border-left-width : 1px;
+	border-bottom-width : 1px;
+	border-right-width : 1px;
+	border-top-style : solid;
+	border-left-style : solid;
+	border-bottom-style : solid;
+	border-right-style : solid;
+	border-top-color : #fff;
+	border-left-color : #fff;
+	border-bottom-color : #fff;
+	border-right-color : #fff;
+	border-top-left-radius : 0px;
+	border-top-right-radius : 0px;
+	border-bottom-left-radius : 0px;
+	border-bottom-right-radius : 0px;
+}
+.ro-event-title {
+	color : #ffffff;
+	font-family : Arial;
+	font-style : initial;
+	font-weight : initial;
+	font-size : 18px;
+}
+.ro-global-header {
+	content : url(/CustImages/300000/307223//kc_cnc_na_regonline_copy_2_copy_1.jpg);
+	image : /CustImages/300000/307223//kc_cnc_na_regonline_copy_2_copy_1.jpg;
+	background-color : #FFFFFF;
+	font-style : initial;
+	font-weight : initial;
+}
+.ro-header {
+	background-color : #ffffff;
+	color : #000000;
+	font-family : Arial;
+	font-size : 12px;
+	font-style : initial;
+	font-weight : initial;
+}
+.ro-section-title {
+	color : #ffffff;
+	font-family : Arial;
+	font-size : 18px;
+	font-style : initial;
+	font-weight : initial;
+}
+.ro-navbar {
+	background-color : #f8f8f8;
+	font-family : Arial;
+	font-size : 14px;
+	font-style : initial;
+	font-weight : initial;
+}
+.ro-section {
+	background-color : #e7e2e9;
+	color : #333333;
+	font-family : Arial;
+	font-size : 14px;
+	font-style : initial;
+	font-weight : initial;
+	border-top-width : 0px;
+	border-left-width : 0px;
+	border-bottom-width : 0px;
+	border-right-width : 0px;
+	border-top-style : none;
+	border-left-style : none;
+	border-bottom-style : none;
+	border-right-style : none;
+	border-top-color : #ffffff;
+	border-left-color : #ffffff;
+	border-bottom-color : #ffffff;
+	border-right-color : #ffffff;
+	border-top-left-radius : 0px;
+	border-top-right-radius : 0px;
+	border-bottom-left-radius : 0px;
+	border-bottom-right-radius : 0px;
+}
+.ro-footer {
+	background-color : #ffffff;
+	color : #333333;
+	font-family : Arial;
+	font-size : 11px;
+	font-style : initial;
+	font-weight : initial;
+}
+.ro-global-footer {
+	content : ;
+	image : ;
+	background-color : #ffffff;
+}
+.ro-link {
+	color : #6a548a;
+}
+.ro-email-header {
+	background-image : ;
+	image : /CustImages/300000/307223//kc_cnc_na_regonline_copy_2.png;
+	content : url(/CustImages/300000/307223//kc_cnc_na_regonline_copy_2.png);
+}
+.btn-default {
+	color : #333;
+	background-color : #fff;
+	border-color : #ccc;
+}
+.btn-primary {
+	color : #fff;
+	background-color : #337ab7;
+	border-color : #2e6da4;
+}
+.btn-success {
+	color : #fff;
+	background-color : #5cb85c;
+	border-color : #4cae4c;
+}
+.btn-info {
+	color : #fff;
+	background-color : #5bc0de;
+	border-color : #46b8da;
+}
+.btn-warning {
+	color : #fff;
+	background-color : #f0ad4e;
+	border-color : #eea236;
+}
+.btn-danger {
+	color : #fff;
+	background-color : #d9534f;
+	border-color : #d43f3a;
+}
+.navbar-default .navbar-nav > li > a {
+	color : #777;
+}
+.navbar-default .navbar-nav > .active > a {
+	color : #555;
+	background-color : #e7e7e7;
+}
+.ro-section-label {
+	color : #333333;
+	font-family : Arial;
+	font-style : initial;
+	font-weight : bold;
+	font-size : 14px;
+}
+.lodgingList {
+	font-family : Arial;
+	font-size : 14px;
+	font-style : initial;
+	font-weight : initial;
+}
+
+.ro-form {
+	border-top-left-radius:0px; 
+	border-top-right-radius:0px;  
+	border-bottom-left-radius:0px; 
+	border-bottom-right-radius:0px; 
+	border-style:solid;
+	border-width:1px;
+	border-color:#AEAEAE;
+}.ro-global-header {
+	border-top-left-radius:0px; 
+	border-top-right-radius:0px;  
+}.ro-global-footer {
+	border-bottom-left-radius:0px; 
+	border-bottom-right-radius:0px;
+}
+	a.ro-form{#0000FF;}
+	a.ro-header{#0000FF;}
+	a.ro-footer{#0000FF;}
+li.MobileEventGuide 
+{ 
+display:none; 
+}
+
+
+/***********************
+# Buttons
+************************/
+.btn-primary
+{ font-weight:bold; }
+.btn-default
+{ font-weight:bold !important; }
+
+
+/***********************
+# Confirmation
+************************/
+.actionsList
+{ font-weight: bold; }
+
+/***********************
+# Form
+************************/
+.ro-form
+{ width: 80%;
+ margin-left: 10%;
+ margin-right: 10%; }
+
+/***********************
+# Global footer
+************************/
+body div.container-fluid div:nth-child(3) div div div span:nth-child(2) {
+width: auto;
+float: none;
+padding-left: 0;
+padding-right: 0; }
+
+.ro-footer
+{ width: 80%;
+margin-left: 10%;
+margin-right: 10%; }a:not(.btn):not(.navLink) { color:#6a548a;}a.navLink { color:;}.alternatingRow, .alternatingRow-lg, .alternating-row {background-color:;}.ro-section ul li hr { border-color: #333333;}</style><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/js.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-831873-5', {
+  'linker': {
+    'accept_incoming': true
+  }
+});
+</script><link href="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/bootstrap.css"><script type="text/javascript" src="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/utag_002.js" id="utag_active.regonline_1"></script><link href="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/bootstrap.css" rel="stylesheet" type="text/css"><link href="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/false.css" rel="stylesheet" type="text/css"><link href="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/breakpoints.css" rel="stylesheet" type="text/css"></head>
+<body id="htmlBody" class="ro-background js">
+    <script type="text/javascript">
+        $(document).ready(function() {
+            ApplyCustomTheme(false, '2246960', '307223', false, true);
+        });
+
+        window.onload = addClickEventforRegOnlineButtons;
+        function addClickEventforRegOnlineButtons()
+        {
+            var regonlineButtons = document.getElementsByClassName('regonlinebutton')
+            for(var index = 0; index < regonlineButtons.length; index++)
+            {
+                regonlineButtons[index].addEventListener('click', stripXSSTags);
+            }
+        }
+
+        function stripXSSTags()
+        {
+            var aspnetFormElements = document.getElementById('aspnetForm');
+            var formElements = aspnetFormElements ? aspnetFormElements.elements : [];
+            for(var elementIndex = 0; elementIndex < formElements.length; elementIndex++)
+            {
+                if((formElements[elementIndex].type == "text" || formElements[elementIndex].type == "textarea" || formElements[elementIndex].type == "email") &&  formElements[elementIndex].value != undefined)
+                {
+                    formElements[elementIndex].value = formElements[elementIndex].value.replace(/[<>]/g,'');
+                }
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+        if (document.getElementById("htmlBody") != null)
+            document.getElementById("htmlBody").className += " js";
+    </script>
+    <script>
+       //function allowSkiptoContent() {
+        //    $("a[ro-qa-id='skippy']").removeAttr('tabindex');
+        //    $("#headerLogo").removeAttr('tabindex');
+        //}
+        //function disableSkipToContentTab() {
+        //    $("a[ro-qa-id='skippy']").attr('tabindex', -1);
+        //    $("#headerLogo").attr('tabindex', -1);
+        //}
+
+        
+        $(document).ready(function () {
+            if ("False" == "True")
+            {
+                $(".iframeModaal").attr('onclick', 'ShowPreviewMessage();return false;').removeAttr('href');
+            }
+            $(".iframeModaal").modaal({
+                type: "iframe",
+                width: 600,
+                animation: "none",
+                after_open: resizeModaalIframe
+            });
+        });
+    </script>
+    <a href="#aspnetForm" class="sr-only sr-only-focusable skippy" ro-qa-id="skippy">Skip to Content</a>
+    
+    
+        <script type="text/javascript">
+            (function (a, b, c, d) {
+                a = '//tags.tiqcdn.com/utag/active/regonline/prod/utag.js'; b = document; c = 'script'; d = b.createElement(c); d.src = a; d.type = 'text/java' + c; d.async = true; a = b.getElementsByTagName(c)[0]; a.parentNode.insertBefore(d, a);
+            })(); 
+        </script>
+    
+    
+    <div class="container-fluid">
+        
+        
+
+        
+        
+        
+        
+        
+        <div class="row" style="word-wrap: break-word;">
+            <div class="col-md-12">
+
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ro-form">
+                            
+                            <!-- follwing sectin is disabled until we add header contect editor in new UX -->
+                            <div role="banner">
+                                <div class="row">
+                                    
+                                        <div class="col-md-12" style="min-height: 0px;">
+                                            <div class="ro-global-header-text" style="background-color: rgb(255, 255, 255);">
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                                <!-- follwing sectin is used until we add header contect editor in new UX -->
+                                <div class="row">
+                                    <div class="col-md-12" style="min-height: 0px;"><img class="img-responsive col-mn-12 no-side-padding" src="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/kc_cnc_na_regonline_copy_2_copy_1.jpg"></div>
+                                </div>
+                                <div class="row">
+                                    <div id="pageContentWrapper" class="col-md-12">
+                                        <div class=" ro-header">
+                                            
+                                            <noscript>You have 60 minutes to complete this registration page. If you continue to work on this page after 60 minutes, the information you provide will be lost.</noscript>
+
+                                            
+                                            <div class="row">
+                                                
+                                            </div>
+
+                                            
+                                            <div class="row">
+                                                <div class="col-mn-offset-1 col-mn-10 section-title">
+                                                    
+
+
+<div class="eventDetails vevent text-mn-left event-details-theme">
+    <h1 class="event-title-theme" style="margin-bottom: 0">
+        <span class="ro-event-title">
+            KubeCon + CloudNativeCon North America 2018 </span>
+        
+            <span style="font-size: 14px;" id="eventDetailsLink">&nbsp;&nbsp;<a href="#" onclick="return ViewDetails();">(View Details)</a></span>
+        
+    </h1>
+
+    <div id="fullEventDetails" class="hide">
+            <div>
+                <abbr class="dtstart" title="2018-12-10">Monday, December 10, 2018</abbr> - <abbr class="dtend" title="2018-12-13T21:45-07:00">Thursday, December 13, 2018 9:45 PM</abbr><abbr>&nbsp;(Pacific Time)</abbr>
+            </div>
+            <br>
+        
+            <div>
+                
+                    <strong>
+                        <span>
+                            Washington State Convention Center
+                        </span>
+                    </strong>
+                    <br>
+                
+                    <span class="adr">
+                        705 Pike Street<br><span class="locality">Seattle</span>, <span class="region">Washington</span> <span class="postal-code">98101</span><br><span class="country-name">United States</span>
+                    </span>
+                    <br>
+                
+                    <span class="tel">
+                        (206) 694-5000
+                    </span>
+                
+            </div>
+        
+        <div>
+            
+                <div class="url">
+                    <a id="ctl00_ctlEventDetails_hlEventLink" href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/" target="_blank">Event Details</a>
+                </div>
+            
+            <br>
+            <div class="contact">
+                Questions? &nbsp;Please contact the <a href="mailto:events@cncf.io">CNCF Events Team</a>. <br><a id="sendEmail" href="https://www.regonline.com/registration/dialogs/sendemail.aspx?EventId=2246960" class="iframeModaal" data-modaal-scope="modaal_1539088113409efeefd150fd5a8">Email Us</a><br>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="row">
+                                                
+    <br>
+        <nav id="navigationBar" class="navbar navbar-default col-remove-padding col-mn-offset-1 col-mn-10 section-title ro-navbar" role="navigation">
+                <div class="container-fluid row">
+            
+                    <div class="navbar-header">
+                        <div class="row">
+                            <div class="col-mn-12 text-center">
+                                <button type="button" class="navbar-toggle margin-left" data-toggle="collapse" data-target=".navbar-menubuilder" style="float:none;">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span><span class="icon-bar"></span>
+                                </button>
+                            </div>                            
+                        </div>
+                        </div>
+                        <div class="collapse navbar-collapse navbar-menubuilder">
+                            <ul class="nav navbar-nav">
+                
+                    <li class="past first">
+                    <a onclick="ClearDefaultInputValues();" id="ctl00_ctlStepBar_rptSteps_ctl01_lnkStepBarItem" class=" navLink" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ctlStepBar$rptSteps$ctl01$lnkStepBarItem", "2", true, "", "", false, true))'>Attendee Information</a>
+                    </li>
+                
+                    <li class="active disabled"><a class="navLink">Agenda</a>
+                    
+                    </li>
+                
+                    <li class="">
+                    <a onclick="ClearDefaultInputValues();" id="ctl00_ctlStepBar_rptSteps_ctl03_lnkStepBarItem" class=" navLink" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ctlStepBar$rptSteps$ctl03$lnkStepBarItem", "4", true, "", "", false, true))'>Checkout</a>
+                    </li>
+                
+                    <li class=" last disabled"><a class="navLink">Confirmation</a>
+                    
+                    </li>
+                
+                            </ul>
+                    </div>
+                
+                        </div>
+        </nav>
+
+    <div class="clearer"></div>
+
+
+
+                                            </div>
+
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row" id="contentWrapper" role="main">
+                                
+                                <div class="col-md-12">
+                                    
+                                    <form name="aspnetForm" method="post" action="./Agenda.aspx?AttendeeId=391221014&amp;RegisterId=111216898&amp;MethodId=0&amp;EventsessionId=&amp;SessionId=5C531BFCF6EA44A88C0751433EABD333&amp;EventId=2246960" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm" class="well-outer-border">
+<div>
+<input name="__EVENTTARGET" id="__EVENTTARGET" value="" type="hidden">
+<input name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" type="hidden">
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJOTc3MDIyNTA1ZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WGwUHNDkxMDAzNgUHNDkxMDAzNgUHNDkxMDAzNwUHNDkxMDAzNwUHNDkxMDAzOAUHNDkxMDAzOAUHNDkxMDAzOQUHNDkxMDAzOQUHMjkxNjA1MwUHMjkxNjA1NwUHMjkxNjA1OAUHMjkxOTE5OQUHMjkxODY2MQUHMjkyMTk4NwUHMjk0MzM1MQUHMjkyNDI1MAUHMjkzODE3OQUHMjkzODE3OAUHMjkzOTk1NgUHMjkzNzIzMAUHMjkzNjE0NgUHMjkzNTExNAUHMjkzMjcwNwUHMjkyNzQ1NwUHMjkyNzQ1NgUHMjk0NTY3OAUHMjk0NjA3OADLW5Ow56X/s9PzWajoHy/AYIdqqw2Tdt7Hem9lpRt4" type="hidden">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/WebResource_002.axd" type="text/javascript"></script>
+
+
+<script src="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/WebResource.axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div>
+
+	<input name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="27F5F32F" type="hidden">
+</div>
+                                        <div class="row">
+                                            <div id="ctl00_valSummary" class="col-mn-offset-1 col-mn-10 alert alert-danger" style="display:none;">
+
+</div>
+                                        </div>
+                                        
+                                        
+    <div id="pageContent">
+        <div class="row">
+            <div class="col-mn-12">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-mn-10 col-mn-offset-1 section-title ro-section-title">
+                <h2 class="section-title ro-section-title">
+                    Agenda
+                </h2>
+            </div>
+
+
+            <!--agenda items-->
+            <div class="col-mn-10 col-mn-offset-1 well ro-section">
+                
+        <ul class="list-unstyled fieldList custom" data-section="0">
+    
+        <li style="padding: 5px" data-id="2916056" data-z="1">
+            
+
+<div class="row">
+    <div class="col-mn-12 text-left">
+        <span aria-label="EVENING EVENTS" class="ro-section-label" tabindex="0"><strong><span style="text-decoration: underline;">EVENING EVENTS</span></strong></span>
+        
+    </div>
+</div>
+
+            
+
+            <div id="ctl00_cph_agendaItems_fields_ctl01_pnlPricing" class="displayInline place">
+	
+                
+            
+</div>
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl01_alignmentDiv" class="text-left">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2847422" data-z="2">
+            <div class="row form-group">
+    <fieldset>
+        <div id="ctl00ctl2847422_divInputLabel" class="control-label col-sm-4 col-mn-12">
+                
+                    <div class="row">
+                        <div class="col-mn-12">
+                            <strong>
+                                <span class="control-label"><span id="ctl2847422_spanNameOnForm" class="ro-section-label">Welcome Reception &amp; Sponsor Booth Crawl - Tuesday, December 11 </span>
+                        
+                    <span alt="Required" class="required mobileVisible asterisk">*</span></span>
+                            </strong>
+                        </div>
+                        <div class="col-mn-12">
+                            
+                        </div>
+                        
+                    </div>
+                
+            </div>
+        <div id="ctl00ctl2847422_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+            <div id="ctl00ctl2847422_radioBtnDiv" class="row">
+                <div id="ctl00ctl2847422_divInputField" role="radiogroup" class="col-mn-12 text-left" aria-labelledby="ctl00ctl2847422_spanNameOnForm">
+                    
+                                <ul class="list-unstyled text-normal" aria-required="true">
+                            
+                                <li id="ctl00ctl2847422_btns_ctl01_listItem">
+                                    <span class="optradio optradio-right"><input id="4910036" name="2847422" value="4910036" data-totalsenabled="1" type="radio"></span>
+                                <label for="4910036" class="block-text">Yes, I plan to attend this event</label></li>
+                            
+                                <li id="ctl00ctl2847422_btns_ctl02_listItem">
+                                    <span class="optradio optradio-right"><input id="4910037" name="2847422" value="4910037" data-totalsenabled="1" type="radio"></span>
+                                <label for="4910037" class="block-text">No, I will not be able to attend</label></li>
+                            </ul>
+                    
+                </div>
+                <div id="ctl00ctl2847422_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                    <span id="ctl00ctl2847422_rbRfv2847422" class="text-left small help-block hidden" style="display:none;">You must fill out all required fields.</span>
+                </div>
+                <div id="ctl00ctl2847422_divInputAdditionalInfo" class="col-mn-12 text-left">
+                    <div id="ctl00ctl2847422_pnlPricing" class="displayInline place block-text">
+	
+                
+            
+</div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </fieldset>
+</div>
+
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl02_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2847427" data-z="3">
+            <div class="row form-group">
+    <fieldset>
+        <div id="ctl00ctl2847427_divInputLabel" class="control-label col-sm-4 col-mn-12">
+                
+                    <div class="row">
+                        <div class="col-mn-12">
+                            <strong>
+                                <span class="control-label"><span id="ctl2847427_spanNameOnForm" class="ro-section-label">All Attendee Party - Wednesday, December 12 </span>
+                        
+                    <span alt="Required" class="required mobileVisible asterisk">*</span></span>
+                            </strong>
+                        </div>
+                        <div class="col-mn-12">
+                            
+                        </div>
+                        
+                    </div>
+                
+            </div>
+        <div id="ctl00ctl2847427_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+            <div id="ctl00ctl2847427_radioBtnDiv" class="row">
+                <div id="ctl00ctl2847427_divInputField" role="radiogroup" class="col-mn-12 text-left" aria-labelledby="ctl00ctl2847427_spanNameOnForm">
+                    
+                                <ul class="list-unstyled text-normal" aria-required="true">
+                            
+                                <li id="ctl00ctl2847427_btns_ctl01_listItem">
+                                    <span class="optradio optradio-right"><input id="4910038" name="2847427" value="4910038" data-totalsenabled="1" type="radio"></span>
+                                <label for="4910038" class="block-text">Yes, I plan to attend this event</label></li>
+                            
+                                <li id="ctl00ctl2847427_btns_ctl02_listItem">
+                                    <span class="optradio optradio-right"><input id="4910039" name="2847427" value="4910039" data-totalsenabled="1" type="radio"></span>
+                                <label for="4910039" class="block-text">No, I will not be able to attend</label></li>
+                            </ul>
+                    
+                </div>
+                <div id="ctl00ctl2847427_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                    <span id="ctl00ctl2847427_rbRfv2847427" class="text-left small help-block hidden" style="display:none;">You must fill out all required fields.</span>
+                </div>
+                <div id="ctl00ctl2847427_divInputAdditionalInfo" class="col-mn-12 text-left">
+                    <div id="ctl00ctl2847427_pnlPricing" class="displayInline place block-text">
+	
+                
+            
+</div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </fieldset>
+</div>
+
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl03_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2916059" data-z="4">
+            
+
+<div class="row">
+    <div class="col-mn-12 text-left">
+        <span aria-label="ONLINE COURSES" class="ro-section-label" tabindex="0"><strong><span style="text-decoration: underline;">ONLINE COURSES</span></strong></span>
+        
+    </div>
+</div>
+
+            
+
+            <div id="ctl00_cph_agendaItems_fields_ctl04_pnlPricing" class="displayInline place">
+	
+                
+            
+</div>
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl04_alignmentDiv" class="text-left">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2916053" data-z="5" data-amt="1">
+            <div class="row form-group">
+    <div id="ctl2916053_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2916053" class="control-label"> 
+                     <span id="ctl2916053_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/cka-exam/" target="_blank">Certified Kubernetes Administrator (CKA) Exam</a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2916053_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2916053_divInputField" class="col-mn-12 text-left">
+                <input id="2916053" name="2916053" aria-labelledby="ctl2916053_spanNameOnForm ctl2916053_spanPricing ctl2916053_spanWaitingList" data-totalsenabled="1" type="checkbox">
+                
+                <div id="ctl2916053_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2916053_spanPricing">
+                                Price:
+                                 <span id="ctl2916053_hdnLblPrice" class="sr-only">$250.00</span>
+                            </span>
+                        </span>
+                        $250.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2916053_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2916053_divInputAdditionalInfo" class="col-mn-12 text-left">
+                
+                <div class="agendaInfo">
+	
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl05_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2916057" data-z="6" data-amt="1">
+            <div class="row form-group">
+    <div id="ctl2916057_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2916057" class="control-label"> 
+                     <span id="ctl2916057_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/kubernetes-fundamentals-course/" target="_blank">Kubernetes Fundamental Online Course</a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2916057_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2916057_divInputField" class="col-mn-12 text-left">
+                <input id="2916057" name="2916057" aria-labelledby="ctl2916057_spanNameOnForm ctl2916057_spanPricing ctl2916057_spanWaitingList" data-totalsenabled="1" type="checkbox">
+                
+                <div id="ctl2916057_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2916057_spanPricing">
+                                Price:
+                                 <span id="ctl2916057_hdnLblPrice" class="sr-only">$249.00</span>
+                            </span>
+                        </span>
+                        $249.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2916057_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2916057_divInputAdditionalInfo" class="col-mn-12 text-left">
+                
+                <div class="agendaInfo">
+	
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl06_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2916058" data-z="7" data-amt="1">
+            <div class="row form-group">
+    <div id="ctl2916058_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2916058" class="control-label"> 
+                     <span id="ctl2916058_spanNameOnForm" class="ro-section-label">Kubernetes Fundamental Online Course &amp; CKA Online Exam Bundle </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2916058_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2916058_divInputField" class="col-mn-12 text-left">
+                <input id="2916058" name="2916058" aria-labelledby="ctl2916058_spanNameOnForm ctl2916058_spanPricing ctl2916058_spanWaitingList" data-totalsenabled="1" type="checkbox">
+                
+                <div id="ctl2916058_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2916058_spanPricing">
+                                Price:
+                                 <span id="ctl2916058_hdnLblPrice" class="sr-only">$399.00</span>
+                            </span>
+                        </span>
+                        $399.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2916058_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2916058_divInputAdditionalInfo" class="col-mn-12 text-left">
+                
+                <div class="agendaInfo">
+	
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl07_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2916054" data-z="8">
+            
+
+<div class="row">
+    <div class="col-mn-12 text-left">
+        <span aria-label="CO-LOCATED EVENTS" class="ro-section-label" tabindex="0"><strong><span style="text-decoration: underline;">CO-LOCATED EVENTS</span></strong></span>
+        
+    </div>
+</div>
+
+            
+
+            <div id="ctl00_cph_agendaItems_fields_ctl08_pnlPricing" class="displayInline place">
+	
+                
+            
+</div>
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl08_alignmentDiv" class="text-left">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2919199" data-z="10" data-amt="1">
+            <div class="row form-group">
+    <div id="ctl2919199_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2919199" class="control-label"> 
+                     <span id="ctl2919199_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/#envoycon" target="_blank">EnvoyCon</a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2919199_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2919199_divInputField" class="col-mn-12 text-left">
+                <input id="2919199" name="2919199" aria-labelledby="ctl2919199_spanNameOnForm ctl2919199_spanPricing ctl2919199_spanWaitingList ctl2919199_spanEndDate" data-totalsenabled="1" type="checkbox">
+                
+                <div id="ctl2919199_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2919199_spanPricing">
+                                Price:
+                                 <span id="ctl2919199_hdnLblPrice" class="sr-only">$200.00</span>
+                            </span>
+                        </span>
+                        $200.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2919199_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2919199_divInputAdditionalInfo" class="col-mn-12 text-left">
+                
+                <div class="agendaInfo">
+	
+                    
+                        <div>
+                            <span id="ctl2919199_spanEndDate">
+                            <span class="itemSubLabel">
+                                Date:</span>
+                            Monday, December 10, 2018 9:00 AM - 6:30 PM<abbr>&nbsp;(Pacific Time)</abbr>
+                            </span>
+                        </div>
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl09_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+<div class="codeInput">
+    <div id="ctl00_optRow" class="row form-group">
+        <div id="ctl00_codeClasses" class="col-mn-12">
+            <div id="ctl00_optRow2" class="row">
+                <div id="ctl00_divInputField">
+                        <div id="ctl00_optLabel" class=" pull-left ro-section-label control-label col-sm-4 col-mn-12">
+                            <label for="dc2919199" id="ctl00_lbl" class="agendaCodeLabel"><span>Enter a discount code <!-- span --></span></label>
+                        </div>
+                        <div id="ctl00_inputSection" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+                            <div class="row">
+                                
+                                <div id="ctl00_optSpacing" class="col-mn-12 text-left">
+                                    <input id="dc2919199" class="form-control" data-dc="1" name="dc2919199" data-totalsenabled="1" type="text">
+                                    
+                                    <div id="ctl00_divValidators" class="inlineErrorMessageContainer col-mn-12 text-left">
+                                            
+                                            
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <input name="dch2919199" id="dch2919199" type="hidden">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2918661" data-z="11" data-amt="1">
+            <div class="row form-group">
+    <div id="ctl2918661_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2918661" class="control-label"> 
+                     <span id="ctl2918661_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/#cloud-foundry-day" target="_blank">Cloud Foundry Day</a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2918661_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2918661_divInputField" class="col-mn-12 text-left">
+                <input id="2918661" name="2918661" aria-labelledby="ctl2918661_spanNameOnForm ctl2918661_spanPricing ctl2918661_spanWaitingList ctl2918661_spanEndDate" data-totalsenabled="1" type="checkbox">
+                
+                <div id="ctl2918661_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2918661_spanPricing">
+                                Price:
+                                 <span id="ctl2918661_hdnLblPrice" class="sr-only">$30.00</span>
+                            </span>
+                        </span>
+                        $30.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2918661_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2918661_divInputAdditionalInfo" class="col-mn-12 text-left">
+                
+                <div class="agendaInfo">
+	
+                    
+                        <div>
+                            <span id="ctl2918661_spanEndDate">
+                            <span class="itemSubLabel">
+                                Date:</span>
+                            Monday, December 10, 2018 9:00 AM - 6:00 PM<abbr>&nbsp;(Pacific Time)</abbr>
+                            </span>
+                        </div>
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl10_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+<div class="codeInput">
+    <div id="ctl00_optRow" class="row form-group">
+        <div id="ctl00_codeClasses" class="col-mn-12">
+            <div id="ctl00_optRow2" class="row">
+                <div id="ctl00_divInputField">
+                        <div id="ctl00_optLabel" class=" pull-left ro-section-label control-label col-sm-4 col-mn-12">
+                            <label for="dc2918661" id="ctl00_lbl" class="agendaCodeLabel"><span>Enter a discount code <!-- span --></span></label>
+                        </div>
+                        <div id="ctl00_inputSection" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+                            <div class="row">
+                                
+                                <div id="ctl00_optSpacing" class="col-mn-12 text-left">
+                                    <input id="dc2918661" class="form-control" data-dc="1" name="dc2918661" data-totalsenabled="1" type="text">
+                                    
+                                    <div id="ctl00_divValidators" class="inlineErrorMessageContainer col-mn-12 text-left">
+                                            
+                                            
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <input name="dch2918661" id="dch2918661" type="hidden">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2921987" data-z="12" data-amt="1">
+            <div class="row form-group">
+    <div id="ctl2921987_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2921987" class="control-label"> 
+                     <span id="ctl2921987_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/#openshift-commons-gathering" target="_blank">OpenShift Commons Gathering by Red Hat</a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2921987_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2921987_divInputField" class="col-mn-12 text-left">
+                <input id="2921987" name="2921987" aria-labelledby="ctl2921987_spanNameOnForm ctl2921987_spanPricing ctl2921987_spanWaitingList ctl2921987_spanEndDate" data-totalsenabled="1" type="checkbox">
+                
+                <div id="ctl2921987_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2921987_spanPricing">
+                                Price:
+                                 <span id="ctl2921987_hdnLblPrice" class="sr-only">$99.00</span>
+                            </span>
+                        </span>
+                        $99.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2921987_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2921987_divInputAdditionalInfo" class="col-mn-12 text-left">
+                
+                <div class="agendaInfo">
+	
+                    
+                        <div>
+                            <span id="ctl2921987_spanEndDate">
+                            <span class="itemSubLabel">
+                                Date:</span>
+                            Monday, December 10, 2018 8:00 AM - 8:00 PM<abbr>&nbsp;(Pacific Time)</abbr>
+                            </span>
+                        </div>
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl11_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+<div class="codeInput">
+    <div id="ctl00_optRow" class="row form-group">
+        <div id="ctl00_codeClasses" class="col-mn-12">
+            <div id="ctl00_optRow2" class="row">
+                <div id="ctl00_divInputField">
+                        <div id="ctl00_optLabel" class=" pull-left ro-section-label control-label col-sm-4 col-mn-12">
+                            <label for="dc2921987" id="ctl00_lbl" class="agendaCodeLabel"><span>Enter a discount code <!-- span --></span></label>
+                        </div>
+                        <div id="ctl00_inputSection" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+                            <div class="row">
+                                
+                                <div id="ctl00_optSpacing" class="col-mn-12 text-left">
+                                    <input id="dc2921987" class="form-control" data-dc="1" name="dc2921987" data-totalsenabled="1" type="text">
+                                    
+                                    <div id="ctl00_divValidators" class="inlineErrorMessageContainer col-mn-12 text-left">
+                                            
+                                            
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <input name="dch2921987" id="dch2921987" type="hidden">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2943351" data-z="13" data-amt="1" data-wl="1">
+            <div class="row form-group">
+    <div id="ctl2943351_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2943351" class="control-label"> 
+                     <span id="ctl2943351_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/#production-ready-kubernetes" target="_blank">Your Path to Production Ready Kubernetes by Weaveworks</a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2943351_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2943351_divInputField" class="col-mn-12 text-left">
+                <input id="2943351" name="2943351" aria-labelledby="ctl2943351_spanNameOnForm ctl2943351_spanPricing ctl2943351_spanWaitingList ctl2943351_spanEndDate" type="checkbox">
+                
+                <div id="ctl2943351_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2943351_spanPricing">
+                                Price:
+                                 <span id="ctl2943351_hdnLblPrice" class="sr-only">$175.00</span>
+                            </span>
+                        </span>
+                        $175.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2943351_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2943351_divInputAdditionalInfo" class="col-mn-12 text-left">
+                <div class="capacityMsg"><span class="wlist" id="ctl2943351_spanWaitingList">This item is full. To add yourself to the waitlist, select the item.</span><input id="wl2943351" name="wl2943351" value="1" type="hidden">&nbsp;<a href="https://www.regonline.com/registration/dialogs/waitlistlearnmore.aspx?EventId=2246960" class="iframeModaal" data-modaal-scope="modaal_15390881134098e5e039105f94">Learn More</a></div>
+                <div class="agendaInfo">
+	
+                    
+                        <div>
+                            <span id="ctl2943351_spanEndDate">
+                            <span class="itemSubLabel">
+                                Date:</span>
+                            Monday, December 10, 2018 9:00 AM - 5:30 PM<abbr>&nbsp;(Pacific Time)</abbr>
+                            </span>
+                        </div>
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl12_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+<div class="codeInput">
+    <div id="ctl00_optRow" class="row form-group">
+        <div id="ctl00_codeClasses" class="col-mn-12">
+            <div id="ctl00_optRow2" class="row">
+                <div id="ctl00_divInputField">
+                        <div id="ctl00_optLabel" class=" pull-left ro-section-label control-label col-sm-4 col-mn-12">
+                            <label for="dc2943351" id="ctl00_lbl" class="agendaCodeLabel"><span>Enter a discount code <!-- span --></span></label>
+                        </div>
+                        <div id="ctl00_inputSection" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+                            <div class="row">
+                                
+                                <div id="ctl00_optSpacing" class="col-mn-12 text-left">
+                                    <input id="dc2943351" class="form-control" data-dc="1" name="dc2943351" data-totalsenabled="1" type="text">
+                                    
+                                    <div id="ctl00_divValidators" class="inlineErrorMessageContainer col-mn-12 text-left">
+                                            
+                                            
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <input name="dch2943351" id="dch2943351" type="hidden">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2924250" data-z="14" data-amt="1">
+            <div class="row form-group">
+    <div id="ctl2924250_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2924250" class="control-label"> 
+                     <span id="ctl2924250_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/#kubesec-enterprise-summit" target="_blank">KubeSec Enterprise Summit by Aqua Security</a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2924250_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2924250_divInputField" class="col-mn-12 text-left">
+                <input id="2924250" name="2924250" aria-labelledby="ctl2924250_spanNameOnForm ctl2924250_spanPricing ctl2924250_spanWaitingList ctl2924250_spanEndDate" data-totalsenabled="1" type="checkbox">
+                
+                <div id="ctl2924250_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2924250_spanPricing">
+                                Price:
+                                 <span id="ctl2924250_hdnLblPrice" class="sr-only">$149.00</span>
+                            </span>
+                        </span>
+                        $149.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2924250_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2924250_divInputAdditionalInfo" class="col-mn-12 text-left">
+                
+                <div class="agendaInfo">
+	
+                    
+                        <div>
+                            <span id="ctl2924250_spanEndDate">
+                            <span class="itemSubLabel">
+                                Date:</span>
+                            Monday, December 10, 2018 10:00 AM - 4:30 PM<abbr>&nbsp;(Pacific Time)</abbr>
+                            </span>
+                        </div>
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl13_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+<div class="codeInput">
+    <div id="ctl00_optRow" class="row form-group">
+        <div id="ctl00_codeClasses" class="col-mn-12">
+            <div id="ctl00_optRow2" class="row">
+                <div id="ctl00_divInputField">
+                        <div id="ctl00_optLabel" class=" pull-left ro-section-label control-label col-sm-4 col-mn-12">
+                            <label for="dc2924250" id="ctl00_lbl" class="agendaCodeLabel"><span>Enter a discount code <!-- span --></span></label>
+                        </div>
+                        <div id="ctl00_inputSection" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+                            <div class="row">
+                                
+                                <div id="ctl00_optSpacing" class="col-mn-12 text-left">
+                                    <input id="dc2924250" class="form-control" data-dc="1" name="dc2924250" data-totalsenabled="1" type="text">
+                                    
+                                    <div id="ctl00_divValidators" class="inlineErrorMessageContainer col-mn-12 text-left">
+                                            
+                                            
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <input name="dch2924250" id="dch2924250" type="hidden">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2938179" data-z="15" data-amt="1">
+            <div class="row form-group">
+    <div id="ctl2938179_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2938179" class="control-label"> 
+                     <span id="ctl2938179_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/#fdio-project-mini-summit" target="_blank">Fast Data (FD.io) Project Mini Summit</a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2938179_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2938179_divInputField" class="col-mn-12 text-left">
+                <input id="2938179" name="2938179" aria-labelledby="ctl2938179_spanNameOnForm ctl2938179_spanPricing ctl2938179_spanWaitingList ctl2938179_spanEndDate" data-totalsenabled="1" type="checkbox">
+                
+                <div id="ctl2938179_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2938179_spanPricing">
+                                Price:
+                                 <span id="ctl2938179_hdnLblPrice" class="sr-only">$0.00</span>
+                            </span>
+                        </span>
+                        $0.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2938179_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2938179_divInputAdditionalInfo" class="col-mn-12 text-left">
+                
+                <div class="agendaInfo">
+	
+                    
+                        <div>
+                            <span id="ctl2938179_spanEndDate">
+                            <span class="itemSubLabel">
+                                Date:</span>
+                            Monday, December 10, 2018 9:00 AM - 5:00 PM<abbr>&nbsp;(Pacific Time)</abbr>
+                            </span>
+                        </div>
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl14_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2938178" data-z="16" data-amt="1" data-wl="1">
+            <div class="row form-group">
+    <div id="ctl2938178_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2938178" class="control-label"> 
+                     <span id="ctl2938178_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/#digital-ocean-tide" target="_blank">DigitalOcean TIDE: Kubernetes Unconference</a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2938178_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2938178_divInputField" class="col-mn-12 text-left">
+                <input id="2938178" name="2938178" aria-labelledby="ctl2938178_spanNameOnForm ctl2938178_spanPricing ctl2938178_spanWaitingList ctl2938178_spanEndDate" type="checkbox">
+                
+                <div id="ctl2938178_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2938178_spanPricing">
+                                Price:
+                                 <span id="ctl2938178_hdnLblPrice" class="sr-only">$0.00</span>
+                            </span>
+                        </span>
+                        $0.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2938178_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2938178_divInputAdditionalInfo" class="col-mn-12 text-left">
+                <div class="capacityMsg"><span class="wlist" id="ctl2938178_spanWaitingList">This item is full. To add yourself to the waitlist, select the item.</span><input id="wl2938178" name="wl2938178" value="1" type="hidden">&nbsp;<a href="https://www.regonline.com/registration/dialogs/waitlistlearnmore.aspx?EventId=2246960" class="iframeModaal" data-modaal-scope="modaal_1539088113409096c025774c55">Learn More</a></div>
+                <div class="agendaInfo">
+	
+                    
+                        <div>
+                            <span id="ctl2938178_spanEndDate">
+                            <span class="itemSubLabel">
+                                Date:</span>
+                            Monday, December 10, 2018 11:00 AM - 5:00 PM<abbr>&nbsp;(Pacific Time)</abbr>
+                            </span>
+                        </div>
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl15_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2939956" data-z="17" data-amt="1">
+            <div class="row form-group">
+    <div id="ctl2939956_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2939956" class="control-label"> 
+                     <span id="ctl2939956_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/#ballerinacon" target="_blank">Ballerinacon</a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2939956_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2939956_divInputField" class="col-mn-12 text-left">
+                <input id="2939956" name="2939956" aria-labelledby="ctl2939956_spanNameOnForm ctl2939956_spanPricing ctl2939956_spanWaitingList ctl2939956_spanEndDate" data-totalsenabled="1" type="checkbox">
+                
+                <div id="ctl2939956_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2939956_spanPricing">
+                                Price:
+                                 <span id="ctl2939956_hdnLblPrice" class="sr-only">$0.00</span>
+                            </span>
+                        </span>
+                        $0.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2939956_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2939956_divInputAdditionalInfo" class="col-mn-12 text-left">
+                
+                <div class="agendaInfo">
+	
+                    
+                        <div>
+                            <span id="ctl2939956_spanEndDate">
+                            <span class="itemSubLabel">
+                                Date:</span>
+                            Monday, December 10, 2018 9:00 AM - 5:00 PM<abbr>&nbsp;(Pacific Time)</abbr>
+                            </span>
+                        </div>
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl16_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2937230" data-z="19" data-amt="1">
+            <div class="row form-group">
+    <div id="ctl2937230_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2937230" class="control-label"> 
+                     <span id="ctl2937230_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/#observability-practitioners-summit" target="_blank">Observability Practitioners Summit</a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2937230_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2937230_divInputField" class="col-mn-12 text-left">
+                <input id="2937230" name="2937230" aria-labelledby="ctl2937230_spanNameOnForm ctl2937230_spanPricing ctl2937230_spanWaitingList ctl2937230_spanEndDate" data-totalsenabled="1" type="checkbox">
+                
+                <div id="ctl2937230_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2937230_spanPricing">
+                                Price:
+                                 <span id="ctl2937230_hdnLblPrice" class="sr-only">$200.00</span>
+                            </span>
+                        </span>
+                        $200.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2937230_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2937230_divInputAdditionalInfo" class="col-mn-12 text-left">
+                
+                <div class="agendaInfo">
+	
+                    
+                        <div>
+                            <span id="ctl2937230_spanEndDate">
+                            <span class="itemSubLabel">
+                                Date:</span>
+                            Monday, December 10, 2018 9:00 AM - 6:30 PM<abbr>&nbsp;(Pacific Time)</abbr>
+                            </span>
+                        </div>
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl17_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+<div class="codeInput">
+    <div id="ctl00_optRow" class="row form-group">
+        <div id="ctl00_codeClasses" class="col-mn-12">
+            <div id="ctl00_optRow2" class="row">
+                <div id="ctl00_divInputField">
+                        <div id="ctl00_optLabel" class=" pull-left ro-section-label control-label col-sm-4 col-mn-12">
+                            <label for="dc2937230" id="ctl00_lbl" class="agendaCodeLabel"><span>Enter a discount code <!-- span --></span></label>
+                        </div>
+                        <div id="ctl00_inputSection" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+                            <div class="row">
+                                
+                                <div id="ctl00_optSpacing" class="col-mn-12 text-left">
+                                    <input id="dc2937230" class="form-control" data-dc="1" name="dc2937230" data-totalsenabled="1" type="text">
+                                    
+                                    <div id="ctl00_divValidators" class="inlineErrorMessageContainer col-mn-12 text-left">
+                                            
+                                            
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <input name="dch2937230" id="dch2937230" type="hidden">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2936146" data-z="20" data-amt="1">
+            <div class="row form-group">
+    <div id="ctl2936146_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2936146" class="control-label"> 
+                     <span id="ctl2936146_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/#foundationdb-summit" target="_blank">FoundationDB Summit</a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2936146_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2936146_divInputField" class="col-mn-12 text-left">
+                <input id="2936146" name="2936146" aria-labelledby="ctl2936146_spanNameOnForm ctl2936146_spanPricing ctl2936146_spanWaitingList ctl2936146_spanEndDate" data-totalsenabled="1" type="checkbox">
+                
+                <div id="ctl2936146_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2936146_spanPricing">
+                                Price:
+                                 <span id="ctl2936146_hdnLblPrice" class="sr-only">$150.00</span>
+                            </span>
+                        </span>
+                        $150.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2936146_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2936146_divInputAdditionalInfo" class="col-mn-12 text-left">
+                
+                <div class="agendaInfo">
+	
+                    
+                        <div>
+                            <span id="ctl2936146_spanEndDate">
+                            <span class="itemSubLabel">
+                                Date:</span>
+                            Monday, December 10, 2018 9:00 AM - 6:00 PM<abbr>&nbsp;(Pacific Time)</abbr>
+                            </span>
+                        </div>
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl18_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2935114" data-z="21" data-amt="1" data-wl="1">
+            <div class="row form-group">
+    <div id="ctl2935114_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2935114" class="control-label"> 
+                     <span id="ctl2935114_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/#cloud-native-storage-day" target="_blank">Cloud Native Storage Day</a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2935114_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2935114_divInputField" class="col-mn-12 text-left">
+                <input id="2935114" name="2935114" aria-labelledby="ctl2935114_spanNameOnForm ctl2935114_spanPricing ctl2935114_spanWaitingList ctl2935114_spanEndDate" type="checkbox">
+                
+                <div id="ctl2935114_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2935114_spanPricing">
+                                Price:
+                                 <span id="ctl2935114_hdnLblPrice" class="sr-only">$0.00</span>
+                            </span>
+                        </span>
+                        $0.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2935114_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2935114_divInputAdditionalInfo" class="col-mn-12 text-left">
+                <div class="capacityMsg"><span class="wlist" id="ctl2935114_spanWaitingList">This item is full. To add yourself to the waitlist, select the item.</span><input id="wl2935114" name="wl2935114" value="1" type="hidden">&nbsp;<a href="https://www.regonline.com/registration/dialogs/waitlistlearnmore.aspx?EventId=2246960" class="iframeModaal" data-modaal-scope="modaal_1539088113410c2808289883618">Learn More</a></div>
+                <div class="agendaInfo">
+	
+                    
+                        <div>
+                            <span id="ctl2935114_spanEndDate">
+                            <span class="itemSubLabel">
+                                Date:</span>
+                            Monday, December 10, 2018 9:00 AM - 5:00 PM<abbr>&nbsp;(Pacific Time)</abbr>
+                            </span>
+                        </div>
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl19_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2932707" data-z="22" data-amt="1">
+            <div class="row form-group">
+    <div id="ctl2932707_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2932707" class="control-label"> 
+                     <span id="ctl2932707_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/#linkerd-in-production" target="_blank">Linkerd in Production 101 by Buoyant</a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2932707_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2932707_divInputField" class="col-mn-12 text-left">
+                <input id="2932707" name="2932707" aria-labelledby="ctl2932707_spanNameOnForm ctl2932707_spanPricing ctl2932707_spanWaitingList ctl2932707_spanEndDate" data-totalsenabled="1" type="checkbox">
+                
+                <div id="ctl2932707_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2932707_spanPricing">
+                                Price:
+                                 <span id="ctl2932707_hdnLblPrice" class="sr-only">$250.00</span>
+                            </span>
+                        </span>
+                        $250.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2932707_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2932707_divInputAdditionalInfo" class="col-mn-12 text-left">
+                
+                <div class="agendaInfo">
+	
+                    
+                        <div>
+                            <span id="ctl2932707_spanEndDate">
+                            <span class="itemSubLabel">
+                                Date:</span>
+                            Monday, December 10, 2018 1:00 PM - 5:00 PM<abbr>&nbsp;(Pacific Time)</abbr>
+                            </span>
+                        </div>
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl20_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2927457" data-z="23" data-amt="1">
+            <div class="row form-group">
+    <div id="ctl2927457_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2927457" class="control-label"> 
+                     <span id="ctl2927457_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/#kubernetes-workshop" target="_blank"> Kubernetes and Service Mesh Workshop with VMware</a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2927457_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2927457_divInputField" class="col-mn-12 text-left">
+                <input id="2927457" name="2927457" aria-labelledby="ctl2927457_spanNameOnForm ctl2927457_spanPricing ctl2927457_spanWaitingList ctl2927457_spanEndDate" data-totalsenabled="1" type="checkbox">
+                
+                <div id="ctl2927457_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2927457_spanPricing">
+                                Price:
+                                 <span id="ctl2927457_hdnLblPrice" class="sr-only">$25.00</span>
+                            </span>
+                        </span>
+                        $25.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2927457_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2927457_divInputAdditionalInfo" class="col-mn-12 text-left">
+                
+                <div class="agendaInfo">
+	
+                    
+                        <div>
+                            <span id="ctl2927457_spanEndDate">
+                            <span class="itemSubLabel">
+                                Date:</span>
+                            Monday, December 10, 2018 9:00 AM - 6:30 PM<abbr>&nbsp;(Pacific Time)</abbr>
+                            </span>
+                        </div>
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl21_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2927456" data-z="24" data-amt="1">
+            <div class="row form-group">
+    <div id="ctl2927456_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2927456" class="control-label"> 
+                     <span id="ctl2927456_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/#kubernetes-advanced" target="_blank">Kubernetes II -- Advanced Hands-on Training by Heptio </a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2927456_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2927456_divInputField" class="col-mn-12 text-left">
+                <input id="2927456" name="2927456" aria-labelledby="ctl2927456_spanNameOnForm ctl2927456_spanPricing ctl2927456_spanWaitingList ctl2927456_spanEndDate" data-totalsenabled="1" type="checkbox">
+                
+                <div id="ctl2927456_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2927456_spanPricing">
+                                Price:
+                                 <span id="ctl2927456_hdnLblPrice" class="sr-only">$900.00</span>
+                            </span>
+                        </span>
+                        $900.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2927456_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2927456_divInputAdditionalInfo" class="col-mn-12 text-left">
+                
+                <div class="agendaInfo">
+	
+                    
+                        <div>
+                            <span id="ctl2927456_spanEndDate">
+                            <span class="itemSubLabel">
+                                Date:</span>
+                            Monday, December 10, 2018 9:00 AM - 5:00 PM<abbr>&nbsp;(Pacific Time)</abbr>
+                            </span>
+                        </div>
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl22_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2945678" data-z="25" data-amt="1">
+            <div class="row form-group">
+    <div id="ctl2945678_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2945678" class="control-label"> 
+                     <span id="ctl2945678_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/#tungsten-fabric-developers-summit" target="_blank">Tungsten Fabric Developers Summit </a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2945678_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2945678_divInputField" class="col-mn-12 text-left">
+                <input id="2945678" name="2945678" aria-labelledby="ctl2945678_spanNameOnForm ctl2945678_spanPricing ctl2945678_spanWaitingList ctl2945678_spanEndDate ctl2945678_spanLocation" data-totalsenabled="1" type="checkbox">
+                
+                <div id="ctl2945678_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2945678_spanPricing">
+                                Price:
+                                 <span id="ctl2945678_hdnLblPrice" class="sr-only">$0.00</span>
+                            </span>
+                        </span>
+                        $0.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2945678_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2945678_divInputAdditionalInfo" class="col-mn-12 text-left">
+                
+                <div class="agendaInfo">
+	
+                    
+                        <div>
+                            <span id="ctl2945678_spanEndDate">
+                            <span class="itemSubLabel">
+                                Date:</span>
+                            Monday, December 10, 2018 9:00 AM - 4:00 PM<abbr>&nbsp;(Pacific Time)</abbr>
+                            </span>
+                        </div>
+                    
+
+                    
+                        <div>
+                            <span id="ctl2945678_spanLocation">
+                            <span class="itemSubLabel">
+                                Location:</span>
+                            Sheraton Seattle Hotel, Willow Room - 1400 6th Ave
+                            </span>
+                        </div>
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl23_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+        <li style="padding: 5px" data-id="2946078" data-z="26" data-amt="1">
+            <div class="row form-group">
+    <div id="ctl2946078_divInputLabel" class="control-label col-sm-4 col-mn-12">
+            
+                <div class="row">
+                    <div class="col-mn-12">
+                        <label for="2946078" class="control-label"> 
+                     <span id="ctl2946078_spanNameOnForm" class="ro-section-label"><a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/co-located-events/#the-game-changer" target="_blank">The GAME CHANGER-- Navigating Container and Kubernetes by Verizon</a> </span>
+                 </label>
+                    </div>
+                    <div class="col-mn-12">
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+
+    <div id="ctl2946078_divInput" class="col-mn-12 col-sm-8 col-md-7 text-mn-left">
+        <div class="row">
+            <div id="ctl2946078_divInputField" class="col-mn-12 text-left">
+                <input id="2946078" name="2946078" aria-labelledby="ctl2946078_spanNameOnForm ctl2946078_spanPricing ctl2946078_spanWaitingList ctl2946078_spanEndDate" data-totalsenabled="1" type="checkbox">
+                
+                <div id="ctl2946078_pnlPricing" class="displayInline place block-text">
+	
+                
+
+                        <span class="itemSubLabel">
+                            <span id="ctl2946078_spanPricing">
+                                Price:
+                                 <span id="ctl2946078_hdnLblPrice" class="sr-only">$50.00</span>
+                            </span>
+                        </span>
+                        $50.00
+                        
+                    
+            
+</div>
+            </div>
+            <div id="ctl2946078_divInputValidator" class="inlineErrorMessageContainer col-mn-12 text-left">
+                
+            </div>
+            <div id="ctl2946078_divInputAdditionalInfo" class="col-mn-12 text-left">
+                
+                <div class="agendaInfo">
+	
+                    
+                        <div>
+                            <span id="ctl2946078_spanEndDate">
+                            <span class="itemSubLabel">
+                                Date:</span>
+                            Monday, December 10, 2018 9:00 AM - 5:00 PM<abbr>&nbsp;(Pacific Time)</abbr>
+                            </span>
+                        </div>
+                    
+
+                    
+
+                    
+                    
+                
+</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+            
+
+            
+            
+            <div id="ctl00_cph_agendaItems_fields_ctl24_alignmentDiv" class="">
+                
+                
+            </div>
+
+            
+
+            
+        </li>
+    
+    </ul>
+       
+
+
+    <div class="col-lg-12 text-right">
+        <strong>
+            <div class="sectionTotal">
+                <div>
+                    Total:
+                    <span id="totalAmt">
+                        $0.00</span>
+                    <input name="ctl00$cph$agendaItems$totalAmtHidden" id="totalAmtHidden" type="hidden">
+                </div>
+                <button type="submit" name="ctl00$cph$agendaItems$btnRecalculate" class="BiggerButtonBase regonlinebutton" onclick="ClearDefaultInputValues();return true;;return false;" style="display: none;">Recalculate Total</button>
+            </div>
+        </strong>
+    </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <!--navigation buttons-->
+            <div class="col-mn-12 text-center">
+                
+<div class="buttonGroup text-mn-center">
+        
+    
+    
+    
+    <button type="submit" name="ctl00$cph$ctlNavigation$btnContinue" class="btn btn-primary button-primary-theme regonlinebutton" onclick="SubmitForm(this);return false;">Continue</button>
+</div>
+            </div>
+        </div>
+    </div>
+
+                                        
+                                            <!--[if IE]>
+                                                    <input type="text" class="hide" name="IEFix" />
+                                                    <![endif]-->
+                                        
+                                    
+<script type="text/javascript">
+//<![CDATA[
+var Page_ValidationSummaries =  new Array(document.getElementById("ctl00_valSummary"));
+var Page_Validators =  new Array(document.getElementById("ctl00ctl2847422_rbRfv2847422"), document.getElementById("ctl00ctl2847427_rbRfv2847427"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ctl00ctl2847422_rbRfv2847422 = document.all ? document.all["ctl00ctl2847422_rbRfv2847422"] : document.getElementById("ctl00ctl2847422_rbRfv2847422");
+ctl00ctl2847422_rbRfv2847422.controltovalidate = "4910036";
+ctl00ctl2847422_rbRfv2847422.focusOnError = "t";
+ctl00ctl2847422_rbRfv2847422.errormessage = "You must fill out all required fields.";
+ctl00ctl2847422_rbRfv2847422.display = "Dynamic";
+ctl00ctl2847422_rbRfv2847422.evaluationfunction = "CustomValidatorEvaluateIsValid";
+ctl00ctl2847422_rbRfv2847422.clientvalidationfunction = "requiredRadioButtonValidation";
+ctl00ctl2847422_rbRfv2847422.validateemptytext = "true";
+var ctl00ctl2847427_rbRfv2847427 = document.all ? document.all["ctl00ctl2847427_rbRfv2847427"] : document.getElementById("ctl00ctl2847427_rbRfv2847427");
+ctl00ctl2847427_rbRfv2847427.controltovalidate = "4910038";
+ctl00ctl2847427_rbRfv2847427.focusOnError = "t";
+ctl00ctl2847427_rbRfv2847427.errormessage = "You must fill out all required fields.";
+ctl00ctl2847427_rbRfv2847427.display = "Dynamic";
+ctl00ctl2847427_rbRfv2847427.evaluationfunction = "CustomValidatorEvaluateIsValid";
+ctl00ctl2847427_rbRfv2847427.clientvalidationfunction = "requiredRadioButtonValidation";
+ctl00ctl2847427_rbRfv2847427.validateemptytext = "true";
+var ctl00_valSummary = document.all ? document.all["ctl00_valSummary"] : document.getElementById("ctl00_valSummary");
+ctl00_valSummary.headertext = "The following errors were detected:";
+ctl00_valSummary.validationGroup = "TopSectionErrors";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        //]]>
+</script>
+</form>
+                                    
+                                    <div role="contentinfo">
+                                        
+                                        <div class="row ">
+                                            
+                                        </div>
+
+                                        
+                                        <div class="row">
+                                            <div class="col-md-12" style="min-height: 0px;">
+                                                
+                                                    <div class="ro-global-footer-text" style="background-color: rgb(255, 255, 255);">
+                                                        
+                                                    </div>
+                                                
+                                            </div>
+                                            <div class="col-md-12 ro-global-footer" style="min-height: 0px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        
+        
+            <div id="marketingFooter" class="row bg-default" role="contentinfo" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                <div class="col-mn-12 marketingText" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                    <br><div class="row" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;"><div class="col-md-12 text-center"><span style="visibility: visible !important; display: inline !important; opacity: 1 !important; background-color: white !important; color: #337ab7 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;"><a class="marketingLink" style="visibility: visible !important; display: inline !important; opacity: 1 !important; background-color: white !important; color: #337ab7 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;" href="http://events.linuxfoundation.org/" target="_blank">Event Home</a></span> | <span style="visibility: visible !important; display: inline !important; opacity: 1 !important; background-color: white !important; color: #337ab7 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;"><a id="footerEventContact" class="marketingLink iframeModaal" style="visibility: visible !important; display: inline !important; opacity: 1 !important; background-color: white !important; color: #337ab7 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;" href="https://www.regonline.com/register/dialogs/contactinfo.aspx?EventId=2246960&amp;utm_source=referral&amp;utm_medium=app&amp;utm_campaign=viral_regonline&amp;utm_content=footer_mktg" data-modaal-scope="modaal_1539088113410a7a544ba20bad">Event Contact Information</a></span>  </div></div>
+                        <br style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                    
+                    <div class="extFooterSectionContainer noLogo" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                        <div class="extFooterSection" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                            
+                            
+                            
+                            <div class="row" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                                <div class="col-sm-11" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                                    <br style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                                    <div class="row" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                                        <div class="col-mn-12 col-sm-4" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                                            
+                                                <div class="row" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important; display: flex !important; align-items: center !important;">
+                                                    <div class="col-mn-4 col-mn-offset-2" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;text-align: right !important;">
+                                                        <div id="lanyonCopyRight" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                                                            © 2018
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-mn-6" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important; text-align: left !important;">
+                                                        <div id="LanyonSpecificFooter" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                                                            
+                                                            
+                                                                <div id="lanyonLinks" class="footLinks" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                                                                    <div style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                                                                        <a class="marketingLink" style="visibility: visible !important; display: inline !important; opacity: 1 !important; background-color: white !important; color: #337ab7 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;" href="https://www.regonline.com/terms/?utm_source=referral&amp;utm_medium=app&amp;utm_campaign=viral_regonline&amp;utm_content=footer_mktg" target="_blank" onclick="return OpenWindowForLink(' https://www.regonline.com/terms/?utm_source=referral&amp;utm_medium=app&amp;utm_campaign=viral_regonline&amp;utm_content=footer_mktg', 750, 620)">Terms of Use</a>
+                                                                    </div>
+                                                                    <div style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                                                                        <a id="ctl00_lnkPrivacyPolicy" class="marketingLink" href="https://www.lanyon.com/privacy-policy.shtml?utm_source=referral&amp;utm_medium=app&amp;utm_campaign=viral_regonline&amp;utm_content=footer_mktg" target="_blank" style="visibility: visible !important; display: inline !important; opacity: 1 !important; background-color: white !important; color: #337ab7 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">Your Privacy Rights</a>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            
+                                        </div>
+                                        <div class="col-mn-12 col-sm-4 text-center" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                                            
+                                        </div>
+                                        <div class="col-mn-12 col-sm-4 padding-top-10" style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                                            
+                                        </div>
+                                    </div>
+                                    <br style="visibility: visible !important; display: block !important; opacity: 1 !important; background-color: white !important; color: #333333 !important; font-size: 14px !important; position: static !important; margin-top: 0px !important; margin-bottom: 0px !important;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        
+    </div>
+    
+    <script type="text/javascript" src="Write%20Python%203%20Web%20Apps%20with%20Apache2%20mod_wsgi%20%E2%80%93%20Install%20Ubuntu%2016.04%20xenial%20%E2%80%93%20Every%20Tiny%20Part%20Tested%20Separately%20|%20Tero%20Karvinen_files/queueclient.js"></script>
+    <script id="queueTag" type="text/javascript">RenderQueueItScript(false, 'https://www.regonline.com', '')</script>
+    
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-831873-5', 'auto', {'allowLinker': true});
+    
+    ga('send', 'pageview');
+    ga('set', 'dimension1', 'Academic');
+</script>
+
+    <script type="text/javascript">ActiveEvents.SystemText = {get_decimalSeparator:function(){return '.';},get_groupSeparator:function(){return ',';},get_imagesDomain:function(){return 'https://prd-static.regonline.com/images';},get_ajaxErrorMsg:function(){return 'Your last action was unsuccessful. Try again, or click your browser\'s <strong>Refresh</strong> button.';},get_back:function(){return 'Back';},get_ok:function(){return 'OK';},get_cancel:function(){return 'Cancel';},get_isPreview:function(){return 'False';}};</script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+    
+            
+        
+            if ("False" == "True")
+            {
+                $(".iframeModaal").attr('onclick', 'ShowPreviewMessage();return false;').removeAttr('href');
+            }
+            $(".iframeModaal").modaal({
+                type: "iframe",
+                width: 600,
+                animation: "none",
+                after_open: resizeModaalIframe
+            });
+        
+        });
+    </script>
+
+    
+    <script type="text/javascript">
+        CalculateTotals._baseUrl = 'Agenda.aspx?AttendeeId=391221014&RegisterId=111216898&MethodId=0&EventsessionId=&SessionId=5C531BFCF6EA44A88C0751433EABD333&EventId=2246960&rContent=1';
+        CalculateTotals._enabled = true;
+        $(EnableUpdateTotals);
+        $(GoToSelectedItem);
+
+        $(document).ready(function () {
+
+            if (CalculateTotals._enabled == true) {
+
+                //hide recalculate button
+                var recalculateButton = $("button[name$='Recalculate']");
+
+                recalculateButton.hide();
+
+                if (CalculateTotals.subTotals.length > 0) {
+                    CalculateTotals.RequestSubTotal("totalAmt");
+                }
+
+                //full page reload if an item with a discount code is unchecked
+                $("input[id^='dch']").each(function (index, item) {
+                    if ($(item).val().length > 0) {
+                        var itemDiscountCodeId = $(item).attr("id");
+                        var listItemDataId = itemDiscountCodeId.substring(3, itemDiscountCodeId.length);
+                        $("#" + listItemDataId).change(function () {
+
+                            if ($("#" + listItemDataId).is("input")) {
+                                if (!$("#" + listItemDataId).is(":checked")) {
+                                    recalculateButton.click();
+                                }
+                            }
+                            if ($("#" + listItemDataId).is("select")) {
+                                if (document.getElementById(listItemDataId).selectedIndex == 0) {
+                                    recalculateButton.click();
+                                }
+                            }
+
+                        });
+                    }
+
+                });
+
+
+            }
+        });
+    </script>
+    <script type="text/javascript">var replace='Replace'; var upload = 'Upload';</script>
+
+    
+    
+        <script type="text/javascript">
+            var sessionTimeoutMinutes = 60;
+            var registerResources = {TimeoutConfirmText:"Your session will expire shortly, and you will be logged out. If you want more time to continue working, click 'Continue Working.'", TimeoutContinueWorking:'Continue Working', TimeoutLogout:'Logout', RefreshSessionFailedMsg:'An error has occurred, click <b>Continue Working</b> again.'};
+        </script>
+        <div>
+            <p></p>
+        </div>
+    
+    
+
+    <!-- edited by Tom Nguyen ROL-35055 -->
+    
+
+    <div class="modal" id="bsModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="bsModalLabel" style="word-wrap: break-word;"></h4>
+                </div>
+                <div id="bsModalBody" class="modal-body" style="width: 100%;">
+                    <iframe id="modalIF"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body></html>
