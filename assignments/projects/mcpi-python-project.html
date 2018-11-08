@@ -19,6 +19,7 @@ _____ 20 - Completed on or before the deadline. 1 week.
 _____ 20 - Individaul char.png will be changed using the ~/Desktop/mcpi/
 		Minecraft-Pi modification by CWC.
 _____ 20 - All code posted on github.com in a unique repository.
+_____ 20 Extra - Change the skin of the main character.
 
 250 total points.
 
@@ -71,11 +72,11 @@ def disc (mc, x, y, z,c,zstop,m):
 def main():
 	mc = init()
 	mc.player.setPos(0, 50, 0)
-	// x, y, z = mc.player.getPos()
-	// mc.player.setPos(x, y, z)
+	# x, y, z = mc.player.getPos()
+	# mc.player.setPos(x, y, z)
 	h,k,l = 30,30,30
 	x, y, z = mc.player.getPos()
-	clear_with_air(mc, x,y,z,h,k,l)
+	clear_with_air(mc,x,y,z,h,k,l)
 	disc(mc, x,y-1,z,20,4,42)
 	posta(mc, x,y-5,z+4,42)
 	core(mc,x,y-7,z,42)
