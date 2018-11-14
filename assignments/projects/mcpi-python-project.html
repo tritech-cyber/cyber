@@ -6,19 +6,21 @@
 <pre><div class = "list">
 Minecraft Pi Python Project
 Points - Description
-_____ 10 - Hello World Python Minecraft-Pi script to 127.0.0.1
 _____ 50 - Each person in the group will create an individual Minecraft-Pi Python Design (Object)
-_____ 30 - Code must have 3 different functions,  a def main(): ,	and be at least 50 lines of code.
-_____ 20 - Code must contain a for or while loop
+_____ 20 - All code posted on github.com in a unique repository.
+						Example: https://github.com/icebowl/fluxcap/
+_____ 30 - Code must have 3 different functions, a def main(): and two more funcions.
+_____ 20 - Program must be at least 50 lines of code.
+_____ 20 - Code must contain a for or while loop.
+_____ 10 - Code must use an if condition.
 _____ 20 - Code must include a list
 _____ 20 - Object must be dynamically placed in reference to (x,y,z)
 								It can be place anywhere.
-_____ 20 - The Object must look like something recognizable. (Snowman, Igloo, Doghouse, Car . . . )
+_____ 20 - The Object must look like something recognizable. (Snowman, Igloo, Doghouse, Car, DR Brown's Delorean . . . )
+_____ 20 - Object must be created in a Minecraft-Pi world at localhost(Example : 127.0.0.1)
 _____ 20 - Object must be created in a Minecraft-Pi world remotely using an ip (Example : 10.183.*.*)
 _____ 20 - Completed on or before the deadline. 1 week.
-_____ 20 - Individaul char.png will be changed using the ~/Desktop/mcpi/
-		Minecraft-Pi modification by CWC.
-_____ 20 - All code posted on github.com in a unique repository.
+
 _____ 20 Extra - Change the skin of the main character.
 
 250 total points.
@@ -36,6 +38,7 @@ def init():
 def clear_with_air(mc, x, y, z,h,k,l):
 	air = 0;
 	mc.setBlocks(x-h,y-k,z-l,x+h,y+k,z+l,air)
+
 def core(mc,x,y,z,m):
 	pass
 
@@ -48,46 +51,22 @@ def posta(mc,x,y,z,m):
 def postb(mc,x,y,z,m):
 	pass
 
-def disc (mc, x, y, z,c,zstop,m):
-	xadj =  c / 2
-	zadd = c / 2
-	print (c,xadj,zadd);
-	#l is used to add to the z value
-	l2 = int(c/2) # half way
-	for l in range(int(zadd),0,-2):
-		#set blocks low to high
-		print(x,y,z-l+zadd)
-		mc.setBlocks(x-xadj,y,z-l+zadd,x+xadj,y,z-l+zadd,m)
-		mc.setBlocks(x-xadj,y,z-l-1+zadd,x+xadj,y,z-l-1+zadd,m)
-		#sleep(1)
-		# mirror
-		mc.setBlocks(x-xadj,y,z+l-zadd,x+xadj,y,z+l-zadd,m)
-		mc.setBlocks(x-xadj,y,z+l-zadd-1,x+xadj,y,z+l-zadd-1,m)
-		xadj = xadj - 2
-		l2 = l2 + 2
-		print ("xadj",xadj,"l",l)
-		if xadj < zstop:
-			break
-
 def main():
 	mc = init()
-	mc.player.setPos(0, 50, 0)
-	# x, y, z = mc.player.getPos()
-	# mc.player.setPos(x, y, z)
-	h,k,l = 30,30,30
 	x, y, z = mc.player.getPos()
+	h = 50; k = 50; l = 50;
 	clear_with_air(mc,x,y,z,h,k,l)
 	disc(mc, x,y-1,z,20,4,42)
 	posta(mc, x,y-5,z+4,42)
 	core(mc,x,y-7,z,42)
 	postb(mc,x,y-4,z+15,42)
 	engine(mc,x-5,y,z+15,42)
-	mc.player.setPos(0,70,0)
 
 main()
 
 # multiple line comment
 """
+MINECRAFT BLOCKS
 AIR                   0
 STONE                 1
 GRASS                 2
