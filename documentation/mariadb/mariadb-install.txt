@@ -1,9 +1,29 @@
-Tested on Debian 9
+apt install  mariadb-server
+mysql_secure_installation
 
-As root type:
-apt-get install mariadb-server mariadb-client
 
-Type:
-mysql_secure_installation 
 
-Document the root password.
+apt install  mariadb-server
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  galera-3 libcgi-fast-perl libcgi-pm-perl libconfig-inifiles-perl libdbd-mysql-perl libdbi-perl libfcgi-perl libhtml-template-perl libjemalloc1 libmariadbclient18 libterm-readkey-perl mariadb-client-10.1
+  mariadb-client-core-10.1 mariadb-common mariadb-server-10.1 mariadb-server-core-10.1 mysql-common socat
+Suggested packages:
+  libclone-perl libmldbm-perl libnet-daemon-perl libsql-statement-perl libipc-sharedcache-perl mailx mariadb-test tinyca
+The following NEW packages will be installed:
+  galera-3 libcgi-fast-perl libcgi-pm-perl libconfig-inifiles-perl libdbd-mysql-perl libdbi-perl libfcgi-perl libhtml-template-perl libjemalloc1 libmariadbclient18 libterm-readkey-perl mariadb-client-10.1
+  mariadb-client-core-10.1 mariadb-common mariadb-server mariadb-server-10.1 mariadb-server-core-10.1 mysql-common socat
+0 upgraded, 19 newly installed, 0 to remove and 0 not upgraded.
+Need to get 25.2 MB of archives.
+After this operation, 190 MB of additional disk space will be used.
+
+
+https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-debian-9
+
+
+
+
+optional:
+apt install libclone-perl libmldbm-perl libnet-daemon-perl libsql-statement-perl libipc-sharedcache-perl mailx mariadb-test tinyca
