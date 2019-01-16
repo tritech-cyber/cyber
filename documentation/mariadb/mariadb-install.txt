@@ -24,6 +24,10 @@ https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-debia
 
 
 
+set up the datbase:
+$sudo mysql
+>GRANT ALL ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
+
 
 optional:
 apt install libclone-perl libmldbm-perl libnet-daemon-perl libsql-statement-perl libipc-sharedcache-perl mailx mariadb-test tinyca
