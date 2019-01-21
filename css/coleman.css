@@ -1,5 +1,5 @@
 
-red      #B35050 
+/*red      #B35050 
 green    #50B350
 blue     #5050B3
 yellow   #B3B350
@@ -16,14 +16,26 @@ light gray   #B3B3B3
 tan     #FDF6E3
 tan2	 #FFEDBF
 black	#000000
-
+*/
 pre {
 display:inline-block;
-font-family:sans-serif;
-font-size: 12px;
-background-color: #fff;	
-color: #000;
+font-family: system-ui, sans-serif;
+font-size: 18px;
+background-color: #FDF6E3;
+color: #327FDC;
 }
+
+a {
+  color: #5050B3;
+  background-color: #FDF6E3;
+  transition: all .3s;
+  font-weight: bold;
+  
+  }
+  a:hover {
+    color: #93a1a1; }
+  a:active {
+    color: #fdf6e3; }
 
 .assignment {
   background-color: #fff;

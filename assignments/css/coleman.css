@@ -1,28 +1,10 @@
 
-red      #B35050 
-green    #50B350
-blue     #5050B3
-yellow   #B3B350
-cyan     #50B3B3
-magenta  #B350B3
-orange   #DC7F32 
-green2   #32DC7F
-violet   #7F32DC
-magenta2 #DC327F
-blue2    #327FDC
-green3   #7FDC32
-dark gray   #505050
-light gray   #B3B3B3
-tan     #FDF6E3
-tan2	 #FFEDBF
-black	#000000
-
 pre {
 display:inline-block;
-font-family:sans-serif;
+font-family: system-ui, sans-serif;
 font-size: 12px;
-background-color: #fff;	
-color: #000;
+background-color: #FDF6E3;
+color: #327FDC;
 }
 
 .assignment {
