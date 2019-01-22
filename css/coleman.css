@@ -30,6 +30,7 @@ a {
   background-color: #FDF6E3;
   transition: all .3s;
   font-weight: bold;
+  text-decoration: none;
   
   }
   a:hover {
