@@ -1,0 +1,5 @@
+https://linuxconfig.org/set-up-a-python-django-development-environment-on-debian-9-stretch-linux
+
+https://tecadmin.net/install-django-on-debian-9-stretch/
+
+https://medium.com/code-zen/django-mariadb-85cc9daeeef8
