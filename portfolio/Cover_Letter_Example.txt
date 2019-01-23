@@ -1,0 +1,23 @@
+Cover Letter for a Technical Position Example
+
+Your Name
+Your Address
+Your City, State, Zip Code
+Your Phone Number
+Your Email
+
+Contact Name
+Title
+Company Name
+Address
+City, State, Zip Code
+
+Dear Mr./Ms. LastName:
+
+Please accept the attached resume for the position of Technical Business Analyst as recently advertised on Monster.com. I've had the pleasure to review Company Name's website, and to speak with Jane Doe, a colleague at CompanyName, and am very enthusiastic about the position advertised. I believe that my combination of technical skills, consulting experience, and business sensibilities would serve CompanyName well in this position. On a more general level, I believe I bring the broad "soft" skills you can have confidence in with a candidate that will represent Company Name to your customers. I trust you would find me to be well-spoken, energetic, confident, and personable, the type of person on whom your customers will rely. I also have a wide breadth of experience of the type that gives you the versatility to place me in a number of contexts with confidence that the level of excellence you expect will be met. In most situations technical decisions must be made within the context of larger business constraints. Throughout my career I have strived to keep business issues in the forefront, be it as a developer implementing a test framework to capture defects as early as possible, or as the Product Manager for an enterprise system, allocating resources and prioritizing enhancements to meet strategic objectives. Focusing on business imperatives is a core value of mine, one that I bring to every project on which I work.
+
+I greatly appreciate you taking the time to review my credentials and experience. Company Name's blend of business Strategy, Market Analysis, and Information Technology is very exciting. I hope that you'll find my experience, interests, and character intriguing enough to warrant a face-to-face meeting, as I am confident that I could provide value to you and your customers as a member of your team.
+
+Sincerely,
+
+FirstName LastName
