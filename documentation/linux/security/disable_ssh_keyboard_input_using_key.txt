@@ -1,0 +1,30 @@
+
+How to disable ssh password login on Linux to increase security
+https://www.cyberciti.biz/faq/how-to-disable-ssh-password-login-on-linux
+
+----
+- know the root password on the server as well as another user.
+- create a public key on the client
+	ssh-keygen -t rsa
+	use the default file name : id_rsa.pub
+- copy the id_rsa.pub to the host machine
+
+  ssh-copy-id -i $HOME/.ssh/id_rsa.pub username@192.168.1.1
+or 
+  ssh-copy-id username@192.168.1.1
+ 
+-logout
+then log back in without a password username@192.168.1.1
+
+
+# disable root login and password based login
+
+$sudo nano /etc/ssh/sshd_config
+
+sshd_config
+ChallengeResponseAuthentication no
+PasswordAuthentication no
+UsePAM no
+PermitRootLogin no
+#systemctl reload ssh
+
