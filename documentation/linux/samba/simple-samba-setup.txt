@@ -1,0 +1,35 @@
+apt  install samba smbclient
+Use the following if the Desktop Environment of the client is xfce4
+apt install gvfs-backends gvfs-fuse
+
+Add a user:
+(root)
+mkdir /home/users
+useradd -m -d /home/users/zoey zoey -s /bin/bash
+
+Do not give the user zoey a linux password
+
+place this at the end of the smb.conf file
+in /etc/samba/ Directory
+##
+[zoey]
+        comment = zoey
+        path = /home/user/zoey
+        valid users = zoey
+        browseable = Yes
+        read only = No
+        inherit acls = Yes
+# end of 
+the code ends here:
+
+permissions need to be set
+chown user -R /home/user/share
+
+
+[smbsharename]
+	comment = user
+	path = /home/user
+ 	valid users = user
+        browseable = Yes
+        read only = No
+        inherit acls = Yes
