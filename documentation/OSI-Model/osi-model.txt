@@ -1,0 +1,48 @@
+    Physical layer or below : Hubs, Repeaters, Cables, Fibers, Wireless..
+    Data-link layer: Bridges, Modems, Network cards, 2-layer switches.
+    Network layer: Routers, Brouters, 3-layer switches.
+    Transport layer: Gateways, Firewalls.
+    Session layer: Gateways, Firewalls, PC’s.
+    Presentation layer : Gateways, Firewalls, PC’s.
+    Application layer: Gateways,Firewalls, all end devices like PC’s, Phones, Servers..
+
+
+First, you want to communicate with your nighbour system, you need a physical connection.
+
+i.e Cables, coax—-> Physical layer
+
+Even though you are connected physically, you need to address yourself.
+
+i.e MAC —-> Datalink Layer
+
+MAC is a Physical Address for your device through which devices in a network identify yours.
+
+Basically ethernet, wifi, wimax etc…
+
+Now you have a MAC and Physical connection, all you need is a logical address
+
+i.e IP —-> Network Layer
+
+IP of a system is not permanent, when you use DHCP or when your ISP uses DHCP.
+
+It is a temporary address given to your system. You can have a dedicated IP for your system, that costs you.
+
+Now, you have a good setup of network with physical links and address but how do you communicate?
+
+All you need is a protocol which transfers data from your system to another.
+
+i.e TCP, UDP —-> Transport Layer
+
+There should be an intermediate node which manages the setting up and taking down of the association between two communicating end points that is called a connection.
+
+i.e SIP, RTP —-> Session Layer
+
+The data that flows in a network will be in the form of 1’s and 0’s, so there should be a node which translates those 1’s and 0’s to plain text (human readable format) and if necessary compression and decompression. This is done by presentation layer
+
+i.e Jpeg Mpeg —-> Presentation Layer
+
+Finally, What you see in your monitor is the final application and the result of the combination of all these protocols.
+
+This can be done by some specific protocols like…
+
+http, https —-> Application Layer
