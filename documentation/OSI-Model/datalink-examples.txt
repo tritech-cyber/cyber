@@ -1,0 +1,34 @@
+ARP	Address Resolution Protocol
+ARCnet	
+ATM	
+CDP	Cisco Discovery Protocol
+CAN	Controller Area Network
+Econet	
+Ethernet	
+EAPS	Ethernet Automatic Protection Switching
+FDDI	Fiber Distributed Data Interface
+Frame Relay	
+HDLC	High-Level Data Link Control
+IEEE 802.2	provides LLC functions to IEEE 802 MAC layers
+IEEE 802.11	wireless LAN
+I²C	
+LattisNet	
+LAPD	Link Access Procedures, D channel
+LLDP	Link Layer Discovery Protocol
+LocalTalk	
+MIL-STD-1553	
+MPLS	Multiprotocol Label Switching
+NDP	Nortel Discovery Protocol
+SDN	OpenFlow
+PPP	Point-to-Point Protocol
+Profibus	
+SpaceWire	
+SLIP	Serial Line Internet Protocol (obsolete)
+SMLT	Split multi-link trunking
+IEEE 802.1aq	Shortest Path Bridging
+Spanning Tree Protocol	
+StarLan	
+Token ring	
+UDLD	Unidirectional Link Detection
+UNI/O	
+1-Wire
