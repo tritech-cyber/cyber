@@ -91,7 +91,7 @@ GNU lINKS
 <a href = "http://audio-video.gnu.org/video/"> GNU VIDEO </a>
 <a href = "https://www.stallman.org/"> stallman.org </a>
 <hr />
-<a href = "http://index.php"> * * * </a>
+<a href = "https://www.youtube.com/watch?v=qIF5xnkcncI"> Church of Emacs </a>
 <a href = "http://index.php"> * * * </a>
 <a href = "http://index.php"> * * * </a>
 </pre>
