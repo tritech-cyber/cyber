@@ -27,3 +27,5 @@ School Partnerships Manager, AFE
 Edhesive
 
 added key
+added url 
+git remote set-url origin git@github.com:tritech-cyber/cyber.git
