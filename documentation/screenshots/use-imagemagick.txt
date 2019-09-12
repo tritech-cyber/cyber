@@ -1,0 +1,4 @@
+https://imagemagick.org/index.php
+
+sleep 5; import -window root Pictures/fileName.png
+
