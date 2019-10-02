@@ -1,98 +1,133 @@
+<?php
+//session_start();
+//$_SESSION['pagename'] = "resources_index";
+//include 'db/db.php'; include 'db/error.php';
+//include 'db/pushhits.php';
+?>
+
 <html>
 <head>
-<title>security</title>
-
+<title> 42 * </title>
 <style>
-body {margin: 0; padding: 0;
-background-color: #000;
-color:#fdf6e3;
-font-family: system-ui, sans-serif;
-}
-pre{margin: 0; padding: 0;
-font-family: system-ui, sans-serif;
-	color:#71b9cf;font-size:18px;
+html{
+ font-family: system-ui, sans-serif;
 }
 
+body{
+    background-color: #fff;
+    color: #2aa198;
+   font-family: system-ui, sans-serif;
+}
 a{
-font-family: system-ui, sans-serif;
-	color:#fdf6e3;
-	text-decoration:none;
-	font-size:18px;	
+  color: #268bd2;
+  text-decoration: none;
 }
 
 a:hover{
-font-family: system-ui, sans-serif;
-	color:#93a1a1;
-	text-decoration:none;
-	font-size:18px;	
+  color: #2aa198;
 }
 
-#list{
-padding: 20px;
-}
+.location{
+  position:absolute;
+  top:110px;
+  left:10%;
+  font-family: system-ui , sans-serif;
+  background-color: #fff ;
+  color: #2aa198;
+  border: solid 5px;
+  border-style: solid;
+  border-color: #586e75;
+  border-radius: 30px;
+  padding : 10px;
 
-#bottom{
-text-align: left;
-font-size:18px;
-color: #ff0000;
-position:absolute;
-top: 90%;
-left :50px;
-width: 1000px;
-height: 800px;
-z-index:0;	
-	
 }
-
+/*
+base03    #002b36
+base02    #073642
+base01    #586e75
+base00    #657b83
+base0     #839496
+base1     #93a1a1
+base2     #eee8d5
+base3     #fdf6e3
+yellow    #b58900
+orange    #cb4b16
+red       #dc322f
+magenta   #d33682
+violet    #6c71c4
+blue      #268bd2
+cyan      #2aa198
+green     #859900
+*/
 </style>
-
-
 </head>
-
-
+<body>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src = "http://localhost/img/logo.png" height = "100px">
+<div class = "location">
 
 <?php
-	$theList = array("*");
+//error_reporting(0);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+//
 
-    if ($handle = opendir('.')) {
-    while (false !== ($file = readdir($handle)))
-    {
-        if ($file != "." && $file != ".."&& $file != "index.php")
-        {
-            $thelist .= '<li><a href="'.$file.'" target = "_blank">'.$file.'</a></li>';
-        }
+
+//
+$count = 0;
+$filelist = array();
+$filename = array();
+$imgname = array();
+if ($handle = opendir('.')) {
+  while (false !== ($file = readdir($handle))){
+    if ($file != "." &&  $file != "index.php" &&  $file != ".htaccess" ){
+      $imgname[$count] = "file.png";
+      			if (false === strpos((string)$file ,'.'))$imgname[$count] = "folder.png";
+
+      $filelist[$count] = $file;
+      if ($file == ".."){
+        $file = "RETURN TO PARENT FOLDER";
+      }
+        $filename[$count] = $file;
+        $count = $count + 1;
+      }
     }
     closedir($handle);
-    }
+  }
 ?>
-
-<body>
-<header><span style="color:#fff; background-color:#268bd2";>php directory listing</span></header>
-<div id="list">
-Security
-<hr />
-<p>Files:</p>
-<ul>
-<?php echo $thelist?>
-</ul>
-
-<hr />
-</div>
-<footer>
-<center>
 
 <?php
-$colors = array("292a88" ,"425c9f","6981c7","8eb1e1","c2dcff","002b36","073642","586e75","657b83","839496","93a1a1","eee8d5","fdf6e3","b58900","cb4b16","dc322f","d33682","6c71c4","268bd2","2aa198","859900");
-for ($n = 0; $n < 21; $n++){
-	$text = "fff";
-	if ($n == 4 || $n == 11 || $n == 12)$text = "000";
-	echo "&nbsp;&nbsp;<span style=\"color:#$text; background-color:#$colors[$n]\";>&nbsp;&nbsp;$colors[$n]&nbsp;&nbsp;</span>&nbsp;&nbsp;";
-	if ($n % 5 == 0 && $n != 0) echo "<br />";
+//rsort($filelist);
+//rsort($filename);
+// search for ".."
+$parent = -1;
+$urgent = -1;
+for ($i = 0; $i < sizeof($filelist);$i++){
+//  echo " $i ";
+//  echo "   ";
+//  echo " $filelist[$i] ";
+  if ($filelist[$i] == ".."){
+    $parent = $i;
+	}
+	if ($filelist[$i] == "* Urgent Must Read.pdf"){
+		$urgent = $i;
+	  }
+//  echo "<br />";
+
 }
 
+
+for ($i = 0; $i < sizeof($filelist);$i++){
+  if ($i == $parent || $i == $urgent) continue;
+  echo "<img src = 'http://wa-appliedmath.org/img/".$imgname[$i]."'>";
+  echo "<a href = '"."$filelist[$i]"."'>"."$filename[$i]"." </a><br>";
+}
+echo "<br /><a href = '"."$filelist[$parent]"."'>"."<img src = 'http://wa-appliedmath.org/img/back.png'></a>";
+echo "&nbsp;<a href = '"."$filelist[$parent]"."'>"."$filename[$parent]"."</a>";
 ?>
-</center>
-</footer>
+<br /> <br />
+
+</h2>
+</div>
 
 </body>
-</head>
+</html>
