@@ -1,0 +1,12 @@
+Figure 1. The Inspect option
+Or press Command+Option+C (Mac) or Control+Shift+C (Windows, Linux, Chrome OS).
+
+See Get Started With Viewing And Changing CSS.
+
+Open the Console panel to view logged messages or run JavaScript
+Press Command+Option+J (Mac) or Control+Shift+J (Windows, Linux, Chrome OS) to jump straight into the Console panel.
+
+See Get Started With The Console.
+
+Open the last panel you had open
+Press Command+Option+I (Mac) or Control+Shift+I.
