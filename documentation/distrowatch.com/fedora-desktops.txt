@@ -1,0 +1,3 @@
+https://distrowatch.com/table.php?distribution=fedora
+
+Desktop: Awesome, Cinnamon, Deepin, Enlightenment, GNOME, KDE Plasma, LXDE, LXQt, MATE, Openbox, Pantheon, Ratpoison, Xfce
