@@ -1,0 +1,36 @@
+https://superuser.com/questions/149404/to-create-an-ssh-user-who-only-has-permission-to-access-specific-folders
+
+
+
+This is simple. Just create a new user with its home directory set to the one you need him to have access to (this command must be run under sudo or in root shell):
+#
+adduser --home /restricted/directory restricted_user
+
+This will create a user restricted_user, the directory /restricted/directory and then permissions on the directory will be set so the user can write to it. It won't have an ability to write to any other directory by default.
+
+If you have the directory already, you can run adduser command with a --no-create-home option appended and set permissions manually (also with root privileges), like:
+#
+chown restricted_user:restricted_user /restricted/directory
+chmod 755 /restricted/directory
+
+If you need to make even world-writable directories unaccessible for this user, there are two variants.
+
+1) If you want to provide an interactive shell session to the user, then consider following this manual on creating a chroot jail (in your /restricted/directory).
+
+After that, add the following to your sshd_config:
+#
+Match user restricted_user
+  ChrootDirectory /restricted/directory
+
+2) If you only need him to copy files between his endpoint of connection and your host, everything is much easier. Add these lines at the end of your sshd_config:
+#
+Match user restricted_user
+  ForceCommand internal-sftp
+  ChrootDirectory /restricted/directory
+#
+Subsystem       sftp    internal-sftp
+#
+Then comment out the Subsystem   sftp    /usr/lib/openssh/sftp-server by placing a hash (#) sign at the start.
+
+After restarting your SSH server (it does not kill interactive sessions on restart, so it is safe even if you misconfigured something; also, does not close your running session before you have checked that you are still able to log in), everything should work as intended.
+
