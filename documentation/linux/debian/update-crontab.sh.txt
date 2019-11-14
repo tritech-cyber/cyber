@@ -1,0 +1,20 @@
+# https://crontab-generator.org/
+# 10 8 * * * /bin/bash -l /root/update/update.sh >/dev/null 2>&1 
+# systemctl restart cron
+#
+#  Create a data directory : mkdir -p /root/data
+#
+#   Change permissions chmod 755 -R /root/data
+#
+#  Change owner  chown -R username /root/data
+#
+# START OF SCRIPT
+#
+#!/bin/bash
+NOW=$(date +"%Y-%m-%d-%T");
+LOGFILE="update-$NOW.txt";
+echo $LOGFILE;
+
+apt update;
+apt list --upgradable > /root/update/data/$LOGFILE;
+apt upgrade -y;
