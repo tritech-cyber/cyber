@@ -1,15 +1,13 @@
+
 # https://crontab-generator.org/
 # 10 8 * * * /bin/bash -l /root/update/update.sh >/dev/null 2>&1 
 # systemctl restart cron
 #
-#  Create a data directory : mkdir -p /root/data
+#  Create a data directory : mkdir -p /root/update/data
+##
 #
-#   Change permissions chmod 755 -R /root/data
-#
-#  Change owner  chown -R username /root/data
-#
-# START OF SCRIPT
-#
+# START OF SCRIPT save file in /root/update/
+# name of file update.sh
 #!/bin/bash
 NOW=$(date +"%Y-%m-%d-%T");
 LOGFILE="update-$NOW.txt";
