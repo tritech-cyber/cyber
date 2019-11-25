@@ -10,7 +10,7 @@ IndexOptions IgnoreCase FancyIndexing FoldersFirst SuppressHTMLPreamble
 IndexIgnore .htaccess .ftpquota favicon.ico _001.gif _002.gif _003.gif _head.html _foot.html _css.css cgi-bin README.md
 
 # SET DISPLAY ORDER
-IndexOrderDefault Descending Name
+IndexOrderDefault Ascending Name 
 
 # SPECIFY HEADER FILE
 HeaderName _head.html
