@@ -1,4 +1,0 @@
-subscription-manager repos --enable rhel-server-rhscl-7-beta-source-rpms;
-subscription-manager repos --enable rhel-server-rhscl-7-beta-debug-rpms;
-subscription-manager repos --enable  rhel-server-rhscl-7-beta-rpms;
-
