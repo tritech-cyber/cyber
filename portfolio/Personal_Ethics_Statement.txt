@@ -1,0 +1,29 @@
+Personal Ethics Statement
+Save your Personal Ethics Statement in your ksd.org google drive.
+ 
+Write the Computer Science Personal Ethics Statements using the following format:
+
+TOP OF PAGE
+Your Name Personal Ethics Statement
+
+. . . Introduction paragraph . . 
+
+Repect the End User
+
+. . .
+Write how you respect the End User.
+End User are p[eople using computers in your business.
+. . .
+
+
+Respect my Employer
+. . .
+Write how you will follow your Emplyers computer use guidelines.
+What would you do if you found a computer or network vulnerability?
+. . .
+
+Respect Humans 
+. . . 
+Write how you will respect people in gerneral.
+. . .
+BOTTOM 
