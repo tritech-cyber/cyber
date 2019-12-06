@@ -1,0 +1,7 @@
+dd if=nameof.iso of=/dev/sdd
+
+do not do this unless you know what you are doing
+sudo dd if=/dev/sda of=sector2047 bs=512 skip=2046 count=1
+	file     byte size  skip the sector  count is 
+thanks to 
+Kenny (Overlord) Schmidt
