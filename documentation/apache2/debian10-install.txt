@@ -1,0 +1,29 @@
+As a non-root user:
+Create a directory for http and logs as follows:
+$mkdir -p ~/http/logs
+
+As root
+#apt install apache2
+#Set home for document root as follows for testing:
+Create a file called localhost.conf in /etc/apache2/sites-available/
+
+<VirtualHost *:80>
+        #ServerAdmin webmaster@localhost
+        DocumentRoot /home/cwc/http
+        <Directory "/home/cwc/http">
+                Options Indexes FollowSymLinks
+                 IndexOptions FancyIndexing VersionSort NameWidth=*
+                AllowOverride All
+                Require all granted
+        </Directory>
+
+        ErrorLog /home/cwc/http/logs/error.log
+        LogFormat "%h %l %u %t \"%r\" %>s %b" common
+        CustomLog /home/cwc/http/logs/access_log common
+
+</VirtualHost>
+# Cautoin .  Make sure localhost.conf is backed up and in /etc/apache2/sites-available/ 
+# Remove any ln -s in /etc/apache2/sites-enabled/
+rm /etc/apache2/sites-enabled/*
+Then enable localhost.conf as :
+#a2ensite localhost.conf 
