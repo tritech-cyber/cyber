@@ -49,36 +49,42 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
        font-size: 14px;
        padding: 10px 20px;
      }
+     a{ padding: 0px 10px 0px 10px ;
+       font-weight: bold;
+        color:#f5f5f5;
+     }
+     a:hover{
+       color:#ecf0f1;
+     }
+
 </style>
 </head>
 <body>
-<!-- start menu -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Cyber Security</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <!-- start menu -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">* Cyber Security *</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link celeste" href="assignments/" >Assignments</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link celeste" href="documentation/" >Docummentation</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link celeste" href="https://www.ctesers.org/">ctesers.org</a>
-        </li>
-
-
-      </ul>
-    </div>
-  </nav>
-  <!-- end menu -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="assignments/"  >Assignments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="documentation/"  >Assignments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="https://www.ctesers.org/">ctesers.org</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- end menu -->
   <div class="block">
   <span style="color:#E67E22">
 { AM ZOOM - MONDAY & THURSDAY | PM ZOOM - TUESDAY & FRIDAY } { 0900 & 1230 }
@@ -91,9 +97,10 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
      </div>
 
     <div class="col-sm-9 b02-bg">
-      <a href = " https://www.datacamp.com/courses/introduction-to-shell-for-data-science">   <span style="color:#f00; font-size:12pt;">datacamp.com <br /> (shell)</span></a><br />
-      <a href = "https://www.learnshell.org/">   <span style="color:#000; font-size:12pt;">learnshell.org</span></a><br />
-       <a href = "https://trinket.io/python">   <span style="color:#000; font-size:12pt;">trinket.io/python</span></a><br />
+      <a class="flat08-background" href = "https://trinket.io/python"  >trinket.io/python</a><br />
+      <a class="flat09-background" href = " https://www.datacamp.com/courses/introduction-to-shell-for-data-science">datacamp.com(shell)</a><br />
+      <a class="flat0a-background" href = "https://www.learnshell.org/">learnshell.org</a><br />
+        <a class="flat0b-background" href = "https://ryanstutorials.net/linuxtutorial/commandline.php">commandline(ryanstutorial)</a><br />
 
 	  </div>
 
