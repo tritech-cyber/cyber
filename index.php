@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>CyberSecurity</title>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/custom.bootstrap.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+<style>
+body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
+  .showcolor { display: inline-block; padding: 2px 3px 2px 3px ; margin: 1px 1px 1px 1px; }
+     .block { display: inline-block; font-size: 16px; font-weight: bold; padding: 3px 13px 3px 13px ; margin: 3px 3px 3px 3px; }
+      .smallblock { display: inline-block; font-size: 7px; font-weight: bold; margin: 0px 0px 0px 0px;}
+      .flat00-background { background-color: #2c3e50; }
+      .flat01-background { background-color: #34495e; }
+      .flat02-background { background-color: #7f8c8d; }
+      .flat03-background { background-color: #95a5a6; }
+      .flat04-background { background-color: #bdc3c7; }
+      .flat05-background { background-color: #e0e0e0; }
+      .flat06-background { background-color: #f5f5f5; }
+      .flat07-background { background-color: #ecf0f1; }
+      .flat08-background { background-color: #e74c3c; }
+      .flat09-background { background-color: #e67e22; }
+      .flat0a-background { background-color: #f1c40f; }
+      .flat0b-background { background-color: #2ecc71; }
+      .flat0c-background { background-color: #1abc9c; }
+      .flat0d-background { background-color: #3498db; }
+      .flat0e-background { background-color: #9b59b6; }
+      .flat0f-background { background-color: #be643c; }
+      .celeste-background{ background-color: #7ab09f; }
+      .flat00 { color: #2c3e50; }
+      .flat01 { color: #34495e; }
+      .flat02 { color: #7f8c8d; }
+      .flat03 { color: #95a5a6; }
+      .flat04 { color: #bdc3c7; }
+      .flat05 { color: #e0e0e0; }
+      .flat06 { color: #f5f5f5; }
+      .flat07 { color: #ecf0f1; }
+      .flat08 { color: #e74c3c; }
+      .flat09 { color: #e67e22; }
+      .flat0a { color: #f1c40f; }
+      .flat0b { color: #2ecc71; }
+      .flat0c { color: #1abc9c; }
+      .flat0d { color: #3498db; }
+      .flat0e { color: #9b59b6; }
+      .flat0f { color: #be643c; }
+      .celeste{ color: #7ab09f; }
+     pre {
+       font-size: 14px;
+       padding: 10px 20px;
+     }
+</style>
+</head>
+<body>
+<!-- start menu -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Cyber Security</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link celeste" href="assignments/" >Assignments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link celeste" href="documentation/" >Docummentation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link celeste" href="https://www.ctesers.org/">ctesers.org</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </nav>
+  <!-- end menu -->
+  <div class="block">
+  <span style="color:#E67E22">
+{ AM ZOOM - MONDAY & THURSDAY | PM ZOOM - TUESDAY & FRIDAY } { 0900 & 1230 }
+{ WEDNESDAY IS ASYNCHRONOUS VIDEO AND WORK DAY }
+</span>
+</div>
+    <div class="row">
+     <div class="col-sm-2 block">
+       <a href = "https://tritechsc.ksd.org/cyber/assignments/" target = "_blank"> <img src = "img/cyber-logo-assignments.png" height = "155px"> </a>
+     </div>
+
+    <div class="col-sm-9 b02-bg">
+      <a href = " https://www.datacamp.com/courses/introduction-to-shell-for-data-science">   <span style="color:#f00; font-size:12pt;">datacamp.com <br /> (shell)</span></a><br />
+      <a href = "https://www.learnshell.org/">   <span style="color:#000; font-size:12pt;">learnshell.org</span></a><br />
+       <a href = "https://trinket.io/python">   <span style="color:#000; font-size:12pt;">trinket.io/python</span></a><br />
+
+	  </div>
+
+    </div>
+  </div>
+</body>
+</html>
