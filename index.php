@@ -76,7 +76,7 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
             <a class="nav-link " href="assignments/"  >Assignments</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="documentation/"  >Assignments</a>
+            <a class="nav-link " href="documentation/"  >Documentation</a>
           </li>
           <li class="nav-item">
             <a class="nav-link " href="https://www.ctesers.org/">ctesers.org</a>
