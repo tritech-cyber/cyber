@@ -5,42 +5,33 @@ $sudo -i
 #apt install Apache2
 #apt install php
 
+// * Set /var/wwww/html up to add *.html and *.php files.
+Change permisssions.
+$sudo pi:pi -R /var/www/
+Create a symbolic link in /home/pi
+$ ln -s /var/www/ /home/pi/www
+
+// * As a none root users:
+$mkdir /var/www/html/logs
+
+// * Change permissions for /home/pi/www
+$ chown -R /home/pi/www
+
 // * Add localwww.conf to /etc/apache2/sites-available/
 // look at the "wget" command
 // As a sudo -i users/
 # cd /etc/apache2/sites-available/
 wget https://tritechsc.ksd.org/cyber/dopcumentation/rpi/apache2/localwww.conf
+or
+wget https://raw.githubusercontent.com/tritech-cyber/cyber/master/documentation/rpi/apache2/localwww.conf
 // Remove the default config file from /etc/apache2/sites-enabled/
 # cd /etc/apache2/sites-enabled/
 // Remove 000-default.conf
 # rm 000-default.conf
 // Move back to /etc/apache2/sites-available/
-// Add
-
-As a none root users:
-$mkdir /var/www/html/logs
-As a sudo -i user:
-#cd /etc/apache2/
-#ls -l
-#cd sites-enabled
-// Remove the link file 000-default.conf
-#rm 000-default.conf
-// Move back to  /etc/apache2/sites-available/
-#cd /etc/apache2/sites-available/
-#a2ensite localwww.conf
-#systemctl restart apache2
-
-Change permisssions.
-$sudo pi:pi -R /var/www/
-Create a symbolic link:
-# cd /
-20:/# chown pi:pi -R /var/www/
-20:/# echo "create a shortcut or symlink"
-create a shortcut or symlink
-20:/# exit
-logout
-pi@20:~ $ ln -s /var/www/ /home/pi/www
-pi@20:~ $ ln -s /var/www/ /home/pi/www
-
+// Add localwww.con to /etc/apache2/sites-available/
+# a2ensite localwww.conf
+// * Reload apache2
+#systemctl reload apache2
 
 notes:
