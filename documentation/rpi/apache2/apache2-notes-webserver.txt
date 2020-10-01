@@ -2,11 +2,11 @@ Installation on Debian 10
 // * Update your system
 $sudo -i
 #apt update
-#apt install Apache2
+#apt install apache2
 #apt install php
 
 // * Set /var/wwww/html up to add *.html and *.php files.
-Change permisssions.
+Change permissions.
 $sudo pi:pi -R /var/www/
 Create a symbolic link in /home/pi
 $ ln -s /var/www/ /home/pi/www
@@ -19,9 +19,9 @@ $ chown -R /home/pi/www
 
 // * Add localwww.conf to /etc/apache2/sites-available/
 // look at the "wget" command
-// As a sudo -i users/
+// As "sudo -i"
 # cd /etc/apache2/sites-available/
-wget https://tritechsc.ksd.org/cyber/dopcumentation/rpi/apache2/localwww.conf
+wget https://tritechsc.ksd.org/cyber/documentation/rpi/apache2/localwww.conf
 or
 wget https://raw.githubusercontent.com/tritech-cyber/cyber/master/documentation/rpi/apache2/localwww.conf
 // Remove the default config file from /etc/apache2/sites-enabled/
@@ -34,4 +34,4 @@ wget https://raw.githubusercontent.com/tritech-cyber/cyber/master/documentation/
 // * Reload apache2
 #systemctl reload apache2
 
-notes:
+//Type localhost in your web browser or type 127.0.0.1
