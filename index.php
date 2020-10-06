@@ -50,8 +50,9 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
        padding: 10px 20px;
      }
      a{ padding: 0px 10px 0px 10px ;
+       font-size: 20px;
        font-weight: bold;
-        color:#f5f5f5;
+      color:#f5f5f5;
      }
      a:hover{
        color:#ecf0f1;
@@ -96,15 +97,30 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
        <a href = "https://tritechsc.ksd.org/cyber/assignments/" target = "_blank"> <img src = "img/cyber-logo-assignments.png" height = "155px"> </a>
      </div>
 
-    <div class="col-sm-9 b02-bg">
+    <div class="col-sm-2 block">
       <a class="flat08-background" href = "https://trinket.io/python"  >trinket.io/python</a><br />
       <a class="flat09-background" href = " https://www.datacamp.com/courses/introduction-to-shell-for-data-science">datacamp.com(shell)</a><br />
       <a class="flat0a-background" href = "https://www.learnshell.org/">learnshell.org</a><br />
         <a class="flat0b-background" href = "https://ryanstutorials.net/linuxtutorial/commandline.php">commandline(ryanstutorial)</a><br />
-
 	  </div>
+  <div class="col-sm-2 block">
+    <a class="flat0d-background" href = "https://signup.azure.com/studentverification?offerType=3">Microsoft Azure Education</a><br />
+  </div>
+</div><!-- end row -->
 
-    </div>
+  <div class="row">
+    <div class="col-sm-2">
+  		<a href = "https://www.awseducate.com/" target = "_blank"><img src = "img/awsedcuate.png"></a>
+  	</div>
+  	<div class="col-sm-2">
+  		<a href = "https://edhesive.com" target = "_blank"><img src = "img/edhesive.png"></a>
+  	</div>
+    <div class="col-sm-2">
+  		<a href = "https://www.netacad.com/" target = "_blank"><img src = "img/cisco-netacad.png"></a>
+  	</div>
+</div><!-- end row -->
+
+
   </div>
 </body>
 </html>
