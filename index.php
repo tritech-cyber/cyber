@@ -106,6 +106,10 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
   <div class="col-sm-2 block">
     <a class="flat0d-background" href = "https://signup.azure.com/studentverification?offerType=3">Microsoft Azure Education</a><br />
   </div>
+  <div class="col-sm-4">
+    <a class="flat0c-background" href = "https://tritech-cyber.github.io">tritech-cyber.github.io</a><br />
+
+  </div>
 </div><!-- end row -->
 
   <div class="row">
