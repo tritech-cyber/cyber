@@ -120,6 +120,21 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
   	</div>
 </div><!-- end row -->
 
+<div class="row">
+  <div class="col-sm-2">
+    <img src = "img/baracktocat.jpg" height = "200px">
+  </div>
+  <div class="col-sm-2">
+    <img src = "img/mona-lovelace.jpg" height = "200px">
+  </div>
+  <div class="col-sm-2">
+    <img src = "img/femalecodertocat.png" height = "200px">
+  </div>
+  <div class="col-sm-2">
+    <img src = "img/vinyltocat.png" height = "200px">
+  </div>
+</div><!-- end row -->
+
 
   </div>
 </body>
