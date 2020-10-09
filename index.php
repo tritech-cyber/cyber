@@ -103,7 +103,7 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
       <a class="flat0a-background" href = "https://www.learnshell.org/">learnshell.org</a><br />
         <a class="flat0b-background" href = "https://ryanstutorials.net/linuxtutorial/commandline.php">commandline(ryanstutorial)</a><br />
 	  </div>
-  <div class="col-sm-2 block">
+  <div class="col-sm-2">
     <a class="flat0d-background" href = "https://signup.azure.com/studentverification?offerType=3">Microsoft Azure Education</a><br />
   </div>
   <div class="col-sm-4">
