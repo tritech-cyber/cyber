@@ -119,6 +119,19 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
   		<a href = "https://www.netacad.com/" target = "_blank"><img src = "img/cisco-netacad.png"></a>
   	</div>
 </div><!-- end row -->
+<div class="row">
+  <div class="col-sm-2">
+
+  </div>
+  <div class="col-sm-2">
+*
+  </div>
+  <div class="col-sm-2">
+    <hr />
+  <a href = "https:/tritech-cyber.github.io" target = "_blank"><button type="button" class="btn btn-danger">tritech-cyber.github.io</button> </a>
+  <hr />
+  </div>
+</div><!-- end row -->
 
 <div class="row">
   <div class="col-sm-2">
