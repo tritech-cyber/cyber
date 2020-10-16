@@ -122,6 +122,9 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
   	</div>
     <div class="col-sm-2">
   		<a href = "https://www.netacad.com/" target = "_blank"><img src = "img/cisco-netacad.png"></a>
+        <a class="flat08-background" href = "https://www.netacad.com/courses/packet-tracer/introduction-packet-tracer">netacad.com-register&nbsp;&nbsp;<br />&nbsp;&nbsp;packet-trace</a><br />
+
+
   	</div>
 </div><!-- end row -->
 <div class="row">
