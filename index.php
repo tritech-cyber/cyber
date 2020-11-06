@@ -94,7 +94,7 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
 </div>
     <div class="row">
      <div class="col-sm-2 block">
-       <a href = "https://tritechsc.ksd.org/cyber/assignments/" target = "_blank"> <img src = "img/cyber-logo-assignments.png" height = "155px"> </a>
+		 <a href = "https://canvas.instructure.com" target = "_blank"> <img src = "img/cyber-canvas.png" height = "155px"> </a>
      </div>
 
     <div class="col-sm-2 block">
@@ -122,14 +122,12 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
   	</div>
     <div class="col-sm-2">
   		<a href = "https://www.netacad.com/" target = "_blank"><img src = "img/cisco-netacad.png"></a>
-        <a class="flat08-background" href = "https://www.netacad.com/courses/packet-tracer/introduction-packet-tracer">netacad.com-register&nbsp;&nbsp;<br />&nbsp;&nbsp;packet-trace</a><br />
-
-
+        <a class="flat08-background" href = "https://www.netacad.com/courses/packet-tracer/introduction-packet-tracer">netacad.com-register&nbsp;&nbsp;<br />&nbsp;&nbsp;packet-trace</a><br />i
   	</div>
 </div><!-- end row -->
 <div class="row">
   <div class="col-sm-2">
-
+ <a href = "https://tritechsc.ksd.org/cyber/assignments/" target = "_blank"> <img src = "img/cyber-logo-assignments.png" height = "155px"> </a>
   </div>
   <div class="col-sm-2">
 *
