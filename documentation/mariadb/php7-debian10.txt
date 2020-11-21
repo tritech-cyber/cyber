@@ -1,0 +1,2 @@
+# php7 on debian 10
+as a su - or sudo -i user
