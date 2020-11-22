@@ -1,10 +1,22 @@
-#apt install apache2  php php-mysql  libapache2-mod-php
+# Debian 10* php  with a custom configuration file
+
+As a sudo -i or su - user
+# apt install apache2  php php-mysql  libapache2-mod-php
+#  mkdir /var/www/html/logs
+# Change ownership to /var/www to a normal user
+# chown user:user -R /var/www/
+# Remove the apache2 default config file from /etc/apache2/sites-enabled/
+# rm   /etc/apache2/sites-enabled/000-default.conf
+#
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+# Place a files called  "localwww.conf" to  
+# cd /etc/apache2/sites-available/
+#  nano localwww.conf
+#  Once the file is created add it to your sites-enabled as follows:
+#  a2ensite localwww.conf
+# Restart apache2 (systemctl restart apache2 )
 # 
-# Debian 10* php 
-# 
-# Place this file in /etc/apache2/sites-available
-# Make sure to create a logs directory in "mkdir /var/www/html/logs"
-# name file localwww.conf  > then >   a2ensite localwww.conf 
+# Text of localwww.conf
 <VirtualHost *:80>
         #ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html
