@@ -107,8 +107,11 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
           <li class="nav-item">
-            <a class="nav-link " href="course/"  >Course Outlines</a>
+            <a class="nav-link " href="assignments/"  >Assignments</a>
           </li>
           <li class="nav-item">
             <a class="nav-link " href="documentation/"  >Documentation</a>
@@ -121,7 +124,10 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
     </nav>
     <!-- end menu -->
   <div class="block">
-  
+  <span style="color:#E67E22">
+{ AM ZOOM - MONDAY & THURSDAY | PM ZOOM - TUESDAY & FRIDAY } { 0900 & 1230 }
+{ WEDNESDAY IS ASYNCHRONOUS VIDEO AND WORK DAY }
+</span>
 </div>
     <div class="row">
      <div class="col-sm-2 block">
@@ -184,10 +190,8 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
     <img src = "img/vinyltocat.png" height = "200px">
   </div>
 </div><!-- end row -->
+
+
   </div>
-  <span style="color:#E67E22">
-{ }
-</span>
-  
 </body>
 </html>

@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="-6.00025"
-     inkscape:cy="1427.2948"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="299.40316"
+     inkscape:cy="698.94093"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -36,7 +36,15 @@
      inkscape:window-height="989"
      inkscape:window-x="0"
      inkscape:window-y="31"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="49.484953,224.78704"
+       orientation="1,0"
+       id="guide3161"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -45,7 +53,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -374,128 +382,128 @@
        width="172.09256" />
     <path
        id="path1784-74-8-6-7-36-7"
-       d="m 24.376421,187.3869 a 4.1412948,4.7877942 0 0 1 -4.14129,4.7878 4.1412948,4.7877942 0 0 1 -4.14129,-4.7878 4.1412948,4.7877942 0 0 1 4.14129,-4.78779 4.1412948,4.7877942 0 0 1 4.14129,4.78779 z"
-       style="opacity:0.98000004;fill:#3b3228;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 68.927685,102.0836 a 0.68807135,0.68799989 0 0 1 -0.688071,0.688 0.68807135,0.68799989 0 0 1 -0.68807,-0.688 0.68807135,0.68799989 0 0 1 0.68807,-0.688 0.68807135,0.68799989 0 0 1 0.688071,0.688 z"
+       style="opacity:0.98000004;fill:#3b3228;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.03217893;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
-       inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png" />
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
     <path
        id="path1784-74-0-9-9-5-7-4"
-       d="m 93.721481,187.3869 a 4.1412948,4.7877942 0 0 1 -4.14129,4.7878 4.1412948,4.7877942 0 0 1 -4.14129,-4.7878 4.1412948,4.7877942 0 0 1 4.14129,-4.78779 4.1412948,4.7877942 0 0 1 4.14129,4.78779 z"
-       style="opacity:0.98000004;fill:#f5eeeb;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 78.076226,102.0836 a 0.68807135,0.68799989 0 0 1 -0.68807,0.688 0.68807135,0.68799989 0 0 1 -0.68807,-0.688 0.68807135,0.68799989 0 0 1 0.68807,-0.688 0.68807135,0.68799989 0 0 1 0.68807,0.688 z"
+       style="opacity:0.98000004;fill:#f5eeeb;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.03217893;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
-       inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png" />
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
     <path
        id="path1784-74-1-6-3-9-5-9"
-       d="m 83.815051,187.3869 a 4.1412948,4.7877942 0 0 1 -4.14131,4.7878 4.1412948,4.7877942 0 0 1 -4.14129,-4.7878 4.1412948,4.7877942 0 0 1 4.14129,-4.78779 4.1412948,4.7877942 0 0 1 4.14131,4.78779 z"
-       style="opacity:0.98000004;fill:#e9e1dd;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 76.769295,102.0836 a 0.68806968,0.68799989 0 0 1 -0.688072,0.688 0.68806968,0.68799989 0 0 1 -0.688069,-0.688 0.68806968,0.68799989 0 0 1 0.688069,-0.688 0.68806968,0.68799989 0 0 1 0.688072,0.688 z"
+       style="opacity:0.98000004;fill:#e9e1dd;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.03217889;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
-       inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png" />
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
     <path
        id="path1784-74-11-7-0-2-3-9"
-       d="m 73.908601,187.3869 a 4.1412948,4.7877942 0 0 1 -4.14129,4.7878 4.1412948,4.7877942 0 0 1 -4.14129,-4.7878 4.1412948,4.7877942 0 0 1 4.14129,-4.78779 4.1412948,4.7877942 0 0 1 4.14129,4.78779 z"
-       style="opacity:0.98000004;fill:#d0c8c6;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 75.462359,102.0836 a 0.68807135,0.68799989 0 0 1 -0.688071,0.688 0.68807135,0.68799989 0 0 1 -0.68807,-0.688 0.68807135,0.68799989 0 0 1 0.68807,-0.688 0.68807135,0.68799989 0 0 1 0.688071,0.688 z"
+       style="opacity:0.98000004;fill:#d0c8c6;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.03217893;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
-       inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png" />
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
     <path
        id="path1784-74-21-8-9-2-5-4"
-       d="m 64.002161,187.3869 a 4.1412948,4.7877942 0 0 1 -4.1413,4.7878 4.1412948,4.7877942 0 0 1 -4.14129,-4.7878 4.1412948,4.7877942 0 0 1 4.14129,-4.78779 4.1412948,4.7877942 0 0 1 4.1413,4.78779 z"
-       style="opacity:0.98000004;fill:#b8afad;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 74.155417,102.0836 a 0.68807052,0.68799989 0 0 1 -0.688071,0.688 0.68807052,0.68799989 0 0 1 -0.68807,-0.688 0.68807052,0.68799989 0 0 1 0.68807,-0.688 0.68807052,0.68799989 0 0 1 0.688071,0.688 z"
+       style="opacity:0.98000004;fill:#b8afad;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.03217891;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
-       inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png" />
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
     <path
        id="path1784-74-6-5-1-8-6-5"
-       d="m 54.095741,187.3869 a 4.1412948,4.7877942 0 0 1 -4.1413,4.7878 4.1412948,4.7877942 0 0 1 -4.1413,-4.7878 4.1412948,4.7877942 0 0 1 4.1413,-4.78779 4.1412948,4.7877942 0 0 1 4.1413,4.78779 z"
-       style="opacity:0.98000004;fill:#7e705a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 72.848489,102.0836 a 0.68806968,0.68799989 0 0 1 -0.688071,0.688 0.68806968,0.68799989 0 0 1 -0.68807,-0.688 0.68806968,0.68799989 0 0 1 0.68807,-0.688 0.68806968,0.68799989 0 0 1 0.688071,0.688 z"
+       style="opacity:0.98000004;fill:#7e705a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.03217889;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
-       inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png" />
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
     <path
        id="path1784-74-5-4-4-9-2-9"
-       d="m 44.189291,187.3869 a 4.1412948,4.7877942 0 0 1 -4.14129,4.7878 4.1412948,4.7877942 0 0 1 -4.1413,-4.7878 4.1412948,4.7877942 0 0 1 4.1413,-4.78779 4.1412948,4.7877942 0 0 1 4.14129,4.78779 z"
-       style="opacity:0.98000004;fill:#645240;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 71.54155,102.0836 a 0.68807052,0.68799989 0 0 1 -0.68807,0.688 0.68807052,0.68799989 0 0 1 -0.688071,-0.688 0.68807052,0.68799989 0 0 1 0.688071,-0.688 0.68807052,0.68799989 0 0 1 0.68807,0.688 z"
+       style="opacity:0.98000004;fill:#645240;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.03217891;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
-       inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png" />
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
     <path
        id="path1784-74-06-2-7-7-9-3"
-       d="m 34.282861,187.3869 a 4.1412948,4.7877942 0 0 1 -4.1413,4.7878 4.1412948,4.7877942 0 0 1 -4.14129,-4.7878 4.1412948,4.7877942 0 0 1 4.14129,-4.78779 4.1412948,4.7877942 0 0 1 4.1413,4.78779 z"
-       style="opacity:0.98000004;fill:#534636;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 70.234628,102.0836 a 0.68807052,0.68799989 0 0 1 -0.688071,0.688 0.68807052,0.68799989 0 0 1 -0.68807,-0.688 0.68807052,0.68799989 0 0 1 0.68807,-0.688 0.68807052,0.68799989 0 0 1 0.688071,0.688 z"
+       style="opacity:0.98000004;fill:#534636;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.03217891;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
-       inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png" />
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
     <path
        id="path1784-74-8-6-3-1-5"
-       d="m 107.22484,187.3869 a 4.1412948,4.7877942 0 0 1 -4.14131,4.7878 4.1412948,4.7877942 0 0 1 -4.141289,-4.7878 4.1412948,4.7877942 0 0 1 4.141289,-4.78779 4.1412948,4.7877942 0 0 1 4.14131,4.78779 z"
-       style="opacity:0.98000004;fill:#cb6077;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 79.383153,102.08359 a 0.68805957,0.68806024 0 0 1 -0.688062,0.68807 0.68805957,0.68806024 0 0 1 -0.688059,-0.68807 0.68805957,0.68806024 0 0 1 0.688059,-0.68806 0.68805957,0.68806024 0 0 1 0.688062,0.68806 z"
+       style="opacity:0.98000004;fill:#cb6077;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.03218006;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
        inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png" />
     <path
        id="path1784-74-0-9-9-6-2-7"
-       d="m 176.5699,187.3869 a 4.1412948,4.7877942 0 0 1 -4.14129,4.7878 4.1412948,4.7877942 0 0 1 -4.14129,-4.7878 4.1412948,4.7877942 0 0 1 4.14129,-4.78779 4.1412948,4.7877942 0 0 1 4.14129,4.78779 z"
-       style="opacity:0.98000004;fill:#bb9584;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 88.531686,102.08359 a 0.68806115,0.68806024 0 0 1 -0.68806,0.68807 0.68806115,0.68806024 0 0 1 -0.688061,-0.68807 0.68806115,0.68806024 0 0 1 0.688061,-0.68806 0.68806115,0.68806024 0 0 1 0.68806,0.68806 z"
+       style="opacity:0.98000004;fill:#bb9584;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0321801;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
        inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png" />
     <path
        id="path1784-74-1-6-3-1-7-0"
-       d="m 166.66346,187.3869 a 4.1412948,4.7877942 0 0 1 -4.14129,4.7878 4.1412948,4.7877942 0 0 1 -4.14129,-4.7878 4.1412948,4.7877942 0 0 1 4.14129,-4.78779 4.1412948,4.7877942 0 0 1 4.14129,4.78779 z"
-       style="opacity:0.98000004;fill:#a89bb9;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 87.224751,102.08359 a 0.68806115,0.68806024 0 0 1 -0.68806,0.68807 0.68806115,0.68806024 0 0 1 -0.68806,-0.68807 0.68806115,0.68806024 0 0 1 0.68806,-0.68806 0.68806115,0.68806024 0 0 1 0.68806,0.68806 z"
+       style="opacity:0.98000004;fill:#a89bb9;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0321801;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
        inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png" />
     <path
        id="path1784-74-11-7-0-29-0-8"
-       d="m 156.75702,187.3869 a 4.1412948,4.7877942 0 0 1 -4.1413,4.7878 4.1412948,4.7877942 0 0 1 -4.14128,-4.7878 4.1412948,4.7877942 0 0 1 4.14128,-4.78779 4.1412948,4.7877942 0 0 1 4.1413,4.78779 z"
-       style="opacity:0.98000004;fill:#8ab3b5;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 85.917826,102.08359 a 0.68806115,0.68806024 0 0 1 -0.688062,0.68807 0.68806115,0.68806024 0 0 1 -0.688059,-0.68807 0.68806115,0.68806024 0 0 1 0.688059,-0.68806 0.68806115,0.68806024 0 0 1 0.688062,0.68806 z"
+       style="opacity:0.98000004;fill:#8ab3b5;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0321801;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
        inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png" />
     <path
        id="path1784-74-21-8-9-3-9-1"
-       d="m 146.85058,187.3869 a 4.1412948,4.7877942 0 0 1 -4.1413,4.7878 4.1412948,4.7877942 0 0 1 -4.14129,-4.7878 4.1412948,4.7877942 0 0 1 4.14129,-4.78779 4.1412948,4.7877942 0 0 1 4.1413,4.78779 z"
-       style="opacity:0.98000004;fill:#7bbda4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 84.610881,102.08359 a 0.68806032,0.68806024 0 0 1 -0.688062,0.68807 0.68806032,0.68806024 0 0 1 -0.688059,-0.68807 0.68806032,0.68806024 0 0 1 0.688059,-0.68806 0.68806032,0.68806024 0 0 1 0.688062,0.68806 z"
+       style="opacity:0.98000004;fill:#7bbda4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.03218008;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
        inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png" />
     <path
        id="path1784-74-6-5-1-1-3-9"
-       d="m 136.94416,187.3869 a 4.1412948,4.7877942 0 0 1 -4.14129,4.7878 4.1412948,4.7877942 0 0 1 -4.14131,-4.7878 4.1412948,4.7877942 0 0 1 4.14131,-4.78779 4.1412948,4.7877942 0 0 1 4.14129,4.78779 z"
-       style="opacity:0.98000004;fill:#beb55b;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 83.303955,102.08359 a 0.68805948,0.68806024 0 0 1 -0.688059,0.68807 0.68805948,0.68806024 0 0 1 -0.688062,-0.68807 0.68805948,0.68806024 0 0 1 0.688062,-0.68806 0.68805948,0.68806024 0 0 1 0.688059,0.68806 z"
+       style="opacity:0.98000004;fill:#beb55b;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.03218006;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
        inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png" />
     <path
        id="path1784-74-5-4-4-94-6-9"
-       d="m 127.03771,187.3869 a 4.1412948,4.7877942 0 0 1 -4.1413,4.7878 4.1412948,4.7877942 0 0 1 -4.14128,-4.7878 4.1412948,4.7877942 0 0 1 4.14128,-4.78779 4.1412948,4.7877942 0 0 1 4.1413,4.78779 z"
-       style="opacity:0.98000004;fill:#f4bc87;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 81.997015,102.08359 a 0.68806115,0.68806024 0 0 1 -0.688062,0.68807 0.68806115,0.68806024 0 0 1 -0.688059,-0.68807 0.68806115,0.68806024 0 0 1 0.688059,-0.68806 0.68806115,0.68806024 0 0 1 0.688062,0.68806 z"
+       style="opacity:0.98000004;fill:#f4bc87;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0321801;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
        inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png" />
     <path
        id="path1784-74-06-2-7-78-0-7"
-       d="m 117.13127,187.3869 a 4.1412948,4.7877942 0 0 1 -4.14129,4.7878 4.1412948,4.7877942 0 0 1 -4.14129,-4.7878 4.1412948,4.7877942 0 0 1 4.14129,-4.78779 4.1412948,4.7877942 0 0 1 4.14129,4.78779 z"
-       style="opacity:0.98000004;fill:#d28b71;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 80.690088,102.08359 a 0.68806115,0.68806024 0 0 1 -0.68806,0.68807 0.68806115,0.68806024 0 0 1 -0.688061,-0.68807 0.68806115,0.68806024 0 0 1 0.688061,-0.68806 0.68806115,0.68806024 0 0 1 0.68806,0.68806 z"
+       style="opacity:0.98000004;fill:#d28b71;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0321801;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
@@ -558,12 +566,12 @@
            y="168.23398" /></flowRegion><flowPara
          id="flowPara8529" /></flowRoot>    <path
        id="path1784-74-21-8-9-3-9-1-8"
-       d="m 146.63832,199.10416 a 4.1412948,4.7877942 0 0 1 -4.14131,4.7878 4.1412948,4.7877942 0 0 1 -4.14129,-4.7878 4.1412948,4.7877942 0 0 1 4.14129,-4.78779 4.1412948,4.7877942 0 0 1 4.14131,4.78779 z"
-       style="opacity:0.98000004;fill:#71b09f;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 67.620683,102.0836 a 0.68799936,0.68799872 0 0 1 -0.688001,0.688 0.68799936,0.68799872 0 0 1 -0.687999,-0.688 0.68799936,0.68799872 0 0 1 0.687999,-0.688 0.68799936,0.68799872 0 0 1 0.688001,0.688 z"
+       style="opacity:0.98000004;fill:#71b09f;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.03217721;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
-       inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png" />
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
     <path
        id="path1784-74-8-6-3-1-5-1"
        d="m 181.81779,20.554611 a 3.0427045,3.0427078 0 0 1 -3.04271,3.042712 3.0427045,3.0427078 0 0 1 -3.04271,-3.042712 3.0427045,3.0427078 0 0 1 3.04271,-3.042705 3.0427045,3.0427078 0 0 1 3.04271,3.042705 z"
@@ -862,5 +870,182 @@
          id="flowPara9140"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:monospace;-inkscape-font-specification:'monospace Bold';text-align:center;text-anchor:middle;fill:#645240;fill-opacity:0.98039216">tritechsc.ksd.org/</flowPara><flowPara
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:monospace;-inkscape-font-specification:'monospace Bold';text-align:center;text-anchor:middle;fill:#645240;fill-opacity:0.98039216"
-         id="flowPara9162">cyber</flowPara></flowRoot>  </g>
+         id="flowPara9162">cyber</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3111"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#bb9584;fill-opacity:0.98039216;stroke:none;"
+       transform="matrix(0.26458333,0,0,0.26458333,21.669242,9.4901473)"
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><flowRegion
+         id="flowRegion3113"
+         style="fill:#bb9584;fill-opacity:0.98039216;"><rect
+           id="rect3115"
+           width="438"
+           height="184"
+           x="80"
+           y="308.51968"
+           style="fill:#bb9584;fill-opacity:0.98039216;" /></flowRegion><flowPara
+         id="flowPara3119"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#bb9584;fill-opacity:0.98039216;">security</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3111-5"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#71b09f;fill-opacity:0.98039216;stroke:none;"
+       transform="matrix(0.26458333,0,0,0.26458333,8.8782881,1.4372134)"
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><flowRegion
+         id="flowRegion3113-1"
+         style="fill:#71b09f;fill-opacity:0.98039216;"><rect
+           id="rect3115-0"
+           width="438"
+           height="184"
+           x="80"
+           y="308.51968"
+           style="fill:#71b09f;fill-opacity:0.98039216;" /></flowRegion><flowPara
+         id="flowPara3119-7"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#71b09f;fill-opacity:0.98039216;">cyber</flowPara></flowRoot>    <path
+       id="path1784-74-8-6-7-36-7-8"
+       d="m 61.961312,25.235555 a 5.0000059,4.9999993 0 0 1 -5,5.00001 5.0000059,4.9999993 0 0 1 -5,-5.00001 5.0000059,4.9999993 0 0 1 5,-4.99999 5.0000059,4.9999993 0 0 1 5,4.99999 z"
+       style="opacity:0.98000004;fill:#3b3228;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.23384649;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
+    <path
+       id="path1784-74-0-9-9-5-7-4-8"
+       d="m 131.30637,25.235555 a 5.0000059,4.9999993 0 0 1 -5,5.00001 5.0000059,4.9999993 0 0 1 -5,-5.00001 5.0000059,4.9999993 0 0 1 5,-4.99999 5.0000059,4.9999993 0 0 1 5,4.99999 z"
+       style="opacity:0.98000004;fill:#f5eeeb;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.23384649;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
+    <path
+       id="path1784-74-1-6-3-9-5-9-6"
+       d="m 121.39992,25.235555 a 4.9999937,4.9999993 0 0 1 -5.00001,5.00001 4.9999937,4.9999993 0 0 1 -4.99999,-5.00001 4.9999937,4.9999993 0 0 1 4.99999,-4.99999 4.9999937,4.9999993 0 0 1 5.00001,4.99999 z"
+       style="opacity:0.98000004;fill:#e9e1dd;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.2338462;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
+    <path
+       id="path1784-74-11-7-0-2-3-9-0"
+       d="m 111.49349,25.235555 a 5.0000059,4.9999993 0 0 1 -5,5.00001 5.0000059,4.9999993 0 0 1 -5,-5.00001 5.0000059,4.9999993 0 0 1 5,-4.99999 5.0000059,4.9999993 0 0 1 5,4.99999 z"
+       style="opacity:0.98000004;fill:#d0c8c6;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.23384649;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
+    <path
+       id="path1784-74-21-8-9-2-5-4-4"
+       d="m 101.58704,25.235555 a 4.9999998,4.9999993 0 0 1 -5.000003,5.00001 4.9999998,4.9999993 0 0 1 -4.999995,-5.00001 4.9999998,4.9999993 0 0 1 4.999995,-4.99999 4.9999998,4.9999993 0 0 1 5.000003,4.99999 z"
+       style="opacity:0.98000004;fill:#b8afad;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.23384637;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
+    <path
+       id="path1784-74-6-5-1-8-6-5-67"
+       d="m 91.680612,25.235555 a 4.9999937,4.9999993 0 0 1 -5.000001,5.00001 4.9999937,4.9999993 0 0 1 -4.999998,-5.00001 4.9999937,4.9999993 0 0 1 4.999998,-4.99999 4.9999937,4.9999993 0 0 1 5.000001,4.99999 z"
+       style="opacity:0.98000004;fill:#7e705a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.2338462;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
+    <path
+       id="path1784-74-5-4-4-9-2-9-6"
+       d="m 81.774173,25.235555 a 4.9999998,4.9999993 0 0 1 -4.999996,5.00001 4.9999998,4.9999993 0 0 1 -5.000005,-5.00001 4.9999998,4.9999993 0 0 1 5.000005,-4.99999 4.9999998,4.9999993 0 0 1 4.999996,4.99999 z"
+       style="opacity:0.98000004;fill:#645240;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.23384637;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
+    <path
+       id="path1784-74-06-2-7-7-9-3-0"
+       d="m 71.867742,25.235555 a 4.9999998,4.9999993 0 0 1 -5.000006,5.00001 4.9999998,4.9999993 0 0 1 -4.999994,-5.00001 4.9999998,4.9999993 0 0 1 4.999994,-4.99999 4.9999998,4.9999993 0 0 1 5.000006,4.99999 z"
+       style="opacity:0.98000004;fill:#534636;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.23384637;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
+    <g
+       id="g3189-9"
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       transform="translate(24.369779,-43.352989)">
+      <path
+         inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png"
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         inkscape:connector-curvature="0"
+         style="opacity:0.98000004;fill:#cb6077;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.23384622;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 31.683908,78.166358 a 4.9999943,4.9999992 0 0 1 -5.000013,5.000005 4.9999943,4.9999992 0 0 1 -4.999987,-5.000005 4.9999943,4.9999992 0 0 1 4.999987,-4.999995 4.9999943,4.9999992 0 0 1 5.000013,4.999995 z"
+         id="path1784-74-8-6-3-1-5-7" />
+      <path
+         inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png"
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         inkscape:connector-curvature="0"
+         style="opacity:0.98000004;fill:#bb9584;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.23384649;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 101.02899,78.166358 a 5.0000058,4.9999992 0 0 1 -5.000003,5.000005 5.0000058,4.9999992 0 0 1 -5,-5.000005 5.0000058,4.9999992 0 0 1 5,-4.999995 5.0000058,4.9999992 0 0 1 5.000003,4.999995 z"
+         id="path1784-74-0-9-9-6-2-7-5" />
+      <path
+         inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png"
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         inkscape:connector-curvature="0"
+         style="opacity:0.98000004;fill:#a89bb9;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.23384649;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 91.122547,78.166358 a 5.0000058,4.9999992 0 0 1 -5,5.000005 5.0000058,4.9999992 0 0 1 -5,-5.000005 5.0000058,4.9999992 0 0 1 5,-4.999995 5.0000058,4.9999992 0 0 1 5,4.999995 z"
+         id="path1784-74-1-6-3-1-7-0-9" />
+      <path
+         inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png"
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         inkscape:connector-curvature="0"
+         style="opacity:0.98000004;fill:#8ab3b5;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.23384649;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 81.216107,78.166358 a 5.0000058,4.9999992 0 0 1 -5.000012,5.000005 5.0000058,4.9999992 0 0 1 -4.999988,-5.000005 5.0000058,4.9999992 0 0 1 4.999988,-4.999995 5.0000058,4.9999992 0 0 1 5.000012,4.999995 z"
+         id="path1784-74-11-7-0-29-0-8-7" />
+      <path
+         inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png"
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         inkscape:connector-curvature="0"
+         style="opacity:0.98000004;fill:#7bbda4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.23384635;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 71.309657,78.166358 a 4.9999998,4.9999992 0 0 1 -5.000006,5.000005 4.9999998,4.9999992 0 0 1 -4.999994,-5.000005 4.9999998,4.9999992 0 0 1 4.999994,-4.999995 4.9999998,4.9999992 0 0 1 5.000006,4.999995 z"
+         id="path1784-74-21-8-9-3-9-1-85" />
+      <path
+         inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png"
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         inkscape:connector-curvature="0"
+         style="opacity:0.98000004;fill:#beb55b;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.2338462;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 61.403227,78.166358 a 4.9999937,4.9999992 0 0 1 -4.999988,5.000005 4.9999937,4.9999992 0 0 1 -5.000012,-5.000005 4.9999937,4.9999992 0 0 1 5.000012,-4.999995 4.9999937,4.9999992 0 0 1 4.999988,4.999995 z"
+         id="path1784-74-6-5-1-1-3-9-3" />
+      <path
+         inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png"
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         inkscape:connector-curvature="0"
+         style="opacity:0.98000004;fill:#f4bc87;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.23384649;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 51.496797,78.166358 a 5.0000058,4.9999992 0 0 1 -5.000012,5.000005 5.0000058,4.9999992 0 0 1 -4.999988,-5.000005 5.0000058,4.9999992 0 0 1 4.999988,-4.999995 5.0000058,4.9999992 0 0 1 5.000012,4.999995 z"
+         id="path1784-74-5-4-4-94-6-9-3" />
+      <path
+         inkscape:export-filename="/home/cwc/www/assignments/images/bash-basics.png"
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         inkscape:connector-curvature="0"
+         style="opacity:0.98000004;fill:#d28b71;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.23384649;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 41.590357,78.166358 a 5.0000058,4.9999992 0 0 1 -5,5.000005 5.0000058,4.9999992 0 0 1 -5,-5.000005 5.0000058,4.9999992 0 0 1 5,-4.999995 5.0000058,4.9999992 0 0 1 5,4.999995 z"
+         id="path1784-74-06-2-7-78-0-7-8" />
+    </g>
+    <path
+       id="path1784-74-21-8-9-3-9-1-8-3"
+       d="m 140.07802,40.875609 a 4.9999937,4.9999993 0 0 1 -5.00001,5 4.9999937,4.9999993 0 0 1 -4.99999,-5 4.9999937,4.9999993 0 0 1 4.99999,-5 4.9999937,4.9999993 0 0 1 5.00001,5 z"
+       style="opacity:0.98000004;fill:#71b09f;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.2338462;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="/home/cwc/www/logo-cyber.png" />
+  </g>
 </svg>
