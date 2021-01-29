@@ -132,9 +132,9 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
       <a class="flat08-background" href = "https://trinket.io/python"  >trinket.io/python</a><br />
       <a class="flat09-background" href = " https://www.datacamp.com/courses/introduction-to-shell-for-data-science">datacamp.com(shell)</a><br />
       <a class="flat0a-background" href = "https://www.learnshell.org">learnshell.org</a><br />
-        <a class="flat0a-background" href = "https://www.learn-c.org/">learn-c.org/</a><br /
+        <a class="flat0a-background" href = "https://www.learn-c.org">learn-c.org</a><br /
       <a class="flat0b-background" href = "https://www.khanacademy.org"  >khanacademy.org</a><br />
-      <a class="flat0c-background" href = "https://ryanstutorials.net/linuxtutorial/commandline.php">commandline(ryanstutorial)</a><br />
+
 	  </div>
   <div class="col-sm-2">
     <a class="flat0d-background" href = "https://signup.azure.com/studentverification?offerType=3">Microsoft Azure Education</a><br />
@@ -189,6 +189,6 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
   <span style="color:#E67E22">
 { }
 </span>
-  
+        <a class="flat0c-background" href = "https://ryanstutorials.net/linuxtutorial/commandline.php">commandline(ryanstutorial)</a><br />
 </body>
 </html>
