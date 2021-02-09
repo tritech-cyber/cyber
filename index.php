@@ -108,10 +108,13 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link " href="course/"  >Course Outlines</a>
+            <a class="nav-link " href="course/">Course Outlines</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="documentation/"  >Documentation</a>
+            <a class="nav-link " href="documentation/">Documentation</a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link " href="portfolio/">Portfolio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link " href="https://www.ctesers.org/">ctesers.org</a>
