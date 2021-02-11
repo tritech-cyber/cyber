@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -15,7 +13,7 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
    sodipodi:docname="cyber-canvas.svg">
   <defs
      id="defs2" />
@@ -28,15 +26,16 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1"
      inkscape:cx="635.60144"
-     inkscape:cy="1417.4565"
+     inkscape:cy="-262.5435"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="989"
+     inkscape:window-height="983"
      inkscape:window-x="0"
-     inkscape:window-y="31"
-     inkscape:window-maximized="1" />
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:document-rotation="0" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -336,7 +335,8 @@
            x="-684.28571"
            y="396.80539" /></flowRegion><flowPara
          id="flowPara8394"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Karla;-inkscape-font-specification:Karla">tritechsc.ksd.org</flowPara></flowRoot>    <image
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Karla;-inkscape-font-specification:Karla">tritechsc.ksd.org</flowPara></flowRoot>
+    <image
        y="205.37859"
        x="10.715628"
        id="image8404"
@@ -518,17 +518,19 @@
          id="flowPara8690">0D #8ab3b5</flowPara><flowPara
          id="flowPara8696">0E #a89bb9</flowPara><flowPara
          id="flowPara8700">0F #bb9584</flowPara><flowPara
-         id="flowPara8694" /></flowRoot>    <flowRoot
+         id="flowPara8694" /></flowRoot>
+    <flowRoot
        xml:space="preserve"
        id="flowRoot8523"
-       style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"><flowRegion
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
          id="flowRegion8525"><rect
            id="rect8527"
            width="564.28571"
            height="661.42859"
            x="782.85712"
            y="168.23398" /></flowRegion><flowPara
-         id="flowPara8529" /></flowRoot>    <path
+         id="flowPara8529" /></flowRoot>
+    <path
        id="path1784-74-21-8-9-3-9-1-8"
        d="m 146.63832,199.10416 a 4.1412948,4.7877942 0 0 1 -4.14131,4.7878 4.1412948,4.7877942 0 0 1 -4.14129,-4.7878 4.1412948,4.7877942 0 0 1 4.14129,-4.78779 4.1412948,4.7877942 0 0 1 4.14131,4.78779 z"
        style="opacity:0.98000004;fill:#71b09f;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20825548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -818,27 +820,28 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot9134"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#645240;fill-opacity:0.98039216;stroke:none"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#cb6077;fill-opacity:0.98039216;stroke:none;"
        transform="matrix(0.26458333,0,0,0.26458333,-19.571447,-4.9085498)"
        inkscape:export-filename="/home/cwc/www/assignments/img/tritechsc.ksd.org.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"><flowRegion
          id="flowRegion9136"
-         style="fill:#645240;fill-opacity:0.98039216"><rect
+         style="fill:#cb6077;fill-opacity:0.98039216;"><rect
            id="rect9138"
            width="976"
            height="556"
            x="-147"
            y="-487.48032"
-           style="fill:#645240;fill-opacity:0.98039216" /></flowRegion><flowPara
+           style="fill:#cb6077;fill-opacity:0.98039216;" /></flowRegion><flowPara
          id="flowPara9140"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:64px;font-family:monospace;-inkscape-font-specification:'monospace Bold';text-align:center;text-anchor:middle;fill:#645240;fill-opacity:0.98039216">tritechsc</flowPara><flowPara
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:64px;font-family:monospace;-inkscape-font-specification:'monospace Bold';text-align:center;text-anchor:middle;fill:#645240;fill-opacity:0.98039216"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:64px;font-family:monospace;-inkscape-font-specification:'monospace Bold';text-align:center;text-anchor:middle;fill:#cb6077;fill-opacity:0.98039216;">tritechsc</flowPara><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:64px;font-family:monospace;-inkscape-font-specification:'monospace Bold';text-align:center;text-anchor:middle;fill:#cb6077;fill-opacity:0.98039216;"
          id="flowPara971">.ksd</flowPara><flowPara
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:64px;font-family:monospace;-inkscape-font-specification:'monospace Bold';text-align:center;text-anchor:middle;fill:#645240;fill-opacity:0.98039216"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:64px;font-family:monospace;-inkscape-font-specification:'monospace Bold';text-align:center;text-anchor:middle;fill:#cb6077;fill-opacity:0.98039216;"
          id="flowPara979">.org</flowPara><flowPara
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:64px;font-family:monospace;-inkscape-font-specification:'monospace Bold';text-align:center;text-anchor:middle;fill:#645240;fill-opacity:0.98039216"
-         id="flowPara9162">/cyber</flowPara></flowRoot>    <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:64px;font-family:monospace;-inkscape-font-specification:'monospace Bold';text-align:center;text-anchor:middle;fill:#cb6077;fill-opacity:0.98039216;"
+         id="flowPara9162">/cyber</flowPara></flowRoot>
+    <path
        style="fill:#645240;fill-opacity:0.98039216;stroke-width:0.16342902"
        d="m -134.5163,-65.629653 c -1.3391,-0.21716 -2.86833,-1.02498 -3.44356,-1.81905 -0.95699,-1.32109 -0.96902,-1.45964 -0.96902,-11.15302 0,-7.41441 0.04,-8.98215 0.24676,-9.67849 0.32318,-1.08828 1.44499,-2.34083 2.50481,-2.79676 1.79915,-0.77397 4.80732,-0.85662 6.81848,-0.18736 1.28916,0.42902 2.22074,1.23168 2.79738,2.41031 0.41937,0.85716 0.46214,1.11951 0.5188,3.18265 l 0.0618,2.24849 -2.10226,-3.1e-4 -2.10227,-3.1e-4 -0.0146,-1.60525 c -0.0178,-1.95041 -0.27053,-2.50672 -1.32112,-2.90794 -1.53431,-0.58596 -3.02567,0.14524 -3.23557,1.58637 -0.0578,0.39663 -0.0824,4.1409 -0.0548,8.32059 l 0.0502,7.59946 0.37594,0.52705 c 0.82841,1.16142 3.14239,1.0747 3.86275,-0.14477 0.2278,-0.38563 0.29383,-0.89951 0.31301,-2.43626 l 0.0243,-1.94753 2.10084,-0.001 2.10085,-0.001 -0.0656,2.57401 c -0.0568,2.23175 -0.11479,2.68499 -0.4358,3.4087 -0.45278,1.02077 -1.32641,1.89916 -2.32881,2.34148 -1.3472,0.59446 -3.75059,0.79695 -5.70239,0.48043 z m 95.962514,0.001 c -2.06396,-0.3433 -3.54248,-1.48265 -4.02275,-3.09989 -0.16941,-0.57045 -0.25609,-1.5161 -0.25609,-2.79381 v -1.93149 l 2.00201,1.7e-4 2.002,1.6e-4 0.0275,1.46376 c 0.0203,1.07407 0.10533,1.59541 0.31968,1.95827 0.78486,1.32866 3.09702,1.30856 3.90909,-0.034 0.26918,-0.44501 0.31883,-0.82544 0.31429,-2.40794 -0.008,-2.71837 0.004,-2.70362 -3.59005,-4.74364 -3.38344,-1.92069 -4.35838,-2.79899 -4.82083,-4.34286 -0.12548,-0.41892 -0.17226,-1.6737 -0.13648,-3.66082 l 0.0544,-3.02344 0.50403,-0.89885 c 0.86467,-1.54197 2.45912,-2.36159 4.98206,-2.56098 3.14708,-0.24873 5.63169,0.86534 6.53463,2.93006 0.29893,0.68354 0.3895,1.24466 0.44826,2.77693 l 0.0736,1.92028 h -2.06301 -2.06301 v -1.24187 c 0,-2.02165 -0.65916,-2.84385 -2.27996,-2.84385 -1.60707,0 -2.1919,0.81547 -2.17883,3.03813 0.0159,2.6986 0.0147,2.69712 3.7115,4.80646 4.59353,2.62103 5.1079,3.47836 4.95616,8.26101 -0.0925,2.91525 -0.34379,3.87438 -1.28183,4.89204 -0.35559,0.38576 -1.00651,0.85626 -1.44649,1.04553 -1.40544,0.6046 -3.78417,0.80937 -5.70002,0.49066 z m -81.903704,-0.34831 c 0.002,-0.11235 1.05653,-5.86709 2.34306,-12.78831 l 2.33915,-12.58404 2.6374,-0.0449 c 2.62617,-0.0447 2.63776,-0.0433 2.72291,0.32686 0.047,0.20446 1.04387,5.48299 2.21518,11.73007 1.17131,6.24707 2.22824,11.85473 2.34874,12.46146 l 0.21908,1.10314 h -2.10327 c -1.15681,0 -2.10845,-0.0184 -2.11476,-0.0408 -0.006,-0.0225 -0.21224,-1.29108 -0.4576,-2.81915 l -0.44611,-2.77828 h -2.43834 -2.43835 l -0.36232,2.28799 c -0.19928,1.25842 -0.40708,2.52702 -0.46177,2.81916 l -0.0994,0.53114 h -1.95374 c -1.45613,0 -1.95274,-0.052 -1.94982,-0.20428 z m 9.08296,-9.39716 c -0.0501,-0.24719 -0.42592,-2.61895 -0.83512,-5.27059 -0.83663,-5.42138 -0.89882,-5.77312 -1.00239,-5.66955 -0.0406,0.0406 -0.43653,2.38086 -0.87983,5.20056 -0.44328,2.8197 -0.84766,5.36574 -0.89859,5.65786 l -0.0926,0.53115 h 1.89983 1.89982 z m 11.668609,-3.22773 v -12.82925 h 2.103468 2.10347 l 2.65538,7.8446 c 1.46046,4.31452 2.72019,7.84459 2.7994,7.84459 0.0811,0 0.14402,-3.42868 0.14402,-7.84459 v -7.8446 h 1.87944 1.87942 v 12.82919 12.82917 l -2.002,-6.2e-4 -2.00201,-6.2e-4 -2.7624,-8.21161 c -1.51933,-4.51646 -2.82472,-8.28155 -2.90087,-8.36695 -0.0762,-0.0854 -0.13846,3.61015 -0.13846,8.21232 v 8.36756 h -1.87943 -1.879428 z m 24.272448,12.62489 c -0.0375,-0.11235 -0.18701,-0.86616 -0.33219,-1.67514 -0.40685,-2.26696 -4.31256,-22.99546 -4.4112,-23.41121 -0.0871,-0.36697 -0.0829,-0.36771 2.04046,-0.36771 1.17023,0 2.12769,0.0275 2.12769,0.0612 0,0.13706 2.79002,18.03287 2.87781,18.45889 0.0522,0.25361 0.12915,0.42698 0.17086,0.38527 0.0568,-0.0568 2.9982,-18.54854 2.9982,-18.84855 0,-0.0312 0.88252,-0.0568 1.96115,-0.0568 1.46053,0 1.96088,0.0521 1.96009,0.20428 -6.1e-4,0.11236 -0.6577,3.69759 -1.46028,7.96717 -0.80258,4.26958 -1.79698,9.56468 -2.20978,11.76689 -0.4128,2.20221 -0.82726,4.39011 -0.92102,4.86201 l -0.17048,0.858 h -2.28155 c -1.6799,0 -2.29953,-0.0539 -2.34976,-0.20429 z m 12.66251,0.0971 c 0,-0.0589 0.36469,-2.06299 0.81042,-4.45344 0.44573,-2.39044 1.47579,-7.94986 2.28902,-12.35427 0.81323,-4.40441 1.51632,-8.1735 1.56241,-8.37574 0.0826,-0.36241 0.12128,-0.36771 2.68455,-0.36771 2.3357,0 2.60937,0.0292 2.68541,0.286 0.0466,0.1573 0.97433,5.02952 2.0617,10.82717 1.08736,5.79764 2.14564,11.42369 2.35172,12.50232 l 0.3747,1.96115 -2.039,0.0459 c -1.12145,0.0253 -2.06964,0.0153 -2.10708,-0.0222 -0.0374,-0.0374 -0.26633,-1.32672 -0.50861,-2.86505 l -0.44054,-2.79697 h -2.3999 c -2.1452,0 -2.40867,0.0303 -2.48252,0.286 -0.0455,0.15729 -0.23526,1.27883 -0.42182,2.49228 -0.18656,1.21347 -0.37637,2.37177 -0.4218,2.57401 -0.08,0.35628 -0.1435,0.36771 -2.04063,0.36771 -1.07691,0 -1.95803,-0.0482 -1.95803,-0.10718 z m 9.15202,-9.1484 c 0,-0.17089 -1.6352,-10.56925 -1.72793,-10.98797 -0.0471,-0.21285 -0.12123,-0.35147 -0.16466,-0.30803 -0.0434,0.0434 -0.44527,2.42387 -0.89296,5.28987 -0.44769,2.86599 -0.85568,5.41314 -0.90664,5.66033 l -0.0926,0.44943 h 1.89242 c 1.04082,0 1.89241,-0.0466 1.89241,-0.10363 z"
        id="path848-3"
@@ -850,13 +853,13 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot2037"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#3496d9;fill-opacity:0.98039216;stroke:none"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#3496d9;fill-opacity:0.980392;stroke:none"
        transform="matrix(0.26458333,0,0,0.26458333,2.9860133,-354.46623)"
        inkscape:export-filename="/home/cwc/www/cyber/img/cyber-canvas.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"><flowRegion
          id="flowRegion2039"
-         style="text-align:center;text-anchor:middle;fill:#3496d9;fill-opacity:0.98039216"><rect
+         style="text-align:center;text-anchor:middle;fill:#3496d9;fill-opacity:0.980392"><rect
            id="rect2041"
            width="931.42859"
            height="244.28574"
@@ -864,9 +867,10 @@
            y="831.09113"
            style="text-align:center;text-anchor:middle;fill:#3496d9;fill-opacity:0.98039216" /></flowRegion><flowPara
          id="flowPara2043"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:96px;line-height:0.75;font-family:Karla;-inkscape-font-specification:Karla;text-align:center;text-anchor:middle;fill:#3496d9;fill-opacity:0.98039216">CYBER</flowPara><flowPara
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:96px;line-height:0.75;font-family:Karla;-inkscape-font-specification:Karla;text-align:center;text-anchor:middle;fill:#3496d9;fill-opacity:0.98039216"
-         id="flowPara2045">SECURITY</flowPara></flowRoot>    <path
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:96px;line-height:0.75;font-family:Karla;-inkscape-font-specification:Karla;text-align:center;text-anchor:middle;fill:#3496d9;fill-opacity:0.980392">CYBER</flowPara><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:96px;line-height:0.75;font-family:Karla;-inkscape-font-specification:Karla;text-align:center;text-anchor:middle;fill:#3496d9;fill-opacity:0.980392"
+         id="flowPara2045">SECURITY</flowPara></flowRoot>
+    <path
        style="fill:#cb6077;fill-opacity:1;stroke-width:0.09219684"
        d="m -39.138765,45.083223 c 1.210966,-0.161081 3.725714,-0.644859 4.108114,-0.790292 0.287972,-0.109538 0.298519,-0.517406 0.03772,-1.458939 -0.550394,-1.986905 -1.834785,-3.748217 -3.545065,-4.86132 -1.390449,-0.904986 -2.675435,-1.317884 -4.334031,-1.39266 -2.389918,-0.107792 -4.462552,0.673515 -6.23184,2.349002 -1.211336,1.147128 -2.031031,2.531221 -2.421533,4.088929 -0.218791,0.872707 -0.200551,1.170363 0.07834,1.276408 0.662853,0.252095 3.97234,0.802537 5.763636,0.958599 1.040153,0.09056 5.446577,-0.02363 6.544757,-0.169727 z m 10.792508,-3.761637 c 2.721565,-1.699271 5.570738,-4.197922 7.755083,-6.800998 1.200435,-1.43056 3.114659,-4.223515 3.114659,-4.544465 0,-0.270256 -1.357143,-1.074074 -2.460014,-1.457008 -1.765562,-0.613045 -3.905621,-0.616524 -5.653881,-0.0093 -2.256904,0.784005 -4.147262,2.567956 -5.069544,4.784188 -0.924131,2.220711 -0.832895,4.919347 0.23948,7.082078 0.358653,0.723313 0.913132,1.521529 1.056949,1.521529 0.05203,0 0.509791,-0.259255 1.017268,-0.576117 z m -28.298511,0.09196 c 1.10054,-1.508828 1.679316,-3.791119 1.460116,-5.757733 -0.466777,-4.187467 -3.706841,-7.298417 -7.961024,-7.643717 -1.004268,-0.08148 -2.197078,0.08509 -3.302508,0.461111 -0.884909,0.301069 -2.350661,1.09519 -2.43932,1.321596 -0.0916,0.234019 0.0851,0.586886 0.92057,1.839 2.134679,3.198799 4.683749,5.884196 7.802901,8.220242 1.37296,1.028268 2.823366,1.9514 3.065984,1.9514 0.0921,0 0.29605,-0.176351 0.453281,-0.391899 z m -13.292868,-17.03966 c 2.622632,-0.727033 4.730692,-2.552894 5.735691,-4.967867 0.909629,-2.185856 0.82718,-4.989214 -0.20719,-7.044066 -1.08997,-2.165308 -2.91569,-3.719748 -5.19507,-4.423148 -0.96284,-0.297138 -1.379051,-0.356719 -1.552419,-0.222269 -0.28526,0.221261 -0.882459,3.54615 -1.070322,5.959137 -0.258148,3.315808 0.111522,7.698264 0.87757,10.401723 0.129281,0.456242 0.154382,0.484111 0.436042,0.484111 0.164369,0 0.60344,-0.08439 0.975698,-0.187621 z m 54.856888,-0.04051 c 0.14786,-0.389041 0.62447,-2.890647 0.799825,-4.198096 0.207105,-1.544127 0.237077,-6.13124 0.05,-7.653753 -0.288729,-2.349899 -0.78168,-4.66041 -1.021728,-4.788929 -0.09957,-0.0533 -0.374817,-0.0378 -0.752576,0.0424 -3.163305,0.671759 -5.544333,2.897849 -6.507059,6.083602 -0.226724,0.750274 -0.250719,0.967113 -0.249939,2.259245 7.94e-4,1.178497 0.03605,1.558767 0.201457,2.16702 0.247512,0.910296 0.812969,2.10993 1.344327,2.852034 0.462653,0.646144 1.469136,1.635863 2.10286,2.067837 1.002893,0.683615 2.820763,1.377834 3.644249,1.391685 0.238747,0.0035 0.319998,-0.0426 0.388575,-0.223076 z M -61.505825,3.963319 c 3.609059,-1.020271 6.054664,-3.97627 6.379956,-7.711431 0.08183,-0.93965 -0.09406,-2.25876 -0.44024,-3.30343 -0.38253,-1.15403 -1.244338,-2.59825 -1.550448,-2.59825 -0.10546,0 -2.573277,1.64767 -3.302206,2.20467 -2.062031,1.5757 -4.172741,3.63677 -5.803572,5.66707 -1.107491,1.37877 -2.690519,3.739819 -2.690519,4.012861 0,0.411988 1.68947,1.33541 3.147049,1.72013 0.77809,0.20537 1.003012,0.224438 2.291562,0.194318 0.958688,-0.02241 1.606328,-0.0836 1.968418,-0.185938 z m 40.849111,-0.0333 c 1.27672,-0.35556 2.850758,-1.163039 3.116318,-1.598671 0.06672,-0.109418 -0.05596,-0.376708 -0.499978,-1.089429 -2.033611,-3.26415 -4.920819,-6.3923 -8.16216,-8.84333 -0.974768,-0.7371 -2.979563,-2.04834 -3.131749,-2.04834 -0.350062,0 -1.251858,1.57928 -1.658657,2.90474 -0.235635,0.76777 -0.254714,0.94729 -0.254714,2.39755 0,1.44271 0.0199,1.63228 0.249465,2.3788 0.945528,3.074531 3.342023,5.304741 6.423834,5.9781 1.032299,0.22556 2.963122,0.18642 3.917641,-0.0794 z m -20.922827,-8.31332 c 3.200778,-0.66087 5.72589,-3.0035 6.58658,-6.11057 0.102552,-0.37056 0.186632,-0.83122 0.186632,-1.02368 0,-0.43313 -0.02305,-0.44326 -1.834936,-0.80412 -2.574338,-0.51273 -3.488357,-0.59515 -6.599515,-0.59515 -3.1265,0 -4.057116,0.0847 -6.62001,0.60267 -1.779762,0.35968 -1.814439,0.37386 -1.814439,0.74275 0,0.80055 0.57486,2.3714 1.249797,3.41511 1.91308,2.95841 5.461301,4.47181 8.845891,3.77299 z"
        id="path2746-3"
@@ -950,13 +954,13 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot2037-0"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#3496d9;fill-opacity:0.98039216;stroke:none"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#3496d9;fill-opacity:0.980392;stroke:none"
        transform="matrix(0.26458333,0,0,0.26458333,158.76415,-212.44873)"
        inkscape:export-filename="/home/cwc/www/cyber/img/cyber-canvas.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"><flowRegion
          id="flowRegion2039-9"
-         style="text-align:center;text-anchor:middle;fill:#3496d9;fill-opacity:0.98039216"><rect
+         style="text-align:center;text-anchor:middle;fill:#3496d9;fill-opacity:0.980392"><rect
            id="rect2041-3"
            width="931.42859"
            height="244.28574"
@@ -964,39 +968,20 @@
            y="831.09113"
            style="text-align:center;text-anchor:middle;fill:#3496d9;fill-opacity:0.98039216" /></flowRegion><flowPara
          id="flowPara2043-6"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:96px;line-height:0.75;font-family:Karla;-inkscape-font-specification:Karla;text-align:center;text-anchor:middle;fill:#3496d9;fill-opacity:0.98039216">CYBER</flowPara><flowPara
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:96px;line-height:0.75;font-family:Karla;-inkscape-font-specification:Karla;text-align:center;text-anchor:middle;fill:#3496d9;fill-opacity:0.98039216"
-         id="flowPara2045-0">SECURITY</flowPara></flowRoot>    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="102.12917"
-       y="-98.022919"
-       id="text967"><tspan
-         sodipodi:role="line"
-         id="tspan965"
-         x="102.12917"
-         y="-88.659149"
-         style="stroke-width:0.26458332"></tspan><tspan
-         sodipodi:role="line"
-         x="102.12917"
-         y="-75.429985"
-         style="stroke-width:0.26458332"
-         id="tspan969" /></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:96px;line-height:0.75;font-family:Karla;-inkscape-font-specification:Karla;text-align:center;text-anchor:middle;fill:#3496d9;fill-opacity:0.980392">CYBER</flowPara><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:96px;line-height:0.75;font-family:Karla;-inkscape-font-specification:Karla;text-align:center;text-anchor:middle;fill:#3496d9;fill-opacity:0.980392"
+         id="flowPara2045-0">SECURITY</flowPara></flowRoot>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="102.12917"
+       y="-98.022919"
+       id="text967" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        x="162.45416"
        y="-107.28333"
-       id="text975"><tspan
-         sodipodi:role="line"
-         id="tspan973"
-         x="162.45416"
-         y="-97.919563"
-         style="stroke-width:0.26458332"></tspan><tspan
-         sodipodi:role="line"
-         x="162.45416"
-         y="-84.690399"
-         style="stroke-width:0.26458332"
-         id="tspan977" /></text>
+       id="text975" />
   </g>
 </svg>
