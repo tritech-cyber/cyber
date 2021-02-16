@@ -162,10 +162,10 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
 </div><!-- end row -->
 <div class="row">
   <div class="col-sm-2">
- <a href = "https://tritechsc.ksd.org/cyber/subnet-calculator/" target = "_blank"> <img src = "img/ipv4.png" height = "155px"> </a>
+ <a href = "network-calculator/" target = "_blank"> <img src = "img/ipv4.png" height = "155px"> </a>
   </div>
   <div class="col-sm-2">
-*
+<h1> &nbsp;</h1>
   </div>
   <div class="col-sm-2">
     <hr />
