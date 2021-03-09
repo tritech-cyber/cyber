@@ -1,0 +1,49 @@
+download the *.deb package from oracle
+https://www.oracle.com/java/technologies/javase-jdk15-downloads.html
+$sudo dpkg -i jdk*.deb
+
+As non-root user.
+
+* * * * * * * * * * * * * * * * * *
+copy and paste the following in terminal :
+this needs to be tested for oracle 15
+cat <<EOF | sudo tee /etc/profile.d/jdk15.sh
+export JAVA_HOME=/usr/lib/jvm/jdk-15
+export PATH=\$PATH:\$JAVA_HOME/bin
+EOF
+* * * * * * * * * * * * * * * * * *
+copy and paste the following in terminal :
+
+source /etc/profile.d/jdk15.sh
+* * * * * * * * * * * * * * * * * *
+* copy and paste in terminal  * * * * * * * * *
+sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-15.0.2/bin/java 1;
+sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-15.0.2/bin/javac 1;
+sudo update-alternatives --config java
+sudo update-alternatives --list java
+
+
+
+
+sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-13/bin/java 1;
+sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-13/bin/javac 1;
+sudo update-alternatives --config java;
+
+* * * * * * * * * * * * * * * * * *
+Check to see the java version:
+$ java -version
+* * * * * * * * * * * * * * * * * *
+
+Compile and run this code:
+
+// save file as "HelloWorld.java"
+// compile javac "HelloWorld.java"
+// run "java HelloWorld"
+class HelloWorld{
+	public static void main (String a[]){
+		System.out.println("Hello World");
+	}
+}
+
+
+
