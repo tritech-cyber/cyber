@@ -140,7 +140,7 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
 
 	  </div>
   <div class="col-sm-2">
-    <a class="flat0d-background" href = "https://signup.azure.com/studentverification?offerType=3">Microsoft Azure Education</a><br />
+    <a class="flat0d-background" href = "https://signup.azure.com/studentverification?offerType=3">Microsoft Azure Ed</a><br />
   </div>
   <div class="col-sm-4">
     <a class="flat0c-background" href = "https://tritech-cyber.github.io">tritech-cyber.github.io</a><br />
@@ -162,17 +162,22 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
 </div><!-- end row -->
 <div class="row">
   <div class="col-sm-2">
- <a href = "network-calculator/" target = "_blank"> <img src = "img/ipv4.png" height = "155px"> </a>
+ <a href = "network-calculator/" target = "_blank"> <img src = "img/ipv4.png" height = "70px"> </a>
   </div>
   <div class="col-sm-2">
-<h1> &nbsp;</h1>
+ <img src = "img/Firefox_logo,_2019.svg" height = "70px"><a class="flat08-background"  href = "https://www.mozilla.org/en-US/firefox/all/#product-desktop-developer" target = "_blank">firefox</a>
   </div>
   <div class="col-sm-2">
-    <hr />
-  <a href = "https:/tritech-cyber.github.io" target = "_blank"><button type="button" class="btn btn-danger">tritech-cyber.github.io</button> </a>
-  <hr />
+  *
+  </div>
+   <div class="col-sm-2">
+     
   </div>
 </div><!-- end row -->
+
+
+
+
 
 <div class="row">
   <div class="col-sm-2">
@@ -185,7 +190,8 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
     <img src = "img/femalecodertocat.png" height = "200px">
   </div>
   <div class="col-sm-2">
-    <img src = "img/vinyltocat.png" height = "200px">
+	 *
+   
   </div>
 </div><!-- end row -->
   </div>
