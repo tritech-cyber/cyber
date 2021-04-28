@@ -13,9 +13,6 @@ body{
 pre{
 	font-size:10px;
 }
-blue {
-color: #00f;	
-}
 
 * {
   box-sizing: border-box;
@@ -110,17 +107,18 @@ OCTET 1. OCTET 2. OCTET 3. OCTET 4 / CIDR<br />
   <div class="col-3 col-s-3">
 		<div id="invert-output"> </div> <br />
 		<div id="set-ip-class"></div> <br />
+		TOTAL BITS
   </div>
 
-	<div class="col-2 col-s-2">
-		<span style="color:#0000ff">IP / CIDR:</span> <div id="ip-output"></div>	<br />
-		<span style="color:#0000ff">SUBNET MASK:</span> <div id="subnet-output"> </div>	<br />
-		<span style="color:#0000ff">NETWORK ID:</span> <div id="netid-output"> </div>	<br />
-		<span style="color:#0000ff">BROADCAST ADDRESS:</span> <div id="bcast-output"> </div>	<br />
-		<span style="color:#0000ff">TOTAL NETWORKS:</span> <div id="totalnetworks-output"> </div>	<br />
+	<div class="col-4 col-s-4">
+		<div id="ip-output"></div>	<br />
+		<div id="subnet-output"> </div>	<br />
+		<div id="netid-output"> </div>	<br />
+		<div id="bcast-output"> </div>	<br />
+		<div id="totalnetworks-output"> </div>	<br />
 	</div>
 
-  <div class="col-5 col-s-5">
+  <div class="col-4 col-s-4">
   <div id="binip-output"> </div>	<br />
    <div id="binsub-output"> </div>	<br />
 	<div id="binnetid-output"> </div>	<br />
@@ -185,6 +183,7 @@ CIDR [SUBNET MASK]
 <div class="footer">
 Internet Protocal Version 4 Network Calculator - Craig W. Coleman - 210616
 </div>
+<!-- javascript network calculator    -->
 <script>
 function displayRadioValue(){ 
 	var bttn = document.getElementsByName('ipclass'); 
@@ -209,7 +208,7 @@ function decbin(n)
 		binstring = binstring + q;
 		
 	}
-	var nibble1 = binstring.substr(0,5);
+	var nibble1 = binstring.substr(0,4);
 	var nibble0 = binstring.substr(4,9);
 	binstring = nibble1 + " " + nibble0;
 	return binstring;
@@ -298,7 +297,7 @@ function calcSubnet() {
 	//octid = "<br />IP : "+ip[0]+"."+ip[1]+"."+ip[2]+"."+ip[3]+"/"+c;
 	//octid = "***"
 	//document.getElementById('output').innerHTML=oct1id
-	document.getElementById('ip-output').innerHTML=ip[0]+"."+ip[1]+"."+ip[2]+"."+ip[3]+" / "+c;
+	document.getElementById('ip-output').innerHTML="IP / CIDR: "+ip[0]+"."+ip[1]+"."+ip[2]+"."+ip[3]+" / "+c;
 
 	document.getElementById('binip-output').innerHTML=binip[0]+" . "+binip[1]+" . "+binip[2]+" . "+binip[3]+" < BINARY IP  ";
 
@@ -306,15 +305,15 @@ function calcSubnet() {
 	
 	document.getElementById('binnetid-output').innerHTML=binnetid[0]+" . "+binnetid[1]+" . "+binnetid[2]+" . "+binnetid[3]+" < BINARY NETWORK ID";
 
-	document.getElementById('subnet-output').innerHTML=snmask[0]+"."+snmask[1]+"."+snmask[2]+"."+snmask[3];
+	document.getElementById('subnet-output').innerHTML="SUBNET MASK: "+snmask[0]+"."+snmask[1]+"."+snmask[2]+"."+snmask[3];
 
-	document.getElementById('netid-output').innerHTML=netid[0]+"."+netid[1]+"."+netid[2]+"."+netid[3];
+	document.getElementById('netid-output').innerHTML="NETWORK ID : "+netid[0]+"."+netid[1]+"."+netid[2]+"."+netid[3];
 
-	document.getElementById('invert-output').innerHTML="INVERTED SUBNET MASK:<br /> "+invertmask[0]+"."+invertmask[1]+"."+invertmask[2]+"."+invertmask[3];
+	document.getElementById('invert-output').innerHTML="INVERTED SUBNET MASK: "+invertmask[0]+"."+invertmask[1]+"."+invertmask[2]+"."+invertmask[3];
 
-	document.getElementById('bcast-output').innerHTML=broadcast[0]+"."+broadcast[1]+"."+broadcast[2]+"."+broadcast[3];
+	document.getElementById('bcast-output').innerHTML="BROADCAST ADDRESS : "+broadcast[0]+"."+broadcast[1]+"."+broadcast[2]+"."+broadcast[3];
 
-	document.getElementById('totalnetworks-output').innerHTML=networks;
+	document.getElementById('totalnetworks-output').innerHTML="TOTAL NETWORKS : "+networks;
 
 }
 
