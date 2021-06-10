@@ -168,26 +168,23 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
  <img src = "img/Firefox_logo,_2019.svg" height = "70px"><a class="flat08-background"  href = "https://www.mozilla.org/en-US/firefox/all/#product-desktop-developer" target = "_blank">firefox</a>
   </div>
   <div class="col-sm-2">
-  *
+DON'T PANIC
   </div>
    <div class="col-sm-2">
      
   </div>
 </div><!-- end row -->
 
-
-
-
-
 <div class="row">
   <div class="col-sm-2">
-    <img src = "img/baracktocat.jpg" height = "200px">
+<a href="https://github.com/tritechsc/arduino" ><img src = "img/ttarduino.png" height = "155px" ></a> 
+</div>
+  <div class="col-sm-2">
+ <a href="https://github.com/tritechsc/mcpi-python" ><img src = "img/rpi-minecraft.png" height = "155px" ></a> 
+
   </div>
   <div class="col-sm-2">
-    <img src = "img/mona-lovelace.jpg" height = "200px">
-  </div>
-  <div class="col-sm-2">
-    <img src = "img/femalecodertocat.png" height = "200px">
+		<a href="https://github.com/tritech-cyber/rpi" ><img src = "img/rpi.png" height = "155px" ></a> 
   </div>
   <div class="col-sm-2">
 	 *
