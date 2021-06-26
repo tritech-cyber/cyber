@@ -153,7 +153,8 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
   		<a href = "https://www.awseducate.com/" target = "_blank"><img src = "img/awsedcuate.png"></a>
   	</div>
   	<div class="col-sm-2">
-  		<a href = "https://edhesive.com" target = "_blank"><img src = "img/edhesive.png"></a>
+  		<a href = "https://edhesive.com" target = "_blank"><img src = "img/edhesive.png"></a><br />
+  		<a href = "https://projectstem.org/">ProjectStem</a>
   	</div>
     <div class="col-sm-2">
   		<a href = "https://www.netacad.com/" target = "_blank"><img src = "img/cisco-netacad.png"></a>
