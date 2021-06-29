@@ -133,7 +133,7 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
 
     <div class="col-sm-2 block">
       <a class="flat08-background" href = "https://trinket.io/python"  >trinket.io/python</a><br />
-      <a class="flat09-background" href = " https://www.datacamp.com/courses/introduction-to-shell-for-data-science">datacamp.com(shell)</a><br />
+      <a class="flat09-background" href = "https://www.datacamp.com/courses/introduction-to-shell-for-data-science">datacamp.com(shell)</a><br />
       <a class="flat0a-background" href = "https://www.learnshell.org">learnshell.org</a><br />
         <a class="flat0a-background" href = "https://www.learn-c.org">learn-c.org</a><br /
       <a class="flat0b-background" href = "https://www.khanacademy.org"  >khanacademy.org</a><br />
@@ -154,7 +154,8 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
   	</div>
   	<div class="col-sm-2">
   		<a href = "https://edhesive.com" target = "_blank"><img src = "img/edhesive.png"></a><br />
-  		<a href = "https://projectstem.org/">ProjectStem</a>
+  		<a class="flat09-background" href = "https://projectstem.org/">ProjectStem</a><br />
+
   	</div>
     <div class="col-sm-2">
   		<a href = "https://www.netacad.com/" target = "_blank"><img src = "img/cisco-netacad.png"></a>
