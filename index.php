@@ -128,7 +128,9 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
 </div>
     <div class="row">
      <div class="col-sm-2 block">
-		 <a href = "https://canvas.instructure.com" target = "_blank"> <img src = "img/cyber-canvas.png" height = "155px"> </a>
+		 
+		 <a href = "https://ksd.schoology.com" target = "_blank"><img src = "img/schoology.png" height = "150px"></a>
+		 <a class="flat08-background" href = "https://ksd.schoology.com">ksd.schoology.com</a><br />
      </div>
 
     <div class="col-sm-2 block">
@@ -144,6 +146,8 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
   </div>
   <div class="col-sm-4">
     <a class="flat0c-background" href = "https://tritech-cyber.github.io">tritech-cyber.github.io</a><br />
+     <a class="flat0c-background" href = " https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">token-authentication-requirements-for-git</a><br />
+   
 
   </div>
 </div><!-- end row -->
@@ -153,7 +157,6 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
   		<a href = "https://www.awseducate.com/" target = "_blank"><img src = "img/awsedcuate.png"></a>
   	</div>
   	<div class="col-sm-2">
-  		<a href = "https://edhesive.com" target = "_blank"><img src = "img/edhesive.png"></a><br />
   		<a class="flat09-background" href = "https://projectstem.org/">ProjectStem</a><br />
 
   	</div>
