@@ -155,6 +155,8 @@ body{  padding: 0px 20px 0px 20px ;} // top right bottom left padding
   <div class="row">
     <div class="col-sm-2">
   		<a href = "https://www.awseducate.com/" target = "_blank"><img src = "img/awsedcuate.png"></a>
+  		<a class="flat09-background" href = "https://aws.amazon.com/training/awsacademy">awsacademy</a><br />
+  		
   	</div>
   	<div class="col-sm-2">
   		<a class="flat09-background" href = "https://projectstem.org/">ProjectStem</a><br />
